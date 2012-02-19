@@ -1,7 +1,7 @@
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
-
+//
 //create windows
 var winHomeScreen = Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
