@@ -1,0 +1,136 @@
+Logfile initialized
+[INFO] logfile = C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build.log
+[DEBUG] C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py install Happy Hollow Build C:\Program Files (x86)\Android\android-sdk C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build com.SC.hhb 8
+[INFO] Titanium SDK version: 1.7.5 (11/02/11 17:00 ab20af7)
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 0 seconds)
+[DEBUG] waited 0.011000 seconds on emulator to get ready
+[DEBUG] com.SC.hhb installed? False
+[INFO] Copying project resources..
+[TRACE] COPYING MODIFIED FILE: C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\Resources\Animals\specificanimal.js => C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\bin\assets\Resources\Animals\specificanimal.js
+[TRACE] Generating Java Classes
+[DEBUG] Processing Android resource drawables
+[DEBUG] copying app icon: C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\bin\assets\Resources\appicon.png
+[DEBUG] generating theme.xml
+[DEBUG] found splash screen at C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\bin\assets\Resources\default.png
+[TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\gen\com\SC\hhb\HappyHollowBuildActivity.java to javac build list
+[DEBUG] adding C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\gen\com\SC\hhb\HappyHollowBuildAppInfo.java to javac build list
+[DEBUG] adding C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\gen\com\SC\hhb\HappyHollowBuildApplication.java to javac build list
+[DEBUG] adding C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\gen\com\SC\hhb\R.java to javac build list
+[DEBUG] Building Java Sources: "C:\\Users\\Myers\\My Documents\\Titanium Studio Workspace\\Happy Hollow Build\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildActivity.java" "C:\\Users\\Myers\\My Documents\\Titanium Studio Workspace\\Happy Hollow Build\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildAppInfo.java" "C:\\Users\\Myers\\My Documents\\Titanium Studio Workspace\\Happy Hollow Build\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildApplication.java" "C:\\Users\\Myers\\My Documents\\Titanium Studio Workspace\\Happy Hollow Build\\build\\android\\gen\\com\\SC\\hhb\\R.java"
+[INFO] Compiling Android Resources... This could take some time
+[DEBUG] Android classes.dex built
+[DEBUG] creating unsigned apk: C:\Users\Myers\My Documents\Titanium Studio Workspace\Happy Hollow Build\build\android\bin\app-unsigned.apk
+[DEBUG] from resource zip => assets/Resources/Animals/animals.js
+[DEBUG] from resource zip => assets/Resources/Animals/birds.png
+[DEBUG] from resource zip => assets/Resources/Animals/mammal.png
+[DEBUG] from resource zip => assets/Resources/Animals/reptile.png
+[DEBUG] from resource zip => assets/Resources/Animals/reptiles.js
+[DEBUG] from resource zip => assets/Resources/Animals/specificanimal.js
+[DEBUG] from resource zip => assets/Resources/Attractions/attractions.js
+[DEBUG] from resource zip => assets/Resources/Attractions/specificattraction.js
+[DEBUG] from resource zip => assets/Resources/ContactUs/contactus.js
+[DEBUG] from resource zip => assets/Resources/ContactUs/otherpagebackground.png
+[DEBUG] from resource zip => assets/Resources/Facilities/facilities.js
+[DEBUG] from resource zip => assets/Resources/Facilities/specificFacility.js
+[DEBUG] from resource zip => assets/Resources/GreenTour/greentour.js
+[DEBUG] from resource zip => assets/Resources/GreenTour/specificgreentour.js
+[DEBUG] from resource zip => assets/Resources/ParkInfo/admission.js
+[DEBUG] from resource zip => assets/Resources/ParkInfo/guestmember.js
+[DEBUG] from resource zip => assets/Resources/ParkInfo/logo.png
+[DEBUG] from resource zip => assets/Resources/ParkInfo/parkinfo.js
+[DEBUG] from resource zip => assets/Resources/ParkMap/all.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/animals.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/facilities.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/greentour.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.js
+[DEBUG] from resource zip => assets/Resources/ParkMap/ridesattractions.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/version.js
+[DEBUG] from resource zip => assets/Resources/Schedule/events.js
+[DEBUG] from resource zip => assets/Resources/Schedule/parkhours.js
+[DEBUG] from resource zip => assets/Resources/Schedule/puppetshows.js
+[DEBUG] from resource zip => assets/Resources/Schedule/rideschedule.js
+[DEBUG] from resource zip => assets/Resources/Schedule/schedule.js
+[DEBUG] from resource zip => assets/Resources/Schedule/schedule2.js
+[DEBUG] from resource zip => assets/Resources/Schedule/specificSchedule.js
+[DEBUG] from resource zip => assets/Resources/Schedule/zoohill.js
+[DEBUG] from resource zip => assets/Resources/Schedule/zoohollow.js
+[DEBUG] from resource zip => assets/Resources/animalsicon.png
+[DEBUG] from resource zip => assets/Resources/animalsiconcolor.png
+[DEBUG] from resource zip => assets/Resources/animalsrest.png
+[DEBUG] from resource zip => assets/Resources/animalsselect.png
+[DEBUG] from resource zip => assets/Resources/app.js
+[DEBUG] from resource zip => assets/Resources/appbackup.js
+[DEBUG] from resource zip => assets/Resources/appicon.png
+[DEBUG] from resource zip => assets/Resources/arowrest.png
+[DEBUG] from resource zip => assets/Resources/arrow.png
+[DEBUG] from resource zip => assets/Resources/attractionsiconcolor.png
+[DEBUG] from resource zip => assets/Resources/backgroundresting.png
+[DEBUG] from resource zip => assets/Resources/contactusicon.png
+[DEBUG] from resource zip => assets/Resources/contactusrest.png
+[DEBUG] from resource zip => assets/Resources/contactusselect.png
+[DEBUG] from resource zip => assets/Resources/default.png
+[DEBUG] from resource zip => assets/Resources/facilitiesicon.png
+[DEBUG] from resource zip => assets/Resources/facilitiesiconcolor.png
+[DEBUG] from resource zip => assets/Resources/facilitiesrest.png
+[DEBUG] from resource zip => assets/Resources/facilitiesselect.png
+[DEBUG] from resource zip => assets/Resources/greentouricon.png
+[DEBUG] from resource zip => assets/Resources/greentouriconcolor.png
+[DEBUG] from resource zip => assets/Resources/greentourrest.png
+[DEBUG] from resource zip => assets/Resources/greentourselect.png
+[DEBUG] from resource zip => assets/Resources/list backgroundresting.png
+[DEBUG] from resource zip => assets/Resources/mainanimalbar.png
+[DEBUG] from resource zip => assets/Resources/maincontactusbar.png
+[DEBUG] from resource zip => assets/Resources/mainfacilitiesbar.png
+[DEBUG] from resource zip => assets/Resources/maingreentourbar.png
+[DEBUG] from resource zip => assets/Resources/mainparkmapbar.png
+[DEBUG] from resource zip => assets/Resources/mainridesattractionsbar.png
+[DEBUG] from resource zip => assets/Resources/mainschedulebar.png
+[DEBUG] from resource zip => assets/Resources/maintabs.js
+[DEBUG] from resource zip => assets/Resources/parkmapicon.png
+[DEBUG] from resource zip => assets/Resources/parkmaprest.png
+[DEBUG] from resource zip => assets/Resources/parkmapselect.png
+[DEBUG] from resource zip => assets/Resources/ridesattractionfacilities.js
+[DEBUG] from resource zip => assets/Resources/ridesattractionsicon.png
+[DEBUG] from resource zip => assets/Resources/ridesattractionsrest.png
+[DEBUG] from resource zip => assets/Resources/ridesattractionsselect.png
+[DEBUG] from resource zip => assets/Resources/scheduleicon.png
+[DEBUG] from resource zip => assets/Resources/schedulerest.png
+[DEBUG] from resource zip => assets/Resources/scheduleselect.png
+[DEBUG] from resource zip => assets/Resources/selectedanimals.png
+[DEBUG] from resource zip => assets/Resources/winmenu.js
+[DEBUG] from resource zip => assets/tiapp.xml
+[DEBUG] from resource zip => res/drawable/appicon.png
+[DEBUG] from resource zip => res/drawable/background.png
+[DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
+[DEBUG] from resource zip => AndroidManifest.xml
+[DEBUG] from resource zip => resources.arsc
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages_fr.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/Commons-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/HttpComponents-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/mime4j-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/build.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/background.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 0 seconds)
+[DEBUG] waited 0.010000 seconds on emulator to get ready
+[INFO] Installing application on emulator
+[INFO] Application installed. Launch from drawer on Home Screen
