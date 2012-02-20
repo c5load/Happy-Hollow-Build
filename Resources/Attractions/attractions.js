@@ -18,7 +18,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:'20dp',
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -32,7 +32,7 @@ var buttonHome = Titanium.UI.createButton({
 	backgroundImage:'/Attractions/homeresting.png',
 	backgroundSelectedImage:'/Attractions/homeselected.png',
 	top: pHeight*.02, 
-	left:pWidth*.05,
+	left:pWidth*.03,
 	width:'60dp',
 	height:'30dp',});
 buttonHome.addEventListener('click', function()
@@ -43,7 +43,7 @@ var buttonSchedule = Titanium.UI.createButton({
 	backgroundImage:'/Attractions/scheduleresting.png',
 	backgroundSelectedImage:'/Attractions/scheduleselected.png',
 	top:pHeight*.02,
-	left:pWidth*.78,
+	left:pWidth*.8,
 	width:'60dp',
 	height:'30dp',});
 buttonHome.addEventListener('click', function()
@@ -135,5 +135,7 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(TitleBar);
 win.add(lblTitle);
+win.add(buttonHome);
+win.add(buttonSchedule);
 xhr.open('GET','http://markmyers.me/hhpz/xml/Attractions.xml');
 xhr.send();//declare the http client object

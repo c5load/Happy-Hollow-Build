@@ -105,3 +105,5 @@ win.add(lblTitle);
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(tableview);
+win.add(buttonHome);
+win.add(buttonSchedule);

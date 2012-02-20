@@ -132,5 +132,7 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(TitleBar);
 win.add(lblTitle);
+win.add(buttonHome);
+win.add(buttonSchedule);
 xhr.open('GET','http://markmyers.me/hhpz/xml/Facilities.xml');
 xhr.send();//declare the http client object

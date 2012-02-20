@@ -136,5 +136,7 @@ win.add(lblAddress);
 win.add(lblTitlePhone);
 win.add(lblPhone);
 win.add(buttonCall);
+win.add(buttonHome);
+win.add(buttonSchedule);
 
 

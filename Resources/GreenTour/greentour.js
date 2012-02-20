@@ -131,5 +131,7 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(TitleBar);
 win.add(lblTitle);
+win.add(buttonHome);
+win.add(buttonSchedule);
 xhr.open('GET','http://hhpz.org/mobile/xml/export.xml');
 xhr.send();//declare the http client object
