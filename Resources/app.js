@@ -7,6 +7,7 @@ var winHomeScreen = Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
     backgroundColor:'#FFFFFF',
     url: 'winmenu.js',
+    navBarHidden:true,
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true
@@ -15,42 +16,49 @@ var winHomeScreen = Titanium.UI.createWindow({
 
 var winParkMap = Titanium.UI.createWindow({
     title:'Park Map',
+    navBarHidden:true,
     backgroundColor:'#FFFFFF',
     url: '/ParkMap/parkmap.js',
     fullscreen : true,});
 
 var winAnimals = Titanium.UI.createWindow({
     title:'Animals',
+    navBarHidden:true,
     backgroundColor:'#FFFFFF',
     url: 'Animals/animals.js',
     fullscreen : true,});
 
 var winRidesAttractions = Titanium.UI.createWindow({
     title:'Rides & Attractions',
+    navBarHidden:true,
     backgroundColor:'#FFFFFF',
     url: 'Attractions/attractions.js',
     fullscreen : true,});
 
 var winGreenTour = Titanium.UI.createWindow({
     title:'Green Tour',
+    navBarHidden:true,    
     backgroundColor:'#FFFFFF',
     url: '/GreenTour/greentour.js',
     fullscreen : true,});
 
 var winFacilities = Titanium.UI.createWindow({
     title:'Facilities',
+    navBarHidden:true,    
     backgroundColor:'#FFFFFF',
     url: 'Facilities/facilities.js',
     fullscreen : true,});
 
 var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
+    navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    url: 'Schedule/schedule.js',
+    url: 'Schedule/schedule2.js',
     fullscreen : true,});
 
 var winContactUs = Titanium.UI.createWindow({
     title:'Contact Us',
+    navBarHidden:true,    
     backgroundColor:'#FFFFFF',
     url: 'ContactUs/contactus.js',
     fullscreen : true,});

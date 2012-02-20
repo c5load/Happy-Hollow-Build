@@ -1,3 +1,54 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
+Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
+
+var win = Titanium.UI.currentWindow;
+
+var TitleBar=Titanium.UI.createImageView({
+	image:'/ridesattractionsrest.png',
+    width: pWidth,
+    left: '0dp',
+    top: '0dp',
+    height: '50dp'
+});
+
+var lblTitle=Titanium.UI.createLabel({
+	text:"Rides & Attractions",
+	textAlign:'center', 
+	color:'white',
+	font:{
+		fontSize:'25dp',
+		fontWeight:'bold',
+	},
+	width: pWidth, 
+    top: '0dp',
+    left:'0dp',    
+    height: '50dp'
+});
+
+var buttonHome = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/Attractions/homeresting.png',
+	backgroundSelectedImage:'/Attractions/homeselected.png',
+	top: pHeight*.02, 
+	left:pWidth*.05,
+	width:'60dp',
+	height:'30dp',});
+buttonHome.addEventListener('click', function()
+{winHomeScreen.open();});
+
+var buttonSchedule = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/Attractions/scheduleresting.png',
+	backgroundSelectedImage:'/Attractions/scheduleselected.png',
+	top:pHeight*.02,
+	left:pWidth*.78,
+	width:'60dp',
+	height:'30dp',});
+buttonHome.addEventListener('click', function()
+{winSchedule.open();});
+
 var xhr = Titanium.Network.createHTTPClient();
 
 var win = Titanium.UI.currentWindow;
@@ -10,7 +61,9 @@ xhr.onload = function()
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
-        	height:'80dp'
+        	height:'80dp',
+        	backgroundImage: '../backgroundresting.png',
+        	selectedBackgroundImage: '../ridesattractionsrest.png'        	
         });
         row.title = elements.item(i).getAttribute("AttractionName");
         desc = doc.getElementsByTagName("AttractionName").item(i).text;
@@ -20,14 +73,23 @@ xhr.onload = function()
         attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
 
        
-        var mammalLabel = Ti.UI.createLabel({
+        var attractionLabel = Ti.UI.createLabel({
         	text: desc,
         	color:'#000000',
         	font:{fontSize:'20dp'},
         	textAlign:'left',
         	left:'100dp'        	
         });
-        row.add(mammalLabel);
+        
+        var attractionImage = Ti.UI.createImageView({
+        	url: attractionPicture,
+        	height: '60dp',
+        	width: '60dp',
+        	left: '0dp'
+        });
+        
+        row.add(attractionLabel);
+        row.add(attractionImage);
         row.item = desc;
         row.item2 = attractionDesc;
         row.item3 = attractionLocation;
@@ -37,6 +99,7 @@ xhr.onload = function()
    
     var tableview = Titanium.UI.createTableView({
        data:data,
+       top:'50dp',
        height:'auto',
     });
     tableview.setData(data);
@@ -44,7 +107,8 @@ xhr.onload = function()
     tableview.addEventListener('click',function(e)
 		{
 			var w = Ti.UI.createWindow({
-			url:'specificattraction.js', 
+			url:'specificattraction.js',
+			navBarHidden:true, 
    			title:'',
    			backgroundcolor:'black',
    			fullscreen:true });
@@ -67,5 +131,9 @@ xhr.onload = function()
 		});
 
 };
+win.add(TitleBar);
+win.add(lblTitle);
+win.add(TitleBar);
+win.add(lblTitle);
 xhr.open('GET','http://markmyers.me/hhpz/xml/Attractions.xml');
 xhr.send();//declare the http client object

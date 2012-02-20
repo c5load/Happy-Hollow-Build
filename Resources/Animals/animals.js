@@ -1,63 +1,70 @@
 var yourwindow = Titanium.UI.currentWindow;
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
+Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
-// create tab group
-var tabGroup = Ti.UI.createTabGroup();
+var win = Titanium.UI.currentWindow;
 
-//create the window
-var win1 = Titanium.UI.createWindow({
-	backgroundColor:'#FFFFFF',
-	width: 'auto',
-	height: 'auto',
-	top: '0dp',
-	left: '0dp',
-	title: 'Animals',
-});
-/*
-var scrollView = Titanium.UI.createScrollView({ 
-	contentWidth:'auto', 
-	contentHeight:'auto', 
-	top:0, 
-	showVerticalScrollIndicator:true, 
-	showHorizontalScrollIndicator:true }); 
-	
-var view = Ti.UI.createView({ 
-	backgroundColor:'#336699', 
-	borderRadius:10, 
-	width:300, 
-	height:2000, 
-	top:10 }); 
-
-	scrollView.add(view); 
-	win1.add(scrollView);
-	
-	*/
-//create the view, this will hold all of our UI controls 
-//note the height of this view is the height of the window minus 
-//134px for the status bar and padding and adjusted for navbar
-//var view = Titanium.UI.createView({
-//	width: '300dp',
-//	height: win1.height - '134dp',
-//	left: '10dp',
-//	top: '10dp',
-//	backgroundColor: '#fff',
-//	borderRadius: '5dp'
-//});
-
-
-
-
-//add the view to our win1dow
-//win1.add(view);
-
-//add the first tab and attach our window object (win1) to it
-var tab1 = Ti.UI.createTab({  
-    icon:'mammal.png',
-    title:'Mammals',
-	window: win1
+var TitleBar=Titanium.UI.createImageView({
+	image:'/animalsrest.png',
+    width: pWidth,
+    left: '0dp',
+    top: '0dp',
+    height: '50dp'
 });
 
-// now add the tabs to our tabGroup object
-tabGroup.addTab(tab1);  
+var lblTitle=Titanium.UI.createLabel({
+	text:"Animals",
+	textAlign:'center', 
+	color:'white',
+	font:{
+		fontSize:'25dp',
+		fontWeight:'bold',
+	},
+	width: pWidth, 
+    top: '0dp',
+    left:'0dp',    
+    height: '50dp'
+});
+
+var buttonHome = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/Animals/homeresting.png',
+	backgroundSelectedImage:'/Animals/homeselected.png',
+	top: pHeight*.02, 
+	left:pWidth*.05,
+	width:'60dp',
+	height:'30dp',});
+buttonHome.addEventListener('click', function()
+{var winHomeScreen=Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/app.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    navBarHidden: true
+});
+	winHomeScreen.open();});
+
+var buttonSchedule = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/Animals/scheduleresting.png',
+	backgroundSelectedImage:'/Animals/scheduleselected.png',
+	top:pHeight*.02,
+	left:pWidth*.78,
+	width:'60dp',
+	height:'30dp',});
+buttonHome.addEventListener('click', function()
+{var winSchedule=Titanium.UI.createWindow({
+    title:'Schedule',
+    backgroundColor:'#FFFFFF',
+    url: '/Schedule/schedule2.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    navBarHidden: true
+});
+	winSchedule.open();});
 
 
 var xhr = Titanium.Network.createHTTPClient();
@@ -93,7 +100,7 @@ xhr.onload = function()
 
        
       
-        var mammalLabel = Ti.UI.createLabel({
+        var animalLabel = Ti.UI.createLabel({
         	text: desc,
         	color: '#000000',
         	font:{fontSize:'20dp'},
@@ -101,14 +108,14 @@ xhr.onload = function()
         	textAlign:'left',
         	left:'100dp'
         });
-        var mammalImage = Ti.UI.createImageView({
+        var animalImage = Ti.UI.createImageView({
         	url: animalPicture,
         	height: '60dp',
         	width: '60dp',
         	left: '0dp'
         });
-        row.add(mammalLabel);
-        row.add(mammalImage);
+        row.add(animalLabel);
+        row.add(animalImage);
         row.item = desc;
         row.item2 = animalDesc;
         row.item3 = animalScientific;
@@ -120,6 +127,7 @@ xhr.onload = function()
      
     var tableview = Titanium.UI.createTableView({
        data:data,
+       top:'50dp',
        height:'auto',
     });
     tableview.setData(data);
@@ -152,7 +160,14 @@ xhr.onload = function()
 		});
 };
 
+win.add(TitleBar);
+win.add(lblTitle);
+win.add(buttonHome);
+win.add(buttonSchedule);
 xhr.open('GET','http://markmyers.me/hhpz/xml/Animals.xml');
-xhr.send();//declare the http client object
-//finally, open the tabgroup to launch the app
-tabGroup.open();
+xhr.send();
+
+//declare the http client object
+
+
+

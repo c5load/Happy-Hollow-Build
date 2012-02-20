@@ -1,3 +1,54 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
+Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
+
+var win = Titanium.UI.currentWindow;
+
+var TitleBar=Titanium.UI.createImageView({
+	image:'/greentourrest.png',
+    width: pWidth,
+    left: '0dp',
+    top: '0dp',
+    height: '50dp'
+});
+
+var lblTitle=Titanium.UI.createLabel({
+	text:"Green Tour",
+	textAlign:'center', 	
+	color:'white',
+	font:{
+		fontSize:'25dp',
+		fontWeight:'bold',
+	},
+	width: pWidth,
+    top: '0dp',
+    left:'0dp',    
+    height: '50dp'
+});
+
+var buttonHome = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/GreenTour/homeresting.png',
+	backgroundSelectedImage:'/GreenTour/homeselected.png',
+	top: pHeight*.02, 
+	left:pWidth*.05,
+	width:'60dp',
+	height:'30dp',});
+buttonHome.addEventListener('click', function()
+{winHomeScreen.open();});
+
+var buttonSchedule = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/GreenTour/scheduleresting.png',
+	backgroundSelectedImage:'/GreenTour/scheduleselected.png',
+	top:pHeight*.02,
+	left:pWidth*.78,
+	width:'60dp',
+	height:'30dp',});
+buttonHome.addEventListener('click', function()
+{winSchedule.open();});
+
 var xhr = Titanium.Network.createHTTPClient();
 
 xhr.onload = function()
@@ -8,7 +59,9 @@ xhr.onload = function()
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
-        	height:'80dp'
+        	height:'80dp',
+        	backgroundImage: '../backgroundresting.png',
+        	selectedBackgroundImage: '../greentourrest.png'        	
         });
         row.title = elements.item(i).getAttribute("GreenTourName");
         desc = doc.getElementsByTagName("GreenTourName").item(i).text;
@@ -41,6 +94,7 @@ xhr.onload = function()
         data.push(row);}
    
     var tableview = Titanium.UI.createTableView({
+    	top:'50dp',
        data:data,
        height:'auto',
     });
@@ -50,6 +104,7 @@ xhr.onload = function()
 		{
 			var w = Ti.UI.createWindow({
 			url:'specificgreentour.js', 
+			navBarHidden:true,
    			title:'',
    			backgroundcolor:'#FFFFFF',
    			fullscreen:true });
@@ -71,5 +126,10 @@ xhr.onload = function()
 		});
 
 };
+
+win.add(TitleBar);
+win.add(lblTitle);
+win.add(TitleBar);
+win.add(lblTitle);
 xhr.open('GET','http://hhpz.org/mobile/xml/export.xml');
 xhr.send();//declare the http client object
