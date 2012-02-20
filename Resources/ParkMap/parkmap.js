@@ -87,28 +87,7 @@ Titanium.Geolocation.getCurrentPosition(function(e)
 	var longitude = e.coords.longitude;
 	var latitude = e.coords.latitude;
 	var accuracy = e.coords.accuracy;
-
-	Titanium.API.info('geo - current location: ' + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
-});
-
-//
-// EVENT LISTENER FOR GEO EVENTS - THIS WILL FIRE REPEATEDLY (BASED ON DISTANCE FILTER)
-//
-var locationCallback = function(e)
-{
-	if (!e.success || e.error)
-	{
-		updatedLocation.text = 'error:' + JSON.stringify(e.error);
-		updatedLatitude.text = '';
-		updatedLocationAccuracy.text = '';
-		updatedLocationTime.text = '';
-		Ti.API.info("Code translation: "+translateErrorCode(e.code));
-		return;
-	}
-
-	var longitude = e.coords.longitude;
-	var latitude = e.coords.latitude;
-
+	
 	var xPixel =((720213.809* latitude)+(1147131.61*longitude)+112913088);
 	var yPixel =((-1589582.59* latitude)+(536408.247*longitude)+124701993);
 	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
@@ -180,11 +159,9 @@ var locationCallback = function(e)
 		
 				Titanium.API.info('geo - location updated: ' + ' long ' + longitude + ' lat ' + latitude);
 	};
-	Titanium.Geolocation.addEventListener('location', locationCallback);
-	locationAdded = true;
-};
 
-
+	Titanium.API.info('geo - current location: ' + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
+});
 
 if (Titanium.Platform.name == 'android')
 {
@@ -205,14 +182,6 @@ if (Titanium.Platform.name == 'android')
 			Ti.API.info("removing location callback on destroy");
 			Titanium.Geolocation.removeEventListener('location', locationCallback);
 			locationAdded = false;
-		}
-	});
-	Ti.Android.currentActivity.addEventListener('resume', function(e) {
-		Ti.API.info("resume event received");
-		if (!locationAdded) {
-			Ti.API.info("adding location callback on resume");
-			Titanium.Geolocation.addEventListener('location', locationCallback);
-			locationAdded = true;
 		}
 	});
 };
