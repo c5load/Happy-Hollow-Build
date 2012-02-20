@@ -134,7 +134,7 @@ var locationCallback = function(e)
 		
 		var alertDialog = Titanium.UI.createAlertDialog({
 		title: 'You\'re not at HHPZ', 
-		message: xPixel,
+		message: 'X pixel ' + xPixel,
 		buttonNames: ['OK'], 
     		cancel: 1
 		});
@@ -151,7 +151,7 @@ var locationCallback = function(e)
 	{
 		var alertDialog = Titanium.UI.createAlertDialog({
 		title: 'Holy crap you\'re at Happy Hollow!', 
-		message: xPixel,
+		message: 'X Pixel ' + xPixel,
 		buttonNames: ['OK'], 
     		cancel: 1
 		});
@@ -165,7 +165,7 @@ var locationCallback = function(e)
 		
 		var alertDialog = Titanium.UI.createAlertDialog({
 		title: 'Holy crap you\'re at Happy Hollow!', 
-		message: yPixel,
+		message: 'Y Pixel ' + yPixel,
 		buttonNames: ['OK'], 
     		cancel: 1
 		});
