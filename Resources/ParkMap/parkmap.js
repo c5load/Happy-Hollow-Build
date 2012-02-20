@@ -1,110 +1,236 @@
 
+Ti.include("version.js");
+
+Ti.Geolocation.preferredProvider = "gps";
+
+if (isIPhone3_2_Plus())
+{
+	//NOTE: starting in 3.2+, you'll need to set the applications
+	//purpose property for using Location services on iPhone
+	Ti.Geolocation.purpose = "GPS demo";
+}
+var currentLocation = Titanium.UI.createLabel({
+	text:'Current Location not fired',
+	font:{fontSize:11},
+	color:'#444',
+	top:130,
+	left:10,
+	height:15,
+	width:300
+});
+
+function translateErrorCode(code) {
+	if (code == null) {
+		return null;
+	}
+	switch (code) {
+		case Ti.Geolocation.ERROR_LOCATION_UNKNOWN:
+			return "Location unknown";
+		case Ti.Geolocation.ERROR_DENIED:
+			return "Access denied";
+		case Ti.Geolocation.ERROR_NETWORK:
+			return "Network error";
+		case Ti.Geolocation.ERROR_HEADING_FAILURE:
+			return "Failure to detect heading";
+		case Ti.Geolocation.ERROR_REGION_MONITORING_DENIED:
+			return "Region monitoring access denied";
+		case Ti.Geolocation.ERROR_REGION_MONITORING_FAILURE:
+			return "Region monitoring access failure";
+		case Ti.Geolocation.ERROR_REGION_MONITORING_DELAYED:
+			return "Region monitoring setup delayed";
+	}
+}
 
 
-/*
- * 
- OLD CODE HERE
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Titanium.UI.setBackgroundColor('#000');
+var locationAdded = false;
 
-//<property name="ti.android.fastdev" type="bool">false</property>
-// create tab group
-var tabGroup = Titanium.UI.createTabGroup();
+//
+//  SHOW CUSTOM ALERT IF DEVICE HAS GEO TURNED OFF
+//
+if (Titanium.Geolocation.locationServicesEnabled === false)
+{
+	Titanium.UI.createAlertDialog({title:'Happy Hollow', message:'Your device has geolocation turned off - please turn it on.'}).show();
+}
+else
+{
+	if (Titanium.Platform.name != 'android') {
+		var authorization = Titanium.Geolocation.locationServicesAuthorization;
+		Ti.API.info('Authorization: '+authorization);
+		if (authorization == Titanium.Geolocation.AUTHORIZATION_DENIED) {
+			Ti.UI.createAlertDialog({
+				title:'Happy Hollow',
+				message:'You have disallowed Happy Hollow from running geolocation services.'
+			}).show();
+		}
+		else if (authorization == Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
+			Ti.UI.createAlertDialog({
+				title:'Happy Hollow',
+				message:'Your system has disallowed Happy Hollow from running geolocation services.'
+			}).show();
+		}
+	}
+};
 
+	//
+	// GET CURRENT POSITION - THIS FIRES ONCE
+	//
+Titanium.Geolocation.getCurrentPosition(function(e)
+{
+	if (!e.success || e.error)
+	{
+		currentLocation.text = 'error: ' + JSON.stringify(e.error);
+		Ti.API.info("Code translation: "+translateErrorCode(e.code));
+		alert('error ' + JSON.stringify(e.error));
+		return;
+	}
+
+	var longitude = e.coords.longitude;
+	var latitude = e.coords.latitude;
+	var accuracy = e.coords.accuracy;
+
+	Titanium.API.info('geo - current location: ' + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
+});
+
+//
+// EVENT LISTENER FOR GEO EVENTS - THIS WILL FIRE REPEATEDLY (BASED ON DISTANCE FILTER)
+//
+var locationCallback = function(e)
+{
+	if (!e.success || e.error)
+	{
+		updatedLocation.text = 'error:' + JSON.stringify(e.error);
+		updatedLatitude.text = '';
+		updatedLocationAccuracy.text = '';
+		updatedLocationTime.text = '';
+		Ti.API.info("Code translation: "+translateErrorCode(e.code));
+		return;
+	}
+
+	var longitude = e.coords.longitude;
+	var latitude = e.coords.latitude;
+
+	var xPixel =((720213.809* latitude)+(1147131.61*longitude)+112913088);
+	var yPixel =((-1589582.59* latitude)+(536408.247*longitude)+124701993);
+	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
+	
+	
+	//CHECKS IF PERSON IS AT HHPZ
+	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
+	//IF NOT AT HHPZ
+	{
+		var alertDialog = Titanium.UI.createAlertDialog({
+		title: 'You don\'t appear to be at HHPZ',
+		message: 'Locate Me will be disabled',
+		buttonNames: ['OK'],
+    		cancel: 1
+			});
+ 
+			alertDialog.addEventListener('click',function(e){
+		if (e.index == 0) {
+    //code to execute when the user clicked Yes.
+		}
+		})
+		alertDialog.show();
+		
+		var alertDialog = Titanium.UI.createAlertDialog({
+		title: 'Holy crap you\'re at Happy Hollow!', 
+		message: xPixel,
+		buttonNames: ['OK'], 
+    		cancel: 1
+		});
+ 
+			alertDialog.addEventListener('click',function(e){
+		if (e.index == 0) {
+    //code to execute when the user clicked Yes.
+		}
+		})
+		alertDialog.show();
+	}
+	//IF THE USER IS AT HHPZ
+	else 
+	{
+		var alertDialog = Titanium.UI.createAlertDialog({
+		title: 'Holy crap you\'re at Happy Hollow!', 
+		message: xPixel,
+		buttonNames: ['OK'], 
+    		cancel: 1
+		});
+ 
+			alertDialog.addEventListener('click',function(e){
+		if (e.index == 0) {
+    //code to execute when the user clicked Yes.
+		}
+		})
+		alertDialog.show();
+		
+		var alertDialog = Titanium.UI.createAlertDialog({
+		title: 'Holy crap you\'re at Happy Hollow!', 
+		message: yPixel,
+		buttonNames: ['OK'], 
+    		cancel: 1
+		});
+ 
+			alertDialog.addEventListener('click',function(e){
+		if (e.index == 0) {
+    //code to execute when the user clicked Yes.
+		}
+		})
+		alertDialog.show();
+		
+		
+				Titanium.API.info('geo - location updated: ' + ' long ' + longitude + ' lat ' + latitude);
+	};
+	Titanium.Geolocation.addEventListener('location', locationCallback);
+	locationAdded = true;
+};
+
+
+
+if (Titanium.Platform.name == 'android')
+{
+	//  as the destroy handler will remove the listener, only set the pause handler to remove if you need battery savings
+	Ti.Android.currentActivity.addEventListener('pause', function(e) {
+		Ti.API.info("pause event received");
+		
+		if (locationAdded) {
+			Ti.API.info("removing location callback on pause");
+			Titanium.Geolocation.removeEventListener('location', locationCallback);
+			locationAdded = false;
+		}
+	});
+	Ti.Android.currentActivity.addEventListener('destroy', function(e) {
+		Ti.API.info("destroy event received");
+		
+		if (locationAdded) {
+			Ti.API.info("removing location callback on destroy");
+			Titanium.Geolocation.removeEventListener('location', locationCallback);
+			locationAdded = false;
+		}
+	});
+	Ti.Android.currentActivity.addEventListener('resume', function(e) {
+		Ti.API.info("resume event received");
+		if (!locationAdded) {
+			Ti.API.info("adding location callback on resume");
+			Titanium.Geolocation.addEventListener('location', locationCallback);
+			locationAdded = true;
+		}
+	});
+};
 //set scale for map
 var scale = Ti.UI.create2DMatrix().scale(1); 
 
-//create home button
+var webview = Ti.UI.createWebView({ 
+	url:'animals.png', 
+	transform:scale, 
+	size:{ width:800, 
+		height:900 }, 
+		top:0, 
+		scalesPageToFit:true
+	});
+var window = Titanium.UI.createWindow(); 
 
-//
-// Main Map
-//
-//var winMain = Titanium.UI.createWindow({  
-//   title:'Main',
-//	backgroundColor:'#fff'
-//});
+/*
 
-//var tabMain = Titanium.UI.createTab({  
-//   title:'Main',
-//    window:winMain
-//});
-
-//var mapMain=Ti.UI.createWebView({ url:'all.png', transform:scale, size:{ width:800, height:900 }, top:0, scalesPageToFit:true});
-//winMain.add(mapMain);
-
-
-//Animal Map
-var winAnimals = Titanium.UI.createWindow({  
-    title:'Animals',
-	backgroundcolor:'#FFFFFF'  
-});
-
-var tabAnimals = Titanium.UI.createTab({ 
-	icon:'/animalsicon.png', 
-    title:'Animals', 
-    window:winAnimals
-});
-
-var mapAnimals=Ti.UI.createWebView({ url:'animals.png', transform:scale, size:{ width:800, height:900 }, top:0, scalesPageToFit:true});
-winAnimals.add(mapAnimals);
-
-
-// Attraction Map
-var winAttractions = Titanium.UI.createWindow({  
-    title:'Attractions',
-	backgroundcolor:'#FFFFFF'  
-});
-
-var tabAttractions = Titanium.UI.createTab({ 
-	icon:'/ridesattractionsicon.png', 
-    title:'Attractions', 
-    window:winAttractions
-});
-
-var mapAttractions=Ti.UI.createWebView({ url:'ridesattractions.png', transform:scale, size:{ width:800, height:900 }, top:0, scalesPageToFit:true});
-winAttractions.add(mapAttractions);
-
-// Facilites Map
-var winFacilities = Titanium.UI.createWindow({  
-    title:'Facilities',
-	backgroundcolor:'#FFFFFF'  
-});
-
-var tabFacilities = Titanium.UI.createTab({
-	icon:'/facilitiesicon.png',  
-    title:'Facilities',
-    window:winFacilities
-});
-
-var mapFacilities=Ti.UI.createWebView({ url:'facilities.png', transform:scale, size:{ width:800, height:900 }, top:0, scalesPageToFit:true});
-winFacilities.add(mapFacilities);
-
-// Green Tour Map
-var winGreenTour = Titanium.UI.createWindow({  
-    title:'Green Tour',
-	backgroundcolor:'#FFFFFF'  
-});
-
-var tabGreenTour = Titanium.UI.createTab({
-	icon:'/greentouricon.png',
-    title:'Green Tour',
-    window:winGreenTour
-});
-
-var mapGreenTour=Ti.UI.createWebView({ url:'greentour.png', transform:scale, size:{ width:800, height:900 }, top:0, scalesPageToFit:true});
-winGreenTour.add(mapGreenTour);
-
-
-//
-//  add tabs
-//
-//tabGroup.addTab(tabMain);  
-tabGroup.addTab(tabAnimals);
-tabGroup.addTab(tabAttractions);
-tabGroup.addTab(tabFacilities);
-tabGroup.addTab(tabGreenTour)  
-
-
-// open tab group
-tabGroup.open();
+window.add(webview); 
+window.open({modal:true});
 */
