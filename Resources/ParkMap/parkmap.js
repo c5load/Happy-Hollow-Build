@@ -133,7 +133,7 @@ var locationCallback = function(e)
 		alertDialog.show();
 		
 		var alertDialog = Titanium.UI.createAlertDialog({
-		title: 'Holy crap you\'re at Happy Hollow!', 
+		title: 'You\'re not at HHPZ', 
 		message: xPixel,
 		buttonNames: ['OK'], 
     		cancel: 1
