@@ -5,11 +5,16 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.661000 seconds on emulator to get ready
+[DEBUG] waited 0.824000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
 [TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Animals\animals.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Animals\animals.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\app.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\app.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Attractions\attractions.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Attractions\attractions.js
 [TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ContactUs\contactus.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ContactUs\contactus.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Facilities\facilities.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Facilities\facilities.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\GreenTour\greentour.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\GreenTour\greentour.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\schedule2.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\schedule2.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
@@ -24,33 +29,66 @@ Logfile initialized
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\app-unsigned.apk
+[DEBUG] from resource zip => assets/Resources/Animals/animaliconscolor.png
 [DEBUG] from resource zip => assets/Resources/Animals/animals.js
+[DEBUG] from resource zip => assets/Resources/Animals/animalsbackground.png
+[DEBUG] from resource zip => assets/Resources/Animals/animalsicon.png
+[DEBUG] from resource zip => assets/Resources/Animals/animalsrest.png
+[DEBUG] from resource zip => assets/Resources/Animals/animalsselect.png
 [DEBUG] from resource zip => assets/Resources/Animals/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Animals/homeselected.png
+[DEBUG] from resource zip => assets/Resources/Animals/mainanimalbar.png
 [DEBUG] from resource zip => assets/Resources/Animals/scheduleresting.png
 [DEBUG] from resource zip => assets/Resources/Animals/scheduleselected.png
+[DEBUG] from resource zip => assets/Resources/Animals/selectedanimals.png
 [DEBUG] from resource zip => assets/Resources/Animals/specificanimal.js
 [DEBUG] from resource zip => assets/Resources/Attractions/attractions.js
 [DEBUG] from resource zip => assets/Resources/Attractions/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Attractions/homeselected.png
+[DEBUG] from resource zip => assets/Resources/Attractions/mainridesattractionsbar.png
+[DEBUG] from resource zip => assets/Resources/Attractions/ridesattractionfacilities.js
+[DEBUG] from resource zip => assets/Resources/Attractions/ridesattractionsbackground.png
+[DEBUG] from resource zip => assets/Resources/Attractions/ridesattractionsicon.png
+[DEBUG] from resource zip => assets/Resources/Attractions/ridesattractionsiconcolor.png
+[DEBUG] from resource zip => assets/Resources/Attractions/ridesattractionsrest.png
+[DEBUG] from resource zip => assets/Resources/Attractions/ridesattractionsselect.png
 [DEBUG] from resource zip => assets/Resources/Attractions/scheduleresting.png
 [DEBUG] from resource zip => assets/Resources/Attractions/scheduleselected.png
 [DEBUG] from resource zip => assets/Resources/Attractions/specificattraction.js
 [DEBUG] from resource zip => assets/Resources/ContactUs/contactus.js
+[DEBUG] from resource zip => assets/Resources/ContactUs/contactusbackground.png
+[DEBUG] from resource zip => assets/Resources/ContactUs/contactusiconcolor.png
+[DEBUG] from resource zip => assets/Resources/ContactUs/contactusrest.png
+[DEBUG] from resource zip => assets/Resources/ContactUs/contactusselect.png
+[DEBUG] from resource zip => assets/Resources/ContactUs/email.png
 [DEBUG] from resource zip => assets/Resources/ContactUs/homeresting.png
 [DEBUG] from resource zip => assets/Resources/ContactUs/homeselected.png
+[DEBUG] from resource zip => assets/Resources/ContactUs/maincontactusbar.png
 [DEBUG] from resource zip => assets/Resources/ContactUs/otherpagebackground.png
+[DEBUG] from resource zip => assets/Resources/ContactUs/phone.png
 [DEBUG] from resource zip => assets/Resources/ContactUs/scheduleresting.png
 [DEBUG] from resource zip => assets/Resources/ContactUs/scheduleselected.png
 [DEBUG] from resource zip => assets/Resources/Facilities/facilities.js
+[DEBUG] from resource zip => assets/Resources/Facilities/facilitiesbackground.png
+[DEBUG] from resource zip => assets/Resources/Facilities/facilitiesicon.png
+[DEBUG] from resource zip => assets/Resources/Facilities/facilitiesiconcolor.png
+[DEBUG] from resource zip => assets/Resources/Facilities/facilitiesrest.png
+[DEBUG] from resource zip => assets/Resources/Facilities/facilitiesselect.png
 [DEBUG] from resource zip => assets/Resources/Facilities/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Facilities/homeselected.png
+[DEBUG] from resource zip => assets/Resources/Facilities/mainfacilitiesbar.png
 [DEBUG] from resource zip => assets/Resources/Facilities/scheduleresting.png
 [DEBUG] from resource zip => assets/Resources/Facilities/scheduleselected.png
 [DEBUG] from resource zip => assets/Resources/Facilities/specificFacility.js
 [DEBUG] from resource zip => assets/Resources/GreenTour/greentour.js
+[DEBUG] from resource zip => assets/Resources/GreenTour/greentourbackground.png
+[DEBUG] from resource zip => assets/Resources/GreenTour/greentouricon.png
+[DEBUG] from resource zip => assets/Resources/GreenTour/greentouriconcolor.png
+[DEBUG] from resource zip => assets/Resources/GreenTour/greentourrest.png
+[DEBUG] from resource zip => assets/Resources/GreenTour/greentourselect.png
 [DEBUG] from resource zip => assets/Resources/GreenTour/homeresting.png
 [DEBUG] from resource zip => assets/Resources/GreenTour/homeselected.png
+[DEBUG] from resource zip => assets/Resources/GreenTour/maingreentourbar.png
 [DEBUG] from resource zip => assets/Resources/GreenTour/scheduleresting.png
 [DEBUG] from resource zip => assets/Resources/GreenTour/scheduleselected.png
 [DEBUG] from resource zip => assets/Resources/GreenTour/specificgreentour.js
@@ -62,63 +100,39 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/ParkMap/animals.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/facilities.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/greentour.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/mainparkmapbar.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.js
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmapbackground.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmapicon.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmapiconcolor.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmaprest.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmapselect.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/ridesattractions.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/version.js
 [DEBUG] from resource zip => assets/Resources/Schedule/events.js
 [DEBUG] from resource zip => assets/Resources/Schedule/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/homeselected.png
+[DEBUG] from resource zip => assets/Resources/Schedule/mainschedulebar.png
 [DEBUG] from resource zip => assets/Resources/Schedule/parkhours.js
 [DEBUG] from resource zip => assets/Resources/Schedule/puppetshows.js
 [DEBUG] from resource zip => assets/Resources/Schedule/rideschedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedule2.js
+[DEBUG] from resource zip => assets/Resources/Schedule/schedulebackground.png
+[DEBUG] from resource zip => assets/Resources/Schedule/scheduleicon.png
+[DEBUG] from resource zip => assets/Resources/Schedule/scheduleiconcolor.png
+[DEBUG] from resource zip => assets/Resources/Schedule/schedulerest.png
+[DEBUG] from resource zip => assets/Resources/Schedule/scheduleselect.png
 [DEBUG] from resource zip => assets/Resources/Schedule/specificSchedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/zoohill.js
 [DEBUG] from resource zip => assets/Resources/Schedule/zoohollow.js
-[DEBUG] from resource zip => assets/Resources/animalsicon.png
-[DEBUG] from resource zip => assets/Resources/animalsiconcolor.png
-[DEBUG] from resource zip => assets/Resources/animalsrest.png
-[DEBUG] from resource zip => assets/Resources/animalsselect.png
 [DEBUG] from resource zip => assets/Resources/app.js
 [DEBUG] from resource zip => assets/Resources/appbackup.js
 [DEBUG] from resource zip => assets/Resources/appicon.png
-[DEBUG] from resource zip => assets/Resources/arowrest.png
-[DEBUG] from resource zip => assets/Resources/arrow.png
-[DEBUG] from resource zip => assets/Resources/attractionsiconcolor.png
 [DEBUG] from resource zip => assets/Resources/backgroundresting.png
-[DEBUG] from resource zip => assets/Resources/contactusicon.png
-[DEBUG] from resource zip => assets/Resources/contactusrest.png
-[DEBUG] from resource zip => assets/Resources/contactusselect.png
 [DEBUG] from resource zip => assets/Resources/default.png
-[DEBUG] from resource zip => assets/Resources/facilitiesicon.png
-[DEBUG] from resource zip => assets/Resources/facilitiesiconcolor.png
-[DEBUG] from resource zip => assets/Resources/facilitiesrest.png
-[DEBUG] from resource zip => assets/Resources/facilitiesselect.png
-[DEBUG] from resource zip => assets/Resources/greentouricon.png
-[DEBUG] from resource zip => assets/Resources/greentouriconcolor.png
-[DEBUG] from resource zip => assets/Resources/greentourrest.png
-[DEBUG] from resource zip => assets/Resources/greentourselect.png
 [DEBUG] from resource zip => assets/Resources/list backgroundresting.png
-[DEBUG] from resource zip => assets/Resources/mainanimalbar.png
-[DEBUG] from resource zip => assets/Resources/maincontactusbar.png
-[DEBUG] from resource zip => assets/Resources/mainfacilitiesbar.png
-[DEBUG] from resource zip => assets/Resources/maingreentourbar.png
-[DEBUG] from resource zip => assets/Resources/mainparkmapbar.png
-[DEBUG] from resource zip => assets/Resources/mainridesattractionsbar.png
-[DEBUG] from resource zip => assets/Resources/mainschedulebar.png
 [DEBUG] from resource zip => assets/Resources/maintabs.js
-[DEBUG] from resource zip => assets/Resources/parkmapicon.png
-[DEBUG] from resource zip => assets/Resources/parkmaprest.png
-[DEBUG] from resource zip => assets/Resources/parkmapselect.png
-[DEBUG] from resource zip => assets/Resources/ridesattractionfacilities.js
-[DEBUG] from resource zip => assets/Resources/ridesattractionsicon.png
-[DEBUG] from resource zip => assets/Resources/ridesattractionsrest.png
-[DEBUG] from resource zip => assets/Resources/ridesattractionsselect.png
-[DEBUG] from resource zip => assets/Resources/scheduleicon.png
-[DEBUG] from resource zip => assets/Resources/schedulerest.png
-[DEBUG] from resource zip => assets/Resources/scheduleselect.png
-[DEBUG] from resource zip => assets/Resources/selectedanimals.png
 [DEBUG] from resource zip => assets/Resources/winmenu.js
 [DEBUG] from resource zip => assets/tiapp.xml
 [DEBUG] from resource zip => res/drawable/appicon.png
@@ -150,6 +164,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.378000 seconds on emulator to get ready
+[DEBUG] waited 1.101000 seconds on emulator to get ready
+[INFO] Waiting for the Android Emulator to become available
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

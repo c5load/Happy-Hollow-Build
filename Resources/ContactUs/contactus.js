@@ -7,11 +7,11 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/contactusrest.png',
+	image:'/ContactUs/contactusbackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var lblTitle=Titanium.UI.createLabel({
@@ -25,7 +25,7 @@ var lblTitle=Titanium.UI.createLabel({
 	width: pWidth,
     top: '0dp',
     left:'0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var buttonHome = Titanium.UI.createButton({
@@ -33,9 +33,9 @@ var buttonHome = Titanium.UI.createButton({
 	backgroundImage:'homeresting.png',
 	backgroundSelectedImage:'homeselected.png',
 	top: pHeight*.02, 
-	left:pWidth*.05,
-	width:'60dp',
-	height:'30dp',});
+	left:pWidth*.04,
+	width:pWidth*.19,
+	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {winHomeScreen.open();});
 
@@ -45,8 +45,8 @@ var buttonSchedule = Titanium.UI.createButton({
 	backgroundSelectedImage:'scheduleselected.png',
 	top:pHeight*.02,
 	left:pWidth*.78,
-	width:'60dp',
-	height:'30dp',});
+	width:pWidth*.17,
+	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {winSchedule.open();});
 
@@ -62,10 +62,10 @@ var lblTitleAddress = Titanium.UI.createLabel({
         fontSize: '20dp',
         fontWeight: 'bold'
     },
-    width: 'auto',
-    left: '10dp',
-    top: '50dp',
-    height: 'auto'
+    width: pWidth,
+    left: pWidth*.02,
+    top: pHeight*.10,
+    height: pHeight*.1
 });
 
 
@@ -76,10 +76,10 @@ var lblAddress = Titanium.UI.createLabel({
         fontSize: '20dp',
         fontWeight: 'normal'
     },
-    width: 'auto',
-    left: '10dp',
-    top: '80dp',
-    height: 'auto'
+    width: pWidth,
+    left: pWidth*.02,
+    top: pHeight*.15,
+    height: pHeight*.1
 });
 
 var lblTitlePhone = Titanium.UI.createLabel({
@@ -89,10 +89,10 @@ var lblTitlePhone = Titanium.UI.createLabel({
         fontSize: '20dp',
         fontWeight: 'bold'
     },
-    width: 'auto',
-    left: '10dp',
-    top: '120dp',
-    height: 'auto'
+    width: pWidth,
+    left: pWidth*.02,
+    top: pHeight*.25,
+    height: pHeight*.1
 });
 
 
@@ -103,23 +103,23 @@ var lblPhone = Titanium.UI.createLabel({
         fontSize: '20dp',
         fontWeight: 'normal'
     },
-    width: 'auto',
-    left: '10dp',
-    top: '150dp',
-    height: 'auto'
+    width: pWidth,
+    left: pWidth*.02,
+    top: pHeight*.30,
+    height: pHeight*.1
 });
 
 
 var buttonCall = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'/contactusrest.png',
-	backgroundSelectedImage:'/contactusselect.png',
-	top:'150dp',
-	width:'60dp',
-	height:'30dp',
-	left: '280dp',
-	font:{fontSize:'20dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
-	title:'Call'});	
+	backgroundImage:'/ContactUs/phone.png',
+//	backgroundImage:'/ContactUs/contactusrest.png',
+//	backgroundSelectedImage:'/ContactUs/contactusselect.png',
+	top:pHeight*.30,
+	width:pWidth*.14,
+	height:pHeight*.08,
+	left: pWidth*.78,
+	font:{fontSize:'20dp',fontWeight:'bold',fontFamily:'Helvetica Neue'}});	
 
 
 buttonCall.addEventListener('click', function()

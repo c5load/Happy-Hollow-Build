@@ -4,7 +4,7 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 var win = Ti.UI.currentWindow;
 Ti.UI.createLabel
 var winAnimalLabel = Ti.UI.createLabel({
-	backgroundImage: '../animalsrest.png',
+	backgroundImage: '/Animals/animalsrest.png',
 	text: win.animal,
 	textAlign: 'left',
 	color: 'white',

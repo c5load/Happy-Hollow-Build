@@ -6,11 +6,11 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/facilitiesrest.png',
+	image:'/Facilities/facilitiesbackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var lblTitle=Titanium.UI.createLabel({
@@ -24,7 +24,7 @@ var lblTitle=Titanium.UI.createLabel({
 	width: pWidth,
     top: '0dp',
     left:'0dp', 
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var buttonHome = Titanium.UI.createButton({
@@ -32,9 +32,9 @@ var buttonHome = Titanium.UI.createButton({
 	backgroundImage:'/Facilities/homeresting.png',
 	backgroundSelectedImage:'/Facilities/homeselected.png',
 	top: pHeight*.02, 
-	left:pWidth*.05,
-	width:'60dp',
-	height:'30dp',});
+	left:pWidth*.04,
+	width:pWidth*.19,
+	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {winHomeScreen.open();});
 
@@ -44,8 +44,8 @@ var buttonSchedule = Titanium.UI.createButton({
 	backgroundSelectedImage:'/Facilities/scheduleselected.png',
 	top:pHeight*.02,
 	left:pWidth*.78,
-	width:'60dp',
-	height:'30dp',});
+	width:pWidth*.17,
+	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {winSchedule.open();});
 
@@ -61,7 +61,7 @@ xhr.onload = function()
         	hasChild:true,
         	height:'80dp',
         	backgroundImage: '../backgroundresting.png',
-        	selectedBackgroundImage: '../facilitiesrest.png'
+        	selectedBackgroundImage: '/Facilities/facilitiesbackground.png'
         });
         row.title = elements.item(i).getAttribute("FacilityName");
         desc = doc.getElementsByTagName("FacilityName").item(i).text;
@@ -95,7 +95,7 @@ xhr.onload = function()
         data.push(row);}
    
     var tableview = Titanium.UI.createTableView({
-       top:'50dp',
+       top:pHeight*.1,
        data:data,
        height:'auto',
     });

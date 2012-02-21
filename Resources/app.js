@@ -64,66 +64,12 @@ var winContactUs = Titanium.UI.createWindow({
     fullscreen : true,});
 
 //create button labels
-var parkmapicon= Titanium.UI.createImageView({
-	image:'parkmapicon.png',
-	top: pHeight - pHeight,
-	left:'0dp',
-	width:'80dp',
-	height:'60dp'});
-
-var animalsicon= Titanium.UI.createImageView({
-	image:'animalsicon.png',
-	top: (pHeight/7),
-	left:'0dp',
-	width:'80dp',
-	height:'60dp'});
-	
-var ridesattractionsicon= Titanium.UI.createImageView({
-	image:'ridesattractionsicon.png',
-	top: (pHeight/7)*2,
-	left:'0dp',
-	width:'80dp',
-	height:'60dp'});
-
-var greentouricon= Titanium.UI.createImageView({
-	image:'greentouricon.png',
-	top: (pHeight/7)*3,
-	left:'0dp',
-	width:'80dp',
-	height:'60dp'});
-
-var facilitiesicon= Titanium.UI.createImageView({
-	image:'facilitiesicon.png',
-	top: (pHeight/7)*4,
-	left:'0dp',
-	width:'80dp',
-	height:'60dp'});
-	
-var scheduleicon= Titanium.UI.createImageView({
-	image:'scheduleicon.png',
-	top: (pHeight/7)*5,
-	left:'0dp',
-	width:'80dp',
-	height:'60dp'});
-			
-var contactusicon= Titanium.UI.createImageView({
-	image:'contactusicon.png',
-	top: (pHeight/7)*6,
-	left:'0dp',
-	width:'80dp',
-	height:'60dp'});
-				
-var arrowicon= Titanium.UI.createLabel({
-	image:'arrow.png',
-	left:'280dp',
-	width:'60dp',
-	height:'60dp'});
 
 //create buttons
 var buttonParkMap = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'parkmaprest.png',
-	backgroundSelectedImage:'parkmapselect.png',
+	backgroundImage:'/ParkMap/parkmaprest.png',
+	backgroundSelectedImage:'/ParkMap/parkmapselect.png',
 	top: (pHeight/pHeight),
 	width:pWidth,
 	height:(pHeight/7),
@@ -134,8 +80,8 @@ buttonParkMap.addEventListener('click', function()
 
 var buttonAnimals = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'animalsrest.png',
-	backgroundSelectedImage:'animalsselect.png',
+	backgroundImage:'/Animals/animalsrest.png',
+	backgroundSelectedImage:'/Animals/animalsselect.png',
 	top:(pHeight/7),
 	width:pWidth,
 	height:(pHeight/7),
@@ -147,12 +93,12 @@ buttonAnimals.addEventListener('click', function()
 
 var buttonRidesAttractions = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'ridesattractionsrest.png',
-	backgroundSelectedImage:'ridesattractionsselect.png',
+	backgroundImage:'/Attractions/ridesattractionsrest.png',
+	backgroundSelectedImage:'/Attractions/ridesattractionsselect.png',
 	top:(pHeight/7)*2,
 	width:pWidth,
 	height:(pHeight/7),
-	font:{fontSize:'25dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
+	font:{fontSize:'23dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Rides & Attractions'});
 
 buttonRidesAttractions.addEventListener('click', function()
@@ -160,8 +106,8 @@ buttonRidesAttractions.addEventListener('click', function()
 	
 var buttonGreenTour = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'greentourrest.png',
-	backgroundSelectedImage:'greentourselect.png',
+	backgroundImage:'/GreenTour/greentourrest.png',
+	backgroundSelectedImage:'/GreenTour/greentourselect.png',
 	top:(pHeight/7)*3,
 	width:pWidth,
 	height:(pHeight/7),
@@ -172,8 +118,8 @@ buttonGreenTour.addEventListener('click', function()
 	
 var buttonFacilities = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'facilitiesrest.png',
-	backgroundSelectedImage:'facilitiesselect.png',
+	backgroundImage:'/Facilities/facilitiesrest.png',
+	backgroundSelectedImage:'/Facilities/facilitiesselect.png',
 	top:(pHeight/7)*4,
 	width:pWidth,
 	height:(pHeight/7),
@@ -185,8 +131,8 @@ buttonFacilities.addEventListener('click', function()
 	
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'schedulerest.png',
-	backgroundSelectedImage:'scheduleselect.png',
+	backgroundImage:'/Schedule/schedulerest.png',
+	backgroundSelectedImage:'/Schedule/scheduleselect.png',
 	top:(pHeight/7)*5,
 	width:pWidth,
 	height:(pHeight/7),
@@ -197,8 +143,8 @@ buttonSchedule.addEventListener('click', function()
 	
 var buttonContactUs = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'contactusrest.png',
-	backgroundSelectedImage:'contactusselect.png',
+	backgroundImage:'/ContactUs/contactusrest.png',
+	backgroundSelectedImage:'/ContactUs/contactusselect.png',
 	top:(pHeight/7)*6,
 	width: pWidth,
 	height:(pHeight/7),
@@ -214,12 +160,5 @@ winHomeScreen.add(buttonGreenTour);
 winHomeScreen.add(buttonFacilities);
 winHomeScreen.add(buttonSchedule);
 winHomeScreen.add(buttonContactUs);
-winHomeScreen.add(parkmapicon);
-winHomeScreen.add(animalsicon);
-winHomeScreen.add(ridesattractionsicon);
-winHomeScreen.add(greentouricon);
-winHomeScreen.add(facilitiesicon);
-winHomeScreen.add(scheduleicon);
-winHomeScreen.add(contactusicon);
-	
+
 winHomeScreen.open();

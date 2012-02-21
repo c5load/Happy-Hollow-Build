@@ -6,11 +6,11 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/schedulerest.png',
+	image:'/Schedule/schedulebackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var lblTitle=Titanium.UI.createLabel({
@@ -24,7 +24,7 @@ var lblTitle=Titanium.UI.createLabel({
 	width: pWidth,
 	left:'0dp', 
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var buttonHome = Titanium.UI.createButton({
@@ -32,9 +32,9 @@ var buttonHome = Titanium.UI.createButton({
 	backgroundImage:'/Schedule/homeresting.png',
 	backgroundSelectedImage:'/Schedule/homeselected.png',
 	top: pHeight*.02, 
-	left:pWidth*.05,
-	width:'60dp',
-	height:'30dp',});
+	left:pWidth*.04,
+	width:pWidth*.19,
+	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {var winHomeScreen=Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
@@ -46,27 +46,17 @@ buttonHome.addEventListener('click', function()
 });
 	winHomeScreen.open();});
 
-var buttonSchedule = Titanium.UI.createButton({
-	color:'#fff',
-	backgroundImage:'/Schedule/scheduleresting.png',
-	backgroundSelectedImage:'/Schedule/scheduleselected.png',
-	top:pHeight*.02,
-	left:pWidth*.78,
-	width:'60dp',
-	height:'30dp',});
-buttonHome.addEventListener('click', function()
-{winSchedule.open();});
-
 // create table view data object
 var data = [
 	{title:'Park Hours', hasChild:true, height:'80dp', test:'/parkhours.js'},
 	{title:'Today\'s Rides', hasChild:true, height:'80dp', test:'/rideschedule.js'},
 	{title:'Puppet Shows', hasChild:true, height:'80dp', test:'/puppetshows.js'},
 	{title:'Events', hasChild:true, height:'80dp', test:'/events.js'},
-	{title:'Zoo in the Hollow', left:'50dp', hasChild:true, height:'80dp', test:'/zoohollow.js'},
-	{title:'Zoo on the Hill', left:'50dp', hasChild:true, height:'80dp', test:'/zoohill.js'},
+	{title:'Zoo in the Hollow', hasChild:true, height:'80dp', test:'/zoohollow.js'},
+	{title:'Zoo on the Hill', hasChild:true, height:'80dp', test:'/zoohill.js'},
 	
 ];
+
 
 // add iphone specific tests
 if (Titanium.Platform.name == 'iPhone OS')
@@ -81,7 +71,7 @@ data.push({title:'Picker', hasChild:true, test:'../examples/picker.js'});
 */
 // create table view
 var tableview = Titanium.UI.createTableView({
-	top:'50dp',
+	top:pHeight*.1,
 	rowHeight: 'auto',
 	data:data
 });
@@ -106,4 +96,3 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(tableview);
 win.add(buttonHome);
-win.add(buttonSchedule);

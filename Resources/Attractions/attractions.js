@@ -6,11 +6,11 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/ridesattractionsrest.png',
+	image:'/Attractions/ridesattractionsbackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var lblTitle=Titanium.UI.createLabel({
@@ -24,7 +24,7 @@ var lblTitle=Titanium.UI.createLabel({
 	width: pWidth, 
     top: '0dp',
     left:'0dp',    
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var buttonHome = Titanium.UI.createButton({
@@ -32,9 +32,9 @@ var buttonHome = Titanium.UI.createButton({
 	backgroundImage:'/Attractions/homeresting.png',
 	backgroundSelectedImage:'/Attractions/homeselected.png',
 	top: pHeight*.02, 
-	left:pWidth*.03,
-	width:'60dp',
-	height:'30dp',});
+	left:pWidth*.04,
+	width:pWidth*.19,
+	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {winHomeScreen.open();});
 
@@ -43,9 +43,9 @@ var buttonSchedule = Titanium.UI.createButton({
 	backgroundImage:'/Attractions/scheduleresting.png',
 	backgroundSelectedImage:'/Attractions/scheduleselected.png',
 	top:pHeight*.02,
-	left:pWidth*.8,
-	width:'60dp',
-	height:'30dp',});
+	left:pWidth*.78,
+	width:pWidth*.17,
+	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {winSchedule.open();});
 
@@ -63,7 +63,7 @@ xhr.onload = function()
         	hasChild:true,
         	height:'80dp',
         	backgroundImage: '../backgroundresting.png',
-        	selectedBackgroundImage: '../ridesattractionsrest.png'        	
+        	selectedBackgroundImage: '../ridesattractionsbackground.png'        	
         });
         row.title = elements.item(i).getAttribute("AttractionName");
         desc = doc.getElementsByTagName("AttractionName").item(i).text;
@@ -99,7 +99,7 @@ xhr.onload = function()
    
     var tableview = Titanium.UI.createTableView({
        data:data,
-       top:'50dp',
+       top:pHeight*.1,
        height:'auto',
     });
     tableview.setData(data);
