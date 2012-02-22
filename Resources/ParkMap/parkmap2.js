@@ -60,63 +60,63 @@ buttonHome.addEventListener('click', function()
 
 var scale = Ti.UI.create2DMatrix().scale(1);
 var map=Ti.UI.createWebView({ url:'parkmap.png', transform:scale, size:{ width:pWidth, height:pHeight*.8}, 
-	top:pHeight*.1, scalesPageToFit:false});
+	top:pHeight*.1, scalesPageToFit:true});
 win.add(map);
 
 
 var buttonAnimals = Titanium.UI.createButton({
 	color:'black',
-	backgroundcolor:'#C0C0C0',
+	backgroundColor:'#595454',
 	backgroundImage:'/Animals/animaliconscolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
-	height:pHeight*.1,
+	height:pHeight*.11,
 	left:pWidth*0,
-	font:{fontSize:'15dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Animals'});	
 
 var buttonAttractions = Titanium.UI.createButton({
 	color:'black',
-	backgroundcolor:'#C0C0C0',
+	backgroundColor:'#595454',	
 	backgroundImage:'/Attractions/ridesattractionsiconcolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
-	height:pHeight*.1,
+	height:pHeight*.11,
 	left:pWidth*.2,
-	font:{fontSize:'15dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Attractions'});	
 	
 var buttonFacilities = Titanium.UI.createButton({
 	color:'black',
-	backgroundcolor:'#C0C0C0',
+	backgroundColor:'#595454',
 	backgroundImage:'/Facilities/facilitiesiconcolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
-	height:pHeight*.1,
+	height:pHeight*.11,
 	left:pWidth*.4,
-	font:{fontSize:'10dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Facilities'});		
 
 var buttonGreenTour = Titanium.UI.createButton({
 	color:'black',
-	backgroundcolor:'#C0C0C0',
+	backgroundColor:'#595454',
 	backgroundImage:'/GreenTour/greentouriconcolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
-	height:pHeight*.1,
+	height:pHeight*.11,
 	left:pWidth*.6,
-	font:{fontSize:'15dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Animals'});	
 
 var buttonFindMe = Titanium.UI.createButton({
 	color:'black',
-	backgroundcolor:'#C0C0C0',
+	backgroundColor:'#595454',
 	backgroundImage:'/ParkMap/findme.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
-	height:pHeight*.1,
+	height:pHeight*.11,
 	left:pWidth*.8,
-	font:{fontSize:'15dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
+	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
 
 win.add(TitleBar);
