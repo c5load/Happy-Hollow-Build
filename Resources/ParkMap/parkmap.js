@@ -1,3 +1,5 @@
+/*
+
 
 Ti.include("version.js");
 
@@ -69,31 +71,27 @@ else
 			}).show();
 		}
 	}
-};
 
-	//
-	// GET CURRENT POSITION - THIS FIRES ONCE
-	//
-Titanium.Geolocation.getCurrentPosition(function(e)
+
+var locationCallback = function(e)
 {
 	if (!e.success || e.error)
 	{
-		currentLocation.text = 'error: ' + JSON.stringify(e.error);
+		updatedLocation.text = 'error:' + JSON.stringify(e.error);
+		updatedLatitude.text = '';
+		updatedLocationAccuracy.text = '';
+		updatedLocationTime.text = '';
 		Ti.API.info("Code translation: "+translateErrorCode(e.code));
-		alert('error ' + JSON.stringify(e.error));
 		return;
 	}
 
 	var longitude = e.coords.longitude;
 	var latitude = e.coords.latitude;
-	var accuracy = e.coords.accuracy;
-	
+
 	var xPixel =((720213.809* latitude)+(1147131.61*longitude)+112913088);
 	var yPixel =((-1589582.59* latitude)+(536408.247*longitude)+124701993);
 	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
-	
-	
-	//CHECKS IF PERSON IS AT HHPZ
+
 	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
 	//IF NOT AT HHPZ
 	{
@@ -157,11 +155,16 @@ Titanium.Geolocation.getCurrentPosition(function(e)
 		alertDialog.show();
 		
 		
-				Titanium.API.info('geo - location updated: ' + ' long ' + longitude + ' lat ' + latitude);
+	
+	Titanium.API.info('geo - location updated: ' + ' long ' + longitude + ' lat ' + latitude);
 	};
+	Titanium.Geolocation.addEventListener('location', locationCallback);
+	locationAdded = true;
 
-	Titanium.API.info('geo - current location: ' + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
-});
+};
+
+
+
 
 if (Titanium.Platform.name == 'android')
 {
@@ -185,21 +188,37 @@ if (Titanium.Platform.name == 'android')
 		}
 	});
 };
-//set scale for map
-var scale = Ti.UI.create2DMatrix().scale(1); 
-
-var webview = Ti.UI.createWebView({ 
-	url:'animals.png', 
-	transform:scale, 
-	size:{ width:800, 
-		height:900 }, 
-		top:0, 
-		scalesPageToFit:true
-	});
-var window = Titanium.UI.createWindow(); 
-
-/*
-
-window.add(webview); 
-window.open({modal:true});
+};
 */
+
+
+//set scale for map
+var win = Ti.UI.currentWindow;
+var scale = Ti.UI.create2DMatrix().scale(1); 
+var view = Ti.UI.createScrollView({
+    layout:'horizontal',
+    left:0,right:0,
+    top:0,bottom:0,
+    contentHeight:'auto',
+    showVerticalScrollIndicator:false
+});
+var view2 = Ti.UI.createScrollView({
+    layout:'vertical',
+    left:0,right:0,
+    top:0,bottom:0,
+    contentHeight:'auto',
+    showVerticalScrollIndicator:false
+});
+win.add(view);
+win.add(view2);
+
+var imageView = Ti.UI.createImageView({
+image:'/parkmap.png',
+width:'auto',
+height:'auto',
+top:2,
+left:2
+});
+
+win.add(imageView);
+//
