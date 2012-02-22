@@ -5,16 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.824000 seconds on emulator to get ready
+[DEBUG] waited 0.268000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Animals\animals.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Animals\animals.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\app.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\app.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Attractions\attractions.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Attractions\attractions.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ContactUs\contactus.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ContactUs\contactus.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Facilities\facilities.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Facilities\facilities.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\GreenTour\greentour.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\GreenTour\greentour.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\schedule2.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\schedule2.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\parkmap2.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\parkmap2.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
@@ -96,18 +90,20 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/ParkInfo/guestmember.js
 [DEBUG] from resource zip => assets/Resources/ParkInfo/logo.png
 [DEBUG] from resource zip => assets/Resources/ParkInfo/parkinfo.js
-[DEBUG] from resource zip => assets/Resources/ParkMap/all.png
-[DEBUG] from resource zip => assets/Resources/ParkMap/animals.png
-[DEBUG] from resource zip => assets/Resources/ParkMap/facilities.png
-[DEBUG] from resource zip => assets/Resources/ParkMap/greentour.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/findme.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/homeresting.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/homeselected.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/mainparkmapbar.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.js
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmap2.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapbackground.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapicon.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapiconcolor.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmaprest.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapselect.png
-[DEBUG] from resource zip => assets/Resources/ParkMap/ridesattractions.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/scheduleresting.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/scheduleselected.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/version.js
 [DEBUG] from resource zip => assets/Resources/Schedule/events.js
 [DEBUG] from resource zip => assets/Resources/Schedule/homeresting.png
@@ -164,7 +160,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 1.101000 seconds on emulator to get ready
-[INFO] Waiting for the Android Emulator to become available
+[DEBUG] waited 0.214000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

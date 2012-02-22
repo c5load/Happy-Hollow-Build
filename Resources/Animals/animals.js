@@ -129,6 +129,7 @@ buttonHome.addEventListener('click', function()
 		{
 			var w = Ti.UI.createWindow({
 			url:'specificanimal.js', 
+			navBarHidden:true, 
    			title:'',
    			backgroundcolor:'black',
    			fullscreen:true });

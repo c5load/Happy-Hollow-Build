@@ -50,7 +50,6 @@ var buttonSchedule = Titanium.UI.createButton({
 buttonHome.addEventListener('click', function()
 {winSchedule.open();});
 
-//TitleBar.add(lblTitle);
 
 var address = "1300 Senter Road  San Jose, CA 95112";
 
@@ -127,8 +126,6 @@ buttonCall.addEventListener('click', function()
 	Titanium.Platform.openURL('tel:4087946400');
 });
 
-win.add(TitleBar);
-win.add(lblTitle);
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(lblTitleAddress);

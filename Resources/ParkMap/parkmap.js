@@ -195,30 +195,32 @@ if (Titanium.Platform.name == 'android')
 //set scale for map
 var win = Ti.UI.currentWindow;
 var scale = Ti.UI.create2DMatrix().scale(1); 
-var view = Ti.UI.createScrollView({
-    layout:'horizontal',
-    left:0,right:0,
-    top:0,bottom:0,
-    contentHeight:'auto',
-    showVerticalScrollIndicator:false
-});
-var view2 = Ti.UI.createScrollView({
-    layout:'vertical',
-    left:0,right:0,
-    top:0,bottom:0,
-    contentHeight:'auto',
-    showVerticalScrollIndicator:false
-});
-win.add(view);
-win.add(view2);
+//var view = Ti.UI.createScrollView({
+ //   layout:'horizontal',
+  //  left:0,right:0,
+   // top:0,bottom:0,
+    //contentHeight:'auto',
+    //showVerticalScrollIndicator:false
+//});
+//var view2 = Ti.UI.createScrollView({
+  //  layout:'vertical',
+   // left:0,right:0,
+    //top:0,bottom:0,
+    //contentHeight:'auto',
+    //showVerticalScrollIndicator:false
+//});
+//win.add(view);
+//win.add(view2);
 
 var imageView = Ti.UI.createImageView({
-image:'/parkmap.png',
-width:'auto',
-height:'auto',
-top:2,
-left:2
+	backgroundcolor:'white',
+	image:'/ParkMap/parkmap.png',
+	width:'auto',
+	height:'auto',
+	top:'0dp',
+	left:'0dp'
 });
 
 win.add(imageView);
+
 //
