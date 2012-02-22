@@ -162,3 +162,43 @@ winHomeScreen.add(buttonSchedule);
 winHomeScreen.add(buttonContactUs);
 
 winHomeScreen.open();
+
+if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+        var xhr = Ti.Network.createHTTPClient();
+        xhr.open("POST","http://markmyers.me/hhpz/xml/Animals.xml");
+        xhr.onerror = function(e) {
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
+        };
+        xhr.setTimeout(30000);
+        xhr.onload = function() {
+            try {
+				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
+				f.write(this.responseData);
+				Ti.API.info(this.responseText); // check the file content on TI info panel.
+				}
+			catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
+            };
+        };
+        xhr.send();
+    };
+    
+if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+        var xhr = Ti.Network.createHTTPClient();
+        xhr.open("POST","http://markmyers.me/hhpz/xml/Locations.xml");
+        xhr.onerror = function(e) {
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
+        };
+        xhr.setTimeout(30000);
+        xhr.onload = function() {
+            try {
+				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locations.xml');
+				f.write(this.responseData);
+				Ti.API.info(this.responseText); // check the file content on TI info panel.
+				}
+			catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
+            };
+        };
+        xhr.send();
+    };

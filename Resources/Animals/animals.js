@@ -67,21 +67,14 @@ buttonHome.addEventListener('click', function()
 	winSchedule.open();});
 
 
-var xhr = Titanium.Network.createHTTPClient();
 
-if(Titanium.Network.networkType == Titanium.Network.NETWORK_NONE){
-     var alertDialog = Titanium.UI.createAlertDialog({
-              title: 'WARNING!',
-              message: 'Your device is not online.',
-              buttonNames: ['OK']
-            });
-            alertDialog.show();
-}
-xhr.onload = function()
-{
     var data = [];
-    var doc = this.responseXML.documentElement;
-    var elements = doc.getElementsByTagName("AnimalName");
+    
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Animals.xml');
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("AnimalName");
+
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
@@ -158,16 +151,17 @@ xhr.onload = function()
 			
 			w.open({fullscreen:true});
 		});
-};
+
 
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
-xhr.open('GET','http://markmyers.me/hhpz/xml/Animals.xml');
-xhr.send();
+
 
 //declare the http client object
+
+
 
 
 
