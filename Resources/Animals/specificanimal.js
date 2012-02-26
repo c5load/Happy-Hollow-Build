@@ -65,6 +65,7 @@ buttonHome.addEventListener('click', function()
 
 var winAnimalLabel = Ti.UI.createLabel({
 	backgroundImage: '/Animals/animalsbackground.png',
+	textWeight:'strong',
 	text: win.animal,
 	textAlign: pWidth*.1,
 	color: 'white',

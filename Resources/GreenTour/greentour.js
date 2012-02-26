@@ -36,7 +36,15 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{winHomeScreen.open();});
+{var winHomeScreen=Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/app.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    navBarHidden: true
+});
+	winHomeScreen.open();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -47,7 +55,14 @@ var buttonSchedule = Titanium.UI.createButton({
 	width:pWidth*.17,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{winSchedule.open();});
+{var winSchedule=Titanium.UI.createWindow({
+    title:'Schedule',
+    backgroundColor:'#FFFFFF',
+    url: '/Schedule/schedule2.js',
+    navBarHidden:true,
+    fullscreen : true,  
+});
+	winSchedule.open();});
 
 var xhr = Titanium.Network.createHTTPClient();
 

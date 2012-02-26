@@ -119,6 +119,13 @@ var buttonFindMe = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
 
+var testLabel = Titanium.UI.createLabel({
+	text: 'test',
+	height: 340,
+	width: 340
+});
+map.add(testLabel);
+
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);

@@ -62,7 +62,6 @@ buttonHome.addEventListener('click', function()
     url: '/Schedule/schedule2.js',
     navBarHidden:true,
     fullscreen : true,  
-    navBarHidden: true
 });
 	winSchedule.open();});
 
@@ -87,7 +86,7 @@ buttonHome.addEventListener('click', function()
         animalDesc = doc.getElementsByTagName("Description").item(i).text;
         animalScientific = doc.getElementsByTagName("ScientificName").item(i).text;
         animalClass = doc.getElementsByTagName("Class").item(i).text;
-        animalLocation = doc.getElementsByTagName("Location").item(i).text;
+ 		animalLocation = doc.getElementsByTagName("Loc").item(i).text;
         animalYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
         animalPicture = doc.getElementsByTagName("PictureURL").item(i).text;
 
