@@ -119,13 +119,22 @@ var buttonFindMe = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
 
-var testLabel = Titanium.UI.createLabel({
-	text: 'test',
-	height: 340,
-	width: 340
-});
-map.add(testLabel);
 
+    var data = [];
+    
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locations.xml');
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("Loc");
+
+    for (var i=0;i<elements.length;i++) {
+    	var mapLabel = Titanium.UI.createLabel({
+    		height: Loc.PixelY,
+    		width: Loc.PixelX,
+    		text: Loc.LocationName  
+    	});
+    	map.add(mapLabel);
+    };
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
