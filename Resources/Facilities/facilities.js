@@ -36,7 +36,15 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{winHomeScreen.open();});
+{var winHomeScreen=Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/app.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    navBarHidden: true
+});
+	winHomeScreen.open();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -47,7 +55,14 @@ var buttonSchedule = Titanium.UI.createButton({
 	width:pWidth*.17,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{winSchedule.open();});
+{var winSchedule=Titanium.UI.createWindow({
+    title:'Schedule',
+    backgroundColor:'#FFFFFF',
+    url: '/Schedule/schedule2.js',
+    navBarHidden:true,
+    fullscreen : true,  
+});
+	winSchedule.open();});
 
 var xhr = Titanium.Network.createHTTPClient();
 
@@ -68,7 +83,7 @@ xhr.onload = function()
         facilityDesc = doc.getElementsByTagName("Description").item(i).text;
         facilityLocation = doc.getElementsByTagName("Location").item(i).text;
         facilityPicture = doc.getElementsByTagName("PictureURL").item(i).text;
-
+		facilityThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
        
         var facilityLabel = Ti.UI.createLabel({
         	image:'arrowrest.png',
@@ -80,7 +95,7 @@ xhr.onload = function()
         });
         
             var facilityImage = Ti.UI.createImageView({
-        	url: facilityPicture,
+        	url: facilityThumbnail,
         	height: '60dp',
         	width: '60dp',
         	left: '0dp'
@@ -134,5 +149,5 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
-xhr.open('GET','http://markmyers.me/hhpz/xml/Facilities.xml');
+xhr.open('GET','http://hhpz.org/mobile/xml/export.xml');
 xhr.send();//declare the http client object

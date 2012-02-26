@@ -6,7 +6,7 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/schedulerest.png',
+	image:'schedulebackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
