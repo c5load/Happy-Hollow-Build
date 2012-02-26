@@ -1,6 +1,7 @@
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
-
+Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
+Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 //
 //create windows
 var winHomeScreen = Titanium.UI.createWindow({
@@ -70,9 +71,9 @@ var buttonParkMap = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/ParkMap/parkmaprest.png',
 	backgroundSelectedImage:'/ParkMap/parkmapselect.png',
-	top: (pHeight/pHeight),
-	width:pWidth,
-	height:(pHeight/7),
+	top: (Ti.App.SCREEN_HEIGHT/Ti.App.SCREEN_HEIGHT),
+	width:Ti.App.SCREEN_WIDTH,
+	height:(Ti.App.SCREEN_HEIGHT/7),
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Park Map'});
 buttonParkMap.addEventListener('click', function()
@@ -82,9 +83,9 @@ var buttonAnimals = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/Animals/animalsrest.png',
 	backgroundSelectedImage:'/Animals/animalsselect.png',
-	top:(pHeight/7),
-	width:pWidth,
-	height:(pHeight/7),
+	top:(Ti.App.SCREEN_HEIGHT/7),
+	width:Ti.App.SCREEN_WIDTH,
+	height:(Ti.App.SCREEN_HEIGHT/7),
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Animals'});
 
@@ -95,9 +96,9 @@ var buttonRidesAttractions = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/Attractions/ridesattractionsrest.png',
 	backgroundSelectedImage:'/Attractions/ridesattractionsselect.png',
-	top:(pHeight/7)*2,
-	width:pWidth,
-	height:(pHeight/7),
+	top:(Ti.App.SCREEN_HEIGHT/7)*2,
+	width:Ti.App.SCREEN_WIDTH,
+	height:(Ti.App.SCREEN_HEIGHT/7),
 	font:{fontSize:'23dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Rides & Attractions'});
 
@@ -108,9 +109,9 @@ var buttonGreenTour = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/GreenTour/greentourrest.png',
 	backgroundSelectedImage:'/GreenTour/greentourselect.png',
-	top:(pHeight/7)*3,
-	width:pWidth,
-	height:(pHeight/7),
+	top:(Ti.App.SCREEN_HEIGHT/7)*3,
+	width:Ti.App.SCREEN_WIDTH,
+	height:(Ti.App.SCREEN_HEIGHT/7),
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Green Tour'});	
 buttonGreenTour.addEventListener('click', function()
@@ -120,9 +121,9 @@ var buttonFacilities = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/Facilities/facilitiesrest.png',
 	backgroundSelectedImage:'/Facilities/facilitiesselect.png',
-	top:(pHeight/7)*4,
-	width:pWidth,
-	height:(pHeight/7),
+	top:(Ti.App.SCREEN_HEIGHT/7)*4,
+	width:Ti.App.SCREEN_WIDTH,
+	height:(Ti.App.SCREEN_HEIGHT/7),
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Facilities'});	
 	
@@ -133,9 +134,9 @@ var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/Schedule/schedulerest.png',
 	backgroundSelectedImage:'/Schedule/scheduleselect.png',
-	top:(pHeight/7)*5,
-	width:pWidth,
-	height:(pHeight/7),
+	top:(Ti.App.SCREEN_HEIGHT/7)*5,
+	width:Ti.App.SCREEN_WIDTH,
+	height:(Ti.App.SCREEN_HEIGHT/7),
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Schedule'});
 buttonSchedule.addEventListener('click', function()
@@ -145,9 +146,9 @@ var buttonContactUs = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/ContactUs/contactusrest.png',
 	backgroundSelectedImage:'/ContactUs/contactusselect.png',
-	top:(pHeight/7)*6,
-	width: pWidth,
-	height:(pHeight/7),
+	top:(Ti.App.SCREEN_HEIGHT/7)*6,
+	width: Ti.App.SCREEN_WIDTH,
+	height:(Ti.App.SCREEN_HEIGHT/7),
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Contact Us'});
 buttonContactUs.addEventListener('click', function()

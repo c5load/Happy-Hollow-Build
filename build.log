@@ -1,28 +1,28 @@
 Logfile initialized
-[INFO] logfile = C:\Users\Anthony\Desktop\Happy-Hollow\build.log
-[DEBUG] C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py install Happy Hollow Build C:\Users\Anthony C:\Users\Anthony\Desktop\Happy-Hollow com.SC.hhb 6
+[INFO] logfile = C:\Users\Myers\Desktop\Happy-Hollow-Git\build.log
+[DEBUG] C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py install Happy Hollow Build C:\Program Files (x86)\Android\android-sdk C:\Users\Myers\Desktop\Happy-Hollow-Git com.SC.hhb 15
 [INFO] Titanium SDK version: 1.7.5 (11/02/11 17:00 ab20af7)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.268000 seconds on emulator to get ready
-[DEBUG] com.SC.hhb installed? False
+[DEBUG] waited 0.011000 seconds on emulator to get ready
+[DEBUG] com.SC.hhb installed? True
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\parkmap2.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\parkmap2.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmap2.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmap2.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
-[DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
+[DEBUG] copying app icon: C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\appicon.png
 [DEBUG] generating theme.xml
-[DEBUG] found splash screen at C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\default.png
+[DEBUG] found splash screen at C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\default.png
 [TRACE] Writing out AndroidManifest.xml
-[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\HappyHollowBuildActivity.java to javac build list
-[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\HappyHollowBuildAppInfo.java to javac build list
-[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\HappyHollowBuildApplication.java to javac build list
-[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\R.java to javac build list
-[DEBUG] Building Java Sources: "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildActivity.java" "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildAppInfo.java" "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildApplication.java" "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\R.java"
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildActivity.java to javac build list
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildAppInfo.java to javac build list
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildApplication.java to javac build list
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\R.java to javac build list
+[DEBUG] Building Java Sources: "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildActivity.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildAppInfo.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildApplication.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\R.java"
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
-[DEBUG] creating unsigned apk: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\app-unsigned.apk
+[DEBUG] creating unsigned apk: C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\app-unsigned.apk
 [DEBUG] from resource zip => assets/Resources/Animals/animaliconscolor.png
 [DEBUG] from resource zip => assets/Resources/Animals/animals.js
 [DEBUG] from resource zip => assets/Resources/Animals/animalsbackground.png
@@ -136,30 +136,30 @@ Logfile initialized
 [DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
 [DEBUG] from resource zip => AndroidManifest.xml
 [DEBUG] from resource zip => resources.arsc
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages.properties
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages_fr.properties
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/Commons-NOTICE.txt
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/HttpComponents-NOTICE.txt
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/mime4j-NOTICE.txt
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/build.properties
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/background.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
-[DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages_fr.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/Commons-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/HttpComponents-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/mime4j-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/build.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/background.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.214000 seconds on emulator to get ready
+[DEBUG] waited 0.011000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen
