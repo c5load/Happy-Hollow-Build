@@ -1,3 +1,4 @@
+
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
@@ -49,7 +50,29 @@ var buttonSchedule = Titanium.UI.createButton({
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {winSchedule.open();});
+<<<<<<< HEAD
 		
+=======
+
+
+
+var scale = Ti.UI.create2DMatrix().scale(1);
+var map=Ti.UI.createWebView({ 
+	url:'parkmap.png', 
+	transform:scale, 
+	size:{ 
+		width:'auto', 
+		height:'auto'},
+	top:pHeight*.1,
+	bottom:pHeight*.9,
+	scalesPageToFit:true
+	});
+	
+
+
+
+
+>>>>>>> 5d9ad2606afc5613265d0f8e90fb51fc81aa79e0
 var buttonAnimals = Titanium.UI.createButton({
 	color:'black',
 	backgroundColor:'#595454',
@@ -71,7 +94,7 @@ var buttonAttractions = Titanium.UI.createButton({
 	left:pWidth*.2,
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Attractions'});	
-	
+
 var buttonFacilities = Titanium.UI.createButton({
 	color:'black',
 	backgroundColor:'#595454',
@@ -160,6 +183,7 @@ win.add(map);
 
 //    var data = [];
     
+<<<<<<< HEAD
 //    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locs.xml');
 //	var xmltext = file.read().text;
 //	var doc = Ti.XML.parseString(xmltext);
@@ -177,6 +201,25 @@ win.add(map);
    // 	});
    // 	mapview.add(mapLabel);
    // };
+=======
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locations.xml');
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("Loc");
+
+    for (var i=0;i<elements.length;i++) {
+    	PixelX = doc.getElementsByTagName("PixelX").item(i).text;
+        PixelY = doc.getElementsByTagName("PixelY").item(i).text;
+        LocationName = doc.getElementsByTagName("LocationName").item(i).text;
+    	var mapLabel = Titanium.UI.createLabel({
+    		top: PixelY/2,
+    		left: PixelX/2,
+    		text: LocationName,  
+    		color: '#000000'
+    	});
+    	map.add(mapLabel);
+    };
+>>>>>>> 5d9ad2606afc5613265d0f8e90fb51fc81aa79e0
 
 win.add(TitleBar);
 win.add(lblTitle);
@@ -187,8 +230,12 @@ win.add(buttonAttractions);
 win.add(buttonFacilities);
 win.add(buttonGreenTour);
 win.add(buttonFindMe);
+<<<<<<< HEAD
 //win.add(map);
 //win.add(imageView);
 
 
 
+=======
+win.add(map); 
+>>>>>>> 5d9ad2606afc5613265d0f8e90fb51fc81aa79e0

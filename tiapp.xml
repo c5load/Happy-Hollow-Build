@@ -17,6 +17,7 @@
     <copyright>2011 by Myers</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
+    <property name="ti.android.fastdev" type="bool">false</property>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>
     <statusbar-hidden>true</statusbar-hidden>

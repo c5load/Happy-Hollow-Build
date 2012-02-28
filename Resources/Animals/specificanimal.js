@@ -1,7 +1,9 @@
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
-var win = Ti.UI.currentWindow;
+var win = Ti.UI.currentWindow({
+	backgroundColor: '#FFFFFF'
+});
 
 var TitleBar=Titanium.UI.createImageView({
 	image:'/Animals/animalsbackground.png',
@@ -139,7 +141,7 @@ if (win.pictureURL ==='None')
 var winAnimalDescLabel = Ti.UI.createLabel({
 	
 	text: win.animalDesc,
-	color: 'white',
+	color: '#000000',
     font: {
         fontSize: '20dp',
         fontWeight: 'normal'
