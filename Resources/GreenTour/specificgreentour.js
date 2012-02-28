@@ -1,63 +1,130 @@
+var pWidth = Ti.Platform.displayCaps.platformWidth;
+var pHeight = Ti.Platform.displayCaps.platformHeight;
+
 var win = Ti.UI.currentWindow;
 
+var TitleBar=Titanium.UI.createImageView({
+	image:'greentourbackground.png',
+    width: pWidth,
+    left: '0dp',
+    top: '0dp',
+    height: pHeight*.1
+});
+
+var lblTitle=Titanium.UI.createLabel({
+	text:"Green Tour",
+	textAlign:'center', 
+	color:'white',
+	font:{
+		fontSize:'25dp',
+		fontWeight:'bold',
+	},
+	width: pWidth, 
+    top: '0dp',
+    left:'0dp',    
+    height: pHeight*.1
+});
+
+var buttonHome = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'homeresting.png',
+	backgroundSelectedImage:'homeselected.png',
+	top: pHeight*.02, 
+	left:pWidth*.04,
+	width:pWidth*.19,
+	height:pHeight*.07,});
+buttonHome.addEventListener('click', function()
+{var winHomeScreen=Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/app.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    navBarHidden: true
+});
+	winHomeScreen.open();});
+
+var buttonSchedule = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'scheduleresting.png',
+	backgroundSelectedImage:'scheduleselected.png',
+	top:pHeight*.02,
+	left:pWidth*.78,
+	width:pWidth*.17,
+	height:pHeight*.07,});
+buttonHome.addEventListener('click', function()
+{var winSchedule=Titanium.UI.createWindow({
+    title:'Schedule',
+    backgroundColor:'#FFFFFF',
+    url: '/Schedule/schedule2.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    navBarHidden: true
+});
+	winSchedule.open();});
+
 var winGreenTour = Ti.UI.createLabel({
+	backgroundImage: 'greentourbackground.png',
+	textWeight:'strong',
 	text: win.greentour,
-	textAlign: 'left',
+	textAlign: pWidth*.1,
 	color: '#FFFFFF',
     font: {
-        fontSize: '30dp',
+        fontSize: '25dp',
         color:'#000000',
         fontWeight: 'normal'
     },
-    width: 'auto',
+    width: pWidth,
     textAlign: 'left',
     left: '0dp',
-    top: '10dp',
-    height: 'auto'
-})
+    top: pHeight*.55,
+    height: pHeight*.15
+});
 
-
-var winGreenTourDescription = Ti.UI.createLabel({
-	text: win.greentourDesc,
-	textAlign: 'left',
-	color: 'white',
-    font: {
-        fontSize: '30dp',
-        color:'#000000',
-        fontWeight: 'normal'
-    },
-    width: 'auto',
-    textAlign: 'left',
-    left: '0dp',
-    top: '500dp',
-    height: 'auto'
-})
 if (win.pictureURL ==='None')
 	//don't display a picture
 	{}
 	//otherwise create and display an imageView
 	else{ var image = Titanium.UI.createImageView({
 	url:win.pictureURL,
-	width:'250dp',
-	height:'250dp',
-	top:'0dp',
-	right:'0dp'});
+	width:pWidth,
+	height:pHeight*.5,
+	top:pHeight*.1,
+	left:'0dp'});
 	
 	win.add(image);
 	};
-var winGreenTourDescriptionLabel = Ti.UI.createLabel({
+
+
+var scrollView = Titanium.UI.createScrollView({ 
+		contentWidth:'auto', 
+		contentHeight:'auto', 
+		top:pHeight*.7, 
+		showVerticalScrollIndicator:true, 
+		showHorizontalScrollIndicator:true }); 
+		
+var winGreenTourDescription = Ti.UI.createLabel({
 	text: win.greentourDesc,
-	color: '#FFFFFF',
+	textAlign: 'left',
+	color: 'white',
     font: {
-        fontSize: '30dp',
+        fontSize: '18dp',
+        color:'#000000',
         fontWeight: 'normal'
     },
-    width: 'auto',
-    textAlign: 'center',
-    top: '100dp',
+    width: pWidth,
+    textAlign: 'left',
+    left: '0dp',
+    top: '0dp',
     height: 'auto'
 });
 
-
+	scrollView.add(winGreenTourDescription);
+	Titanium.UI.currentWindow.add(scrollView);
+		
+win.add(TitleBar);
+win.add(lblTitle);
+win.add(buttonHome);
+win.add(buttonSchedule);
 win.add(winGreenTour);
-win.add(winGreenTourDescriptionLabel);
+

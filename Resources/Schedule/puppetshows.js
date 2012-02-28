@@ -47,7 +47,7 @@ buttonHome.addEventListener('click', function()
 
 
 var winPuppetShowLabel = Ti.UI.createLabel({
-	title:'Events',
+	text:'Puppet Show',
 	backgroundImage: 'schedulebackground.png',
 	textWeight:'strong',
 	textAlign: pWidth*.1,

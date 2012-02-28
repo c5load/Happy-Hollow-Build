@@ -47,7 +47,7 @@ buttonHome.addEventListener('click', function()
 
 
 var winEventsLabel = Ti.UI.createLabel({
-	title:'Events',
+	text:'Events',
 	backgroundImage: 'schedulebackground.png',
 	textWeight:'strong',
 	textAlign: pWidth*.1,

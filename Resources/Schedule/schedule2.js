@@ -29,8 +29,8 @@ var lblTitle=Titanium.UI.createLabel({
 
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'/Schedule/homeresting.png',
-	backgroundSelectedImage:'/Schedule/homeselected.png',
+	backgroundImage:'homeresting.png',
+	backgroundSelectedImage:'homeselected.png',
 	top: pHeight*.02, 
 	left:pWidth*.04,
 	width:pWidth*.19,

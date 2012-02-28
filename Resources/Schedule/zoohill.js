@@ -47,7 +47,7 @@ buttonHome.addEventListener('click', function()
 
 
 var winZooHillLabel = Ti.UI.createLabel({
-	title:'Events',
+	text:'Zoo on the Hill',
 	backgroundImage: '/schedulebackground.png',
 	textWeight:'strong',
 	textAlign: pWidth*.1,

@@ -50,20 +50,6 @@ var buttonSchedule = Titanium.UI.createButton({
 buttonHome.addEventListener('click', function()
 {winSchedule.open();});
 		
-//var imageView = Ti.UI.createImageView({
-//	backgroundImage:'parkmap.png',
-//	width:'auto',
-//	height:pHeight*.8,
-//	top:pHeight*.1,
-//	left:'0dp'
-//});
-
-var scale = Ti.UI.create2DMatrix().scale(1);
-var map=Ti.UI.createWebView({ url:'parkmap.png', transform:scale, size:{ width:pWidth, height:pHeight*.8}, 
-	top:pHeight*.1, scalesPageToFit:true});
-win.add(map);
-
-
 var buttonAnimals = Titanium.UI.createButton({
 	color:'black',
 	backgroundColor:'#595454',
@@ -119,22 +105,79 @@ var buttonFindMe = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
 
+//var mapview = Ti.UI.createImageView({
+//	image:'parkmap.png',
+//	width:'auto',
+//	height:'auto',
+//	top:'0dp',
+//	left:'0dp'
+//	width:pWidth,
+//	height:pHeight*.8,
+//	top:pHeight*.1,
+//	left:'0dp'
+//});
+//win.add(mapview);
 
-    var data = [];
+
+//var lblTest=Titanium.UI.createLabel({
+//	text:"TEST",
+//	textAlign:'bottom',
+//	right:'0', 	
+//	color:'#000000',
+//	font:{
+//		fontSize:'25dp',
+//		fontWeight:'bold',
+//	},
+//	width:pWidth*.5,
+ //   top: '0dp',
+  //  left:'0dp',
+   // height: pHeight*.5
+//});
+//map.add(lblTest);
+
+
+var scale = Ti.UI.create2DMatrix().scale(1);
+var map=Ti.UI.createWebView({image:'parkmap.png', transform:scale, size:{ width:pWidth, height:pHeight*.8}, 
+	top:pHeight*.1, scalesPageToFit:true});
+win.add(map);
+
+
+//var scrollview = Ti.UI.createScrollView({
+//	zoomScale:1,
+//	backgroundImage:'parkmap.png',
+//	top:pHeight*.1,
+ //   height:pHeight*.8,
+  //  width:pWidth,
+    /* left & right work too */
+   // contentHeight:pHeight*.1,
+    //contentWidth:pWidth*.25
+//})
+
+
+//scrollview.add(mapview);
+//win.add(scrollview);
+
+
+//    var data = [];
     
-    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locations.xml');
-	var xmltext = file.read().text;
-	var doc = Ti.XML.parseString(xmltext);
-	var elements = doc.getElementsByTagName("Loc");
+//    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locs.xml');
+//	var xmltext = file.read().text;
+//	var doc = Ti.XML.parseString(xmltext);
+//	var elements = doc.getElementsByTagName("Loc");
 
-    for (var i=0;i<elements.length;i++) {
-    	var mapLabel = Titanium.UI.createLabel({
-    		height: Loc.PixelY,
-    		width: Loc.PixelX,
-    		text: Loc.LocationName  
-    	});
-    	map.add(mapLabel);
-    };
+ //   for (var i=0;i<elements.length;i++) {
+  //  	LocName = doc.getElementsByTagName("LocName").item(i).text;
+   // 	PixelX = doc.getElementsByTagName("PixelX").item(i).text;
+   // 	PixelY = doc.getElementsByTagName("PixelY").item(i).text;
+   // 	var mapLabel = Titanium.UI.createLabel({
+   // 		color:'#000000',
+   // 		top:PixelY/2,
+   // 		left:PixelX/2,
+   // 		text: LocName  
+   // 	});
+   // 	mapview.add(mapLabel);
+   // };
+
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
@@ -144,5 +187,8 @@ win.add(buttonAttractions);
 win.add(buttonFacilities);
 win.add(buttonGreenTour);
 win.add(buttonFindMe);
+//win.add(map);
 //win.add(imageView);
+
+
 

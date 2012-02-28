@@ -9,7 +9,7 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 var win = Ti.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/Facilities/Facilitiesbackground.png',
+	image:'/Facilities/facilitiesbackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
@@ -87,6 +87,22 @@ var winFacility = Ti.UI.createLabel({
     height: pHeight*.15
 })
 
+
+if (win.pictureURL ==='None')
+	//don't display a picture
+	{}
+	//otherwise create and display an imageView
+	else{ var image = Titanium.UI.createImageView({
+	url:win.pictureURL,
+	width:pWidth,
+	height:pHeight*.5,
+	top:pHeight*.1,
+	left:'0dp'});
+	
+	win.add(image);
+	};
+
+
 var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
@@ -112,19 +128,6 @@ var winFacilityDescription = Ti.UI.createLabel({
 		Titanium.UI.currentWindow.add(scrollView);
 		
 		
-if (win.pictureURL ==='None')
-	//don't display a picture
-	{}
-	//otherwise create and display an imageView
-	else{ var image = Titanium.UI.createImageView({
-	url:win.pictureURL,
-	width:'250dp',
-	height:'250dp',
-	top:'0dp',
-	right:'0dp'});
-	
-	win.add(image);
-	};
 	
 //var winFacilityDescriptionLabel = Ti.UI.createLabel({
 //	text: win.facilityDesc,
@@ -144,4 +147,3 @@ win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
 win.add(winFacility);
-win.add(winFacilityDescriptionLabel);

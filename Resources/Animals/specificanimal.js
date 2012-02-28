@@ -109,7 +109,8 @@ if (win.pictureURL ==='None')
 	win.add(image);
 	};
 	
-	var scrollView = Titanium.UI.createScrollView({ 
+	var scrollView = Titanium.UI.createScrollView({
+		backgroundcolor:'#FFFFFF', 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
 		top:pHeight*.7, 

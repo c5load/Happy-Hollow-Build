@@ -47,7 +47,7 @@ buttonHome.addEventListener('click', function()
 
 
 var winZooHollowLabel = Ti.UI.createLabel({
-	title:'Events',
+	text:'Zoo in the Hollow',
 	backgroundImage: 'schedulebackground.png',
 	textWeight:'strong',
 	textAlign: pWidth*.1,

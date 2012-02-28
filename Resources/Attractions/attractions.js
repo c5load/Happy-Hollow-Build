@@ -72,17 +72,18 @@ xhr.onload = function()
     var data = [];
     var doc = this.responseXML.documentElement;
     var elements = doc.getElementsByTagName("AttractionName");
+    
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
-        	height:'80dp',
+        	height:pHeight*.13,
         	backgroundImage: '../backgroundresting.png',
         	selectedBackgroundImage: '../ridesattractionsbackground.png'        	
         });
         row.title = elements.item(i).getAttribute("AttractionName");
         desc = doc.getElementsByTagName("AttractionName").item(i).text;
         attractionDesc = doc.getElementsByTagName("Description").item(i).text;
-        attractionLocation = doc.getElementsByTagName("Location").item(i).text;
+        attractionLocation = doc.getElementsByTagName("Loc").item(i).text;
         attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
         attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
         attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
@@ -91,19 +92,19 @@ xhr.onload = function()
         	text: desc,
         	color:'#000000',
         	font:{fontSize:'20dp'},
+			height:pHeight*.13,
         	textAlign:'left',
-        	left:'100dp'        	
+        	left:pWidth*.23         	
         });
         
         var attractionImage = Ti.UI.createImageView({
         	url:attractionThumbnail,
-        	height: '60dp',
-        	width: '60dp',
-        	left: '0dp'
-        });
-        
+        	height: pHeight*.18,
+        	width: pHeight*.18,
+        	left: pWidth*.025
+        });       
+        row.add(attractionImage);        
         row.add(attractionLabel);
-        row.add(attractionImage);
         row.item = desc;
         row.item2 = attractionDesc;
         row.item3 = attractionLocation;
@@ -124,7 +125,7 @@ xhr.onload = function()
 			url:'specificattraction.js',
 			navBarHidden:true, 
    			title:'',
-   			backgroundcolor:'black',
+   			backgroundcolor:'#FFFFFF',
    			fullscreen:true });
 			var b = Titanium.UI.createButton({
 				title:'Close',
@@ -149,5 +150,6 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
-xhr.open('GET','http://hhpz.org/mobile/xml/export.xml');
+xhr.open('GET','http://hhpz.org/mobile/xml/Attractions.xml');
 xhr.send();//declare the http client object
+

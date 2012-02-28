@@ -3,16 +3,7 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 
 //
 //create windows
-var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: 'winmenu.js',
-    navBarHidden:true,
-    fullscreen : true,  
-    exitOnClose: true,
-    navBarHidden: true
-});
-
+var win = Titanium.UI.currentWindow;
 
 var winParkMap = Titanium.UI.createWindow({
     title:'Park Map',
@@ -153,15 +144,15 @@ var buttonContactUs = Titanium.UI.createButton({
 buttonContactUs.addEventListener('click', function()
 {winContactUs.open();});
 			
-winHomeScreen.add(buttonParkMap);
-winHomeScreen.add(buttonAnimals);
-winHomeScreen.add(buttonRidesAttractions);
-winHomeScreen.add(buttonGreenTour);
-winHomeScreen.add(buttonFacilities);
-winHomeScreen.add(buttonSchedule);
-winHomeScreen.add(buttonContactUs);
+win.add(buttonParkMap);
+win.add(buttonAnimals);
+win.add(buttonRidesAttractions);
+win.add(buttonGreenTour);
+win.add(buttonFacilities);
+win.add(buttonSchedule);
+win.add(buttonContactUs);
 
-winHomeScreen.open();
+
 
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
@@ -226,3 +217,5 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         xhr.send();
     };
     
+win.addEventListener('android:back', function() {  
+win.close();});

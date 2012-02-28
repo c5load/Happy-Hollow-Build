@@ -74,14 +74,14 @@ xhr.onload = function()
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
-        	height:'80dp',
+        	height:pHeight*.13,
         	backgroundImage: '../backgroundresting.png',
-        	selectedBackgroundImage: '/GreenTour/greentourbackground.png'        	
+        	selectedBackgroundImage: 'greentourbackground.png'        	
         });
         row.title = elements.item(i).getAttribute("GreenTourName");
         desc = doc.getElementsByTagName("GreenTourName").item(i).text;
         greentourDesc = doc.getElementsByTagName("Description").item(i).text;
-        greentourLocation = doc.getElementsByTagName("Location").item(i).text;
+        greentourLocation = doc.getElementsByTagName("Loc").item(i).text;
 		greentourPicture=doc.getElementsByTagName("PictureURL").item(i).text;
         greentourThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
                
@@ -89,15 +89,16 @@ xhr.onload = function()
         	text: desc,
         	color:'#000000',
         	font:{fontSize:'20dp'},
+        	height:pHeight*.13,
         	textAlign:'left',
-        	left:'100dp'
+        	left:pWidth*.23  
         });
         
         var greentourImage = Ti.UI.createImageView({
         	url: greentourThumbnail,
-        	height: '60dp',
-        	width: '60dp',
-        	left: '0dp'
+        	height:pWidth*.18,
+        	width:pWidth*.18,
+        	left: pWidth*.025  
         });
         
         row.add(greentourLabel);
@@ -109,6 +110,8 @@ xhr.onload = function()
         data.push(row);}
    
     var tableview = Titanium.UI.createTableView({
+        backgroundImage: '../backgroundresting.png',
+        selectedBackgroundImage: 'greentourbackground.png',
     	top:pHeight*.1,
        data:data,
        height:'auto',
@@ -148,5 +151,5 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
-xhr.open('GET','http://hhpz.org/mobile/xml/export.xml');
+xhr.open('GET','http://hhpz.org/mobile/xml/greentour.xml');
 xhr.send();//declare the http client object

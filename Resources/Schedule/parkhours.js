@@ -47,7 +47,7 @@ buttonHome.addEventListener('click', function()
 
 
 var winParkHoursLabel = Ti.UI.createLabel({
-	title:'Events',
+	text:'Park Hours',
 	backgroundImage: 'schedulebackground.png',
 	textWeight:'strong',
 	textAlign: pWidth*.1,

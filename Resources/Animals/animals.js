@@ -4,6 +4,15 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
 Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
+var winHomeScreen = Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/homescreen.js',
+    fullscreen : true,  
+    exitOnClose: true,
+    navBarHidden: true
+});
+
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
@@ -37,15 +46,7 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{var winHomeScreen=Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/app.js',
-    navBarHidden:true,
-    fullscreen : true,  
-    navBarHidden: true
-});
-	winHomeScreen.open();});
+{winHomeScreen.open();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -59,7 +60,7 @@ buttonHome.addEventListener('click', function()
 {var winSchedule=Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/schedule2.js',
+    url: '/app/Schedule/schedule2.js',
     navBarHidden:true,
     fullscreen : true,  
 });
@@ -77,7 +78,7 @@ buttonHome.addEventListener('click', function()
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
-        	height:'80dp',
+        	height:pHeight*.13,
         	backgroundImage: '../backgroundresting.png',
         	selectedBackgroundImage: '/Animals/animalsbackground.png'
         });
@@ -96,15 +97,15 @@ buttonHome.addEventListener('click', function()
         	text: desc,
         	color: '#000000',
         	font:{fontSize:'20dp'},
-        	height: '60dp',
+        	height: pHeight*.13,
         	textAlign:'left',
-        	left:'100dp'
+        	left:pWidth*.23  
         });
         var animalImage = Ti.UI.createImageView({
         	url: animalPicture,
-        	height: '60dp',
-        	width: '60dp',
-        	left: '0dp'
+        	height: pWidth*.18,
+        	width: pWidth*.18,
+        	left: pWidth*.025
         });
         row.add(animalLabel);
         row.add(animalImage);
@@ -158,7 +159,19 @@ win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
 
-
+win.addEventListener('android:back', function() {  
+//var winHomeScreen = Titanium.UI.createWindow({
+//	backgroundimage:'/default.png',
+ //   title:'Animals',
+  //  navBarHidden:true,
+   // backgroundColor:'#FFFFFF',
+   // url: '/app.js',
+   // exitOnClose:true,
+    //fullscreen : true});
+           winHomeScreen.open(); 
+           win.close();             
+            });
+            
 //declare the http client object
 
 

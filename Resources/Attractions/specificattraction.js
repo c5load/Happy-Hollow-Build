@@ -80,20 +80,28 @@ var winAttractionLabel = Ti.UI.createLabel({
     height: pHeight*.15
 })
 
-
-if (win.pictureURL ==='None')
-	//don't display a picture
-	{}
-	//otherwise create and display an imageView
-	else{ var image = Titanium.UI.createImageView({
-	url:win.pictureURL,
+var image1 = Titanium.UI.createImageView({
+	url:'http://hhpz.org/mobile/images/TestAttraction.png',
 	width:pWidth,
 	height:pHeight*.5,
 	top:pHeight*.1,
-	left:'0dp'});
+	left:'0dp'
+});
+win.add(image1);
+
+//if (win.pictureURL ==='None')
+	//don't display a picture
+//	{}
+	//otherwise create and display an imageView
+//	else{ var image = Titanium.UI.createImageView({
+//	url:win.pictureURL,
+//	width:pWidth,
+//	height:pHeight*.5,
+//	top:pHeight*.1,
+//	left:'0dp'});
 	
-	win.add(image);
-	};
+//	win.add(image);
+//	};
 	
 	var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 

@@ -74,14 +74,14 @@ xhr.onload = function()
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
-        	height:'80dp',
+        	height:pHeight*.13,
         	backgroundImage: '../backgroundresting.png',
         	selectedBackgroundImage: '/Facilities/facilitiesbackground.png'
         });
         row.title = elements.item(i).getAttribute("FacilityName");
         desc = doc.getElementsByTagName("FacilityName").item(i).text;
         facilityDesc = doc.getElementsByTagName("Description").item(i).text;
-        facilityLocation = doc.getElementsByTagName("Location").item(i).text;
+        facilityLocation = doc.getElementsByTagName("Loc").item(i).text;
         facilityPicture = doc.getElementsByTagName("PictureURL").item(i).text;
 		facilityThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
        
@@ -90,15 +90,16 @@ xhr.onload = function()
         	text: desc,
         	color:'#000000',
         	font:{fontSize:'20dp'},
+        	height:pHeight*.13,
         	textAlign:'left',
-        	left:'100dp'
+        	left:pWidth*.23  
         });
         
             var facilityImage = Ti.UI.createImageView({
         	url: facilityThumbnail,
-        	height: '60dp',
-        	width: '60dp',
-        	left: '0dp'
+        	height:pWidth*.18,
+        	width:pWidth*.18,
+        	left: pWidth*.025  
         });
         
         row.add(facilityLabel);
@@ -119,10 +120,10 @@ xhr.onload = function()
     tableview.addEventListener('click',function(e)
 		{
 			var w = Ti.UI.createWindow({
+   			backgroundcolor:'#FFFFFF',
 			url:'specificFacility.js', 
 			navBarHidden:true,
    			title:'',
-   			backgroundcolor:'#FFFFFF',
    			fullscreen:true });
 			var b = Titanium.UI.createButton({
 				title:'Close',
@@ -149,5 +150,5 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
-xhr.open('GET','http://hhpz.org/mobile/xml/export.xml');
+xhr.open('GET','http://hhpz.org/mobile/xml/facilities.xml');
 xhr.send();//declare the http client object
