@@ -5,12 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 1.098000 seconds on emulator to get ready
-[INFO] Waiting for the Android Emulator to become available
+[DEBUG] waited 0.139000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Animals\animals.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Animals\animals.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\app.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\app.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\map.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\map.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
@@ -96,10 +94,12 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/ParkMap/homeresting.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/homeselected.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/mainparkmapbar.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/map.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap2.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap3.js
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmap4.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapbackground.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapicon.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapiconcolor.png
@@ -108,13 +108,21 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/ParkMap/scheduleresting.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/scheduleselected.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/version.js
+[DEBUG] from resource zip => assets/Resources/Schedule/dannythedragon.js
 [DEBUG] from resource zip => assets/Resources/Schedule/events.js
+[DEBUG] from resource zip => assets/Resources/Schedule/froghopper.js
+[DEBUG] from resource zip => assets/Resources/Schedule/grannybugs.js
 [DEBUG] from resource zip => assets/Resources/Schedule/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/homeselected.png
+[DEBUG] from resource zip => assets/Resources/Schedule/keeparoundcarousel.js
+[DEBUG] from resource zip => assets/Resources/Schedule/kiddieswing.js
 [DEBUG] from resource zip => assets/Resources/Schedule/mainschedulebar.png
+[DEBUG] from resource zip => assets/Resources/Schedule/miniputtputt.js
+[DEBUG] from resource zip => assets/Resources/Schedule/pacificfruitexpress.js
 [DEBUG] from resource zip => assets/Resources/Schedule/parkhours.js
 [DEBUG] from resource zip => assets/Resources/Schedule/puppetshows.js
 [DEBUG] from resource zip => assets/Resources/Schedule/rideschedule.js
+[DEBUG] from resource zip => assets/Resources/Schedule/rideschedule2.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedule2.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedulebackground.png
@@ -123,6 +131,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/Schedule/schedulerest.png
 [DEBUG] from resource zip => assets/Resources/Schedule/scheduleselect.png
 [DEBUG] from resource zip => assets/Resources/Schedule/specificSchedule.js
+[DEBUG] from resource zip => assets/Resources/Schedule/teamkids.js
 [DEBUG] from resource zip => assets/Resources/Schedule/zoohill.js
 [DEBUG] from resource zip => assets/Resources/Schedule/zoohollow.js
 [DEBUG] from resource zip => assets/Resources/app.js
@@ -164,6 +173,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.226000 seconds on emulator to get ready
+[DEBUG] waited 0.194000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

@@ -1,12 +1,12 @@
-
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
 Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
-
 var win = Titanium.UI.currentWindow;
 
+
+//declare title bar and buttons
 var TitleBar=Titanium.UI.createImageView({
 	image:'/ParkMap/parkmapbackground.png',
     width: pWidth,
@@ -52,24 +52,7 @@ buttonHome.addEventListener('click', function()
 {winSchedule.open();});
 
 
-
-
-var scale = Ti.UI.create2DMatrix().scale(1);
-var map=Ti.UI.createWebView({ 
-	url:'parkmap.png', 
-	transform:scale, 
-	size:{ 
-		width:'auto', 
-		height:'auto'},
-	top:pHeight*.1,
-	bottom:pHeight*.9,
-	scalesPageToFit:true
-	});
-	
-
-
-
-
+//declare bottom tabs/buttons
 var buttonAnimals = Titanium.UI.createButton({
 	color:'black',
 	backgroundColor:'#595454',
@@ -125,79 +108,52 @@ var buttonFindMe = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
 
-//var mapview = Ti.UI.createImageView({
-//	image:'parkmap.png',
-//	width:'auto',
-//	height:'auto',
-//	top:'0dp',
-//	left:'0dp'
-//	width:pWidth,
-//	height:pHeight*.8,
-//	top:pHeight*.1,
-//	left:'0dp'
-//});
-//win.add(mapview);
 
 
-//var lblTest=Titanium.UI.createLabel({
-//	text:"TEST",
-//	textAlign:'bottom',
-//	right:'0', 	
-//	color:'#000000',
-//	font:{
-//		fontSize:'25dp',
-//		fontWeight:'bold',
-//	},
-//	width:pWidth*.5,
- //   top: '0dp',
-  //  left:'0dp',
-   // height: pHeight*.5
-//});
-//map.add(lblTest);
+//declare map; shrunk down a bit to accomodate 
+var mapimage =  Titanium.UI.createImageView({
+  url:'parkmap.png',
+  height:2808/1.5,
+  width:2064/1.5
+  });
 
 
-var scale = Ti.UI.create2DMatrix().scale(1);
-var map=Ti.UI.createWebView({image:'parkmap.png', transform:scale, size:{ width:pWidth, height:pHeight*.8}, 
-	top:pHeight*.1, scalesPageToFit:true});
-win.add(map);
+//declare horizontal scrollview
+var scrollViewHorizontal =  Titanium.UI.createScrollView({
+  height:'auto',
+  width:'auto',
+  top:'0dp',
+  borderRadius:0,
+  contentHeight:'auto',
+  scrollType:'horizontal',
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+  minZoomScale:1,  
+  maxZoomScale:15, 
+  zoomScale:1,
+  oldZoom:1
+});
+
+//add map into horizontal scrollview
+scrollViewHorizontal.add(mapimage);
+
+//declare vertical scrollview
+var scrollViewVertical =  Titanium.UI.createScrollView({
+  height:pHeight*.8,
+  width:pWidth,
+  top:pHeight*.1,
+  borderRadius:0,
+  contentWidth:pWidth,
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+  minZoomScale:1,  
+  maxZoomScale:15, 
+  zoomScale:1,
+  oldZoom:1
+});
 
 
-//var scrollview = Ti.UI.createScrollView({
-//	zoomScale:1,
-//	backgroundImage:'parkmap.png',
-//	top:pHeight*.1,
- //   height:pHeight*.8,
-  //  width:pWidth,
-    /* left & right work too */
-   // contentHeight:pHeight*.1,
-    //contentWidth:pWidth*.25
-//})
-
-
-//scrollview.add(mapview);
-//win.add(scrollview);
-
-
-//    var data = [];
-
-//    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locs.xml');
-//	var xmltext = file.read().text;
-//	var doc = Ti.XML.parseString(xmltext);
-//	var elements = doc.getElementsByTagName("Loc");
-
- //   for (var i=0;i<elements.length;i++) {
-  //  	LocName = doc.getElementsByTagName("LocName").item(i).text;
-   // 	PixelX = doc.getElementsByTagName("PixelX").item(i).text;
-   // 	PixelY = doc.getElementsByTagName("PixelY").item(i).text;
-   // 	var mapLabel = Titanium.UI.createLabel({
-   // 		color:'#000000',
-   // 		top:PixelY/2,
-   // 		left:PixelX/2,
-   // 		text: LocName  
-   // 	});
-   // 	mapview.add(mapLabel);
-   // };
-
+//put locations into map, not sure what the ratio for pixels is...right now it's kind of trial and error
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locations.xml');
 	var xmltext = file.read().text;
 	var doc = Ti.XML.parseString(xmltext);
@@ -208,15 +164,22 @@ win.add(map);
         PixelY = doc.getElementsByTagName("PixelY").item(i).text;
         LocationName = doc.getElementsByTagName("LocationName").item(i).text;
     	var mapLabel = Titanium.UI.createLabel({
-    		top: PixelY/2,
-    		left: PixelX/2,
-    		text: LocationName,  
+    		top: PixelY/2/2,
+    		left: PixelX/2/2,
+    		width:pWidth*.1,
+    		text: LocationName,
+        	font:{fontSize:'10dp'},    		  
     		color: '#000000'
     	});
-    	mapimage.add(mapLabel);
+    	scrollViewHorizontal.add(mapLabel);
     };
 
 
+//put horizontal scrollview into vertical scrollview and add to window
+scrollViewVertical.add(scrollViewHorizontal);
+win.add(scrollViewVertical);
+   
+ 
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
@@ -226,12 +189,3 @@ win.add(buttonAttractions);
 win.add(buttonFacilities);
 win.add(buttonGreenTour);
 win.add(buttonFindMe);
-
-//win.add(map);
-//win.add(imageView);
-
-
-
-
-win.add(map); 
-

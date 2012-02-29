@@ -46,7 +46,9 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{winHomeScreen.open();});
+{
+	win.close();
+	});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -111,7 +113,7 @@ buttonHome.addEventListener('click', function()
         row.item = desc;
         row.item2 = animalDesc;
         row.item3 = animalScientific;
-        row.item4 = animalClass;
+//        row.item4 = animalClass;
         row.item5 = animalLocation;
         row.item6 = animalYoutube;
         row.item7 = animalPicture;
