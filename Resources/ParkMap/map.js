@@ -6,6 +6,25 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 var win = Titanium.UI.currentWindow;
 
 
+var winHomeScreen = Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/homescreen.js',
+    fullscreen : true,  
+    exitOnClose: true,
+    navBarHidden: true
+});
+
+var winSchedule = Titanium.UI.createWindow({
+    title:'Schedule',
+    backgroundColor:'#FFFFFF',
+    url: '/Schedule/schedule2.js',
+    fullscreen : true,  
+    exitOnClose: true,
+    navBarHidden: true
+});
+
+
 //declare title bar and buttons
 var TitleBar=Titanium.UI.createImageView({
 	image:'/ParkMap/parkmapbackground.png',

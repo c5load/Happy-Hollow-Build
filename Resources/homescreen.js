@@ -9,7 +9,7 @@ var winParkMap = Titanium.UI.createWindow({
     title:'Park Map',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'ParkMap/parkmap2.js',
+    url: 'ParkMap/map.js',
     fullscreen : true,});
 
 var winAnimals = Titanium.UI.createWindow({
