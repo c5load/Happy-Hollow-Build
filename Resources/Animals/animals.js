@@ -47,6 +47,7 @@ var buttonHome = Titanium.UI.createButton({
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {
+	winHomeScreen.open();
 	win.close();
 	});
 
@@ -88,6 +89,7 @@ buttonHome.addEventListener('click', function()
         desc = doc.getElementsByTagName("AnimalName").item(i).text;
         animalDesc = doc.getElementsByTagName("Description").item(i).text;
         animalScientific = doc.getElementsByTagName("ScientificName").item(i).text;
+        animalClass = doc.getElementsByTagName("Class").item(i).text;        
  		animalLocation = doc.getElementsByTagName("Loc").item(i).text;
         animalYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
         animalPicture = doc.getElementsByTagName("PictureURL").item(i).text;
@@ -113,7 +115,7 @@ buttonHome.addEventListener('click', function()
         row.item = desc;
         row.item2 = animalDesc;
         row.item3 = animalScientific;
-//        row.item4 = animalClass;
+        row.item4 = animalClass;
         row.item5 = animalLocation;
         row.item6 = animalYoutube;
         row.item7 = animalPicture;

@@ -18,7 +18,7 @@ var winParkMap = Titanium.UI.createWindow({
     title:'Park Map',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'ParkMap/map.js',
+    url: 'ParkMap/map2.js',
     fullscreen : true,});
 
 var winAnimals = Titanium.UI.createWindow({
@@ -163,6 +163,13 @@ winHomeScreen.add(buttonContactUs);
 
 winHomeScreen.open();
 
+var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
+if (file.exists()) { file.deleteFile(); }
+
+var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
+if (file.exists()) { file.deleteFile(); }
+
+
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("POST","http://markmyers.me/hhpz/xml/Animals.xml");
@@ -207,15 +214,15 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
 
 
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
-        var xhr = Ti.Network.createHTTPClient();
-        xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
-        xhr.onerror = function(e) {
+       var xhr = Ti.Network.createHTTPClient();
+       xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
+       xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {
-            try {
+           try {
 				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
 				f.write(this.responseData);
 				Ti.API.info(this.responseText); // check the file content on TI info panel.
