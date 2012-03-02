@@ -14,57 +14,6 @@ var winHomeScreen = Titanium.UI.createWindow({
 });
 
 
-var winParkMap = Titanium.UI.createWindow({
-    title:'Park Map',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'ParkMap/map2.js',
-    fullscreen : true,});
-
-var winAnimals = Titanium.UI.createWindow({
-    title:'Animals',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'Animals/animals.js',
-    fullscreen : true});
-
-var winRidesAttractions = Titanium.UI.createWindow({
-    title:'Rides & Attractions',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions.js',
-    fullscreen : true,});
-
-var winGreenTour = Titanium.UI.createWindow({
-    title:'Green Tour',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: '/GreenTour/greentour.js',
-    fullscreen : true,});
-
-var winFacilities = Titanium.UI.createWindow({
-    title:'Facilities',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: 'Facilities/facilities.js',
-    fullscreen : true,});
-
-var winSchedule = Titanium.UI.createWindow({
-    title:'Schedule',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: 'Schedule/schedule2.js',
-    fullscreen : true,});
-
-var winContactUs = Titanium.UI.createWindow({
-    title:'Contact Us',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: 'ContactUs/contactus.js',
-    fullscreen : true,});
-
-//create button labels
-
 //create buttons
 var buttonParkMap = Titanium.UI.createButton({
 	color:'#fff',
@@ -75,8 +24,16 @@ var buttonParkMap = Titanium.UI.createButton({
 	height:(pHeight/7),
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Park Map'});
+	
 buttonParkMap.addEventListener('click', function()
-{winParkMap.open();});
+{var winParkMap = Titanium.UI.createWindow({
+    title:'Park Map',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'ParkMap/map2.js',
+    fullscreen : true,});
+winParkMap.addEventListener('close', function(){winParkMap = null;});
+winParkMap.open();});
 
 var buttonAnimals = Titanium.UI.createButton({
 	color:'#fff',
@@ -89,7 +46,16 @@ var buttonAnimals = Titanium.UI.createButton({
 	title:'Animals'});
 
 buttonAnimals.addEventListener('click', function()
-{winAnimals.open();});
+{var winAnimals = Titanium.UI.createWindow({
+    title:'Animals',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'Animals/animals.js',
+    fullscreen : true});
+winAnimals.addEventListener('close', function(){winAnimals = null;});
+	
+	winAnimals.open();
+	});
 
 var buttonRidesAttractions = Titanium.UI.createButton({
 	color:'#fff',
@@ -102,7 +68,16 @@ var buttonRidesAttractions = Titanium.UI.createButton({
 	title:'Rides & Attractions'});
 
 buttonRidesAttractions.addEventListener('click', function()
-{winRidesAttractions.open();});
+{
+	var winRidesAttractions = Titanium.UI.createWindow({
+    title:'Rides & Attractions',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'Attractions/attractions.js',
+    fullscreen : true,});
+winRidesAttractions.addEventListener('close', function(){winAnimals = null;});
+    
+	winRidesAttractions.open();});
 	
 var buttonGreenTour = Titanium.UI.createButton({
 	color:'#fff',
@@ -114,7 +89,15 @@ var buttonGreenTour = Titanium.UI.createButton({
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Green Tour'});	
 buttonGreenTour.addEventListener('click', function()
-{winGreenTour.open();});
+{
+	var winGreenTour = Titanium.UI.createWindow({
+    title:'Green Tour',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: '/GreenTour/greentour.js',
+    fullscreen : true,});
+ winGreenTour.addEventListener('close', function(){winGreenTour = null;});   
+	winGreenTour.open();});
 	
 var buttonFacilities = Titanium.UI.createButton({
 	color:'#fff',
@@ -127,7 +110,15 @@ var buttonFacilities = Titanium.UI.createButton({
 	title:'Facilities'});	
 	
 buttonFacilities.addEventListener('click', function()
-{winFacilities.open();});
+{
+var winFacilities = Titanium.UI.createWindow({
+    title:'Facilities',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: 'Facilities/facilities.js',
+    fullscreen : true,});	
+ winFacilities.addEventListener('close', function(){winFacilities = null;}); 
+	winFacilities.open();});
 	
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -139,7 +130,15 @@ var buttonSchedule = Titanium.UI.createButton({
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Schedule'});
 buttonSchedule.addEventListener('click', function()
-{winSchedule.open();});
+{
+	var winSchedule = Titanium.UI.createWindow({
+    title:'Schedule',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: 'Schedule/schedule2.js',
+    fullscreen : true,});
+ winSchedule.addEventListener('close', function(){winSchedule = null;});     
+	winSchedule.open();});
 	
 var buttonContactUs = Titanium.UI.createButton({
 	color:'#fff',
@@ -151,7 +150,15 @@ var buttonContactUs = Titanium.UI.createButton({
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Contact Us'});
 buttonContactUs.addEventListener('click', function()
-{winContactUs.open();});
+{
+	var winContactUs = Titanium.UI.createWindow({
+    title:'Contact Us',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: 'ContactUs/contactus.js',
+    fullscreen : true,});
+ winContactUs.addEventListener('close', function(){winContactUs = null;});     
+	winContactUs.open();});
 			
 winHomeScreen.add(buttonParkMap);
 winHomeScreen.add(buttonAnimals);

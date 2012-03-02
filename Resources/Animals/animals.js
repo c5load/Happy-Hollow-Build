@@ -4,14 +4,6 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
 Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
-var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    fullscreen : true,  
-    exitOnClose: true,
-    navBarHidden: true
-});
 
 var win = Titanium.UI.currentWindow;
 
@@ -47,7 +39,6 @@ var buttonHome = Titanium.UI.createButton({
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {
-	winHomeScreen.open();
 	win.close();
 	});
 
@@ -136,6 +127,7 @@ buttonHome.addEventListener('click', function()
    			title:'',
    			backgroundcolor:'black',
    			fullscreen:true });
+   			w.addEventListener('close', function(){w = null;}); 
 			var b = Titanium.UI.createButton({
 				title:'Close',
 				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
@@ -163,15 +155,6 @@ win.add(buttonHome);
 win.add(buttonSchedule);
 
 win.addEventListener('android:back', function() {  
-//var winHomeScreen = Titanium.UI.createWindow({
-//	backgroundimage:'/default.png',
- //   title:'Animals',
-  //  navBarHidden:true,
-   // backgroundColor:'#FFFFFF',
-   // url: '/app.js',
-   // exitOnClose:true,
-    //fullscreen : true});
-           winHomeScreen.open(); 
            win.close();             
             });
             
