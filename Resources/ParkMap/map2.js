@@ -5,6 +5,34 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
 var win = Titanium.UI.currentWindow;
 
+//create views for each category
+var animals=Titanium.UI.createView({
+  opacity:.25,
+  height:'auto',
+  width:'auto',
+  top:'0dp'	
+});
+
+var attractions=Titanium.UI.createView({
+  opacity:.25,
+  height:'auto',
+  width:'auto',
+  top:'0dp'		
+});
+
+var facilities=Titanium.UI.createView({
+  opacity:.25,
+  height:'auto',
+  width:'auto',
+  top:'0dp'		
+});
+
+var greentour=Titanium.UI.createView({
+  opacity:.25,
+  height:'auto',
+  width:'auto',
+  top:'0dp'	
+});
 
 var winHomeScreen = Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
@@ -70,6 +98,11 @@ var buttonSchedule = Titanium.UI.createButton({
 buttonHome.addEventListener('click', function()
 {winSchedule.open();});
 
+//declare variables
+var animalsopened=false;
+var attractionsopened=false;
+var facilitiesopened=false;
+var greentouropened=false;
 
 //declare bottom tabs/buttons
 var buttonAnimals = Titanium.UI.createButton({
@@ -83,7 +116,39 @@ var buttonAnimals = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Animals'});	
 buttonAnimals.addEventListener('click', function()
-{	});
+{
+	if (animalsopened=true){
+		animals.hide(); 
+		animalsopened=false;
+	}
+	else {
+//		scrollViewHorizontal.add(animals); 
+//		animalsopened=true;
+       if (Category == "Animal"){
+    	var mapIconAnimal = Titanium.UI.createImageView({
+    		url:'animals.png',
+    		top: (PixelY/2/1.5)-(pWidth*.15)/2,
+    		left: (PixelX/2/1.5)-(pWidth*.15)/2,
+    		width:pWidth*.125,
+    		pHeight:pWidth*.125,
+    	});
+    	
+    	var mapLabelAnimal=Titanium.UI.createLabel({
+     		top: (PixelY/2/1.5),
+    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+    		width:pWidth*.18,
+    		pHeight:pWidth*.1,
+    		text: LocationName,
+        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
+    		color: '#000000'   		
+    	})
+    	animals.add(mapIconAnimal);
+    	animals.add(mapLabelAnimal);
+    	scrollViewHorizontal.add(animals);
+    	animalsopened=true;
+    };
+	}
+});
 
 var buttonAttractions = Titanium.UI.createButton({
 	color:'black',
@@ -94,7 +159,18 @@ var buttonAttractions = Titanium.UI.createButton({
 	height:pHeight*.11,
 	left:pWidth*.2,
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	title:'Attractions'});	
+	title:'Attractions'});
+buttonAttractions.addEventListener('click', function()
+{
+	if (attractionsopened=true){
+		attractions.hide(); 
+		attractionsopened=false;
+	}
+	else {
+		scrollViewHorizontal.add(attractions); 
+		attractionsopened=true;
+	}
+});
 
 var buttonFacilities = Titanium.UI.createButton({
 	color:'black',
@@ -106,6 +182,17 @@ var buttonFacilities = Titanium.UI.createButton({
 	left:pWidth*.4,
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Facilities'});		
+buttonFacilities.addEventListener('click', function()
+{
+	if (facilitiesopened=true){
+		facilities.hide(); 
+		facilitiesopened=false;
+	}
+	else {
+		scrollViewHorizontal.add(facilities); 
+		facilitiesopened=true;
+	}
+});
 
 var buttonGreenTour = Titanium.UI.createButton({
 	color:'black',
@@ -117,6 +204,17 @@ var buttonGreenTour = Titanium.UI.createButton({
 	left:pWidth*.6,
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Animals'});	
+buttonGreenTour.addEventListener('click', function()
+{
+	if (greentouropened=true){
+		greentour.hide(); 
+		greentouropened=false;
+	}
+	else {
+		scrollViewHorizontal.add(greentour); 
+		greentouropened=true;
+	}
+});
 
 var buttonFindMe = Titanium.UI.createButton({
 	color:'black',
@@ -174,6 +272,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 });
 
 
+
 //put locations into map, not sure what the ratio for pixels is...right now it's kind of trial and error
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Locations.xml');
 	var xmltext = file.read().text;
@@ -204,8 +303,10 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	})
-    	scrollViewHorizontal.add(mapIconAnimal);
-    	scrollViewHorizontal.add(mapLabelAnimal);
+    	animals.add(mapIconAnimal);
+    	animals.add(mapLabelAnimal);
+    	scrollViewHorizontal.add(animals);
+    	animalsopened=true;
     };
     
         if (Category == "Attraction"){
@@ -226,8 +327,10 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	})
-    	scrollViewHorizontal.add(mapIconAttraction);
-    	scrollViewHorizontal.add(mapLabelAttraction);
+		attractions.add(mapIconAttraction);
+		attractions.add(mapLabelAttraction);
+		scrollViewHorizontal.add(attractions);
+		attractionsopened=true;
     };
     
         if (Category == "Facility"){
@@ -248,8 +351,10 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	})
-    	scrollViewHorizontal.add(mapIconFacility);
-    	scrollViewHorizontal.add(mapLabelFacility);
+		facilities.add(mapIconFacility);
+		facilities.add(mapLabelFacility);
+		scrollViewHorizontal.add(facilities);
+		facilitiesopened=true;
     };
     
         if (Category == "Green Tour"){
@@ -270,8 +375,10 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	})
-    	scrollViewHorizontal.add(mapIconGreenTour);
-    	scrollViewHorizontal.add(mapLabelGreenTour);
+		greentour.add(mapIconGreenTour);
+		greentour.add(mapLabelGreenTour);
+		scrollViewHorizontal.add(greentour);
+		greentouropened=true;
     };}
 
 

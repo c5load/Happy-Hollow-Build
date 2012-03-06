@@ -125,6 +125,7 @@ xhr.onload = function()
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
+   			w.addEventListener('close', function(){w = null;}); 
 			var b = Titanium.UI.createButton({
 				title:'Close',
 				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
