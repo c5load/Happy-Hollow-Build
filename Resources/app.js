@@ -64,7 +64,7 @@ var buttonRidesAttractions = Titanium.UI.createButton({
 	top:(pHeight/7)*2,
 	width:pWidth,
 	height:(pHeight/7),
-	font:{fontSize:'23dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
+	font:{fontSize:'20dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Rides & Attractions'});
 
 buttonRidesAttractions.addEventListener('click', function()

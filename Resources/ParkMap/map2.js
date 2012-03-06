@@ -34,24 +34,6 @@ var greentour=Titanium.UI.createView({
   top:'0dp'	
 });
 
-var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    fullscreen : true,  
-    exitOnClose: true,
-    navBarHidden: true
-});
-
-var winSchedule = Titanium.UI.createWindow({
-    title:'Schedule',
-    backgroundColor:'#FFFFFF',
-    url: '/Schedule/schedule2.js',
-    fullscreen : true,  
-    exitOnClose: true,
-    navBarHidden: true
-});
-
 
 //declare title bar and buttons
 var TitleBar=Titanium.UI.createImageView({
@@ -85,7 +67,7 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{winHomeScreen.open();});
+{win.close();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -95,8 +77,17 @@ var buttonSchedule = Titanium.UI.createButton({
 	left:pWidth*.78,
 	width:pWidth*.17,
 	height:pHeight*.07,});
-buttonHome.addEventListener('click', function()
-{winSchedule.open();});
+buttonSchedule.addEventListener('click', function()
+{
+	var winSchedule = Titanium.UI.createWindow({
+    title:'Schedule',
+    backgroundColor:'#FFFFFF',
+    url: '/Schedule/schedule2.js',
+    fullscreen : true,  
+    exitOnClose: true,
+    navBarHidden: true});
+winSchedule.addEventListener('close', function(){winSchedule = null;});
+winSchedule.open();});
 
 //declare variables
 var animalsopened=false;
@@ -106,8 +97,8 @@ var greentouropened=false;
 
 //declare bottom tabs/buttons
 var buttonAnimals = Titanium.UI.createButton({
-	color:'black',
-	backgroundColor:'#595454',
+	color:'#FFFFFF',
+	borderColor:'#333333',
 	backgroundImage:'/Animals/animaliconscolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
@@ -118,41 +109,18 @@ var buttonAnimals = Titanium.UI.createButton({
 buttonAnimals.addEventListener('click', function()
 {
 	if (animalsopened=true){
-		animals.hide(); 
 		animalsopened=false;
+		animals.visible=false; 
 	}
-	else {
-//		scrollViewHorizontal.add(animals); 
-//		animalsopened=true;
-       if (Category == "Animal"){
-    	var mapIconAnimal = Titanium.UI.createImageView({
-    		url:'animals.png',
-    		top: (PixelY/2/1.5)-(pWidth*.15)/2,
-    		left: (PixelX/2/1.5)-(pWidth*.15)/2,
-    		width:pWidth*.125,
-    		pHeight:pWidth*.125,
-    	});
-    	
-    	var mapLabelAnimal=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
-    		width:pWidth*.18,
-    		pHeight:pWidth*.1,
-    		text: LocationName,
-        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	})
-    	animals.add(mapIconAnimal);
-    	animals.add(mapLabelAnimal);
-    	scrollViewHorizontal.add(animals);
-    	animalsopened=true;
+	else if (animalsopened=false){
+		animalsopened=true;
+		animals.visible=true;
     };
-	}
 });
 
 var buttonAttractions = Titanium.UI.createButton({
-	color:'black',
-	backgroundColor:'#595454',	
+	color:'#FFFFFF',
+	borderColor:'#333333',
 	backgroundImage:'/Attractions/ridesattractionsiconcolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
@@ -173,8 +141,8 @@ buttonAttractions.addEventListener('click', function()
 });
 
 var buttonFacilities = Titanium.UI.createButton({
-	color:'black',
-	backgroundColor:'#595454',
+	color:'#FFFFFF',
+	borderColor:'#333333',
 	backgroundImage:'/Facilities/facilitiesiconcolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
@@ -195,8 +163,8 @@ buttonFacilities.addEventListener('click', function()
 });
 
 var buttonGreenTour = Titanium.UI.createButton({
-	color:'black',
-	backgroundColor:'#595454',
+	color:'#FFFFFF',
+	borderColor:'#333333',
 	backgroundImage:'/GreenTour/greentouriconcolor.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
@@ -217,8 +185,8 @@ buttonGreenTour.addEventListener('click', function()
 });
 
 var buttonFindMe = Titanium.UI.createButton({
-	color:'black',
-	backgroundColor:'#595454',
+	color:'#FFFFFF',
+	borderColor:'#333333',
 	backgroundImage:'/ParkMap/findme.png',
 	top: pHeight*.9,
 	width:pWidth*.2,
@@ -396,3 +364,7 @@ win.add(buttonAttractions);
 win.add(buttonFacilities);
 win.add(buttonGreenTour);
 win.add(buttonFindMe);
+
+win.addEventListener('android:back', function() {  
+           win.close();             
+            });

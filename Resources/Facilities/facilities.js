@@ -36,15 +36,7 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{var winHomeScreen=Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/app.js',
-    navBarHidden:true,
-    fullscreen : true,  
-    navBarHidden: true
-});
-	winHomeScreen.open();});
+{win.close();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -54,15 +46,17 @@ var buttonSchedule = Titanium.UI.createButton({
 	left:pWidth*.78,
 	width:pWidth*.17,
 	height:pHeight*.07,});
-buttonHome.addEventListener('click', function()
-{var winSchedule=Titanium.UI.createWindow({
+buttonSchedule.addEventListener('click', function()
+{
+	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
     url: '/Schedule/schedule2.js',
-    navBarHidden:true,
     fullscreen : true,  
-});
-	winSchedule.open();});
+    exitOnClose: true,
+    navBarHidden: true});
+winSchedule.addEventListener('close', function(){winSchedule = null;});
+winSchedule.open();});
 
 var xhr = Titanium.Network.createHTTPClient();
 
@@ -151,5 +145,10 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
+
+win.addEventListener('android:back', function() {  
+           win.close();             
+            });
+            
 xhr.open('GET','http://hhpz.org/mobile/xml/facilities.xml');
 xhr.send();//declare the http client object

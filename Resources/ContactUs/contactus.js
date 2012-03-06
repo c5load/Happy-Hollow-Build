@@ -15,7 +15,7 @@ var TitleBar=Titanium.UI.createImageView({
 });
 
 var lblTitle=Titanium.UI.createLabel({
-	text:"Contact Us",
+	text:'Contact Us',
 	textAlign:'center', 	
 	color:'white',
 	font:{
@@ -28,6 +28,51 @@ var lblTitle=Titanium.UI.createLabel({
     height: pHeight*.1
 });
 
+var CreditsBar=Titanium.UI.createImageView({
+	image:'/ContactUs/contactusbackground.png',
+    width: pWidth,
+    left: '0dp',
+    top: pHeight*.5,
+    height: pHeight*.1
+});
+
+var lblCredits=Titanium.UI.createLabel({
+	text:"Thank you to the following sponsors",
+	textAlign:'center', 	
+	color:'white',
+	font:{
+		fontSize:'20dp',
+		fontWeight:'bold',
+	},
+	width: pWidth,
+    top: pHeight*.5,
+    left:'0dp',
+    height: pHeight*.1
+});
+
+
+//declare scrollviews
+var scrollViewContacts =  Titanium.UI.createScrollView({
+  height:pHeight*.4,
+  width:pWidth,
+  top:pHeight*.1,
+  contentWidth:pWidth,
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+
+var scrollViewCredits =  Titanium.UI.createScrollView({
+  height:pHeight*.4,
+  width:pWidth,
+  top:pHeight*.6,
+  contentWidth:pWidth,
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+
+
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'homeresting.png',
@@ -37,15 +82,7 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{var winHomeScreen=Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/app.js',
-    navBarHidden:true,
-    fullscreen : true,  
-    navBarHidden: true
-});
-	winHomeScreen.open();});
+{win.close();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -55,19 +92,75 @@ var buttonSchedule = Titanium.UI.createButton({
 	left:pWidth*.78,
 	width:pWidth*.17,
 	height:pHeight*.07,});
-buttonHome.addEventListener('click', function()
-{var winSchedule=Titanium.UI.createWindow({
+buttonSchedule.addEventListener('click', function()
+{
+	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
     url: '/Schedule/schedule2.js',
-    navBarHidden:true,
     fullscreen : true,  
+    exitOnClose: true,
+    navBarHidden: true});
+winSchedule.addEventListener('close', function(){winSchedule = null;});
+winSchedule.open();});
+
+
+var lblContactHappyHollow=Titanium.UI.createLabel({
+	backgroundImage:'../backgroundresting.png',
+	height:pHeight*.1,
+	top:'0dp',
+	width:pWidth,
+	text: 'Happy Hollow: 1300 Senter Road, San Jose, CA 95112',
+	fontSize:'10dp',
+	fontColor:'black',
+	textAlign:pWidth*.5
+})
+
+var btnCallHappyHollow = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/ContactUs/phone.png',
+	top:'auto',
+	width:pWidth*.14,
+	height:pHeight*.08,
+	left: pWidth*.05});	
+	
+btnCallHappyHollow.addEventListener('click', function()
+{
+	Titanium.Platform.openURL('tel:4087946400');
 });
-	winSchedule.open();});
+
+lblContactHappyHollow.add(btnCallHappyHollow);
+
+var lblContactJon=Titanium.UI.createLabel({
+	backgroundImage:'../backgroundresting.png',
+	height:pHeight*.1,
+	top:pHeight*.1,
+	width:pWidth,
+	text: 'Jon Moog:Operations Director',
+	fontSize:'10dp',
+	fontColor:'black',
+	textAlign:pWidth*.5
+})
+
+var btnCallJon = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/ContactUs/phone.png',
+	top:'auto',
+	width:pWidth*.14,
+	height:pHeight*.08,
+	left: pWidth*.05});	
+	
+btnCallJon.addEventListener('click', function()
+{
+	Titanium.Platform.openURL('tel:4087946403');
+});
+
+lblContactJon.add(btnCallJon);
 
 
-var address = "1300 Senter Road  San Jose, CA 95112";
-
+scrollViewContacts.add(lblContactHappyHollow);
+scrollViewContacts.add(lblContactJon);
+win.add(scrollViewContacts);
 
 var lblTitleAddress = Titanium.UI.createLabel({
     text: "Address:",
@@ -109,7 +202,6 @@ var lblTitlePhone = Titanium.UI.createLabel({
     height: pHeight*.1
 });
 
-
 var lblPhone = Titanium.UI.createLabel({
     text: "Main Office:(408)794-6400",
     color: 'black',
@@ -127,8 +219,6 @@ var lblPhone = Titanium.UI.createLabel({
 var buttonCall = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/ContactUs/phone.png',
-//	backgroundImage:'/ContactUs/contactusrest.png',
-//	backgroundSelectedImage:'/ContactUs/contactusselect.png',
 	top:pHeight*.30,
 	width:pWidth*.14,
 	height:pHeight*.08,
@@ -143,12 +233,17 @@ buttonCall.addEventListener('click', function()
 
 win.add(TitleBar);
 win.add(lblTitle);
-win.add(lblTitleAddress);
-win.add(lblAddress);
-win.add(lblTitlePhone);
-win.add(lblPhone);
-win.add(buttonCall);
+win.add(CreditsBar);
+win.add(lblCredits);
+//win.add(lblTitleAddress);
+//win.add(lblAddress);
+//win.add(lblTitlePhone);
+//win.add(lblPhone);
+//win.add(buttonCall);
 win.add(buttonHome);
 win.add(buttonSchedule);
 
+win.addEventListener('android:back', function() {  
+           win.close();             
+            });
 

@@ -50,15 +50,17 @@ var buttonSchedule = Titanium.UI.createButton({
 	left:pWidth*.78,
 	width:pWidth*.17,
 	height:pHeight*.07,});
-buttonHome.addEventListener('click', function()
-{var winSchedule=Titanium.UI.createWindow({
+buttonSchedule.addEventListener('click', function()
+{
+	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/app/Schedule/schedule2.js',
-    navBarHidden:true,
+    url: '/Schedule/schedule2.js',
     fullscreen : true,  
-});
-	winSchedule.open();});
+    exitOnClose: true,
+    navBarHidden: true});
+winSchedule.addEventListener('close', function(){winSchedule = null;});
+winSchedule.open();});
 
 
 

@@ -44,16 +44,17 @@ var buttonSchedule = Titanium.UI.createButton({
 	left:pWidth*.78,
 	width:pWidth*.17,
 	height:pHeight*.07,});
-buttonHome.addEventListener('click', function()
-{var winSchedule=Titanium.UI.createWindow({
+buttonSchedule.addEventListener('click', function()
+{
+	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
     url: '/Schedule/schedule2.js',
-    navBarHidden:true,
     fullscreen : true,  
-    navBarHidden: true
-});
-	winSchedule.open();});
+    exitOnClose: true,
+    navBarHidden: true});
+winSchedule.addEventListener('close', function(){winSchedule = null;});
+winSchedule.open();});
 
 var winGreenTour = Ti.UI.createLabel({
 	backgroundImage: 'greentourbackground.png',
