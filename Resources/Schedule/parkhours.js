@@ -34,15 +34,18 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{var winHomeScreen=Titanium.UI.createWindow({
+{	var winHomeScreen = Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
     backgroundColor:'#FFFFFF',
-    url: '..app.js',
+    url: '/app.js',
     navBarHidden:true,
     fullscreen : true,  
+    exitOnClose: true,
     navBarHidden: true
 });
-	winHomeScreen.open();});
+	winHomeScreen.open();
+	win.close();
+	});
 
 
 
@@ -64,11 +67,9 @@ var winParkHoursLabel = Ti.UI.createLabel({
 })
 
 
-if (win.pictureURL ==='None')
-	//don't display a picture
-	{}
-	//otherwise create and display an imageView
-	else{ var image = Titanium.UI.createImageView({
+
+//display image
+	var image = Titanium.UI.createImageView({
 	url:win.pictureURL,
 	width:pWidth,
 	height:pHeight*.5,
@@ -76,7 +77,7 @@ if (win.pictureURL ==='None')
 	left:'0dp'});
 	
 	win.add(image);
-	};
+	
 	
 	var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
@@ -106,3 +107,7 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(winParkHoursLabel);
+
+win.addEventListener('android:back', function() {  
+           win.close();             
+            });

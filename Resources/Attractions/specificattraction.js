@@ -2,6 +2,7 @@ var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
 var win = Ti.UI.currentWindow;
+win.backgroundColor='#FFFFFF';
 
 var TitleBar=Titanium.UI.createImageView({
 	image:'/Attractions/ridesattractionsbackground.png',

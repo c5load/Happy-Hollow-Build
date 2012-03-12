@@ -36,7 +36,18 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{win.close();});
+{	var winHomeScreen = Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/app.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    exitOnClose: true,
+    navBarHidden: true
+});
+	winHomeScreen.open();
+		win.close();
+	});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -58,8 +69,8 @@ buttonSchedule.addEventListener('click', function()
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
-var winAnimalLabel = Ti.UI.createLabel({
-	backgroundImage: '/Animals/animalsbackground.png',
+var winAnimalLabel = Titanium.UI.createLabel({
+	backgroundImage: 'animalsbackground.png',
 	textWeight:'strong',
 	text: win.animal,
 	textAlign: pWidth*.1,

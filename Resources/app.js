@@ -73,9 +73,9 @@ buttonRidesAttractions.addEventListener('click', function()
     title:'Rides & Attractions',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions.js',
+    url: 'Attractions/attractions3.js',
     fullscreen : true,});
-winRidesAttractions.addEventListener('close', function(){winAnimals = null;});
+winRidesAttractions.addEventListener('close', function(){winRidesAttractions= null;});
     
 	winRidesAttractions.open();});
 	
@@ -155,7 +155,7 @@ buttonContactUs.addEventListener('click', function()
     title:'Contact Us',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    url: 'ContactUs/contactus.js',
+    url: 'ContactUs/contactus2.js',
     fullscreen : true,});
  winContactUs.addEventListener('close', function(){winContactUs = null;});     
 	winContactUs.open();});
@@ -175,6 +175,7 @@ if (file.exists()) { file.deleteFile(); }
 
 var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
 if (file.exists()) { file.deleteFile(); }
+
 
 
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
@@ -220,7 +221,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
     
 
 
-if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+//if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
        var xhr = Ti.Network.createHTTPClient();
        xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
        xhr.onerror = function(e) {
@@ -230,7 +231,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         xhr.setTimeout(30000);
         xhr.onload = function() {
            try {
-				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
+				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,"Locs.xml");
 				f.write(this.responseData);
 				Ti.API.info(this.responseText); // check the file content on TI info panel.
 				}
@@ -238,5 +239,6 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
             };
         };
         xhr.send();
-    };
-    
+//    };
+
+

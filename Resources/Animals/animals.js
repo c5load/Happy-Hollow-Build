@@ -117,7 +117,7 @@ winSchedule.open();});
     var tableview = Titanium.UI.createTableView({
        data:data,
        top:pHeight*.1,
-       height:'auto',
+       height:pHeight*.8,
     });
     tableview.setData(data);
     Titanium.UI.currentWindow.add(tableview); 
@@ -127,7 +127,7 @@ winSchedule.open();});
 			url:'specificanimal.js', 
 			navBarHidden:true, 
    			title:'',
-   			backgroundcolor:'black',
+   			backgroundcolor:'white',
    			fullscreen:true });
    			w.addEventListener('close', function(){w = null;}); 
 			var b = Titanium.UI.createButton({
@@ -151,10 +151,92 @@ winSchedule.open();});
 		});
 
 
+
+var BottomBar=Titanium.UI.createImageView({
+	backgroundColor:'#333333',
+    width: pWidth,
+    left: '0dp',
+    top: pHeight*.9,
+    height: pHeight*.11
+});
+
+
+var buttonAttractions = Titanium.UI.createButton({
+	color:'#FFFFFF',
+	borderColor:'#333333',
+	backgroundImage:'/Attractions/ridesattractionsiconcolor.png',
+	backgroundSelectedImage:'/Attractions/ridesattractionsicon.png',
+	top: pHeight*.9,
+	width:pWidth*.25,
+	height:pHeight*.11,
+	left:'0dp',
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	title:'Attractions'});		
+buttonAttractions.addEventListener('click', function()
+{
+	var winRidesAttractions = Titanium.UI.createWindow({
+    title:'Rides & Attractions',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'Attractions/attractions.js',
+    fullscreen : true,});
+winRidesAttractions.addEventListener('close', function(){winRidesAttractions = null;});
+	winRidesAttractions.open();});
+	
+
+var buttonFacilities = Titanium.UI.createButton({
+	color:'#FFFFFF',
+	borderColor:'#333333',
+	backgroundImage:'/Facilities/facilitiesiconcolor.png',
+	backgroundSelectedImage:'/Facilities/facilitiesicon.png',
+	top: pHeight*.9,
+	width:pWidth*.25,
+	height:pHeight*.11,
+	left:pWidth*.25,
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	title:'Facilities'});		
+buttonFacilities.addEventListener('click', function()
+{var winFacilities = Titanium.UI.createWindow({
+    title:'Facilities',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: 'Facilities/facilities.js',
+    fullscreen : true,});	
+ winFacilities.addEventListener('close', function(){winFacilities = null;}); 
+	winFacilities.open();});
+
+
+var buttonGreenTour = Titanium.UI.createButton({
+	color:'#FFFFFF',
+	borderColor:'#333333',
+	backgroundImage:'/GreenTour/greentouriconcolor.png',
+	backgroundSelectedImage:'/GreenTour/greentouricon.png',
+	top: pHeight*.9,
+	width:pWidth*.25,
+	height:pHeight*.11,
+	left:pWidth*.5,
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	title:'Green Tour'});		
+buttonGreenTour.addEventListener('click', function()
+{
+	var winGreenTour = Titanium.UI.createWindow({
+    title:'Green Tour',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: '/GreenTour/greentour.js',
+    fullscreen : true,});
+ winGreenTour.addEventListener('close', function(){winGreenTour = null;});   
+	winGreenTour.open();});
+
+
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
+win.add(BottomBar);
+win.add(buttonAttractions);
+win.add(buttonFacilities);
+win.add(buttonGreenTour);
 
 win.addEventListener('android:back', function() {  
            win.close();             
