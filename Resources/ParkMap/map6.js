@@ -298,13 +298,17 @@ Titanium.Geolocation.getCurrentPosition(function(e)
    
 	var xPixel =((720213.809* latitude)+(1147131.61*longitude)+112913088)/2;
 	var yPixel =((-1589582.59* latitude)+(536408.247*longitude)+124701993)/2/1.5;
+		
 	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
 
-	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
+//	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
 	//IF NOT AT HHPZ
-	{
-		alert('You don\'t appear to be at Happy Hollow');}
-	else{
+//	{
+//		alert('You don\'t appear to be at Happy Hollow');}
+//	else{
+
+alert(xPixel);
+alert(yPixel);
 
 		var imgFindMe=Titanium.UI.createImageView({
 			image:'findme.png',
@@ -318,7 +322,7 @@ Titanium.Geolocation.getCurrentPosition(function(e)
 		scrollViewHorizontal.scrollTo(xPixel, 0);
 		scrollViewVertical.scrollTo(0, yPixel);
 
-	};
+//	};
 });
 });
 
@@ -363,118 +367,121 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 });
 
     
-//put locations into map, not sure what the ratio for pixels is...right now it's kind of trial and error
-    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locations.xml");
-	var xmltext = file.read().text;
-	var doc = Ti.XML.parseString(xmltext);
-	var elements = doc.getElementsByTagName("LocationName");          
+var xhr = Titanium.Network.createHTTPClient();
+xhr.onload = function()
+{
+    var doc = this.responseXML.documentElement;
+    var elements = doc.getElementsByTagName("LocName");            
 
     for (var i=0;i<elements.length;i++) {
-    	PixelX = doc.getElementsByTagName("PixelX").item(i).text;
-        PixelY = doc.getElementsByTagName("PixelY").item(i).text;
-        LocationName = doc.getElementsByTagName("LocName").item(i).text;
-        Category = doc.getElementsByTagName("Category").item(i).text;
-        
-        category=Category.value;
+    	var PixelX = doc.getElementsByTagName("PixelX").item(i).text;
+        var PixelY = doc.getElementsByTagName("PixelY").item(i).text;
+        var LocationName = doc.getElementsByTagName("LocName").item(i).text;
+        var Category = doc.getElementsByTagName("Category").item(i).text;
 
-        if (category == "Animal"){
+        var animal=/.*Animal.*/;
+        var attraction=/.*Attraction.*/;
+        var facility=/.*Facility.*/;
+        var greenTour=/.*Green Tour.*/;
+        
+        if (animal.test(Category)){
     	var mapIconAnimal = Titanium.UI.createImageView({
     		url:'animals.png',
     		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
-    		left: (PixelX/2/1.5)-(pWidth*.15)/2,
-    		width:pWidth*.125,
-    		Height:pWidth*.125,
+    		left: ((PixelX/2)-(pWidth*.15)/2)/1.5,
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
     	});
     	
     	var mapLabelAnimal=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+     		top: ((PixelY/2/1.2)-(pWidth*.16)/2),
+    		left: (PixelX/2/1.33)-(pWidth*.18)/2,
     		width:pWidth*.18,
     		Height:pWidth*.1,
     		text: LocationName,
         	font:{fontSize:'10dp', fontWeight:'bold'},
         	textAlign:'center',    		  
     		color: '#000000'   		
-    	})
+    	});
     	animals.add(mapIconAnimal);
     	animals.add(mapLabelAnimal);
-    	scrollViewHorizontal.add(animals);
-    	animalsopened=true;
-    };
-    
-        if (Category == "Attraction"){
+        } 
+        
+        if (attraction.test(Category)){
     	var mapIconAttraction = Titanium.UI.createImageView({
     		url:'attractions.png',
-    		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
-    		left: (PixelX/2/1.5)-(pWidth*.15)/2,
+    		top: ((PixelY/2/1.21)-(pWidth*.15)/2),
+    		left: (PixelX/2/1.33)-(pWidth*.15)/2,
     		width:pWidth*.125,
     		Height:pWidth*.125,
     	});
     	
     	var mapLabelAttraction=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+     		top: (PixelY/2/1.21),
+    		left: (PixelX/2/1.33)-(pWidth*.125)/2,
     		width:pWidth*.18,
     		Height:pWidth*.15,
     		text: LocationName,
         	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
-    	})
+    	});
 		attractions.add(mapIconAttraction);
 		attractions.add(mapLabelAttraction);
-		scrollViewHorizontal.add(attractions);
-		attractionsopened=true;
-    };
-    
-        if (Category == "Facility"){
+        } 
+        if (facility.test(Category)){
     	var mapIconFacility = Titanium.UI.createImageView({
     		url:'facilities.png',
-    		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
-    		left: (PixelX/2/1.5)-(pWidth*.15)/2,
+    		top: ((PixelY/2/1.21)-(pWidth*.15)/2),
+    		left: (PixelX/2/1.33)-(pWidth*.15)/2,
     		width:pWidth*.125,
     		Height:pWidth*.125,
     	});
     	
     	var mapLabelFacility=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+     		top: (PixelY/2/1.21),
+    		left: (PixelX/2/1.33)-(pWidth*.125)/2,
     		width:pWidth*.18,
     		Height:pWidth*.15,
     		text: LocationName,
         	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
-    	})
+    	});
 		facilities.add(mapIconFacility);
-		facilities.add(mapLabelFacility);
-		scrollViewHorizontal.add(facilities);
-		facilitiesopened=true;
-    };
-    
-        if (Category == "Green Tour"){
+		facilities.add(mapLabelFacility);	
+        } 
+        if (greenTour.test(Category)){
     	var mapIconGreenTour = Titanium.UI.createImageView({
     		url:'greentour.png',
-    		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
-    		left: (PixelX/2/1.5)-(pWidth*.15)/2,
+    		top: ((PixelY/2/1.21)-(pWidth*.15)/2),
+    		left: (PixelX/2/1.33)-(pWidth*.15)/2,
     		width:pWidth*.125,
     		Height:pWidth*.125,
     	});
     	
     	var mapLabelGreenTour=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+     		top: (PixelY/2/1.21),
+    		left: (PixelX/2/1.33)-(pWidth*.13)/2,
     		width:pWidth*.18,
     		Height:pWidth*.15,
     		text: LocationName,
-        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
-    	})
+    	});
 		greentour.add(mapIconGreenTour);
 		greentour.add(mapLabelGreenTour);
+        }
+        
+     }
+};
+        scrollViewHorizontal.add(animals);
+    	animalsopened=true;
+    	scrollViewHorizontal.add(attractions);
+		attractionsopened=true;
+		scrollViewHorizontal.add(facilities);
+		facilitiesopened=true;
 		scrollViewHorizontal.add(greentour);
 		greentouropened=true;
-    };}
-
-
+		
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
@@ -503,3 +510,5 @@ win.addEventListener('android:back', function() {
            win.close();             
             });
             
+xhr.open('GET','http://hhpz.org/mobile/xml/locs.xml');            
+xhr.send();

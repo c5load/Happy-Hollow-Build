@@ -133,13 +133,21 @@ xhr.onload = function()
     		row.title = elements.item(i).getAttribute("AttractionName");
 		    desc = doc.getElementsByTagName("AttractionName").item(i).text;
 		    attractionDesc = doc.getElementsByTagName("Description").item(i).text;
+            attractionDesc = attractionDesc.replace(/(\r\n|\n|\r)/gm, "");		    
 		    attractionLocation = doc.getElementsByTagName("Loc").item(i).text;
 		    attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
+            attractionYoutube = attractionYoutube.replace(/(\r\n|\n|\r)/gm, "");	
 		    attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
+		    attractionPicture = attractionPicture.replace(/(\r\n|\n|\r)/gm, "");
 		    attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
+		    attractionThumbnail = attractionThumbnail.replace(/(\r\n|\n|\r)/gm, "");
 		   	Category = doc.getElementsByTagName("AttractionOrRide").item(i).text;		    
+       
+       		var ride=/.*Ride.*/;
+        	var attraction=/.*Attraction.*/;
 
- 		   	if (Category = 'Ride'){		      		       	      
+
+        	if (ride.test(Category)){		      		       	      
 		    var attractionLabel = Ti.UI.createLabel({
 	    	text: desc,
 	    	color:'#000000',
@@ -151,13 +159,13 @@ xhr.onload = function()
 		    		    
 		    var attractionImage = Ti.UI.createImageView({
 		    	url:attractionThumbnail,
-		    	height: pHeight*.18,
-		    	width: pHeight*.18,
+		    	height: pWidth*.18,
+		    	width: pWidth*.18,
 		    	left: pWidth*.025
 		    	});
-		    	       
-		    row.add(attractionImage);        
+		    	              
 		    row.add(attractionLabel);
+		    row.add(attractionImage); 		    
 		    row.item = desc;
 		    row.item2 = attractionDesc;
 		    row.item3 = attractionLocation;
@@ -165,7 +173,7 @@ xhr.onload = function()
 		    row.item5 = attractionPicture;
 			
 	   		data.push(row);
-	   		//}		
+	   		
     var tableview = Titanium.UI.createTableView({
        top:'0dp',
        data:data,
@@ -176,7 +184,7 @@ xhr.onload = function()
     tableview.addEventListener('click',function(e)
 		{
 			var w = Ti.UI.createWindow({
-   			backgroundcolor:'#FFFFFF',
+   			backgroundColor:'#FFFFFF',
 			url:'specificattraction.js', 
 			navBarHidden:true,
    			title:'',
@@ -200,7 +208,7 @@ xhr.onload = function()
 			w.open({fullscreen:true});
 		});
 	}
- 		   	if (Category = 'Attraction'){		      		       	      
+            if (attraction.test(Category)){		      		       	      
 		    var attractionLabel = Ti.UI.createLabel({
 	    	text: desc,
 	    	color:'#000000',
@@ -212,13 +220,13 @@ xhr.onload = function()
 		    		    
 		    var attractionImage = Ti.UI.createImageView({
 		    	url:attractionThumbnail,
-		    	height: pHeight*.18,
-		    	width: pHeight*.18,
+		    	height: pWidth*.18,
+		    	width: pWidth*.18,
 		    	left: pWidth*.025
 		    	});
-		    	       
-		    row.add(attractionImage);        
+		    	               
 		    row.add(attractionLabel);
+		    row.add(attractionImage);
 		    row.item = desc;
 		    row.item2 = attractionDesc;
 		    row.item3 = attractionLocation;
@@ -226,7 +234,7 @@ xhr.onload = function()
 		    row.item5 = attractionPicture;
 			
 	   		dataAttractions.push(row);
-	   		//}		
+	   			
     var tableviewAttractions = Titanium.UI.createTableView({
        top:'0dp',
        data:dataAttractions,
@@ -237,7 +245,7 @@ xhr.onload = function()
     tableviewAttractions.addEventListener('click',function(e)
 		{
 			var w = Ti.UI.createWindow({
-   			backgroundcolor:'#FFFFFF',
+   			backgroundColor:'#FFFFFF',
 			url:'specificattraction.js', 
 			navBarHidden:true,
    			title:'',
@@ -264,199 +272,6 @@ xhr.onload = function()
 	}
 };
 };
-//};		
-//	}		    
-
-
-//	if (attractionCategory == "Attraction"){	
-
-//		    var attractionLabel = Ti.UI.createLabel({
-//	    	text: desc,
-//	    	color:'#000000',
-//	    	font:{fontSize:'20dp'},
-//			height:pHeight*.13,
-//	    	textAlign:'left',
-//	    	left:pWidth*.23
-//	    	});         	
-//		    		    
-//		    var attractionImage = Ti.UI.createImageView({
-//		    	url:attractionThumbnail,
-//		    	height: pHeight*.18,
-//		    	width: pHeight*.18,
-//		    	left: pWidth*.025
-//		    	});
-//		    	       
-//		    row.add(attractionImage);        
-//		    row.add(attractionLabel);
-//		    row.item = desc;
-//		    row.item2 = attractionDesc;
-//		    row.item3 = attractionLocation;
-//		    row.item4 = attractionYoutube;
-//		    row.item5 = attractionPicture;
-//	   		dataRides.push(row);};
-//	   	}
-	   				
-//   	var tableviewRides = Titanium.UI.createTableView({
- //      						data:dataRides,
-  //     						top:pHeight*.1,
-   //    						height:pHeight*.7});
-//		
-//		tableviewRides.setData(dataRides);
- //   	scrollViewRides.add(tableviewRides);	         
-    	
- //   	tableviewRides.addEventListener('click',function(e)
-//			{
-//				var wRides = Ti.UI.createWindow({
-//				url:'specificattraction.js',
-//				navBarHidden:true, 
- //  				title:'',
-  // 				backgroundcolor:'#FFFFFF',
-   //				fullscreen:true });
-			//
-			//	wRides.addEventListener('close', function(){w = null;});   			
-			//		var bRides = Titanium.UI.createButton({
-			//					 title:'Close',
-			//					 style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN});
-			//	wRides.setLeftNavButton(bRides);
-			//		bRides.addEventListener('click',function()
-			//				{wRides.close();});
-
-			//	wRides.attraction = e.rowData.item;
-			//	wRides.attractionDesc = e.rowData.item2;
-			//	wRides.location = e.rowData.item3;
-			//	wRides.youTube = e.rowData.item4;
-			//	wRides.pictureURL = e.rowData.item5;
-
-//				wRides.open({fullscreen:true});	
-//			});
-    		
-//    		if (attractionCategory == "Attraction"){
-    			
-//    		var attractionLabel = Ti.UI.createLabel({
-//	    	text: desc,
-//	    	color:'#000000',
-//	    	font:{fontSize:'20dp'},
-//			height:pHeight*.13,
-//	    	textAlign:'left',
-//	    	left:pWidth*.23
-//	    	});         	
-		    		    
-//		    var attractionImage = Ti.UI.createImageView({
-//		    	url:attractionThumbnail,
-//		    	height: pHeight*.18,
-//		    	width: pHeight*.18,
-//		    	left: pWidth*.025
-//		    	});
-		    	       
-//		    row.add(attractionImage);        
-//		    row.add(attractionLabel);
-//		    row.item = desc;
-//		    row.item2 = attractionDesc;
-//		    row.item3 = attractionLocation;
-//		    row.item4 = attractionYoutube;
-//		    row.item5 = attractionPicture;
-//	   		dataAttractions.push(row);}		
-    			
- //		  var tableviewAttractions = Titanium.UI.createTableView({
-  //     								 data:dataAttractions,
-   //    								 top:pHeight*.1,
-    //   								 height:pHeight*.7});
-     //  		
-      // 		tableviewAttractions.setData(dataAttractions);
-    //		scrollViewAttractions.add(tableviewAttractions);						          
-    //		
-    //		tableviewAttractions.addEventListener('click',function(e)
-	//			{
-	//				var wAttractions = Ti.UI.createWindow({
-	//							 url:'specificattraction.js',
-	//							 navBarHidden:true, 
-   	//							 title:'',
-   	//							 backgroundcolor:'#FFFFFF',
-   	//							 fullscreen:true });
-	//				wAttractions.addEventListener('close', function(){w = null;});   			
-	//				var bAttractions = Titanium.UI.createButton({
-	//							 title:'Close',
-	//							 style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN});
-	//				wAttractions.setLeftNavButton(bAttractions);
-	//				bAttractions.addEventListener('click',function()
-	//						{wAttractions.close();});
-	//						
-	//				wAttractions.attraction = e.rowData.item;
-	//				wAttractions.attractionDesc = e.rowData.item2;
-	//				wAttractions.location = e.rowData.item3;
-	//				wAttractions.youTube = e.rowData.item4;
-	//				wAttractions.pictureURL = e.rowData.item5;//
-
-			//		wAttractions.open({fullscreen:true});
-			//	});
-						    				
-//		};
-
-    
-    
-    /*
-    // stuff before add
-        if (attractionCategory = "Attraction"){
-        var attractionLabel = Ti.UI.createLabel({
-        	text: desc,
-        	color:'#000000',
-        	font:{fontSize:'20dp'},
-			height:pHeight*.13,
-        	textAlign:'left',
-        	left:pWidth*.23         	
-        });
-        
-        var attractionImage = Ti.UI.createImageView({
-        	url:attractionThumbnail,
-        	height: pHeight*.18,
-        	width: pHeight*.18,
-        	left: pWidth*.025
-        });       
-        row.add(attractionImage);        
-        row.add(attractionLabel);
-        row.item = desc;
-        row.item2 = attractionDesc;
-        row.item3 = attractionLocation;
-        row.item4 = attractionYoutube;
-        row.item5 = attractionPicture;
-        dataAttractions.push(row);}
-   
-    var tableviewAttractions = Titanium.UI.createTableView({
-       data:dataAttractions,
-       top:pHeight*.1,
-       height:pHeight*.7,
-    });
-    tableviewAttractions.setData(dataAttractions);
-    scrollViewAttractions.add(tableviewAttractions); 
-    tableviewAttractions.addEventListener('click',function(e)
-		{
-			var wAttractions = Ti.UI.createWindow({
-			url:'specificattraction.js',
-			navBarHidden:true, 
-   			title:'',
-   			backgroundcolor:'#FFFFFF',
-   			fullscreen:true });
-			wAttractions.addEventListener('close', function(){wAttractions = null;});   			
-			var bAttractions = Titanium.UI.createButton({
-				title:'Close',
-				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-			});
-			wAttractions.setLeftNavButton(b);
-			bAttractions.addEventListener('click',function()
-			{
-				wAttractions.close();
-			});
-			wAttractions.attraction = e.rowData.item;
-			wAttractions.attractionDesc = e.rowData.item2;
-			wAttractions.location = e.rowData.item3;
-			wAttractions.youTube = e.rowData.item4;
-			wAttractions.pictureURL = e.rowData.item5;
-
-			wAttractions.open({fullscreen:true});
-		}); 
- //   };
-           
- */   
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
     width: pWidth,

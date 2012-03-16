@@ -111,16 +111,16 @@ var scrollView = Titanium.UI.createScrollView({
 		contentWidth:'auto', 
 		contentHeight:'auto', 
 		top:pHeight*.7, 
+		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
 
 var winFacilityDescription = Ti.UI.createLabel({
 	text: win.facilityDesc,
 	textAlign: 'left',
-	color: 'white',
+	color: '#000000',
     font: {
         fontSize: '18dp',
-        color:'#000000',
         fontWeight: 'normal'
     },
     width: pWidth,

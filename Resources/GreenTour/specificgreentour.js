@@ -67,6 +67,7 @@ buttonSchedule.addEventListener('click', function()
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
+
 var winGreenTour = Ti.UI.createLabel({
 	backgroundImage: 'greentourbackground.png',
 	textWeight:'strong',
@@ -75,7 +76,6 @@ var winGreenTour = Ti.UI.createLabel({
 	color: '#FFFFFF',
     font: {
         fontSize: '25dp',
-        color:'#000000',
         fontWeight: 'normal'
     },
     width: pWidth,
@@ -104,13 +104,14 @@ var scrollView = Titanium.UI.createScrollView({
 		contentWidth:'auto', 
 		contentHeight:'auto', 
 		top:pHeight*.7, 
+		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
 		
 var winGreenTourDescription = Ti.UI.createLabel({
 	text: win.greentourDesc,
 	textAlign: 'left',
-	color: 'white',
+	color: '#000000',
     font: {
         fontSize: '18dp',
         color:'#000000',

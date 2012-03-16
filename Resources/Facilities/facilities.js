@@ -75,10 +75,13 @@ xhr.onload = function()
         row.title = elements.item(i).getAttribute("FacilityName");
         desc = doc.getElementsByTagName("FacilityName").item(i).text;
         facilityDesc = doc.getElementsByTagName("Description").item(i).text;
+        facilityDesc = facilityDesc.replace(/(\r\n|\n|\r)/gm, "");       
         facilityLocation = doc.getElementsByTagName("Loc").item(i).text;
         facilityPicture = doc.getElementsByTagName("PictureURL").item(i).text;
+        facilityPicture = facilityPicture.replace(/(\r\n|\n|\r)/gm, "");        
 		facilityThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
-       
+        facilityThumbnail = facilityThumbnail.replace(/(\r\n|\n|\r)/gm, "");
+        
         var facilityLabel = Ti.UI.createLabel({
         	image:'arrowrest.png',
         	text: desc,
@@ -114,7 +117,7 @@ xhr.onload = function()
     tableview.addEventListener('click',function(e)
 		{
 			var w = Ti.UI.createWindow({
-   			backgroundcolor:'#FFFFFF',
+   			backgroundColor:'#FFFFFF',
 			url:'specificFacility.js', 
 			navBarHidden:true,
    			title:'',
@@ -189,7 +192,7 @@ buttonAttractions.addEventListener('click', function()
     title:'Rides & Attractions',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions.js',
+    url: 'Attractions/attractions2.js',
     fullscreen : true,});
 winRidesAttractions.addEventListener('close', function(){winRidesAttractions = null;});
 	winRidesAttractions.open();});

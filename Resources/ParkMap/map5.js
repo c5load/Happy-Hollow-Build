@@ -5,34 +5,6 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
 var win = Titanium.UI.currentWindow;
 
-//create views for each category
-var animals=Titanium.UI.createView({
-  opacity:.25,
-  height:'auto',
-  width:'auto',
-  top:'0dp'	
-});
-
-var attractions=Titanium.UI.createView({
-  opacity:.25,
-  height:'auto',
-  width:'auto',
-  top:'0dp'		
-});
-
-var facilities=Titanium.UI.createView({
-  opacity:.25,
-  height:'auto',
-  width:'auto',
-  top:'0dp'		
-});
-
-var greentour=Titanium.UI.createView({
-  opacity:.25,
-  height:'auto',
-  width:'auto',
-  top:'0dp'	
-});
 
 //declare title bar and buttons
 var TitleBar=Titanium.UI.createImageView({
@@ -110,10 +82,16 @@ buttonAnimals.addEventListener('click', function()
 {
 	if (animalsopened == true){
 		animalsopened=false;
-		animals.visible=true;
-		attractions.visible=false;
-		facilities.visible=false;
-		greentour.visible=false;
+		mapIconAnimal.hide();
+
+//		mapIconAnimal.visible=true;
+		mapIconAttraction.visible=false;
+		mapIconFacility.visible=false;
+		mapIconGreenTour.visible=false;
+//		animals.visible=true;
+//		attractions.visible=false;
+//		facilities.visible=false;
+//		greentour.visible=false;
 		attractionsopened=true;
 		facilitiesopened=true;
 		greentouropened=true;
@@ -275,8 +253,8 @@ buttonGreenTour.addEventListener('click', function()
 var buttonFindMe = Titanium.UI.createButton({
 	color:'#FFFFFF',
 	borderColor:'#333333',
-	backgroundSelectedColor:'#FFFFFF',
 	backgroundImage:'/ParkMap/findme.png',
+	borderSelectedColor:'#FFFFFF',
 	top: pHeight*.9,
 	width:pWidth*.2,
 	height:pHeight*.11,
@@ -295,9 +273,9 @@ Titanium.Geolocation.getCurrentPosition(function(e)
  
     var longitude = e.coords.longitude;
     var latitude = e.coords.latitude;
-   
-	var xPixel =((720213.809* latitude)+(1147131.61*longitude)+112913088)/2;
-	var yPixel =((-1589582.59* latitude)+(536408.247*longitude)+124701993)/2/1.5;
+    
+	var xPixel =((720213.809* latitude)+(1147131.61*longitude)+112913088);
+	var yPixel =((-1589582.59* latitude)+(536408.247*longitude)+124701993);
 	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
 
 	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
@@ -305,19 +283,11 @@ Titanium.Geolocation.getCurrentPosition(function(e)
 	{
 		alert('You don\'t appear to be at Happy Hollow');}
 	else{
-
-		var imgFindMe=Titanium.UI.createImageView({
+		var LocateMe=Titanium.UI.createImageView({
 			image:'findme.png',
 			top:yPixel,
-			left:xPixel,
-			width:pWidth*.2,
-    		height:pWidth*.2,
+			left:xPixel
 		})
-
-		scrollViewHorizontal.add(imgFindMe);
-		scrollViewHorizontal.scrollTo(xPixel, 0);
-		scrollViewVertical.scrollTo(0, yPixel);
-
 	};
 });
 });
@@ -340,9 +310,9 @@ var scrollViewHorizontal =  Titanium.UI.createScrollView({
   scrollType:'horizontal',
   showVerticalScrollIndicator:false,
   showHorizontalScrollIndicator:false,
-  minZoomScale:0.1,
-  maxZoomScale:100,
-  zoomScale:.1
+  minZoomScale:0,  
+  maxZoomScale:10, 
+  zoomScale:5,  
 });
 
 //add map into horizontal scrollview
@@ -357,138 +327,148 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
   contentWidth:pWidth,
   showVerticalScrollIndicator:false,
   showHorizontalScrollIndicator:false,
-  minZoomScale:0.1,
-  maxZoomScale:100,
-  zoomScale:1
+  minZoomScale:1,  
+  maxZoomScale:15, 
+  zoomScale:1,
+  oldZoom:1
 });
+scrollViewVertical.addEventListener('pinch',function(e){
+      if (e.scale>1){
+      	if (e.scale>scrollViewVertical.zoomScale){
+            scrollViewVertical.zoomScale=e.scale;
+            }else{
+            scrollViewVertical.zoomScale=scrollViewVertical.oldZoom + (e.scale-1);}
+            }
+            else
+              if (e.scale<scrollViewVertical.zoomScale)
+                scrollViewVertical.zoomScale=scrollViewVertical.zoomScale - (1-e.scale);
+            }); 
+            scrollViewVertical.addEventListener('touchend',function(e){
+            scrollViewVertical.oldZoom=scrollViewVertical.zoomScale;
+            });
+
 
     
 //put locations into map, not sure what the ratio for pixels is...right now it's kind of trial and error
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locations.xml");
 	var xmltext = file.read().text;
 	var doc = Ti.XML.parseString(xmltext);
-	var elements = doc.getElementsByTagName("LocationName");          
+	var elements = doc.getElementsByTagName("LocationName");
 
     for (var i=0;i<elements.length;i++) {
     	PixelX = doc.getElementsByTagName("PixelX").item(i).text;
         PixelY = doc.getElementsByTagName("PixelY").item(i).text;
-        LocationName = doc.getElementsByTagName("LocName").item(i).text;
+        LocationName = doc.getElementsByTagName("LocationName").item(i).text;
         Category = doc.getElementsByTagName("Category").item(i).text;
-        
-        category=Category.value;
 
-        if (category == "Animal"){
-    	var mapIconAnimal = Titanium.UI.createImageView({
-    		url:'animals.png',
+        if (Category == "Animal"){
+    	var mapIconAnimal = Titanium.UI.createButton({
+    		backgroundImage:'animals.png',
     		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
     		left: (PixelX/2/1.5)-(pWidth*.15)/2,
     		width:pWidth*.125,
-    		Height:pWidth*.125,
-    	});
+    		pHeight:pWidth*.125,
+    	})
     	
     	var mapLabelAnimal=Titanium.UI.createLabel({
      		top: (PixelY/2/1.5),
     		left: (PixelX/2/1.5)-(pWidth*.125)/2,
     		width:pWidth*.18,
-    		Height:pWidth*.1,
+    		pHeight:pWidth*.1,
     		text: LocationName,
-        	font:{fontSize:'10dp', fontWeight:'bold'},
-        	textAlign:'center',    		  
+        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	})
-    	animals.add(mapIconAnimal);
-    	animals.add(mapLabelAnimal);
-    	scrollViewHorizontal.add(animals);
+    	scrollViewHorizontal.add(mapIconAnimal);
+    	scrollViewHorizontal.add(mapLabelAnimal);
+    //	animals.add(mapLabelAnimal);
+    //	scrollViewHorizontal.add(animals);
     	animalsopened=true;
     };
     
         if (Category == "Attraction"){
-    	var mapIconAttraction = Titanium.UI.createImageView({
-    		url:'attractions.png',
+    	var mapIconAttraction = Titanium.UI.createButton({
+    		backgroundImage:'attractions.png',
+    		title:LocationName,
     		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
     		left: (PixelX/2/1.5)-(pWidth*.15)/2,
     		width:pWidth*.125,
-    		Height:pWidth*.125,
+    		pHeight:pWidth*.125,
     	});
     	
-    	var mapLabelAttraction=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
-    		width:pWidth*.18,
-    		Height:pWidth*.15,
-    		text: LocationName,
-        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	})
-		attractions.add(mapIconAttraction);
-		attractions.add(mapLabelAttraction);
-		scrollViewHorizontal.add(attractions);
+  //  	var mapLabelAttraction=Titanium.UI.createLabel({
+   //  		top: (PixelY/2/1.5),
+   // 		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+   // 		width:pWidth*.18,
+   // 		pHeight:pWidth*.15,
+   // 		text: LocationName,
+    //    	font:{fontSize:'10dp', fontWeight:'bold'},    		  
+    //		color: '#000000'   		
+    //	})
+		mapimage.add(mapIconAttraction);
+	//	attractions.add(mapLabelAttraction);
+	//	scrollViewHorizontal.add(attractions);
 		attractionsopened=true;
     };
     
         if (Category == "Facility"){
-    	var mapIconFacility = Titanium.UI.createImageView({
-    		url:'facilities.png',
+    	var mapIconFacility = Titanium.UI.createButton({
+    		title:LocationName,
+    		backgroundImage:'facilities.png',
     		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
     		left: (PixelX/2/1.5)-(pWidth*.15)/2,
     		width:pWidth*.125,
-    		Height:pWidth*.125,
+    		pHeight:pWidth*.125,
     	});
     	
-    	var mapLabelFacility=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
-    		width:pWidth*.18,
-    		Height:pWidth*.15,
-    		text: LocationName,
-        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	})
-		facilities.add(mapIconFacility);
-		facilities.add(mapLabelFacility);
-		scrollViewHorizontal.add(facilities);
+  //  	var mapLabelFacility=Titanium.UI.createLabel({
+   //  		top: (PixelY/2/1.5),
+   // 		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+   // 		width:pWidth*.18,
+   // 		pHeight:pWidth*.15,
+   // 		text: LocationName,
+    //    	font:{fontSize:'10dp', fontWeight:'bold'},    		  
+    //		color: '#000000'   		
+    //	})
+		mapimage.add(mapIconFacility);
+	//	facilities.add(mapLabelFacility);
+	//	scrollViewHorizontal.add(facilities);
 		facilitiesopened=true;
     };
     
         if (Category == "Green Tour"){
-    	var mapIconGreenTour = Titanium.UI.createImageView({
-    		url:'greentour.png',
+    	var mapIconGreenTour = Titanium.UI.createButton({
+    		title:LocationName,
+    		backgroundImage:'greentour.png',
     		top: ((PixelY/2/1.5)-(pWidth*.15)/2),
     		left: (PixelX/2/1.5)-(pWidth*.15)/2,
     		width:pWidth*.125,
-    		Height:pWidth*.125,
+    		pHeight:pWidth*.125,
     	});
     	
-    	var mapLabelGreenTour=Titanium.UI.createLabel({
-     		top: (PixelY/2/1.5),
-    		left: (PixelX/2/1.5)-(pWidth*.125)/2,
-    		width:pWidth*.18,
-    		Height:pWidth*.15,
-    		text: LocationName,
-        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	})
-		greentour.add(mapIconGreenTour);
-		greentour.add(mapLabelGreenTour);
-		scrollViewHorizontal.add(greentour);
+   // 	var mapLabelGreenTour=Titanium.UI.createLabel({
+    // 		top: (PixelY/2/1.5),
+    //		left: (PixelX/2/1.5)-(pWidth*.125)/2,
+    //		width:pWidth*.18,
+    //		pHeight:pWidth*.15,
+    //		text: LocationName,
+     //   	font:{fontSize:'10dp', fontWeight:'bold'},    		  
+    //		color: '#000000'   		
+    //	})
+		mapimage.add(mapIconGreenTour);
+//		greentour.add(mapLabelGreenTour);
+//		scrollViewHorizontal.add(greentour);
 		greentouropened=true;
     };}
 
 
 //put horizontal scrollview into vertical scrollview and add to window
+//scrollViewHorizontal.add(mapimage);
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
-scrollViewHorizontal.scrollTo(2064/2, 0);
-scrollViewVertical.scrollTo(0, 2808/1.5/4);
 
-scrollViewHorizontal.addEventListener ('load', function (e) {
-    scrollViewHorizontal.scrollTo(2064/2, 0);
-        });
+ 
 
-scrollViewVertical.addEventListener ('load', function (e) {
-scrollViewVertical.scrollTo(0, 2808/1.5/4);
-        });
-        
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
@@ -502,4 +482,3 @@ win.add(buttonFindMe);
 win.addEventListener('android:back', function() {  
            win.close();             
             });
-            

@@ -30,7 +30,7 @@ buttonParkMap.addEventListener('click', function()
     title:'Park Map',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'ParkMap/map2.js',
+    url: 'ParkMap/map6.js',
     fullscreen : true,});
 winParkMap.addEventListener('close', function(){winParkMap = null;});
 winParkMap.open();});
@@ -73,7 +73,7 @@ buttonRidesAttractions.addEventListener('click', function()
     title:'Rides & Attractions',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions3.js',
+    url: 'Attractions/attractions2.js',
     fullscreen : true,});
 winRidesAttractions.addEventListener('close', function(){winRidesAttractions= null;});
     

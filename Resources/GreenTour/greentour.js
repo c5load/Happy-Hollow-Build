@@ -75,9 +75,13 @@ xhr.onload = function()
         row.title = elements.item(i).getAttribute("GreenTourName");
         desc = doc.getElementsByTagName("GreenTourName").item(i).text;
         greentourDesc = doc.getElementsByTagName("Description").item(i).text;
+        greentourDesc = greentourDesc.replace(/(\r\n|\n|\r)/gm, "");
         greentourLocation = doc.getElementsByTagName("Loc").item(i).text;
-		greentourPicture=doc.getElementsByTagName("PictureURL").item(i).text;
+        greentourPicture = doc.getElementsByTagName("PictureURL").item(i).text;
+        greentourPicture = greentourPicture.replace(/(\r\n|\n|\r)/gm, "");
         greentourThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
+        greentourThumbnail = greentourThumbnail.replace(/(\r\n|\n|\r)/gm, "");
+        
                
         var greentourLabel = Ti.UI.createLabel({
         	text: desc,
@@ -104,11 +108,9 @@ xhr.onload = function()
         data.push(row);}
    
     var tableview = Titanium.UI.createTableView({
-        backgroundImage: '../backgroundresting.png',
-        selectedBackgroundImage: 'greentourbackground.png',
+        data:data,
     	top:pHeight*.1,
-       data:data,
-       height:pHeight*.8,
+        height:pHeight*.8,
     });
     tableview.setData(data);
     Titanium.UI.currentWindow.add(tableview); 
@@ -118,7 +120,7 @@ xhr.onload = function()
 			url:'specificgreentour.js', 
 			navBarHidden:true,
    			title:'',
-   			backgroundcolor:'#FFFFFF',
+   			backgroundColor:'#FFFFFF',
    			fullscreen:true });
    			w.addEventListener('close', function(){w = null;}); 
 			var b = Titanium.UI.createButton({
@@ -189,7 +191,7 @@ buttonAttractions.addEventListener('click', function()
     title:'Rides & Attractions',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions.js',
+    url: 'Attractions/attractions2.js',
     fullscreen : true,});
 winRidesAttractions.addEventListener('close', function(){winRidesAttractions = null;});
 	winRidesAttractions.open();});

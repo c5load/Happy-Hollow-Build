@@ -64,11 +64,16 @@ winSchedule.open();});
 
 
 
+//    var data = [];  
+//    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Animals.xml');
+//	var xmltext = file.read().text;
+//	var doc = Ti.XML.parseString(xmltext);
+var xhr = Titanium.Network.createHTTPClient();
+
+xhr.onload = function()
+{
     var data = [];
-    
-    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Animals.xml');
-	var xmltext = file.read().text;
-	var doc = Ti.XML.parseString(xmltext);
+    var doc = this.responseXML.documentElement;
 	var elements = doc.getElementsByTagName("AnimalName");
 
     for (var i=0;i<elements.length;i++) {
@@ -81,13 +86,16 @@ winSchedule.open();});
         row.title = elements.item(i).getAttribute("AnimalName");
         desc = doc.getElementsByTagName("AnimalName").item(i).text;
         animalDesc = doc.getElementsByTagName("Description").item(i).text;
+        animalDesc = animalDesc.replace(/(\r\n|\n|\r)/gm, "");
         animalScientific = doc.getElementsByTagName("ScientificName").item(i).text;
         animalClass = doc.getElementsByTagName("Class").item(i).text;        
  		animalLocation = doc.getElementsByTagName("Loc").item(i).text;
         animalYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
+        animalYoutube = animalYoutube.replace(/(\r\n|\n|\r)/gm, "");        
         animalPicture = doc.getElementsByTagName("PictureURL").item(i).text;
-
-       
+        animalPicture = animalPicture.replace(/(\r\n|\n|\r)/gm, "");        
+        animalThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
+        animalThumbnail = animalThumbnail.replace(/(\r\n|\n|\r)/gm, "");      
       
         var animalLabel = Ti.UI.createLabel({
         	text: desc,
@@ -98,7 +106,7 @@ winSchedule.open();});
         	left:pWidth*.23  
         });
         var animalImage = Ti.UI.createImageView({
-        	url: animalPicture,
+        	url: animalThumbnail,
         	height: pWidth*.18,
         	width: pWidth*.18,
         	left: pWidth*.025
@@ -127,7 +135,7 @@ winSchedule.open();});
 			url:'specificanimal.js', 
 			navBarHidden:true, 
    			title:'',
-   			backgroundcolor:'white',
+   			backgroundColor:'#FFFFFF',
    			fullscreen:true });
    			w.addEventListener('close', function(){w = null;}); 
 			var b = Titanium.UI.createButton({
@@ -149,7 +157,7 @@ winSchedule.open();});
 			
 			w.open({fullscreen:true});
 		});
-
+};
 
 
 var BottomBar=Titanium.UI.createImageView({
@@ -178,7 +186,7 @@ buttonAttractions.addEventListener('click', function()
     title:'Rides & Attractions',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions.js',
+    url: 'Attractions/attractions2.js',
     fullscreen : true,});
 winRidesAttractions.addEventListener('close', function(){winRidesAttractions = null;});
 	winRidesAttractions.open();});
@@ -246,5 +254,6 @@ win.addEventListener('android:back', function() {
 
 
 
-
+xhr.open('GET','http://hhpz.org/mobile/xml/Animals.xml');
+xhr.send();//declare the http client object
 

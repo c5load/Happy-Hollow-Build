@@ -2,7 +2,7 @@ var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
 var win = Ti.UI.currentWindow;
-win.backgroundColor='#FFFFFF';
+
 
 var TitleBar=Titanium.UI.createImageView({
 	image:'/Attractions/ridesattractionsbackground.png',
@@ -25,6 +25,7 @@ var lblTitle=Titanium.UI.createLabel({
     left:'0dp',    
     height: pHeight*.1
 });
+
 
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
@@ -68,14 +69,16 @@ buttonSchedule.addEventListener('click', function()
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
+
 var winAttractionLabel = Ti.UI.createLabel({
 	backgroundImage:'/Attractions/ridesattractionsbackground.png',
 	text: win.attraction,
 	textWeight:'strong',
 	textAlign: pWidth*.1,
-	color: 'white',
+	color: '#FFFFFF',
     font: {
         fontSize: '25dp',
+        color:'#000000',        
         fontWeight: 'normal'
     },
     width: pWidth,
@@ -85,40 +88,38 @@ var winAttractionLabel = Ti.UI.createLabel({
     height: pHeight*.15
 })
 
-var image1 = Titanium.UI.createImageView({
-	url:'http://hhpz.org/mobile/images/TestAttraction.png',
+win.add(TitleBar);
+win.add(lblTitle);
+win.add(buttonHome);
+win.add(buttonSchedule);
+win.add(winAttractionLabel);
+
+if (win.pictureURL ==='None')
+	//don't display a picture
+	{}
+	//otherwise create and display an imageView
+	else{ var image = Titanium.UI.createImageView({
+	url:win.pictureURL,
 	width:pWidth,
 	height:pHeight*.5,
 	top:pHeight*.1,
-	left:'0dp'
-});
-win.add(image1);
-
-//if (win.pictureURL ==='None')
-	//don't display a picture
-//	{}
-	//otherwise create and display an imageView
-//	else{ var image = Titanium.UI.createImageView({
-//	url:win.pictureURL,
-//	width:pWidth,
-//	height:pHeight*.5,
-//	top:pHeight*.1,
-//	left:'0dp'});
+	left:'0dp'});
 	
-//	win.add(image);
-//	};
+	win.add(image);
+	};
 	
 	var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.7, 
+		top:pHeight*.7,
+		scrollType:'vertical', 
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
 		
 	var winAttractionDescription = Ti.UI.createLabel({
 	text: win.attractionDesc,
 	textAlign: 'center',
-	color: 'white',
+	color: '#000000',
     font: {
         fontSize: '18dp',
         fontWeight: 'normal'
@@ -152,15 +153,15 @@ var linkE = Titanium.UI.createLabel({
 linkE.addEventListener('click',function(e)
 {
      var w = Ti.UI.createWindow();
+     w.addEventListener('close', function(){w = null;});
+	 w.addEventListener('android:back', function() {  
+           w.close();             
+            });     
      w.open(Titanium.Platform.openURL(win.youTube));
 });
  
 
-win.add(TitleBar);
-win.add(lblTitle);
-win.add(buttonHome);
-win.add(buttonSchedule);
-win.add(winAttractionLabel);
+
 win.add(linkE)};
 
 win.addEventListener('android:back', function() {  

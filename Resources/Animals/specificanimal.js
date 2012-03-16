@@ -1,9 +1,7 @@
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
-var win = Ti.UI.currentWindow({
-	backgroundColor: '#FFFFFF'
-});
+var win = Ti.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
 	image:'/Animals/animalsbackground.png',
@@ -69,8 +67,9 @@ buttonSchedule.addEventListener('click', function()
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
+
 var winAnimalLabel = Titanium.UI.createLabel({
-	backgroundImage: 'animalsbackground.png',
+	backgroundImage:'animalsbackground.png',	
 	textWeight:'strong',
 	text: win.animal,
 	textAlign: pWidth*.1,
@@ -97,8 +96,8 @@ var winAnimalScientific = Ti.UI.createLabel({
     width: 'auto',
     textAlign: 'center',
     left:'0dp',
-    top: pHeight*.63,
-    height: pHeight*.1
+    top:pHeight*.63,
+    height: pHeight*.1,
 })
 
 if (win.pictureURL ==='None')
@@ -120,13 +119,14 @@ if (win.pictureURL ==='None')
 		contentWidth:'auto', 
 		contentHeight:'auto', 
 		top:pHeight*.7, 
+		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
 		
 	var winAnimalDescription = Ti.UI.createLabel({
 	text: win.animalDesc,
 	textAlign: 'center',
-	color: 'white',
+	color: '#000000',
     font: {
         fontSize: '18dp',
         fontWeight: 'normal'
@@ -176,6 +176,10 @@ var linkE = Titanium.UI.createLabel({
 linkE.addEventListener('click',function(e)
 {
      var w = Ti.UI.createWindow();
+     w.addEventListener('close', function(){w = null;});
+	 w.addEventListener('android:back', function() {  
+           w.close();             
+            });          
      w.open(Titanium.Platform.openURL(win.youTube));
 });
  
