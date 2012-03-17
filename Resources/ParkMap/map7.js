@@ -8,36 +8,36 @@ var win = Titanium.UI.currentWindow;
 //create views for each category
 var animals=Titanium.UI.createView({
   opacity:.25,
-  height:2808/1.5,
-  width:2064,
+  height:'auto',
+  width:'auto',
   top:'0dp'	
 });
 
 var attractions=Titanium.UI.createView({
   opacity:.25,
-  height:2808/1.5,
-  width:2064,
+  height:'auto',
+  width:'auto',
   top:'0dp'		
 });
 
 var facilities=Titanium.UI.createView({
   opacity:.25,
-  height:2808/1.5,
-  width:2064,
+  height:'auto',
+  width:'auto',
   top:'0dp'		
 });
 
 var greentour=Titanium.UI.createView({
   opacity:.25,
-  height:2808/1.5,
-  width:2064,
+  height:'auto',
+  width:'auto',
   top:'0dp'	
 });
 
 var other=Titanium.UI.createView({
   opacity:.25,
-  height:2808/1.5,
-  width:2064,
+  height:'auto',
+  width:'auto',
   top:'0dp'	
 });
 
@@ -357,7 +357,7 @@ var scrollViewHorizontal =  Titanium.UI.createScrollView({
 });
 
 //add map into horizontal scrollview
-scrollViewHorizontal.add(mapimage);
+//scrollViewHorizontal.add(mapimage);
 
 //declare vertical scrollview
 var scrollViewVertical =  Titanium.UI.createScrollView({
@@ -397,169 +397,169 @@ xhr.onload = function()
         if (animal.test(Category)){
     	var mapIconAnimal = Titanium.UI.createImageView({
     		url:'animals.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		top: (PixelY/2/1.15)-(pWidth*.06),
+    		left: (PixelX/2/1.5)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
     	});
     	
     	var mapLabelAnimal=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
-    		left: (PixelX/2/1.35)-(pWidth*.09),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		top: ((PixelY/2/1.5)-(pWidth*.12)/2),
+    		left: (PixelX/2)/1.5,
+    		width:pWidth*.18,
+    		Height:pWidth*.1,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},
+        	font:{fontSize:'10dp', fontWeight:'bold'},
         	textAlign:'center',    		  
     		color: '#000000'   		
     	});
     	animals.add(mapIconAnimal);
-    	animals.add(mapLabelAnimal);
+//    	animals.add(mapLabelAnimal);
         } 
         
         if (attraction.test(Category)){
     	var mapIconAttraction = Titanium.UI.createImageView({
     		url:'attractions.png',
-    		top: (PixelY/2/1.11)-(pWidth*.06),
-    		left: (PixelX/2/1.36)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
+    		top: (PixelY/2/1.15)-(pWidth*.06),
+    		left: (PixelX/2/1.3)-(pWidth*.06),
+    		width:pWidth*.125,
+    		Height:pWidth*.125,
     	});
     	
     	var mapLabelAttraction=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		top: ((PixelY/2/1.5)-(pWidth*.12)/2),
+    		left: (PixelX/2)/1.5,
+    		width:pWidth*.18,
+    		Height:pWidth*.15,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 		attractions.add(mapIconAttraction);
-		attractions.add(mapLabelAttraction);
+//		attractions.add(mapLabelAttraction);
         } 
         
         if (facility.test(Category)){
     	var mapIconFacility = Titanium.UI.createImageView({
     		url:'facilities.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
+    		top: (PixelY/2/1.15)-(pWidth*.06),
+    		left: (PixelX/2/1.5)-(pWidth*.06),
+    		width:pWidth*.125,
+    		Height:pWidth*.125,
     	});
     	
     	var mapLabelFacility=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		top: ((PixelY/2/1.5)-(pWidth*.12)/2),
+    		left: (PixelX/2)/1.5,
+    		width:pWidth*.18,
+    		Height:pWidth*.15,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'10dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 		facilities.add(mapIconFacility);
-		facilities.add(mapLabelFacility);	
+	//	facilities.add(mapLabelFacility);	
         } 
         
         if (greenTour.test(Category)){
     	var mapIconGreenTour = Titanium.UI.createImageView({
     		url:'greentour.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.36)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
+    		top: (PixelY/2/1.15)-(pWidth*.06),
+    		left: (PixelX/2/1.2)-(pWidth*.06),
+    		width:pWidth*.125,
+    		Height:pWidth*.125,
     	});
     	
     	var mapLabelGreenTour=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
+     		top: ((PixelY/2/1.5)-(pWidth*.12)/2),
+    		left: (PixelX/2)/1.5,
+    		width:pWidth*.18,
+    		Height:pWidth*.15,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 		greentour.add(mapIconGreenTour);
-		greentour.add(mapLabelGreenTour);
+	//	greentour.add(mapLabelGreenTour);
         }
         
         if (restroom.test(Category)){
     	var mapIconRestroom = Titanium.UI.createImageView({
     		url:'restroom.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
+    		top: (PixelY/2/1.15)-(pWidth*.06),
+    		left: (PixelX/2/1.3)-(pWidth*.06),
+    		width:pWidth*.125,
+    		Height:pWidth*.125,
     	});
     	
     	var mapLabelRestroom=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
+     		top: ((PixelY/2/1.5)-(pWidth*.12)/2),
+    		left: (PixelX/2)/1.5,
+    		width:pWidth*.18,
+    		Height:pWidth*.15,
     		text: 'Restroom',
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 		other.add(mapIconRestroom);
-		other.add(mapLabelRestroom);
+	//	other.add(mapLabelRestroom);
         }      
           
         if (exit.test(Category)){
     	var mapIconExit = Titanium.UI.createImageView({
     		url:'emergency.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
+    		top: (PixelY/2/1.15)-(pWidth*.06),
+    		left: (PixelX/2/1.3)-(pWidth*.06),
+    		width:pWidth*.125,
+    		Height:pWidth*.125,
     	});
     	
     	var mapLabelExit=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
+     		top: ((PixelY/2/1.5)-(pWidth*.12)/2),
+    		left: (PixelX/2)/1.5,
+    		width:pWidth*.18,
+    		Height:pWidth*.15,
     		text: 'Emergency Exit',
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 		other.add(mapIconExit);
-		other.add(mapLabelExit);
+	//	other.add(mapLabelExit);
         }        
      
         if (parkinglot.test(Category)){
     	var mapIconParking = Titanium.UI.createImageView({
     		url:'parkinglot.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
+    		top: (PixelY/2/1.15)-(pWidth*.06),
+    		left: (PixelX/2/1.3)-(pWidth*.06),
+    		width:pWidth*.125,
+    		Height:pWidth*.125,
     	});
     	
     	var mapLabelParking=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
+     		top: ((PixelY/2/1.5)-(pWidth*.12)/2),
+    		left: (PixelX/2)/1.5,
+    		width:pWidth*.18,
+    		Height:pWidth*.15,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 		other.add(mapIconParking);
-		other.add(mapLabelParking);
+	//	other.add(mapLabelParking);
         }        
      }
 };
-        scrollViewHorizontal.add(animals);
+        mapimage.add(animals);
     	animalsopened=true;
-    	scrollViewHorizontal.add(attractions);
+    	mapimage.add(attractions);
 		attractionsopened=true;
-		scrollViewHorizontal.add(facilities);
+		mapimage.add(facilities);
 		facilitiesopened=true;
-		scrollViewHorizontal.add(greentour);
+		mapimage.add(greentour);
 		greentouropened=true;
-		scrollViewHorizontal.add(other);
-		
+		mapimage.add(other);
+		scrollViewHorizontal.add(mapimage);
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
@@ -584,7 +584,7 @@ win.add(buttonFacilities);
 win.add(buttonGreenTour);
 win.add(buttonFindMe);
 
-win.addEventListener('android:back', function() { 
+win.addEventListener('android:back', function() {  
            win.close();             
             });
             
