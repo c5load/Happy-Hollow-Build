@@ -81,7 +81,7 @@ var winAnimalLabel = Titanium.UI.createLabel({
     width: pWidth,
     textAlign: 'left',
     left: '0dp',
-    top: pHeight*.55,
+    top: pHeight*.45,
     height: pHeight*.15
 })
 
@@ -96,7 +96,7 @@ var winAnimalScientific = Ti.UI.createLabel({
     width: 'auto',
     textAlign: 'center',
     left:'0dp',
-    top:pHeight*.63,
+    top:pHeight*.53,
     height: pHeight*.1,
 })
 
@@ -118,7 +118,8 @@ if (win.pictureURL ==='None')
 		backgroundcolor:'#FFFFFF', 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.7, 
+		top:pHeight*.6,
+		height:pHeight*.3, 
 		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
@@ -142,19 +143,6 @@ if (win.pictureURL ==='None')
 		
 
 		
-var winAnimalDescLabel = Ti.UI.createLabel({
-	
-	text: win.animalDesc,
-	color: '#000000',
-    font: {
-        fontSize: '20dp',
-        fontWeight: 'normal'
-    },
-    width: 'auto',
-    textAlign: 'center',
-    top: 100,
-    height: 'auto'
-});
 
 if (win.youTube ==='None')
 {}
@@ -168,7 +156,7 @@ var linkE = Titanium.UI.createLabel({
         },
         width:'auto',
         textAlign: 'left',
-        top:pHeight*.63,
+        top:pHeight*.53,
         height: pHeight*.1,
         left:pWidth*.6
 });
@@ -182,7 +170,37 @@ linkE.addEventListener('click',function(e)
             });          
      w.open(Titanium.Platform.openURL(win.youTube));
 });
+
+var BottomBar=Titanium.UI.createImageView({
+	backgroundColor:'#333333',
+    width: pWidth,
+    left: '0dp',
+    top: pHeight*.9,
+    height: pHeight*.11
+});
  
+var buttonMap = Titanium.UI.createButton({
+	color:'#FFFFFF',
+	borderColor:'#333333',
+	backgroundSelectedColor:'#FFFFFF',
+	backgroundImage:'/ParkMap/findonmap.png',
+	top: pHeight*.9,
+	width:pWidth*.25,
+	height:pHeight*.11,
+	left:'0dp',
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	title:'Park Map'});		
+buttonMap.addEventListener('click', function()
+{var winParkMap = Titanium.UI.createWindow({
+    title:'Park Map',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'ParkMap/mapempty.js',
+    fullscreen : true});
+winParkMap.addEventListener('close', function(){winParkMap = null;});
+	winParkMap.open();
+	});
+
 
 win.add(TitleBar);
 win.add(lblTitle);
@@ -192,6 +210,8 @@ win.add(winAnimalLabel);
 win.add(winAnimalScientific);
 win.add(winAnimalDescription);
 win.add(linkE)};
+win.add(BottomBar);
+win.add(buttonMap);
 
 win.addEventListener('android:back', function() {  
            win.close();             

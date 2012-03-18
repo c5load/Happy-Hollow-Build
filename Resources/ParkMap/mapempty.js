@@ -17,28 +17,32 @@ var animals=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'	
+  top:'0dp',	
+  visible:false  
 });
 
 var attractions=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'		
+  top:'0dp',
+  visible:false		
 });
 
 var facilities=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'		
+  top:'0dp',
+  visible:false		
 });
 
 var greentour=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'	
+  top:'0dp',
+  visible:false	
 });
 
 var other=Titanium.UI.createView({
@@ -251,7 +255,7 @@ var buttonGreenTour = Titanium.UI.createButton({
 	height:pHeight*.11,
 	left:pWidth*.6,
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	title:'Green Tour'});	
+	title:'Animals'});	
 buttonGreenTour.addEventListener('click', function()
 {
 	if (greentouropened == true){
@@ -307,12 +311,9 @@ Titanium.Geolocation.getCurrentPosition(function(e)
         return;
     }
  
-//    var longitude = e.coords.longitude;
-//    var latitude = e.coords.latitude;
+    var longitude = e.coords.longitude;
+    var latitude = e.coords.latitude;
 
- 
-    var latitude = 37.32576;
-    var longitude = -121.863073;
    
 	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
 	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
@@ -602,4 +603,3 @@ win.addEventListener('android:back', function() {
             
 xhr.open('GET','http://hhpz.org/mobile/xml/locs.xml');            
 xhr.send();
-
