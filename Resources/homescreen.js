@@ -9,7 +9,7 @@ var winParkMap = Titanium.UI.createWindow({
     title:'Park Map',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'ParkMap/map.js',
+    url: 'ParkMap/parkmap.js',
     fullscreen : true,});
 
 var winAnimals = Titanium.UI.createWindow({
@@ -44,7 +44,7 @@ var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    url: 'Schedule/schedule2.js',
+    url: 'Schedule/schedule.js',
     fullscreen : true,});
 
 var winContactUs = Titanium.UI.createWindow({

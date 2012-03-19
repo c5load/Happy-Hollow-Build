@@ -42,14 +42,12 @@ buttonHome.addEventListener('click', function()
 {	var winHomeScreen = Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
     backgroundColor:'#FFFFFF',
-    url: '/app.js',
+    url: '/homescreen.js',
     navBarHidden:true,
     fullscreen : true,  
-    exitOnClose: true,
-    navBarHidden: true
 });
+winHomeScreen.addEventListener('close', function(){winHome = null;});
 	winHomeScreen.open();
-	win.close();
 	});
 	
 var buttonSchedule = Titanium.UI.createButton({
@@ -65,7 +63,7 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/schedule2.js',
+    url: '/Schedule/schedule.js',
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});
@@ -73,8 +71,14 @@ winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
 
+var winBar = Titanium.UI.createLabel({
+	backgroundImage:'facilitiesbackground.png',	
+    width: pWidth,
+	top:pHeight*.55,
+	height:pHeight*.15,
+})
+
 var winFacility = Ti.UI.createLabel({
-	backgroundImage: '/Facilities/facilitiesbackground.png',
 	textWeight:'strong',
 	text: win.facility,
 	textAlign: pWidth*.1,
@@ -88,7 +92,7 @@ var winFacility = Ti.UI.createLabel({
     textAlign: 'left',
     left: '0dp',
     top: pHeight*.55,
-    height: pHeight*.15
+    height: pHeight*.1
 })
 
 
@@ -111,6 +115,7 @@ var scrollView = Titanium.UI.createScrollView({
 		contentWidth:'auto', 
 		contentHeight:'auto', 
 		top:pHeight*.7, 
+		height:pHeight*.2,		
 		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
@@ -133,23 +138,63 @@ var winFacilityDescription = Ti.UI.createLabel({
 		
 		
 	
-//var winFacilityDescriptionLabel = Ti.UI.createLabel({
-//	text: win.facilityDesc,
-//	color: '#FFFFFF',
- //   font: {
-  //      fontSize: '30dp',
-   //     fontWeight: 'normal'
-   // },
-    //width: 'auto',
-    //textAlign: 'center',
-    //top: '100dp',
-    //height: 'auto'
-//});
+/*
+var BottomBar=Titanium.UI.createImageView({
+	backgroundColor:'#333333',
+    width: pWidth,
+    left: '0dp',
+    top: pHeight*.9,
+    height: pHeight*.11
+});
+
+var buttonMap = Titanium.UI.createButton({
+	backgroundColor:'#333333',
+	borderColor:'#333333',
+	backgroundImage:'/ParkMap/findonmaprest.png',
+	backgroundSelectedImage:'/ParkMap/findonmap.png',
+	top: pHeight*.9,
+	width:pWidth*.2,
+	height:pHeight*.11,
+	left:pWidth*.2,
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	});		
+buttonMap.addEventListener('click', function()
+{var winParkMap = Titanium.UI.createWindow({
+    title:'Park Map',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'ParkMap/mapempty.js',
+    fullscreen : true});
+winParkMap.addEventListener('close', function(){winParkMap = null;});
+	winParkMap.name=win.animal;
+	winParkMap.open({fullscreen:true});
+	});
+	
+var buttonBack = Titanium.UI.createButton({
+	backgroundColor:'#333333',
+	borderColor:'#333333',
+	backgroundImage:'/back.png',
+	backgroundSelectedColor:'#FFFFFF',
+	top: pHeight*.9,
+	width:pWidth*.2,
+	height:pHeight*.11,
+	left:'0dp',
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	});		
+buttonMap.addEventListener('click', function()
+{win.close();});	
+
+win.add(BottomBar);
+win.add(buttonBack);
+win.add(buttonMap); 
+*/
+
 
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
+win.add(winBar);
 win.add(winFacility);
 
 win.addEventListener('android:back', function() {  

@@ -13,7 +13,6 @@ var winHomeScreen = Titanium.UI.createWindow({
     navBarHidden: true
 });
 
-
 //create buttons
 var buttonParkMap = Titanium.UI.createButton({
 	color:'#fff',
@@ -30,7 +29,7 @@ buttonParkMap.addEventListener('click', function()
     title:'Park Map',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'ParkMap/map6.js',
+    url: 'ParkMap/parkmap.js',
     fullscreen : true,});
 winParkMap.addEventListener('close', function(){winParkMap = null;});
 winParkMap.open();});
@@ -73,7 +72,7 @@ buttonRidesAttractions.addEventListener('click', function()
     title:'Rides & Attractions',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions2.js',
+    url: 'Attractions/attractions.js',
     fullscreen : true,});
 winRidesAttractions.addEventListener('close', function(){winRidesAttractions= null;});
     
@@ -135,7 +134,7 @@ buttonSchedule.addEventListener('click', function()
     title:'Schedule',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    url: 'Schedule/schedule2.js',
+    url: 'Schedule/schedule.js',
     fullscreen : true,});
  winSchedule.addEventListener('close', function(){winSchedule = null;});     
 	winSchedule.open();});
@@ -155,7 +154,7 @@ buttonContactUs.addEventListener('click', function()
     title:'Contact Us',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    url: 'ContactUs/contactus2.js',
+    url: 'ContactUs/contactus.js',
     fullscreen : true,});
  winContactUs.addEventListener('close', function(){winContactUs = null;});     
 	winContactUs.open();});
@@ -170,7 +169,11 @@ winHomeScreen.add(buttonContactUs);
 
 winHomeScreen.open();
 
-var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
+Ti.Gesture.addEventListener('orientationchange', function(e) {
+    Ti.Android.currentActivity.setRequestedOrientation(Ti.Android.SCREEN_ORIENTATION_PORTRAIT);
+});
+
+/*var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
 if (file.exists()) { file.deleteFile(); }
 
 var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
@@ -200,9 +203,37 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
     };
-    
+   */ 
 
+<<<<<<< HEAD
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+=======
+/*
+if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+        var xhr = Ti.Network.createHTTPClient();
+        xhr.open("POST","http://hhpz.org/mobile/xml/Attractions.xml");
+        xhr.onerror = function(e) {
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
+        };
+        xhr.setTimeout(30000);
+        xhr.onload = function() {
+            try {
+				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Attractions.xml');
+				f.write(this.responseData);
+				Ti.API.info(this.responseText); // check the file content on TI info panel.
+				}
+			catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
+            };
+        };
+        xhr.send();
+    };
+*/
+    
+/*
+
+//if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+>>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
        var xhr = Ti.Network.createHTTPClient();
        xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
        xhr.onerror = function(e) {
@@ -220,6 +251,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
             };
         };
         xhr.send();
+<<<<<<< HEAD
     };
     
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database    
@@ -241,3 +273,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
 };
+=======
+//    };
+
+*/
+>>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
