@@ -18,7 +18,7 @@ var animals=Titanium.UI.createView({
   height:2808/1.5,
   width:2064,
   top:'0dp',	
-  visible:false  
+  visible:true  
 });
 
 var attractions=Titanium.UI.createView({
@@ -26,7 +26,7 @@ var attractions=Titanium.UI.createView({
   height:2808/1.5,
   width:2064,
   top:'0dp',
-  visible:false		
+  visible:true		
 });
 
 var facilities=Titanium.UI.createView({
@@ -34,7 +34,7 @@ var facilities=Titanium.UI.createView({
   height:2808/1.5,
   width:2064,
   top:'0dp',
-  visible:false		
+  visible:true		
 });
 
 var greentour=Titanium.UI.createView({
@@ -42,7 +42,7 @@ var greentour=Titanium.UI.createView({
   height:2808/1.5,
   width:2064,
   top:'0dp',
-  visible:false	
+  visible:true	
 });
 
 var other=Titanium.UI.createView({
@@ -84,7 +84,16 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{win.close();});
+{	var winHomeScreen = Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/app.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    exitOnClose: true
+});
+	winHomeScreen.open();
+	win.close();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -305,7 +314,8 @@ buttonFindMe.addEventListener('click', function()
 {
 Titanium.Geolocation.getCurrentPosition(function(e)
 {
-    if (e.error)
+	alert(win.name);
+/*    if (e.error)
     {
         alert('HFL cannot get your current location');
         return;
@@ -342,7 +352,7 @@ Titanium.Geolocation.getCurrentPosition(function(e)
 		scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
 
 	};
-});
+*/});
 });
 
 //declare map; shrunk down a bit to accomodate 
@@ -390,12 +400,14 @@ var xhr = Titanium.Network.createHTTPClient();
 xhr.onload = function()
 {
     var doc = this.responseXML.documentElement;
-    var elements = doc.getElementsByTagName("LocName");            
-
+//    var elements = doc.getElementsByTagName("LocName");            
+    var elements = doc.getElementsByTagName("LocName"); 
+    
     for (var i=0;i<elements.length;i++) {
     	var PixelX = doc.getElementsByTagName("PixelX").item(i).text;
         var PixelY = doc.getElementsByTagName("PixelY").item(i).text;
         var LocationName = doc.getElementsByTagName("LocName").item(i).text;
+        LocationName= LocationName.replace(/(\r\n|\n|\r)/gm, "");               
         var Category = doc.getElementsByTagName("Category").item(i).text;
 
         var animal=/.*Animal.*/;
@@ -405,7 +417,105 @@ xhr.onload = function()
         var restroom=/.*Restroom.*/;
         var exit=/.*Emergency Exit.*/;
         var parkinglot=/.*Parking Lot.*/;
-                                
+       	var loc=/.*(win.name).*/;
+       	
+//		var locname = win.name;
+//		    locname = locname.replace(/(\r\n|\n|\r)/gm, "");
+//		if (loc.test(LocationName)){  		     	
+//		if (win.location == LocationName){
+//	    if (locname == LocationName){
+        if (win.name == LocationName){	
+	      if (animal.test(Category)){
+
+	    	var mapIconAnimal = Titanium.UI.createImageView({
+	    		url:'animals.png',
+	    		top: (PixelY/2/1.12)-(pWidth*.06),
+	    		left: (PixelX/2/1.35)-(pWidth*.06),
+	    		width:pWidth*.12,
+	    		Height:pWidth*.12,
+	    	});
+	    	
+	    	var mapLabelAnimal=Titanium.UI.createLabel({
+	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		left: (PixelX/2/1.35)-(pWidth*.09),
+	    		width:pWidth*.15,
+	    		Height:pWidth*.12,
+	    		text: LocationName,
+	        	font:{fontSize:'9dp', fontWeight:'bold'},
+	        	textAlign:'center',    		  
+	    		color: '#000000'   		
+	    	});
+	    	scrollViewHorizontal.add(mapIconAnimal);
+	    	scrollViewHorizontal.add(mapLabelAnimal);
+	        } 
+	        
+	        if (attraction.test(Category)){
+	    	var mapIconAttraction = Titanium.UI.createImageView({
+	    		url:'attractions.png',
+	    		top: (PixelY/2/1.11)-(pWidth*.06),
+	    		left: (PixelX/2/1.36)-(pWidth*.06),
+	    		width:pWidth*.12,
+	    		Height:pWidth*.12,
+	    	});
+	    	
+	    	var mapLabelAttraction=Titanium.UI.createLabel({
+	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		left: (PixelX/2/1.35)-(pWidth*.06),
+	    		width:pWidth*.15,
+	    		Height:pWidth*.12,
+	    		text: LocationName,
+	        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+	    		color: '#000000'   		
+	    	});
+			scrollViewHorizontal.add(mapIconAttraction);
+			scrollViewHorizontal.add(mapLabelAttraction);
+	        } 
+	        
+	        if (facility.test(Category)){
+	    	var mapIconFacility = Titanium.UI.createImageView({
+	    		url:'facilities.png',
+	    		top: (PixelY/2/1.12)-(pWidth*.06),
+	    		left: (PixelX/2/1.35)-(pWidth*.06),
+	    		width:pWidth*.12,
+	    		Height:pWidth*.12,
+	    	});
+	    	
+	    	var mapLabelFacility=Titanium.UI.createLabel({
+	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		left: (PixelX/2/1.35)-(pWidth*.06),
+	    		width:pWidth*.15,
+	    		Height:pWidth*.12,
+	    		text: LocationName,
+	        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+	    		color: '#000000'   		
+	    	});
+			scrollViewHorizontal.add(mapIconFacility);
+			scrollViewHorizontal.add(mapLabelFacility);	
+	        } 
+	        
+	        if (greenTour.test(Category)){
+	    	var mapIconGreenTour = Titanium.UI.createImageView({
+	    		url:'greentour.png',
+	    		top: (PixelY/2/1.12)-(pWidth*.06),
+	    		left: (PixelX/2/1.36)-(pWidth*.06),
+	    		width:pWidth*.12,
+	    		Height:pWidth*.12,
+	    	});
+	    	
+	    	var mapLabelGreenTour=Titanium.UI.createLabel({
+	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		left: (PixelX/2/1.35)-(pWidth*.06),
+	    		width:pWidth*.15,
+	    		Height:pWidth*.12,
+	    		text: LocationName,
+	        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+	    		color: '#000000'   		
+	    	});
+			scrollViewHorizontal.add(mapIconGreenTour);
+			scrollViewHorizontal.add(mapLabelGreenTour);
+	        }        	
+        }
+        else {                                
         if (animal.test(Category)){
     	var mapIconAnimal = Titanium.UI.createImageView({
     		url:'animals.png',
@@ -560,17 +670,21 @@ xhr.onload = function()
 		other.add(mapIconParking);
 		other.add(mapLabelParking);
         }        
-     }
+     }}
 };
         scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
-    	animalsopened=true;
+        animals.visible=false;
+    	animalsopened=false;
     	scrollViewHorizontal.add(attractions);
-		attractionsopened=true;
+    	attractions.visible=false;
+		attractionsopened=false;
 		scrollViewHorizontal.add(facilities);
-		facilitiesopened=true;
+		facilities.visible=false;
+		facilitiesopened=false;
 		scrollViewHorizontal.add(greentour);
-		greentouropened=true;
+		greentour.visible=false;
+		greentouropened=false;
 		scrollViewHorizontal.add(other);
 		
 //put horizontal scrollview into vertical scrollview and add to window

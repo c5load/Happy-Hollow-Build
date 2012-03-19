@@ -82,7 +82,15 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{win.close();});
+{var winHomeScreen = Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/homescreen.js',
+    navBarHidden:true,
+    fullscreen : true,  
+});
+	winHomeScreen.addEventListener('close', function(){winHome = null;});
+	winHomeScreen.open();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -97,7 +105,7 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/schedule2.js',
+    url: '/Schedule/schedule.js',
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});
@@ -105,145 +113,211 @@ winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
 
-var lblContactHappyHollow=Titanium.UI.createLabel({
-	backgroundImage:'../backgroundresting.png',
-	height:pHeight*.1,
+var lblContactHappyHollow=Titanium.UI.createImageView({
+	backgroundImage:'/backgroundresting.png',
+	height:pHeight*.14,
 	top:'0dp',
 	width:pWidth,
-	text: 'Happy Hollow: 1300 Senter Road, San Jose, CA 95112',
+})
+
+var lblTextHappyHollow=Titanium.UI.createLabel({
+	height:pHeight*.14,
+	width:pWidth*.5,
+	left:pWidth*.5,
+	top:'0dp',
+	text: 'Happy Hollow Main Office',
 	fontSize:'10dp',
-	fontColor:'black',
-	textAlign:pWidth*.5
+	color:'#000000'
 })
 
 var btnCallHappyHollow = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/ContactUs/phone.png',
-	top:'auto',
-	width:pWidth*.14,
-	height:pHeight*.08,
-	left: pWidth*.05});	
+	top:pHeight*.028,
+	width:pWidth*.13,
+	height:pWidth*.13,
+	left: pWidth*.025});	
 	
 btnCallHappyHollow.addEventListener('click', function()
 {
 	Titanium.Platform.openURL('tel:4087946400');
 });
 
-lblContactHappyHollow.add(btnCallHappyHollow);
+var btnEmailHappyHollow = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/ContactUs/email.png',
+	top:'0dp',
+	width:pWidth*.26,
+	height:pWidth*.20,
+	left: pWidth*.18});
+	
+btnEmailHappyHollow.addEventListener('click', function()
+{
+var HHemailDialog = Ti.UI.createEmailDialog();
+    HHemailDialog.toRecipients = ['hhguestservice@sanjoseca.gov'];
+    HHemailDialog.open();	
+});
 
-var lblContactJon=Titanium.UI.createLabel({
-	backgroundImage:'../backgroundresting.png',
-	height:pHeight*.1,
-	top:pHeight*.1,
+	
+var lblContactJon=Titanium.UI.createImageView({
+	backgroundImage:'/backgroundresting.png',
+	height:pHeight*.14,
+	top:pHeight*.14,
 	width:pWidth,
+})
+
+var lblTextJon=Titanium.UI.createLabel({
+	height:pHeight*.14,
+	top:pHeight*.14,	
+	left:pWidth*.5,
+	width:pWidth*.5,
 	text: 'Jon Moog:Operations Director',
 	fontSize:'10dp',
-	fontColor:'black',
-	textAlign:pWidth*.5
+	color:'#000000'
 })
 
 var btnCallJon = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/ContactUs/phone.png',
-	top:'auto',
+	top:pHeight*.158,
 	width:pWidth*.14,
-	height:pHeight*.08,
-	left: pWidth*.05});	
+	height:pWidth*.14,
+	left: pWidth*.025});	
 	
 btnCallJon.addEventListener('click', function()
 {
 	Titanium.Platform.openURL('tel:4087946403');
 });
 
-lblContactJon.add(btnCallJon);
+var btnEmailJon = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'/ContactUs/email.png',
+	top:pHeight*.14,
+	width:pWidth*.26,
+	height:pWidth*.20,
+	left: pWidth*.18});
+
+btnEmailHappyHollow.addEventListener('click', function()
+{
+var emailDialog = Ti.UI.createEmailDialog();
+    emailDialog.toRecipients = ['jonathan.moog@sanjoseca.gov'];
+    emailDialog.open();	
+});
 
 
 scrollViewContacts.add(lblContactHappyHollow);
+scrollViewContacts.add(lblTextHappyHollow);
+scrollViewContacts.add(btnCallHappyHollow);
+scrollViewContacts.add(btnEmailHappyHollow);
 scrollViewContacts.add(lblContactJon);
+scrollViewContacts.add(lblTextJon);
+scrollViewContacts.add(btnCallJon);
+scrollViewContacts.add(btnEmailJon);
+
 win.add(scrollViewContacts);
 
-var lblTitleAddress = Titanium.UI.createLabel({
-    text: "Address:",
-    color: 'black',
-    font: {
-        fontSize: '20dp',
-        fontWeight: 'bold'
-    },
-    width: pWidth,
-    left: pWidth*.02,
-    top: pHeight*.10,
-    height: pHeight*.1
-});
+
+var lblCreditsHappyHollow=Titanium.UI.createImageView({
+	backgroundImage:'/backgroundresting.png',
+	height:pHeight*.14,
+	top:'0dp',
+	width:pWidth,
+})
+
+var lblCreditsTextHappyHollow=Titanium.UI.createLabel({
+	height:pHeight*.14,
+	left:pWidth*.25,
+	width:pWidth*.75,
+	top:'0dp',
+	text: 'Happy Hollow Park & Zoo has provided fun and entertainment for many years',
+	fontSize:'10dp',
+	color:'#000000'
+})
+
+var HHLogo = Titanium.UI.createImageView({
+	backgroundImage:'logo.png',
+	top:pHeight*.025,
+	width:pWidth*.15,
+	height:pWidth*.15,
+	left: pWidth*.025});	
+
+var lblHonors=Titanium.UI.createImageView({
+	backgroundImage:'/backgroundresting.png',
+	height:pHeight*.14,
+	top:pHeight*.14,
+	width:pWidth,
+	borderColor:'#000000'
+})
+
+var lblTextHonors=Titanium.UI.createLabel({
+	height:pHeight*.14,
+	left:pWidth*.25,
+	top:pHeight*.14,	
+	width:pWidth*.75,
+	text: 'This app created by MIS students in the Gary J. Sbona Honors Program, San Jose State University.',
+	fontSize:'10dp',
+	color:'#000000'
+})
+
+var HonorsLogo = Titanium.UI.createImageView({
+	backgroundImage:'/ContactUs/honorslogo.png',
+	top:pHeight*.155,
+	width:pWidth*.15,
+	height:pWidth*.15,
+	left: pWidth*.025});	
+
+var lblByte=Titanium.UI.createImageView({
+	backgroundImage:'/backgroundresting.png',
+	height:pHeight*.14,
+	top:pHeight*.28,
+	width:pWidth,
+})
+
+var lblTextByte=Titanium.UI.createLabel({
+	height:pHeight*.14,
+	left:pWidth*.25,
+	top:pHeight*.28,	
+	width:pWidth*.75,
+	text: 'Byte Technologies offers solutions to its clients.',
+	fontSize:'10dp',
+	color:'#000000'
+})
+
+var lblTest=Titanium.UI.createImageView({
+	backgroundImage:'/backgroundresting.png',
+	height:pHeight*.14,
+	top:pHeight*.42,
+	width:pWidth,
+})
+
+//var ByteLogo = Titanium.UI.createImageView({
+//	backgroundImage:'',
+//	top:pHeight*.168,
+//	width:pWidth*.13,
+//	height:pWidth*.13,
+//	left: pWidth*.025});	
 
 
-var lblAddress = Titanium.UI.createLabel({
-    text: "1300 Senter Road, San Jose, CA 95112",
-    color: 'black',
-    font: {
-        fontSize: '20dp',
-        fontWeight: 'normal'
-    },
-    width: pWidth,
-    left: pWidth*.02,
-    top: pHeight*.15,
-    height: pHeight*.1
-});
+scrollViewCredits.add(lblCreditsHappyHollow);
+scrollViewCredits.add(lblCreditsTextHappyHollow);
+scrollViewCredits.add(HHLogo);
+scrollViewCredits.add(lblHonors);
+scrollViewCredits.add(lblTextHonors);
+scrollViewCredits.add(HonorsLogo);
+scrollViewCredits.add(lblByte);
+scrollViewCredits.add(lblTextByte);
+//scrollViewCredits.add(ByteLogo);
+scrollViewCredits.add(lblTest);
+win.add(scrollViewCredits);
 
-var lblTitlePhone = Titanium.UI.createLabel({
-    text: "Main Office Number:",
-    color: 'black',
-    font: {
-        fontSize: '20dp',
-        fontWeight: 'bold'
-    },
-    width: pWidth,
-    left: pWidth*.02,
-    top: pHeight*.25,
-    height: pHeight*.1
-});
-
-var lblPhone = Titanium.UI.createLabel({
-    text: "Main Office:(408)794-6400",
-    color: 'black',
-    font: {
-        fontSize: '20dp',
-        fontWeight: 'normal'
-    },
-    width: pWidth,
-    left: pWidth*.02,
-    top: pHeight*.30,
-    height: pHeight*.1
-});
-
-
-var buttonCall = Titanium.UI.createButton({
-	color:'#fff',
-	backgroundImage:'/ContactUs/phone.png',
-	top:pHeight*.30,
-	width:pWidth*.14,
-	height:pHeight*.08,
-	left: pWidth*.78,
-	font:{fontSize:'20dp',fontWeight:'bold',fontFamily:'Helvetica Neue'}});	
-
-
-buttonCall.addEventListener('click', function()
-{
-	Titanium.Platform.openURL('tel:4087946400');
-});
 
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(CreditsBar);
 win.add(lblCredits);
-//win.add(lblTitleAddress);
-//win.add(lblAddress);
-//win.add(lblTitlePhone);
-//win.add(lblPhone);
-//win.add(buttonCall);
 win.add(buttonHome);
 win.add(buttonSchedule);
 
 win.addEventListener('android:back', function() {  
            win.close();             
             });
-
