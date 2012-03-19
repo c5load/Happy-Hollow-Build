@@ -124,8 +124,9 @@ xhr.onload = function()
     
         
     for (var i=0;i<elements.length;i++) {
-    	attractionCategory = doc.getElementsByTagName("AttractionOrRide").item(i).text;
-	   	if (attractionCategory == "Ride"){	
+    	
+	//   	if (doc.getElementsByTagName("AttractionOrRide").item(i).text == "Ride")
+	//   	{	
     	
 		    var row = Ti.UI.createTableViewRow({
 		    	hasChild:true,
@@ -140,8 +141,8 @@ xhr.onload = function()
 		    attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
 		    attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
 		    attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
-		        
-		       
+		    attractionCategory = doc.getElementsByTagName("AttractionOrRide").item(i).text;   
+		    var name = attractionCategory.text;   
 		  
 		      
 		    var rideLabel = Ti.UI.createLabel({
@@ -159,6 +160,8 @@ xhr.onload = function()
 		    	width: pHeight*.18,
 		    	left: pWidth*.025
 		    });       
+		    if (name == 'Ride')
+		    {
 		    row.add(rideImage);        
 		    row.add(rideLabel);
 		    row.item = desc;
@@ -166,8 +169,10 @@ xhr.onload = function()
 		    row.item3 = attractionLocation;
 		    row.item4 = attractionYoutube;
 		    row.item5 = attractionPicture;
-		    dataRides.push(row);}
-   		};
+		    dataRides.push(row);
+		    }
+		    };
+   	//	};
     var tableviewRides = Titanium.UI.createTableView({
        data:dataRides,
        top:pHeight*.1,
@@ -215,8 +220,9 @@ xhr.onload = function()
     
         
     for (var i=0;i<elements.length;i++) {
-    	attractionCategory = doc.getElementsByTagName("AttractionOrRide").item(i).text;
-	  	if (attractionCategory == "Attraction"){	
+    	
+	//  	if (doc.getElementsByTagName("AttractionOrRide").item(i).text == "Attraction")
+	//  	{	
     	
 		    var row = Ti.UI.createTableViewRow({
 		    	hasChild:true,
@@ -231,8 +237,8 @@ xhr.onload = function()
 		    attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
 		    attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
 		    attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
-		        
-		       
+		    attractionCategory = doc.getElementsByTagName("AttractionOrRide").item(i).text;   
+		    var name = attractionCategory.text;    
 		  
 		      
 		    var rideLabel = Ti.UI.createLabel({
@@ -250,6 +256,8 @@ xhr.onload = function()
 		    	width: pHeight*.18,
 		    	left: pWidth*.025
 		    });       
+		    if (name == 'Attraction')
+		    {
 		    row.add(rideImage);        
 		    row.add(rideLabel);
 		    row.item = desc;
@@ -257,8 +265,11 @@ xhr.onload = function()
 		    row.item3 = attractionLocation;
 		    row.item4 = attractionYoutube;
 		    row.item5 = attractionPicture;
-		    dataRides.push(row);}
-   		};
+		    dataRides.push(row);
+		    }
+		    };
+		    
+   	//	};
     var tableviewAttractions = Titanium.UI.createTableView({
        data:dataRides,
        top:pHeight*.1,

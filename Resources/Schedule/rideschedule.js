@@ -27,42 +27,56 @@ var lblTitle=Titanium.UI.createLabel({
 });
 
 
-
-
 var data = [];
 
-var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'rideinfo.xml');
-var xmltext = file.read().text;
-var doc = Ti.XML.parseString(xmltext);
-var elements = doc.getElementsByTagName("ride");
 
-for (var i=0;i<elements.length;i++) {
-    var row = Ti.UI.createTableViewRow({
-    	height:'80dp'
-    });
-    row.title = elements.item(i).getAttribute("Title");
-    title = doc.getElementsByTagName("title").item(i).text;
-    var hours = [];   
-    var titleLabel = Ti.UI.createLabel({
-    	text: title,
-    	color:'#000000',
-    	font:{fontSize:'20dp'},
-    	textAlign:'left',
-    	left:'0dp'
-        });
 
-        row.add(titleLabel);
-        data.push(row);}
-   
-    var tableview = Titanium.UI.createTableView({
-       top:'50dp',
-   data:data,
-   height:'auto',
-});
-tableview.setData(data);
-Titanium.UI.currentWindow.add(tableview); 
 
-tableview.addEventListener('click',function(e)
+	try
+	{
+		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var xmltext = file.read().text;
+		var doc = Ti.XML.parseString(xmltext);
+		var elements = doc.getElementsByTagName("title");
+		
+		for (var i=0;i<elements.length;i++) {
+		
+				var row = Ti.UI.createTableViewRow({
+        				hasChild:true,
+        				height:pHeight*.13,
+        				backgroundImage: '../backgroundresting.png',
+        				selectedBackgroundImage: '/Animals/animalsbackground.png'
+        			});
+        		row.title = elements.item(i).getAttribute("title");
+				var title = doc.getElementsByTagName("title").item(i).text;
+				var x=doc.getElementsByTagName('title').item(i).childNode[0].text;
+				alert(x);
+				
+												
+				var label = Ti.UI.createLabel({
+					text:title,
+					left:72,
+					top:5,
+					bottom:5,
+					right:5				
+				});
+				
+				row.add(label);
+				row.item = row.title;
+			
+				data.push(row);
+				
+				
+		}
+		
+		var tableview = Titanium.UI.createTableView({
+       data:data,
+       top:pHeight*.1,
+       height:'auto',
+    	});
+		Titanium.UI.currentWindow.add(tableview);
+	    tableview.setData(data);
+		tableview.addEventListener('click',function(e)
 		{
 			var w = Ti.UI.createWindow({
 			url:'specificride.js', 
@@ -79,8 +93,15 @@ tableview.addEventListener('click',function(e)
 			{
 				w.close();
 			});
+			w.title = e.rowData.item;
 			w.open({fullscreen:true});
+			
 		});
+	}
+	catch(E)
+	{
+		alert(E);
+	}
 
 
 win.add(TitleBar);
