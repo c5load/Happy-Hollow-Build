@@ -71,11 +71,6 @@ winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
 
-
-//    var data = [];  
-//    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Animals.xml');
-//	var xmltext = file.read().text;
-//	var doc = Ti.XML.parseString(xmltext);
 var xhr = Titanium.Network.createHTTPClient();
 
 xhr.onload = function()
