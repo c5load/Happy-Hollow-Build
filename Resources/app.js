@@ -29,7 +29,7 @@ buttonParkMap.addEventListener('click', function()
     title:'Park Map',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'ParkMap/parkmap.js',
+    url: 'ParkMap/parkmap2.js',
     fullscreen : true,});
 winParkMap.addEventListener('close', function(){winParkMap = null;});
 winParkMap.open();});

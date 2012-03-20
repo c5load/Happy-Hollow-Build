@@ -294,6 +294,61 @@ buttonGreenTour.addEventListener('click', function()
  	}
 });
 
+var latitude;
+var longitude;
+var xPixel;
+var yPixel;
+/*
+	//  SET DISTANCE FILTER.  THIS DICTATES HOW OFTEN AN EVENT FIRES BASED ON THE DISTANCE THE DEVICE MOVES
+	//  THIS VALUE IS IN METERS
+	//
+	Titanium.Geolocation.distanceFilter = 10;
+
+	//
+	// GET CURRENT POSITION - THIS FIRES ONCE
+	//
+	Titanium.Geolocation.getCurrentPosition(function(e)
+	{
+		if (!e.success || e.error)
+		{
+		}
+
+		longitude = e.coords.longitude;
+		latitude = e.coords.latitude;
+});
+
+	//
+	// EVENT LISTENER FOR GEO EVENTS - THIS WILL FIRE REPEATEDLY (BASED ON DISTANCE FILTER)
+	//
+	var locationCallback = function(e)
+	{
+		if (!e.success || e.error)
+		{
+		}
+
+		longitude = e.coords.longitude;
+		latitude = e.coords.latitude;
+
+		xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+		yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+	
+		xPixel=(xPixel/2/1.36)-(pWidth*.06);
+		yPixel=(yPixel/2/1.11)-(pWidth*.06);
+		//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
+
+		
+		setTimeout(function()
+		{
+		alert(longitude);
+	    alert(yPixel);
+	    alert(latitude)
+		alert(xPixel);
+		},100);
+};
+
+Titanium.Geolocation.addEventListener('location', locationCallback);
+*/
+
 var buttonFindMe = Titanium.UI.createButton({
 	color:'#FFFFFF',
 	borderColor:'#333333',
@@ -307,126 +362,35 @@ var buttonFindMe = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });
 
-var latitude;
-var longitude;
-var xPixel;
-var yPixel;
 	
 buttonFindMe.addEventListener('click', function()
-{
-	alert(longitude);
-   	alert(yPixel);
-   	alert(latitude);
-    alert(xPixel);
- });
-Titanium.Geolocation.getCurrentPosition(function(e)
+{		alert(longitude);
+	    alert(yPixel);
+	    alert(latitude)
+		alert(xPixel);});
+/*Titanium.Geolocation.getCurrentPosition(function(e)
 {
     if (e.error)
     {
         alert('HFL cannot get your current location');
         return;
     }
-
-//    var longitude = e.coords.longitude;
- //   var latitude = e.coords.latitude;
-
-//    var latitude = 37.32576;
-//    var longitude = -121.863073;
-//   longitude = -121.862375;
- //  latitude = 37.326556;
-      
-//	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-//	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
-	
-//	xPixel=(xPixel/2/1.36)-(pWidth*.06);
-//	yPixel=(yPixel/2/1.11)-(pWidth*.06);
-
-//	alert(longitude);
- //  	alert(yPixel);
-  // 	alert(latitude);
-   // alert(xPixel);
-//});
-	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
-  
-//    alert(longitude);
-//    	alert(latitude);
-//	alert(longitude);
- //  	alert(yPixel);
-  // 	alert(latitude);
-   // alert(xPixel);
-//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
-//	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
-	//IF NOT AT HHPZ
-//	{
-//		alert('You don\'t appear to be at Happy Hollow');}
-//	else{
-
-	//	var imgFindMe=Titanium.UI.createImageView({
-	//		image:'findme.png',
-	//		top:yPixel,
-	//		left:xPixel,
-	//		width:pWidth*.2,
-    //		height:pWidth*.2,
-	//	})
-
-	//	scrollViewHorizontal.add(imgFindMe);
-	//	scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
-	//	scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
-        
-//	});
-});
-
-//Ti.Geolocation.addEventListener('location', function(e) {
- //   if (e.error)
-  //  {
-   //     alert('HFL cannot get your current location');
-    //    return;
-  //  }
     
-   // longitude = e.coords.longitude;
-   // latitude = e.coords.latitude;
+    longitude = e.coords.longitude;
+    latitude = e.coords.latitude;
 
-//    var latitude = 37.32576;
-//    var longitude = -121.863073;
-//   longitude = -121.862375;
- //  latitude = 37.326556;
-      
-//	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-//	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+    xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+    yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 	
-//	xPixel=(xPixel/2/1.36)-(pWidth*.06);
-//	yPixel=(yPixel/2/1.11)-(pWidth*.06);
-	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
-  
-//    alert(longitude);
-//    	alert(latitude);
-//	alert(longitude);
- //  	alert(yPixel);
-  // 	alert(latitude);
-   // alert(xPixel);
-//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
-//	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
-	//IF NOT AT HHPZ
-//	{
-//		alert('You don\'t appear to be at Happy Hollow');}
-//	else{
+	xPixel=(xPixel/2/1.36)-(pWidth*.06);
+	yPixel=(yPixel/2/1.11)-(pWidth*.06);    
 
-//		var imgFindMe=Titanium.UI.createImageView({
-//			image:'findme.png',
-//			top:yPixel,
-//			left:xPixel,
-//			width:pWidth*.2,
- //   		height:pWidth*.2,
-//		})
-
-//		scrollViewHorizontal.add(imgFindMe);
-//		scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
-//		scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
-
-//	};
-//});
-//});
-
+	alert(longitude);
+   	alert(yPixel);
+   	alert(latitude);
+    alert(xPixel);
+ });
+});
 
 	var locationCallback = function(e)
 	{
@@ -454,7 +418,8 @@ Titanium.Geolocation.getCurrentPosition(function(e)
 		
 };
 
-	Titanium.Geolocation.addEventListener('location', locationCallback);
+Titanium.Geolocation.addEventListener('location', locationCallback);
+*/
 	
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
@@ -694,16 +659,9 @@ xhr.onload = function()
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
-scrollViewHorizontal.scrollTo(2064/2, 0);
-scrollViewVertical.scrollTo(0, 2808/1.5/4);
+scrollViewHorizontal.scrollTo(pWidth/2, 0);
+scrollViewVertical.scrollTo(0,pHeight*.8*.5);
 
-scrollViewHorizontal.addEventListener ('load', function (e) {
-    scrollViewHorizontal.scrollTo(pWidth/2,0);
-        });
-
-scrollViewVertical.addEventListener ('load', function (e) {
-scrollViewVertical.scrollTo(0,pHeight*.4);
-        });
         
 win.add(TitleBar);
 win.add(lblTitle);
@@ -721,4 +679,3 @@ win.addEventListener('android:back', function() {
             
 xhr.open('GET','http://hhpz.org/mobile/xml/locs.xml');            
 xhr.send();
-
