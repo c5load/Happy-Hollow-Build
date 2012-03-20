@@ -89,7 +89,7 @@ var winAttractionLabel = Ti.UI.createLabel({
     textAlign: 'left',
     left: '0dp',
     top: pHeight*.55,
-    height: pHeight*.1
+    height: pHeight*.15
 })
 
 win.add(TitleBar);
@@ -167,7 +167,41 @@ linkE.addEventListener('click',function(e)
 }); 
 win.add(linkE)};
 
-/*
+
+var BottomBar=Titanium.UI.createImageView({
+	backgroundColor:'#333333',
+    width: pWidth,
+    left: '0dp',
+    top: pHeight*.9,
+    height: pHeight*.11
+});
+
+var buttonMap = Titanium.UI.createButton({
+	backgroundColor:'#333333',
+	borderColor:'#333333',
+	backgroundImage:'/ParkMap/findonmaprest.png',
+	backgroundSelectedImage:'/ParkMap/findonmap.png',
+	top: pHeight*.9,
+	width:pWidth*.2,
+	height:pHeight*.11,
+	left:'0dp',
+	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	});		
+buttonMap.addEventListener('click', function()
+{var winParkMap = Titanium.UI.createWindow({
+    title:'Park Map',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'ParkMap/mapempty.js',
+    fullscreen : true});
+winParkMap.addEventListener('close', function(){winParkMap = null;});
+	winParkMap.name=win.attraction;
+	winParkMap.open({fullscreen:true});
+});
+	
+win.add(BottomBar);
+win.add(buttonMap);	
+/* IPHONE CODE
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
     width: pWidth,

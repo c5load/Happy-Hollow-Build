@@ -108,7 +108,7 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/schedule2.js',
+    url: '/Schedule/schedule.js',
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});
@@ -395,6 +395,8 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
   zoomScale:1
 });
 
+var focusX;
+var focusY;
     
 var xhr = Titanium.Network.createHTTPClient();
 xhr.onload = function()
@@ -417,14 +419,9 @@ xhr.onload = function()
         var restroom=/.*Restroom.*/;
         var exit=/.*Emergency Exit.*/;
         var parkinglot=/.*Parking Lot.*/;
-       	var loc=/.*(win.name).*/;
+       	var loc=win.name.replace(/(\r\n|\n|\r)/gm, ""); 
        	
-//		var locname = win.name;
-//		    locname = locname.replace(/(\r\n|\n|\r)/gm, "");
-//		if (loc.test(LocationName)){  		     	
-//		if (win.location == LocationName){
-//	    if (locname == LocationName){
-        if (win.name == LocationName){	
+	    if (loc == LocationName){	
 	      if (animal.test(Category)){
 
 	    	var mapIconAnimal = Titanium.UI.createImageView({
@@ -436,7 +433,7 @@ xhr.onload = function()
 	    	});
 	    	
 	    	var mapLabelAnimal=Titanium.UI.createLabel({
-	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.09),
 	    		width:pWidth*.15,
 	    		Height:pWidth*.12,
@@ -447,6 +444,10 @@ xhr.onload = function()
 	    	});
 	    	scrollViewHorizontal.add(mapIconAnimal);
 	    	scrollViewHorizontal.add(mapLabelAnimal);
+	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
+			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));			    	
 	        } 
 	        
 	        if (attraction.test(Category)){
@@ -459,7 +460,7 @@ xhr.onload = function()
 	    	});
 	    	
 	    	var mapLabelAttraction=Titanium.UI.createLabel({
-	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.15,
 	    		Height:pWidth*.12,
@@ -469,6 +470,10 @@ xhr.onload = function()
 	    	});
 			scrollViewHorizontal.add(mapIconAttraction);
 			scrollViewHorizontal.add(mapLabelAttraction);
+	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
+			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));					
 	        } 
 	        
 	        if (facility.test(Category)){
@@ -481,7 +486,7 @@ xhr.onload = function()
 	    	});
 	    	
 	    	var mapLabelFacility=Titanium.UI.createLabel({
-	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.15,
 	    		Height:pWidth*.12,
@@ -491,6 +496,10 @@ xhr.onload = function()
 	    	});
 			scrollViewHorizontal.add(mapIconFacility);
 			scrollViewHorizontal.add(mapLabelFacility);	
+	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
+			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));					
 	        } 
 	        
 	        if (greenTour.test(Category)){
@@ -503,7 +512,7 @@ xhr.onload = function()
 	    	});
 	    	
 	    	var mapLabelGreenTour=Titanium.UI.createLabel({
-	    		top: (PixelY/2/1.12)+(pWidth*.01),
+	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.15,
 	    		Height:pWidth*.12,
@@ -513,8 +522,12 @@ xhr.onload = function()
 	    	});
 			scrollViewHorizontal.add(mapIconGreenTour);
 			scrollViewHorizontal.add(mapLabelGreenTour);
+	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
+			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));						
 	        }        	
-        }
+       }
         else {                                
         if (animal.test(Category)){
     	var mapIconAnimal = Titanium.UI.createImageView({
@@ -526,7 +539,7 @@ xhr.onload = function()
     	});
     	
     	var mapLabelAnimal=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.09),
     		width:pWidth*.15,
     		Height:pWidth*.12,
@@ -549,7 +562,7 @@ xhr.onload = function()
     	});
     	
     	var mapLabelAttraction=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.12,
@@ -571,7 +584,7 @@ xhr.onload = function()
     	});
     	
     	var mapLabelFacility=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.12,
@@ -593,7 +606,7 @@ xhr.onload = function()
     	});
     	
     	var mapLabelGreenTour=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.12,
@@ -690,16 +703,7 @@ xhr.onload = function()
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
-scrollViewHorizontal.scrollTo(2064/2, 0);
-scrollViewVertical.scrollTo(0, 2808/1.5/4);
 
-scrollViewHorizontal.addEventListener ('load', function (e) {
-    scrollViewHorizontal.scrollTo(2064/2, 0);
-        });
-
-scrollViewVertical.addEventListener ('load', function (e) {
-scrollViewVertical.scrollTo(0, 2808/1.5/4);
-        });
         
 win.add(TitleBar);
 win.add(lblTitle);

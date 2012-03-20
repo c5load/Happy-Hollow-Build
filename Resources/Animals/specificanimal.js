@@ -210,7 +210,7 @@ winParkMap.addEventListener('close', function(){winParkMap = null;});
 	winParkMap.open({fullscreen:true});
 	});
 
-/*
+/* IPHONE CODE
 var buttonMap = Titanium.UI.createButton({
 	backgroundColor:'#333333',
 	borderColor:'#333333',

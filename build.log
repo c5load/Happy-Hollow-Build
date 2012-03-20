@@ -5,22 +5,11 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.735000 seconds on emulator to get ready
+[DEBUG] waited 0.428000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Attractions\attractions.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Attractions\attractions.js
 [TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Attractions\specificattraction.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Attractions\specificattraction.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ContactUs\contactus.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ContactUs\contactus.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Facilities\facilities.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Facilities\facilities.js
 [TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Facilities\specificFacility.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Facilities\specificFacility.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\GreenTour\greentour.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\GreenTour\greentour.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\GreenTour\specificgreentour.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\GreenTour\specificgreentour.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\parkmap.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\parkmap.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\parkhours.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\parkhours.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\puppetshows.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\puppetshows.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\schedule.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\schedule.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\zoohill.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\zoohill.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\zoohollow.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\zoohollow.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
@@ -201,6 +190,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.294000 seconds on emulator to get ready
+[DEBUG] waited 0.435000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen
