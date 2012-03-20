@@ -103,7 +103,7 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/schedule2.js',
+    url: '/Schedule/schedule.js',
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});
@@ -315,44 +315,131 @@ Titanium.Geolocation.getCurrentPosition(function(e)
         alert('HFL cannot get your current location');
         return;
     }
- 
+    
     var longitude = e.coords.longitude;
     var latitude = e.coords.latitude;
 
- 
 //    var latitude = 37.32576;
 //    var longitude = -121.863073;
-   
+//   longitude = -121.862375;
+ //  latitude = 37.326556;
+      
 	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
 	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 	
 	xPixel=(xPixel/2/1.36)-(pWidth*.06);
 	yPixel=(yPixel/2/1.11)-(pWidth*.06);
+
+	alert(longitude);
+   	alert(yPixel);
+   	alert(latitude);
+    alert(xPixel);
+});
 	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
   
-	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
+//    alert(longitude);
+//    	alert(latitude);
+//	alert(longitude);
+ //  	alert(yPixel);
+  // 	alert(latitude);
+   // alert(xPixel);
+//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
 //	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
 	//IF NOT AT HHPZ
+//	{
+//		alert('You don\'t appear to be at Happy Hollow');}
+//	else{
+
+	//	var imgFindMe=Titanium.UI.createImageView({
+	//		image:'findme.png',
+	//		top:yPixel,
+	//		left:xPixel,
+	//		width:pWidth*.2,
+    //		height:pWidth*.2,
+	//	})
+
+	//	scrollViewHorizontal.add(imgFindMe);
+	//	scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
+	//	scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
+        
+//	});
+});
+
+//Ti.Geolocation.addEventListener('location', function(e) {
+ //   if (e.error)
+  //  {
+   //     alert('HFL cannot get your current location');
+    //    return;
+  //  }
+    
+   // longitude = e.coords.longitude;
+   // latitude = e.coords.latitude;
+
+//    var latitude = 37.32576;
+//    var longitude = -121.863073;
+//   longitude = -121.862375;
+ //  latitude = 37.326556;
+      
+//	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+//	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+	
+//	xPixel=(xPixel/2/1.36)-(pWidth*.06);
+//	yPixel=(yPixel/2/1.11)-(pWidth*.06);
+	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
+  
+//    alert(longitude);
+//    	alert(latitude);
+//	alert(longitude);
+ //  	alert(yPixel);
+  // 	alert(latitude);
+   // alert(xPixel);
+//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
+//	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
+	//IF NOT AT HHPZ
+//	{
+//		alert('You don\'t appear to be at Happy Hollow');}
+//	else{
+
+//		var imgFindMe=Titanium.UI.createImageView({
+//			image:'findme.png',
+//			top:yPixel,
+//			left:xPixel,
+//			width:pWidth*.2,
+ //   		height:pWidth*.2,
+//		})
+
+//		scrollViewHorizontal.add(imgFindMe);
+//		scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
+//		scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
+
+//	};
+//});
+//});
+
+
+	var locationCallback = function(e)
 	{
-		alert('You don\'t appear to be at Happy Hollow');}
-	else{
+		if (!e.success || e.error)
+		{
+		}
 
-		var imgFindMe=Titanium.UI.createImageView({
-			image:'findme.png',
-			top:yPixel,
-			left:xPixel,
-			width:pWidth*.2,
-    		height:pWidth*.2,
-		})
+		var longitude = e.coords.longitude;
+		var latitude = e.coords.latitude;
 
-		scrollViewHorizontal.add(imgFindMe);
-		scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
-		scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
+	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+	
+	xPixel=(xPixel/2/1.36)-(pWidth*.06);
+	yPixel=(yPixel/2/1.11)-(pWidth*.06);
 
-	};
-});
-});
+//	alert(longitude);
+ //  	alert(yPixel);
+  // 	alert(latitude);
+   // alert(xPixel);  
+};
 
+	Titanium.Geolocation.addEventListener('location', locationCallback);
+	
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
   url:'parkmap.png',
@@ -595,11 +682,11 @@ scrollViewHorizontal.scrollTo(2064/2, 0);
 scrollViewVertical.scrollTo(0, 2808/1.5/4);
 
 scrollViewHorizontal.addEventListener ('load', function (e) {
-    scrollViewHorizontal.scrollTo(2064/2, 0);
+    scrollViewHorizontal.scrollTo(pWidth/2,0);
         });
 
 scrollViewVertical.addEventListener ('load', function (e) {
-scrollViewVertical.scrollTo(0, 2808/1.5/4);
+scrollViewVertical.scrollTo(0,pHeight*.4);
         });
         
 win.add(TitleBar);

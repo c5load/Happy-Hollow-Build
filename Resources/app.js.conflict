@@ -205,9 +205,13 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
     };
    
 
+<<<<<<< HEAD
+=======
+/*
+>>>>>>> 50784823fd75d8db5af8432c256210af513b37bc
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
-        xhr.open("POST","http://hhpz.org/mobile/xml/Attractions.xml");
+        xhr.open("GET","http://hhpz.org/mobile/xml/Attractions.xml");
         xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
             Ti.API.info('IN ERROR ' + e.error);
@@ -225,9 +229,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         xhr.send();
     };
 
-
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
-
        var xhr = Ti.Network.createHTTPClient();
        xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
        xhr.onerror = function(e) {
@@ -245,12 +247,11 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
             };
         };
         xhr.send();
-
     };
     
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database    
       var xhr = Ti.Network.createHTTPClient();
-       xhr.open("POST","http://hhpz.org/mobile/cf/rideinfo.cfm");
+       xhr.open("POST","http://markmyers.me/hhpz/xml/testSchedule.xml");
        xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
             Ti.API.info('IN ERROR ' + e.error);
@@ -267,4 +268,9 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
 };
+
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 50784823fd75d8db5af8432c256210af513b37bc
 

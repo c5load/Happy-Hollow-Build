@@ -6,7 +6,7 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/Attractions/ridesattractionsbackground.png',
+	backgroundImage:'/Attractions/ridesattractionsbackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
@@ -128,22 +128,11 @@ xhr.onload = function()
     var data = [];
     var dataAttractions = [];
     var doc = this.responseXML.documentElement;
-<<<<<<< HEAD
-    var elements = doc.getElementsByTagName("AttractionName");
-    
-        
-    for (var i=0;i<elements.length;i++) {
-    	
-	//   	if (doc.getElementsByTagName("AttractionOrRide").item(i).text == "Ride")
-	//   	{	
-    	
-=======
     var elements = doc.getElementsByTagName("AttractionName");            
     for (var i=0;i<elements.length;i++) {		    
  
  		   	
 
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
 		    var row = Ti.UI.createTableViewRow({
 		    	hasChild:true,
 		    	height:pHeight*.13,
@@ -160,13 +149,6 @@ xhr.onload = function()
 		    attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
 		    attractionPicture = attractionPicture.replace(/(\r\n|\n|\r)/gm, "");
 		    attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
-<<<<<<< HEAD
-		    attractionCategory = doc.getElementsByTagName("AttractionOrRide").item(i).text;   
-		    var name = attractionCategory.text;   
-		  
-		      
-		    var rideLabel = Ti.UI.createLabel({
-=======
 		    attractionThumbnail = attractionThumbnail.replace(/(\r\n|\n|\r)/gm, "");
 		   	Category = doc.getElementsByTagName("AttractionOrRide").item(i).text;		    
        
@@ -176,7 +158,6 @@ xhr.onload = function()
 
         	if (ride.test(Category)){		      		       	      
 		    var attractionLabel = Ti.UI.createLabel({
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
 	    	text: desc,
 	    	color:'#000000',
 	    	font:{fontSize:'20dp'},
@@ -190,33 +171,15 @@ xhr.onload = function()
 		    	height: pWidth*.18,
 		    	width: pWidth*.18,
 		    	left: pWidth*.025
-<<<<<<< HEAD
-		    });       
-		    if (name == 'Ride')
-		    {
-		    row.add(rideImage);        
-		    row.add(rideLabel);
-=======
 		    	});
 		    	              
 		    row.add(attractionLabel);
 		    row.add(attractionImage); 		    
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
 		    row.item = desc;
 		    row.item2 = attractionDesc;
 		    row.item3 = attractionLocation;
 		    row.item4 = attractionYoutube;
 		    row.item5 = attractionPicture;
-<<<<<<< HEAD
-		    dataRides.push(row);
-		    }
-		    };
-   	//	};
-    var tableviewRides = Titanium.UI.createTableView({
-       data:dataRides,
-       top:pHeight*.1,
-       height:pHeight*.7,
-=======
 			
 	   		data.push(row);
 	   		
@@ -224,7 +187,6 @@ xhr.onload = function()
        top:'0dp',
        data:data,
        height:pHeight*.8,
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
     });
     tableview.setData(data);
     scrollViewRides.add(tableview); 
@@ -246,50 +208,6 @@ xhr.onload = function()
 			{
 				w.close();
 			});
-<<<<<<< HEAD
-			wRides.attraction = e.rowData.item;
-			wRides.attractionDesc = e.rowData.item2;
-			wRides.location = e.rowData.item3;
-			wRides.youTube = e.rowData.item4;
-			wRides.pictureURL = e.rowData.item5;
-
-			wRides.open({fullscreen:true});
-	});
-};
-//};
-    
-    xhr2.onload = function()
-{
-    var dataRides = [];
-    var dataAttractions = [];
-    var doc = this.responseXML.documentElement;
-    var elements = doc.getElementsByTagName("AttractionName");
-    
-        
-    for (var i=0;i<elements.length;i++) {
-    	
-	//  	if (doc.getElementsByTagName("AttractionOrRide").item(i).text == "Attraction")
-	//  	{	
-    	
-		    var row = Ti.UI.createTableViewRow({
-		    	hasChild:true,
-		    	height:pHeight*.13,
-		    	backgroundImage: '../backgroundresting.png',
-		    	selectedBackgroundImage: '../ridesattractionsbackground.png'        	
-		    });
-		    row.title = elements.item(i).getAttribute("AttractionName");
-		    desc = doc.getElementsByTagName("AttractionName").item(i).text;
-		    attractionDesc = doc.getElementsByTagName("Description").item(i).text;
-		    attractionLocation = doc.getElementsByTagName("Loc").item(i).text;
-		    attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
-		    attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
-		    attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
-		    attractionCategory = doc.getElementsByTagName("AttractionOrRide").item(i).text;   
-		    var name = attractionCategory.text;    
-		  
-		      
-		    var rideLabel = Ti.UI.createLabel({
-=======
 				w.attraction = e.rowData.item;
 				w.attractionDesc = e.rowData.item2;
 				w.location = e.rowData.item3;
@@ -301,7 +219,6 @@ xhr.onload = function()
 	}
             if (attraction.test(Category)){		      		       	      
 		    var attractionLabel = Ti.UI.createLabel({
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
 	    	text: desc,
 	    	color:'#000000',
 	    	font:{fontSize:'20dp'},
@@ -315,99 +232,18 @@ xhr.onload = function()
 		    	height: pWidth*.18,
 		    	width: pWidth*.18,
 		    	left: pWidth*.025
-<<<<<<< HEAD
-		    });       
-		    if (name == 'Attraction')
-		    {
-		    row.add(rideImage);        
-		    row.add(rideLabel);
-=======
 		    	});
 		    	               
 		    row.add(attractionLabel);
 		    row.add(attractionImage);
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
 		    row.item = desc;
 		    row.item2 = attractionDesc;
 		    row.item3 = attractionLocation;
 		    row.item4 = attractionYoutube;
 		    row.item5 = attractionPicture;
-<<<<<<< HEAD
-		    dataRides.push(row);
-		    }
-		    };
-		    
-   	//	};
-    var tableviewAttractions = Titanium.UI.createTableView({
-       data:dataRides,
-       top:pHeight*.1,
-       height:pHeight*.7,
-    });
-    tableviewAttractions.setData(dataRides);
-    scrollViewAttractions.add(tableviewAttractions);
-    
-     
-    tableviewAttractions.addEventListener('click',function(e)
-		{
-			var wRides = Ti.UI.createWindow({
-			url:'specificattraction.js',
-			navBarHidden:true, 
-   			title:'',
-   			backgroundcolor:'#FFFFFF',
-   			fullscreen:true });
-			wRides.addEventListener('close', function(){w = null;});   			
-			var bRides = Titanium.UI.createButton({
-				title:'Close',
-				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-			});
-			wRides.setLeftNavButton(bRides);
-			bRides.addEventListener('click',function()
-			{
-				wRides.close();
-			});
-			wRides.attraction = e.rowData.item;
-			wRides.attractionDesc = e.rowData.item2;
-			wRides.location = e.rowData.item3;
-			wRides.youTube = e.rowData.item4;
-			wRides.pictureURL = e.rowData.item5;
-
-			wRides.open({fullscreen:true});
-		});
-  };
-    
-    
-    /*
-    // stuff before add
-        if (attractionCategory = "Attraction"){
-        var attractionLabel = Ti.UI.createLabel({
-        	text: desc,
-        	color:'#000000',
-        	font:{fontSize:'20dp'},
-			height:pHeight*.13,
-        	textAlign:'left',
-        	left:pWidth*.23         	
-        });
-        
-        var attractionImage = Ti.UI.createImageView({
-        	url:attractionThumbnail,
-        	height: pHeight*.18,
-        	width: pHeight*.18,
-        	left: pWidth*.025
-        });       
-        row.add(attractionImage);        
-        row.add(attractionLabel);
-        row.item = desc;
-        row.item2 = attractionDesc;
-        row.item3 = attractionLocation;
-        row.item4 = attractionYoutube;
-        row.item5 = attractionPicture;
-        dataAttractions.push(row);}
-   
-=======
 			
 	   		dataAttractions.push(row);
 	   			
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
     var tableviewAttractions = Titanium.UI.createTableView({
        top:'0dp',
        data:dataAttractions,
@@ -541,3 +377,4 @@ win.addEventListener('android:back', function() {
             
 xhr.open('GET','http://hhpz.org/mobile/xml/Attractions.xml');
 xhr.send();//declare the http client object
+
