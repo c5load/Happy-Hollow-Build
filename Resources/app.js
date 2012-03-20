@@ -179,6 +179,9 @@ if (file.exists()) { file.deleteFile(); }
 var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
 if (file.exists()) { file.deleteFile(); }
 
+var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Schedule.xml');
+if (file.exists()) { file.deleteFile(); }
+
 
 
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
@@ -202,6 +205,9 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
     };
    */ 
 
+<<<<<<< HEAD
+if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+=======
 /*
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
@@ -227,6 +233,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
 /*
 
 //if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+>>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
        var xhr = Ti.Network.createHTTPClient();
        xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
        xhr.onerror = function(e) {
@@ -244,6 +251,30 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
             };
         };
         xhr.send();
+<<<<<<< HEAD
+    };
+    
+if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database    
+      var xhr = Ti.Network.createHTTPClient();
+       xhr.open("POST","http://hhpz.org/mobile/cf/rideinfo.cfm");
+       xhr.onerror = function(e) {
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
+        };
+        xhr.setTimeout(30000);
+        xhr.onload = function() {
+           try {
+				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,"Schedule.xml");
+				f.write(this.responseData);
+				Ti.API.info(this.responseText); // check the file content on TI info panel.
+				}
+			catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
+            };
+        };
+        xhr.send();
+};
+=======
 //    };
 
 */
+>>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979

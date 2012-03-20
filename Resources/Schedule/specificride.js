@@ -1,4 +1,25 @@
 // to fit in a 320-wide space 
+
+var win = Ti.UI.currentWindow;
+
+var title = win.title;
+
+Ti.UI.createAlertDialog({title:'Application Error', message:title}).show();
+var winAnimalDescLabel = Ti.UI.createLabel({
+	
+	text: title,
+	color: '#000000',
+    font: {
+        fontSize: '20dp',
+        fontWeight: 'normal'
+    },
+    width: 'auto',
+    textAlign: 'center',
+    top: 100,
+    height: 'auto'
+});
+
+win.add(winAnimalDescLabel);
 var cellWidth = 130;
 var cellHeight = 70;
 var xSpacer = 5;
@@ -81,12 +102,7 @@ tableview.addEventListener("click", function(e){
         Ti.API.info("---> " + e.source.objName+e.source.objIndex + " was clicked!");
     }
 });
- 
-var win = Ti.UI.createWindow({
-    backgroundColor:"white",
-    navBarHidden:false,
-    title:"Main Window"
-});
+
 win.add(tableview);
  
 win.open();
