@@ -205,9 +205,6 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
     };
    */ 
 
-<<<<<<< HEAD
-if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
-=======
 /*
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
@@ -277,4 +274,4 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
 //    };
 
 */
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
+
