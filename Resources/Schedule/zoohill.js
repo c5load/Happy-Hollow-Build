@@ -68,12 +68,14 @@ var winZooHillLabel = Ti.UI.createLabel({
 
 //display image
 	var image = Titanium.UI.createImageView({
-	url:'ZooOnTheHill.png',
-	width:pWidth,
-	height:pHeight*.5,
-	top:pHeight*.1,
-	left:'0dp'});
+		image:'ZooOnTheHill.png',
+		width:pWidth,
+		height:pHeight*.5,
+		top:pHeight*.1,
+		left:'0dp'
+	});
 		
+	
 	win.add(image);
 
 	

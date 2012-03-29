@@ -187,7 +187,7 @@ if (file.exists()) { file.deleteFile(); }
 
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
-        xhr.open("POST","http://markmyers.me/hhpz/xml/Animals.xml");
+        xhr.open("GET","http://hhpz.org/mobile/xml/Animals.xml");
         xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
             Ti.API.info('IN ERROR ' + e.error);
@@ -230,7 +230,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
 
        var xhr = Ti.Network.createHTTPClient();
-       xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
+       xhr.open("GET","http://hhpz.org/mobile/xml/Locs.xml");
        xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
             Ti.API.info('IN ERROR ' + e.error);
