@@ -16,40 +16,6 @@ var map=Titanium.UI.createView({
   top:'0dp'	
 });
 
-var animals=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp'	
-});
-
-var attractions=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp'		
-});
-
-var facilities=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp'		
-});
-
-var greentour=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp'	
-});
-
-var other=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp'	
-});
 
 //declare title bar and buttons
 var TitleBar=Titanium.UI.createImageView({
@@ -326,6 +292,68 @@ if (FindMeClicked==false){
 }
 });
 
+/*	
+buttonFindMe.addEventListener('click', function()
+{
+if (FindMeClicked==false){
+	FindMeClicked=true;
+
+		    	
+Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+Titanium.Geolocation.distanceFilter = 0;
+
+
+function reportPosition(e) {
+		if (!e.success || e.error) {        
+		 	alert('error: ' + JSON.stringify(e.error));    
+			}    
+		else {        
+			var accuracy = e.coords.accuracy;        
+			var longitude = e.coords.longitude;
+		    var latitude = e.coords.latitude; 
+		    
+		    var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+	
+		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
+		    yPixel=(yPixel/2/1.11)-(pWidth*.06);
+/*
+	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
+	//if not at Happy Hollow, do nothing
+	{}
+	//display location
+	else{
+		var imgFindMe=Titanium.UI.createImageView({
+			image:'findme.png',
+			top:yPixel,
+			left:xPixel,
+			width:pWidth*.2,
+    		height:pWidth*.2,
+		})
+		   scrollViewHorizontal.add(imgFindMe);
+		   focusX=(PixelX/2/1.35)-(pWidth*.06);
+	   	   focusY=(PixelY/2/1.12)-(pWidth*.06);
+	  	   scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+	       scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
+	   	}
+	   	           
+			alert('latitude: ' + latitude + ' xPixel: ' + xPixel + ' longitude: ' + longitude + ' yPixel: ' + yPixel + ' accuracy: ' + accuracy);    
+//			testlabel.visible=true;	
+			}
+	// this fires once
+	Titanium.Geolocation.getCurrentPosition(reportPosition);
+	// this fires whenever the distance filter is surpassed
+	Titanium.Geolocation.addEventListener('location', reportPosition);
+
+	}
+	}else{
+		FindMeClicked=false;
+		testlabel.visible=false;
+	}		
+
+});
+*/
+
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
   url:'parkmap.png',
@@ -413,8 +441,8 @@ xhr.onload = function()
         	textAlign:'center',    		  
     		color: '#000000'   		
     	});
-    	animals.add(mapIconAnimal);
-    	animals.add(mapLabelAnimal);
+    	map.add(mapIconAnimal);
+    	map.add(mapLabelAnimal);
         } 
         
         if (attraction.test(Category)){
@@ -435,8 +463,8 @@ xhr.onload = function()
         	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		attractions.add(mapIconAttraction);
-		attractions.add(mapLabelAttraction);
+		map.add(mapIconAttraction);
+		map.add(mapLabelAttraction);
         } 
         
         if (facility.test(Category)){
@@ -457,8 +485,8 @@ xhr.onload = function()
         	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		facilities.add(mapIconFacility);
-		facilities.add(mapLabelFacility);	
+		map.add(mapIconFacility);
+		map.add(mapLabelFacility);	
         } 
         
         if (greenTour.test(Category)){
@@ -479,8 +507,8 @@ xhr.onload = function()
         	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		greentour.add(mapIconGreenTour);
-		greentour.add(mapLabelGreenTour);
+		map.add(mapIconGreenTour);
+		map.add(mapLabelGreenTour);
         }
         
         if (restroom.test(Category)){
@@ -501,8 +529,8 @@ xhr.onload = function()
         	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		other.add(mapIconRestroom);
-		other.add(mapLabelRestroom);
+		map.add(mapIconRestroom);
+		map.add(mapLabelRestroom);
         }      
           
         if (exit.test(Category)){
@@ -523,8 +551,8 @@ xhr.onload = function()
         	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		other.add(mapIconExit);
-		other.add(mapLabelExit);
+		map.add(mapIconExit);
+		map.add(mapLabelExit);
         }        
      
         if (parkinglot.test(Category)){
@@ -545,21 +573,21 @@ xhr.onload = function()
         	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		other.add(mapIconParking);
-		other.add(mapLabelParking);
+		map.add(mapIconParking);
+		map.add(mapLabelParking);
         }        
      }
 };
         scrollViewHorizontal.add(map);
-        scrollViewHorizontal.add(animals);
+//        scrollViewHorizontal.add(animals);
     	animalsopened=true;
-    	scrollViewHorizontal.add(attractions);
+//    	scrollViewHorizontal.add(attractions);
 		attractionsopened=true;
-		scrollViewHorizontal.add(facilities);
+//		scrollViewHorizontal.add(facilities);
 		facilitiesopened=true;
-		scrollViewHorizontal.add(greentour);
+//		scrollViewHorizontal.add(greentour);
 		greentouropened=true;
-		scrollViewHorizontal.add(other);
+//		scrollViewHorizontal.add(other);
 
 var xPixel;
 var yPixel;

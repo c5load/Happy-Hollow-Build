@@ -173,7 +173,8 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
     Ti.Android.currentActivity.setRequestedOrientation(Ti.Android.SCREEN_ORIENTATION_PORTRAIT);
 });
 
-/*var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
+/*
+var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
 if (file.exists()) { file.deleteFile(); }
 
 var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
@@ -203,9 +204,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
     };
-   */ 
+   
 
-/*
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("POST","http://hhpz.org/mobile/xml/Attractions.xml");
@@ -225,12 +225,10 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
     };
-*/
-    
-/*
 
-//if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
->>>>>>> e4833e20abb9d3afd88e8df8681468e01fe50979
+
+if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
+
        var xhr = Ti.Network.createHTTPClient();
        xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
        xhr.onerror = function(e) {
@@ -248,12 +246,12 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
             };
         };
         xhr.send();
-<<<<<<< HEAD
+
     };
     
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database    
       var xhr = Ti.Network.createHTTPClient();
-       xhr.open("POST","http://hhpz.org/mobile/cf/rideinfo.cfm");
+       xhr.open("POST","http://markmyers.me/hhpz/xml/testSchedule.xml");
        xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
             Ti.API.info('IN ERROR ' + e.error);
@@ -270,8 +268,4 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
 };
-=======
-//    };
-
 */
-

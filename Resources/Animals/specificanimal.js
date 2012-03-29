@@ -10,6 +10,7 @@ var TitleBar=Titanium.UI.createImageView({
     top: '0dp',
     height: pHeight*.1
 });
+win.add(TitleBar);
 
 var lblTitle=Titanium.UI.createLabel({
 	text:"Animals",
@@ -24,6 +25,7 @@ var lblTitle=Titanium.UI.createLabel({
     left:'0dp',    
     height: pHeight*.1
 });
+win.add(lblTitle);
 
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
@@ -37,15 +39,16 @@ buttonHome.addEventListener('click', function()
 {	var winHomeScreen = Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
     backgroundColor:'#FFFFFF',
-    url: '/app.js',
+    url: '/homescreen.js',
     navBarHidden:true,
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true
 });
-winHome.addEventListener('close', function(){winHome = null;});
+winHomeScreen.addEventListener('close', function(){winHome = null;});
 	winHomeScreen.open();
 	});
+win.add(buttonHome);
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -66,14 +69,16 @@ buttonSchedule.addEventListener('click', function()
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
+win.add(buttonSchedule);
 
-
+   	
 var winBar = Titanium.UI.createLabel({
 	backgroundImage:'animalsbackground.png',	
     width: pWidth,
-	top:pHeight*.55,
+	top:pHeight*.5,
 	height:pHeight*.15,
 })
+win.add(winBar);
 
 var winAnimalLabel = Titanium.UI.createLabel({
 	textWeight:'strong',
@@ -86,10 +91,11 @@ var winAnimalLabel = Titanium.UI.createLabel({
     },
     width: pWidth,
     textAlign: 'left',
-    left: '0dp',
-	top:pHeight*.55,
+    left: pWidth*.02,
+	top:pHeight*.47,
 	height:pHeight*.1,
 })
+win.add(winAnimalLabel);
 
 var winAnimalScientific = Ti.UI.createLabel({
 	text: win.scientific,
@@ -101,19 +107,20 @@ var winAnimalScientific = Ti.UI.createLabel({
     },
     width: 'auto',
     textAlign: 'center',
-    left:'0dp',
-    top:pHeight*.61,
+    left:pWidth*.02,
+    top:pHeight*.53,
     height: pHeight*.1,
 })
+win.add(winAnimalScientific);
 
 if (win.pictureURL ==='None')
 	//don't display a picture
 	{}
 	//otherwise create and display an imageView
 	else{ var image = Titanium.UI.createImageView({
-	url:win.pictureURL,
+	image:win.pictureURL,
 	width:pWidth,
-	height:pHeight*.5,
+	height:pHeight*.4,
 	top:pHeight*.1,
 	left:'0dp'});
 	
@@ -124,17 +131,26 @@ if (win.pictureURL ==='None')
 		backgroundcolor:'#FFFFFF', 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.7,
-		height:pHeight*.2,
+		top:pHeight*.65,
+		height:pHeight*.25,
 //		top:pHeight*.6,
 //		height:pHeight*.3, 
 		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
-		
+
+var finaldescription=win.animalDesc;		
+var splitresult = finaldescription.split("$$$");		
+var numberofSentences = finaldescription.split("$$$").length;
+
+var desc = '';
+for (var i=0;i<numberofSentences;i++) {
+    desc = desc + splitresult[i] + '\n';	
+}
+
 	var winAnimalDescription = Ti.UI.createLabel({
-	text: win.animalDesc,
-	textAlign: 'center',
+	text: desc,
+	textAlign: 'left',
 	color: '#000000',
     font: {
         fontSize: '18dp',
@@ -145,8 +161,9 @@ if (win.pictureURL ==='None')
     top: '0dp',
     height: 'auto'
 })
+
 		scrollView.add(winAnimalDescription);
-		Titanium.UI.currentWindow.add(scrollView);
+		win.add(scrollView);
 		
 		
 
@@ -164,7 +181,7 @@ var linkE = Titanium.UI.createLabel({
         },
         width:'auto',
         textAlign: 'left',
-        top:pHeight*.53,
+        top:pHeight*.55,
         height: pHeight*.1,
         left:pWidth*.6
 });
@@ -178,6 +195,8 @@ linkE.addEventListener('click',function(e)
             });          
      w.open(Titanium.Platform.openURL(win.youTube));
 });
+win.add(linkE);
+}
 
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
@@ -186,6 +205,7 @@ var BottomBar=Titanium.UI.createImageView({
     top: pHeight*.9,
     height: pHeight*.11
 });
+win.add(BottomBar);
 
 var buttonMap = Titanium.UI.createButton({
 	backgroundColor:'#333333',
@@ -206,9 +226,10 @@ buttonMap.addEventListener('click', function()
     url: 'ParkMap/mapempty.js',
     fullscreen : true});
 winParkMap.addEventListener('close', function(){winParkMap = null;});
-	winParkMap.name=win.animal;
+	winParkMap.name=win.location;
 	winParkMap.open({fullscreen:true});
 	});
+win.add(buttonMap);
 
 /* IPHONE CODE
 var buttonMap = Titanium.UI.createButton({
@@ -249,18 +270,18 @@ buttonMap.addEventListener('click', function()
 {win.close();});	
 */
 
-win.add(BottomBar);
+//win.add(BottomBar);
 //win.add(buttonBack);
-win.add(buttonMap);
-win.add(TitleBar);
-win.add(lblTitle);
-win.add(buttonHome);
-win.add(buttonSchedule);
-win.add(winBar);
-win.add(winAnimalLabel);
-win.add(winAnimalScientific);
-win.add(winAnimalDescription);
-win.add(linkE)};
+//win.add(buttonMap);
+//win.add(TitleBar);
+//win.add(lblTitle);
+//win.add(buttonHome);
+//win.add(buttonSchedule);
+//win.add(winBar);
+//win.add(winAnimalLabel);
+//win.add(winAnimalScientific);
+//win.add(winAnimalDescription);
+//win.add(linkE)};
 
 
 win.addEventListener('android:back', function() {  

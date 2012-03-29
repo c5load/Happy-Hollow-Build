@@ -87,7 +87,7 @@ buttonHome.addEventListener('click', function()
     navBarHidden:true,
     fullscreen : true,  
 });
-winHomeScreen.addEventListener('close', function(){winHome = null;});
+winHomeScreen.addEventListener('close', function(){winHomeScreen = null;});
 	winHomeScreen.open();});
 
 var buttonSchedule = Titanium.UI.createButton({

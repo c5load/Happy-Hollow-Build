@@ -87,13 +87,12 @@ buttonHome.addEventListener('click', function()
 {	var winHomeScreen = Titanium.UI.createWindow({
     title:'Happy Hollow Park and Zoo',
     backgroundColor:'#FFFFFF',
-    url: '/app.js',
+    url: '/homescreen.js',
     navBarHidden:true,
     fullscreen : true,  
-    exitOnClose: true
 });
-	winHomeScreen.open();
-	win.close();});
+winHomeScreen.addEventListener('close', function(){winHomeScreen = null;});
+	winHomeScreen.open();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -115,190 +114,6 @@ buttonSchedule.addEventListener('click', function()
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
-//declare variables
-var animalsopened=false;
-var attractionsopened=false;
-var facilitiesopened=false;
-var greentouropened=false;
-
-
-//declare bottom tabs/buttons
-var buttonAnimals = Titanium.UI.createButton({
-	color:'#FFFFFF',
-	borderColor:'#333333',
-	backgroundImage:'/Animals/animaliconscolor.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:pWidth*0,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	title:'Animals'});	
-buttonAnimals.addEventListener('click', function()
-{
-	if (animalsopened == true){
-		animalsopened=false;
-		animals.visible=true;
-		attractions.visible=false;
-		facilities.visible=false;
-		greentour.visible=false;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
-		buttonAnimals.borderColor='#FFFFFF';
-		buttonAnimals.color='#000000'; 
-		buttonAttractions.borderColor='#333333';
-		buttonAttractions.color="#FFFFFF";
-		buttonFacilities.borderColor='#333333';
-		buttonFacilities.color="#FFFFFF";
-		buttonGreenTour.borderColor='#333333';
-		buttonGreenTour.color="#FFFFFF"	
-	}
-	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
-		buttonAnimals.borderColor='#333333';
-		buttonAnimals.color="#FFFFFF"				
- 	};
-   });
-
-
-var buttonAttractions = Titanium.UI.createButton({
-	color:'#FFFFFF',
-	borderColor:'#333333',
-	backgroundImage:'/Attractions/ridesattractionsiconcolor.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:pWidth*.2,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	title:'Attractions'});
-buttonAttractions.addEventListener('click', function()
-{	if (attractionsopened == true){
-		attractionsopened=false;
-		attractions.visible=true;
-		animals.visible=false;
-		facilities.visible=false;
-		greentour.visible=false;
-		animalsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
-		buttonAttractions.borderColor='#FFFFFF';
-		buttonAttractions.color='#000000'; 
-		buttonAnimals.borderColor='#333333';
-		buttonAnimals.color="#FFFFFF";
-		buttonFacilities.borderColor='#333333';
-		buttonFacilities.color="#FFFFFF";
-		buttonGreenTour.borderColor='#333333';
-		buttonGreenTour.color="#FFFFFF"	
-	}
-	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
-		buttonAttractions.borderColor='#333333',
-		buttonAttractions.color="#FFFFFF"
- 	};
-});
-
-var buttonFacilities = Titanium.UI.createButton({
-	color:'#FFFFFF',
-	borderColor:'#333333',
-	backgroundImage:'/Facilities/facilitiesiconcolor.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:pWidth*.4,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	title:'Facilities'});		
-buttonFacilities.addEventListener('click', function()
-{
-	if (facilitiesopened == true){
-		facilitiesopened=false;
-		facilities.visible=true;
-		animals.visible=false;
-		attractions.visible=false;
-		greentour.visible=false;
-		animalsopened=true;	
-		attractionsopened=true;
-		greentouropened=true;
-		buttonFacilities.borderColor='#FFFFFF';
-		buttonFacilities.color='#000000'; 
-		buttonAnimals.borderColor='#333333';
-		buttonAnimals.color="#FFFFFF";
-		buttonAttractions.borderColor='#333333';
-		buttonAttractions.color="#FFFFFF";
-		buttonGreenTour.borderColor='#333333';
-		buttonGreenTour.color="#FFFFFF"	
-	}
-	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
-		buttonFacilities.borderColor='#333333',
-		buttonFacilities.color="#FFFFFF"
- 	};
-});
-
-var buttonGreenTour = Titanium.UI.createButton({
-	color:'#FFFFFF',
-	borderColor:'#333333',
-	backgroundImage:'/GreenTour/greentouriconcolor.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:pWidth*.6,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	title:'Animals'});	
-buttonGreenTour.addEventListener('click', function()
-{
-	if (greentouropened == true){
-		greentouropened=false;
-		greentour.visible=true;
-		animals.visible=false;
-		attractions.visible=false;
-		facilities.visible=false;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		buttonGreenTour.borderColor='#FFFFFF';
-		buttonGreenTour.color='#000000'; 
-		buttonAnimals.borderColor='#333333';
-		buttonAnimals.color="#FFFFFF";
-		buttonAttractions.borderColor='#333333';
-		buttonAttractions.color="#FFFFFF";
-		buttonFacilities.borderColor='#333333';
-		buttonFacilities.color="#FFFFFF";
-	}
-	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
-		buttonGreenTour.borderColor='#333333',
-		buttonGreenTour.color="#FFFFFF"
- 	}
-});
-
 var buttonFindMe = Titanium.UI.createButton({
 	color:'#FFFFFF',
 	borderColor:'#333333',
@@ -307,52 +122,24 @@ var buttonFindMe = Titanium.UI.createButton({
 	top: pHeight*.9,
 	width:pWidth*.2,
 	height:pHeight*.11,
-	left:pWidth*.8,
+	left:'0dp',
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
 buttonFindMe.addEventListener('click', function()
 {
-Titanium.Geolocation.getCurrentPosition(function(e)
-{
-	alert(win.name);
-/*    if (e.error)
-    {
-        alert('HFL cannot get your current location');
-        return;
-    }
- 
-    var longitude = e.coords.longitude;
-    var latitude = e.coords.latitude;
-
-   
-	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
-	
-	xPixel=(xPixel/2/1.36)-(pWidth*.06);
-	yPixel=(yPixel/2/1.11)-(pWidth*.06);
-	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
-  
-	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
-//	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
-	//IF NOT AT HHPZ
-	{
-		alert('You don\'t appear to be at Happy Hollow');}
-	else{
-
-		var imgFindMe=Titanium.UI.createImageView({
-			image:'findme.png',
-			top:yPixel,
-			left:xPixel,
-			width:pWidth*.2,
-    		height:pWidth*.2,
-		})
-
-		scrollViewHorizontal.add(imgFindMe);
-		scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
-		scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
-
-	};
-*/});
+if (FindMeClicked==false){
+	FindMeClicked=true;
+			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+			{findme.visible=false
+			alert('You are not at Happy Hollow.');	
+				}
+			else {
+				findme.visible=true;				
+				}
+} else {
+	FindMeClicked=false;
+	findme.visible=false
+}
 });
 
 //declare map; shrunk down a bit to accomodate 
@@ -378,8 +165,6 @@ var scrollViewHorizontal =  Titanium.UI.createScrollView({
   zoomScale:.1
 });
 
-//add map into horizontal scrollview
-//scrollViewHorizontal.add(mapimage);
 
 //declare vertical scrollview
 var scrollViewVertical =  Titanium.UI.createScrollView({
@@ -397,12 +182,11 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 
 var focusX;
 var focusY;
-    
+  
 var xhr = Titanium.Network.createHTTPClient();
 xhr.onload = function()
 {
-    var doc = this.responseXML.documentElement;
-//    var elements = doc.getElementsByTagName("LocName");            
+    var doc = this.responseXML.documentElement;           
     var elements = doc.getElementsByTagName("LocName"); 
     
     for (var i=0;i<elements.length;i++) {
@@ -419,9 +203,12 @@ xhr.onload = function()
         var restroom=/.*Restroom.*/;
         var exit=/.*Emergency Exit.*/;
         var parkinglot=/.*Parking Lot.*/;
-       	var loc=win.name.replace(/(\r\n|\n|\r)/gm, ""); 
-       	
-	    if (loc == LocationName){	
+        
+       	var selectedLocation=win.name.replace(/(\r\n|\n|\r)/gm, "");
+		var selectedLocationTest=".*" + selectedLocation + ".*";
+		var selectedLocationExpression= new RegExp(selectedLocationTest);
+
+		if (selectedLocationExpression.test(LocationName)){
 	      if (animal.test(Category)){
 
 	    	var mapIconAnimal = Titanium.UI.createImageView({
@@ -447,9 +234,9 @@ xhr.onload = function()
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
 			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));			    	
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));				    	
 	        } 
-	        
+	        else
 	        if (attraction.test(Category)){
 	    	var mapIconAttraction = Titanium.UI.createImageView({
 	    		url:'attractions.png',
@@ -473,9 +260,9 @@ xhr.onload = function()
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
 			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));					
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));							
 	        } 
-	        
+	        else
 	        if (facility.test(Category)){
 	    	var mapIconFacility = Titanium.UI.createImageView({
 	    		url:'facilities.png',
@@ -499,9 +286,9 @@ xhr.onload = function()
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
 			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));					
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));			
 	        } 
-	        
+	        else
 	        if (greenTour.test(Category)){
 	    	var mapIconGreenTour = Titanium.UI.createImageView({
 	    		url:'greentour.png',
@@ -525,99 +312,9 @@ xhr.onload = function()
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
 			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));						
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));							
 	        }        	
-       }
-        else {                                
-        if (animal.test(Category)){
-    	var mapIconAnimal = Titanium.UI.createImageView({
-    		url:'animals.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
-    	});
-    	
-    	var mapLabelAnimal=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.09),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
-    		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},
-        	textAlign:'center',    		  
-    		color: '#000000'   		
-    	});
-    	animals.add(mapIconAnimal);
-    	animals.add(mapLabelAnimal);
-        } 
-        
-        if (attraction.test(Category)){
-    	var mapIconAttraction = Titanium.UI.createImageView({
-    		url:'attractions.png',
-    		top: (PixelY/2/1.11)-(pWidth*.06),
-    		left: (PixelX/2/1.36)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
-    	});
-    	
-    	var mapLabelAttraction=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
-    		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	});
-		attractions.add(mapIconAttraction);
-		attractions.add(mapLabelAttraction);
-        } 
-        
-        if (facility.test(Category)){
-    	var mapIconFacility = Titanium.UI.createImageView({
-    		url:'facilities.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
-    	});
-    	
-    	var mapLabelFacility=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
-    		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	});
-		facilities.add(mapIconFacility);
-		facilities.add(mapLabelFacility);	
-        } 
-        
-        if (greenTour.test(Category)){
-    	var mapIconGreenTour = Titanium.UI.createImageView({
-    		url:'greentour.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.36)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
-    	});
-    	
-    	var mapLabelGreenTour=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
-    		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	});
-		greentour.add(mapIconGreenTour);
-		greentour.add(mapLabelGreenTour);
-        }
-        
+        else {
         if (restroom.test(Category)){
     	var mapIconRestroom = Titanium.UI.createImageView({
     		url:'restroom.png',
@@ -636,32 +333,16 @@ xhr.onload = function()
         	font:{fontSize:'9dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		other.add(mapIconRestroom);
-		other.add(mapLabelRestroom);
+			scrollViewHorizontal.add(mapIconRestroom);
+			scrollViewHorizontal.add(mapLabelRestroom);
+	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
+			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
+			other.visible=true;		
         }      
-          
-        if (exit.test(Category)){
-    	var mapIconExit = Titanium.UI.createImageView({
-    		url:'emergency.png',
-    		top: (PixelY/2/1.12)-(pWidth*.06),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.12,
-    		Height:pWidth*.12,
-    	});
-    	
-    	var mapLabelExit=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
-    		width:pWidth*.15,
-    		Height:pWidth*.12,
-    		text: 'Emergency Exit',
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
-    	});
-		other.add(mapIconExit);
-		other.add(mapLabelExit);
-        }        
-     
+
+        else 
         if (parkinglot.test(Category)){
     	var mapIconParking = Titanium.UI.createImageView({
     		url:'parkinglot.png',
@@ -680,42 +361,113 @@ xhr.onload = function()
         	font:{fontSize:'9dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
-		other.add(mapIconParking);
-		other.add(mapLabelParking);
+			scrollViewHorizontal.add(mapIconParking);
+			scrollViewHorizontal.add(mapLabelParking);
+	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
+			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
+			other.visible=true;		
         }        
-     }}
-};
+        else 
+        if (exit.test(Category)){
+    	var mapIconExit = Titanium.UI.createImageView({
+    		url:'emergency.png',
+    		top: (PixelY/2/1.12)-(pWidth*.06),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    	});
+    	
+    	var mapLabelExit=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.15,
+    		Height:pWidth*.12,
+    		text: 'Emergency Exit',
+        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+    		color: '#000000'   		
+    	});
+    		scrollViewHorizontal.add(mapIconExit);
+			scrollViewHorizontal.add(mapLabelExit);
+	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
+			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
+     }}}
+}};
+
         scrollViewHorizontal.add(map);
-        scrollViewHorizontal.add(animals);
-        animals.visible=false;
-    	animalsopened=false;
-    	scrollViewHorizontal.add(attractions);
-    	attractions.visible=false;
-		attractionsopened=false;
-		scrollViewHorizontal.add(facilities);
-		facilities.visible=false;
-		facilitiesopened=false;
-		scrollViewHorizontal.add(greentour);
-		greentour.visible=false;
-		greentouropened=false;
 		scrollViewHorizontal.add(other);
+		
+var xPixel;
+var yPixel;
+var label = Ti.UI.createLabel({
+	color:'#000000',
+	visible:false
+});
+
+var findme = Titanium.UI.createImageView({
+	image:'findme.png',
+	width:pWidth*.2,
+    height:pWidth*.2,
+    visible:false
+		})
+scrollViewHorizontal.add(findme);
+		
+function reportPosition(e) {    
+	if (!e.success || e.error) {        
+		label.text = 'error: ' + JSON.stringify(e.error);    
+		}    
+		else {        
+			var accuracy = e.coords.accuracy;        
+			var longitude = e.coords.longitude;
+		    var latitude = e.coords.latitude;    
+		    
+		    var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+	
+		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
+		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
+		}
+			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+			{findme.visible=false}
+			else {
+				findme.top=yPixel;
+				findme.left=xPixel;				
+				}		
+		}		
+
+		// this fires once
+		Titanium.Geolocation.getCurrentPosition(reportPosition);
+		// this fires whenever the distance filter is surpassed
+		Titanium.Geolocation.addEventListener('location', reportPosition);
+		
+var FindMeClicked=false;
+
 		
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
 
+var BottomBar=Titanium.UI.createImageView({
+	backgroundColor:'#333333',
+    width: pWidth,
+    left: '0dp',
+    top: pHeight*.9,
+    height: pHeight*.11
+});
         
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
-win.add(buttonAnimals);
-win.add(buttonAttractions);
-win.add(buttonFacilities);
-win.add(buttonGreenTour);
+win.add(BottomBar);
+
 win.add(buttonFindMe);
 
 win.addEventListener('android:back', function() { 
+		   win.removeEventLister('location', reportPosition);
            win.close();             
             });
             

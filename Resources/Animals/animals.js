@@ -71,11 +71,6 @@ winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
 
-
-//    var data = [];  
-//    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Animals.xml');
-//	var xmltext = file.read().text;
-//	var doc = Ti.XML.parseString(xmltext);
 var xhr = Titanium.Network.createHTTPClient();
 
 xhr.onload = function()
@@ -104,7 +99,7 @@ xhr.onload = function()
         animalPicture = animalPicture.replace(/(\r\n|\n|\r)/gm, "");        
         animalThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
         animalThumbnail = animalThumbnail.replace(/(\r\n|\n|\r)/gm, "");      
-      
+            
         var animalLabel = Ti.UI.createLabel({
         	text: desc,
         	color: '#000000',
@@ -133,7 +128,7 @@ xhr.onload = function()
     var tableview = Titanium.UI.createTableView({
        data:data,
        top:pHeight*.1,
-       height:pHeight*.8,
+       height:pHeight*.8,      
     });
     tableview.setData(data);
     Titanium.UI.currentWindow.add(tableview); 

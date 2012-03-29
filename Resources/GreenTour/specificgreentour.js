@@ -69,7 +69,7 @@ winSchedule.open();});
 var winBar = Titanium.UI.createLabel({
 	backgroundImage:'greentourbackground.png',	
     width: pWidth,
-	top:pHeight*.55,
+	top:pHeight*.5,
 	height:pHeight*.15,
 })
 
@@ -85,8 +85,8 @@ var winGreenTour = Ti.UI.createLabel({
     },
     width: pWidth,
     textAlign: 'left',
-    left: '0dp',
-    top: pHeight*.55,
+    left: pWidth*.02,
+    top: pHeight*.47,
     height: pHeight*.15
 });
 
@@ -95,9 +95,9 @@ if (win.pictureURL ==='None')
 	{}
 	//otherwise create and display an imageView
 	else{ var image = Titanium.UI.createImageView({
-	url:win.pictureURL,
+	image:win.pictureURL,
 	width:pWidth,
-	height:pHeight*.5,
+	height:pHeight*.4,
 	top:pHeight*.1,
 	left:'0dp'});
 	
@@ -108,14 +108,24 @@ if (win.pictureURL ==='None')
 var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.7,
-		height:pHeight*.2,		 
+		top:pHeight*.65,
+		height:pHeight*.25,		 
 		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
+
+	var finaldescription=win.greentourDesc;		
+	var splitresult = finaldescription.split("$$$");		
+	var numberofSentences = finaldescription.split("$$$").length;
+
+	var desc = '';
+	for (var i=0;i<numberofSentences;i++) {
+    desc = desc + splitresult[i] + '\n';	
+	}
+
 		
 var winGreenTourDescription = Ti.UI.createLabel({
-	text: win.greentourDesc,
+	text: desc,
 	textAlign: 'left',
 	color: '#000000',
     font: {
@@ -161,7 +171,7 @@ buttonMap.addEventListener('click', function()
     url: 'ParkMap/mapempty.js',
     fullscreen : true});
 winParkMap.addEventListener('close', function(){winParkMap = null;});
-	winParkMap.name=win.greentour;
+	winParkMap.name=win.location;
 	winParkMap.open({fullscreen:true});
 	});
 	

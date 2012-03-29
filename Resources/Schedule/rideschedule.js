@@ -49,12 +49,12 @@ var data = [];
         			});
         		row.title = elements.item(i).getAttribute("title");
 				var title = doc.getElementsByTagName("title").item(i).text;
-				var x=doc.getElementsByTagName('title').item(i).childNode[0].text;
-				alert(x);
-				
+								
 												
 				var label = Ti.UI.createLabel({
 					text:title,
+					color:'#000000',
+					font:{fontSize:'20dp', fontColor:'black', fontWeight:'bold',fontFamily:'Helvetica Neue'},
 					left:72,
 					top:5,
 					bottom:5,
@@ -62,41 +62,53 @@ var data = [];
 				});
 				
 				row.add(label);
-				row.item = row.title;
-			
+				row.item = title;			
 				data.push(row);
 				
 				
 		}
 		
-		var tableview = Titanium.UI.createTableView({
+	var tableview = Titanium.UI.createTableView({
        data:data,
        top:pHeight*.1,
-       height:'auto',
-    	});
-		Titanium.UI.currentWindow.add(tableview);
-	    tableview.setData(data);
-		tableview.addEventListener('click',function(e)
+       height:pHeight*.8,
+    });
+    tableview.setData(data);
+    Titanium.UI.currentWindow.add(tableview); 
+    tableview.addEventListener('click',function(e)
 		{
-			var w = Ti.UI.createWindow({
-			url:'specificride.js', 
-			navBarHidden:true, 
-   			title:'',
-   			backgroundcolor:'black',
-   			fullscreen:true });
-			var b = Titanium.UI.createButton({
-				title:'Close',
-				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-			});
-			w.setLeftNavButton(b);
-			b.addEventListener('click',function()
+			tableview.addEventListener('click',function(e)
+                {
+                        alert(e.row.item)
+                });
+	/*		try{
+				var w = Ti.UI.createWindow({
+				url:'specificSchedule.js', 
+				navBarHidden:true, 
+				title:'',
+				backgroundColor:'#FFFFFF',
+				fullscreen:true });
+				w.addEventListener('close', function(){w = null;}); 
+				var b = Titanium.UI.createButton({
+					title:'Close',
+					style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+				});
+				w.setLeftNavButton(b);
+				b.addEventListener('click',function()
+				{
+					w.close();
+				});
+				w.title = e.rowData.item;
+				w.open({fullscreen:true});
+			}
+			catch(E)
 			{
-				w.close();
-			});
-			w.title = e.rowData.item;
-			w.open({fullscreen:true});
-			
+				alert(E);
+			}
+*/			
 		});
+
+
 	}
 	catch(E)
 	{
@@ -106,3 +118,5 @@ var data = [];
 
 win.add(TitleBar);
 win.add(lblTitle);
+
+

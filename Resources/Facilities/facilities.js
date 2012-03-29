@@ -91,7 +91,6 @@ xhr.onload = function()
         facilityThumbnail = facilityThumbnail.replace(/(\r\n|\n|\r)/gm, "");
         
         var facilityLabel = Ti.UI.createLabel({
-        	image:'arrowrest.png',
         	text: desc,
         	color:'#000000',
         	font:{fontSize:'20dp'},
@@ -101,7 +100,7 @@ xhr.onload = function()
         });
         
             var facilityImage = Ti.UI.createImageView({
-        	url: facilityThumbnail,
+        	image: facilityThumbnail,
         	height:pWidth*.18,
         	width:pWidth*.18,
         	left: pWidth*.025  
