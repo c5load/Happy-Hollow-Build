@@ -173,7 +173,7 @@ Ti.Gesture.addEventListener('orientationchange', function(e) {
     Ti.Android.currentActivity.setRequestedOrientation(Ti.Android.SCREEN_ORIENTATION_PORTRAIT);
 });
 
-/*
+
 var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
 if (file.exists()) { file.deleteFile(); }
 
@@ -251,11 +251,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
     
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database    
       var xhr = Ti.Network.createHTTPClient();
-<<<<<<< HEAD
-       xhr.open("POST","http://markmyers.me/hhpz/xml/testSchedule.xml");
-=======
        xhr.open("GET","http://markmyers.me/hhpz/xml/testSchedule.xml");
->>>>>>> 8f7133584a2be54e3ccef5ad2adb723bde28dab3
+
        xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
             Ti.API.info('IN ERROR ' + e.error);
@@ -272,4 +269,4 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
 };
-*/
+
