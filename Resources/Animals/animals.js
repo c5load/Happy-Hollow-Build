@@ -140,6 +140,7 @@ xhr.onload = function()
    			title:'',
    			backgroundColor:'#FFFFFF',
    			fullscreen:true });
+   			
    			w.addEventListener('close', function(){w = null;}); 
 			var b = Titanium.UI.createButton({
 				title:'Close',

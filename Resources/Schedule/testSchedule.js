@@ -1,7 +1,8 @@
 
 var win = Ti.UI.currentWindow;
 var title = win.title;
-//alert(title);
+
+alert(title);
 var cellWidth = 130;
 var cellHeight = 70;
 var xSpacer = 5;
