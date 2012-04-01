@@ -5,11 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 1.015000 seconds on emulator to get ready
-[INFO] Waiting for the Android Emulator to become available
+[DEBUG] waited 0.569000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\parkmap2.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\parkmap2.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Animals\emptyanimal.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Animals\emptyanimal.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
@@ -30,6 +29,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/Animals/animalsicon.png
 [DEBUG] from resource zip => assets/Resources/Animals/animalsrest.png
 [DEBUG] from resource zip => assets/Resources/Animals/animalsselect.png
+[DEBUG] from resource zip => assets/Resources/Animals/emptyanimal.js
 [DEBUG] from resource zip => assets/Resources/Animals/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Animals/homeselected.png
 [DEBUG] from resource zip => assets/Resources/Animals/mainanimalbar.png
@@ -106,13 +106,12 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/ParkMap/homeresting.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/homeselected.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/mainparkmapbar.png
-[DEBUG] from resource zip => assets/Resources/ParkMap/map2.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/mapempty.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkinglot.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap.png
-[DEBUG] from resource zip => assets/Resources/ParkMap/parkmap2.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmap3.js
+[DEBUG] from resource zip => assets/Resources/ParkMap/parkmap4.js
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapbackground.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapicon.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/parkmapiconcolor.png
@@ -187,7 +186,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 1.986000 seconds on emulator to get ready
-[INFO] Waiting for the Android Emulator to become available
+[DEBUG] waited 0.464000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen
