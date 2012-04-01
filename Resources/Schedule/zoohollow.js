@@ -68,7 +68,7 @@ var winZooHollowLabel = Ti.UI.createLabel({
 
 //display image
 	var image = Titanium.UI.createImageView({
-	url:'ZooInTheHollow.png',
+	image:'ZooInTheHollow.png',
 	width:pWidth,
 	height:pHeight*.5,
 	top:pHeight*.1,
