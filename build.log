@@ -1,25 +1,166 @@
 Logfile initialized
 [INFO] logfile = C:\Users\Myers\Desktop\Happy-Hollow-Git\build.log
-[DEBUG] C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py install Happy Hollow Build C:\Program Files (x86)\Android\android-sdk C:\Users\Myers\Desktop\Happy-Hollow-Git com.SC.hhb 15
+[DEBUG] C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py simulator Happy Hollow Build C:\Program Files (x86)\Android\android-sdk C:\Users\Myers\Desktop\Happy-Hollow-Git com.SC.hhb 14 WVGA854
+[INFO] Building Happy Hollow Build for Android ... one moment
 [INFO] Titanium SDK version: 1.7.5 (11/02/11 17:00 ab20af7)
 [DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.039000 seconds on emulator to get ready
+[DEBUG] waited 0.038000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? True
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\schedule.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\schedule.js
+[INFO] Detected tiapp.xml change (or assets deleted), forcing full re-build...
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\android\appicon.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\appicon.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\android\default.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\default.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\animaliconscolor.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\animaliconscolor.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\animals.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\animals.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\animalsbackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\animalsbackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\animalsicon.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\animalsicon.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\animalsrest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\animalsrest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\animalsselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\animalsselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\homeresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\homeresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\homeselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\homeselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\mainanimalbar.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\mainanimalbar.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\scheduleresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\scheduleresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\scheduleselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\scheduleselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\selectedanimals.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\selectedanimals.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Animals\specificanimal.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Animals\specificanimal.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\app.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\app.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\appbackup.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\appbackup.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\attractions.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\attractions.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\homeresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\homeresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\homeselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\homeselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\mainridesattractionsbar.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\mainridesattractionsbar.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\ridesattractionsbackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\ridesattractionsbackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\ridesattractionsicon.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\ridesattractionsicon.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\ridesattractionsiconcolor.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\ridesattractionsiconcolor.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\ridesattractionsrest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\ridesattractionsrest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\ridesattractionsselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\ridesattractionsselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\scheduleresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\scheduleresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\scheduleselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\scheduleselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\smallattractionsrest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\smallattractionsrest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\smallattractionsselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\smallattractionsselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\smallridesrest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\smallridesrest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\smallridesselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\smallridesselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Attractions\specificattraction.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Attractions\specificattraction.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\back.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\back.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\bytelogo.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\bytelogo.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\contactus.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\contactus.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\contactusbackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\contactusbackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\contactusiconcolor.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\contactusiconcolor.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\contactusrest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\contactusrest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\contactusselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\contactusselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\email.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\email.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\homeresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\homeresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\homeselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\homeselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\honorslogo.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\honorslogo.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\logo.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\logo.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\maincontactusbar.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\maincontactusbar.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\otherpagebackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\otherpagebackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\phone.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\phone.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\scheduleresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\scheduleresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ContactUs\scheduleselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ContactUs\scheduleselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\facilities.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\facilities.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\facilitiesbackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\facilitiesbackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\facilitiesicon.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\facilitiesicon.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\facilitiesiconcolor.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\facilitiesiconcolor.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\facilitiesrest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\facilitiesrest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\facilitiesselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\facilitiesselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\homeresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\homeresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\homeselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\homeselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\mainfacilitiesbar.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\mainfacilitiesbar.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\scheduleresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\scheduleresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\scheduleselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\scheduleselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Facilities\specificFacility.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Facilities\specificFacility.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\greentour.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\greentour.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\greentourbackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\greentourbackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\greentouricon.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\greentouricon.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\greentouriconcolor.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\greentouriconcolor.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\greentourrest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\greentourrest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\greentourselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\greentourselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\homeresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\homeresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\homeselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\homeselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\maingreentourbar.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\maingreentourbar.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\scheduleresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\scheduleresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\scheduleselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\scheduleselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\GreenTour\specificgreentour.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\GreenTour\specificgreentour.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\homescreen.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\homescreen.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\list backgroundresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\list backgroundresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\maintabs.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\maintabs.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\animals.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\animals.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\animalsselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\animalsselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\attractions.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\attractions.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\emergency.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\emergency.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\facilities.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\facilities.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\findme.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\findme.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\findmerest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\findmerest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\findonmap.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\findonmap.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\findonmaprest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\findonmaprest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\greentour.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\greentour.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\homeresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\homeresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\homeselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\homeselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\mainparkmapbar.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\mainparkmapbar.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\map2.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\map2.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\mapempty.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\mapempty.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkinglot.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkinglot.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmap.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmap.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmap.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmap.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmap2.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmap2.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmap3.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmap3.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmapbackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmapbackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmapicon.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmapicon.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmapiconcolor.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmapiconcolor.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmaprest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmaprest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmapselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmapselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\restroom.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\restroom.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\scheduleresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\scheduleresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\scheduleselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\scheduleselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\version.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\version.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\events.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\events.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\FivePointForest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\FivePointForest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\froghopper.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\froghopper.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\homeresting.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\homeresting.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\homeselected.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\homeselected.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\mainschedulebar.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\mainschedulebar.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\middleLeft.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\middleLeft.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\parkhours.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\parkhours.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\PuppetCastleTheater.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\PuppetCastleTheater.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\puppetshows.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\puppetshows.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\rideschedule.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\rideschedule.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\rideSchedule.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\rideSchedule.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\rideschedule3.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\rideschedule3.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\schedule.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\schedule.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\schedulebackground.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\schedulebackground.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\scheduleicon.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\scheduleicon.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\scheduleiconcolor.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\scheduleiconcolor.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\schedulerest.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\schedulerest.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\scheduleselect.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\scheduleselect.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\specificride.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\specificride.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\specificSchedule.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\specificSchedule.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\thumbParkHours.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\thumbParkHours.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\thumbPuppetCastleTheater.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\thumbPuppetCastleTheater.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\thumbRideSchedule.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\thumbRideSchedule.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\thumbZooInTheHollow.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\thumbZooInTheHollow.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\thumbZooOnTheHill.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\thumbZooOnTheHill.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\zoohill.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\zoohill.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\zoohollow.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\zoohollow.js
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\ZooInTheHollow.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\ZooInTheHollow.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\Schedule\ZooOnTheHill.png => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\Schedule\ZooOnTheHill.png
+[TRACE] COPYING CREATED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\winmenu.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\winmenu.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
+[DEBUG] app stylesheet => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\ApplicationStylesheet.java
 [DEBUG] copying app icon: C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\appicon.png
 [DEBUG] generating theme.xml
 [DEBUG] found splash screen at C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\default.png
 [TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\ApplicationStylesheet.java to javac build list
 [DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildActivity.java to javac build list
 [DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildAppInfo.java to javac build list
 [DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildApplication.java to javac build list
 [DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\R.java to javac build list
-[DEBUG] Building Java Sources: "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildActivity.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildAppInfo.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildApplication.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\R.java"
+[DEBUG] Building Java Sources: "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\ApplicationStylesheet.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildActivity.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildAppInfo.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildApplication.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\R.java"
+[INFO] Waiting for SDCard to become available..
 [INFO] Compiling Android Resources... This could take some time
 [DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\app-unsigned.apk
@@ -188,8 +329,11 @@ Logfile initialized
 [DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
 [DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
 [DEBUG] Waiting for device to be ready ...
-[TRACE] adb devices returned 1 devices/emulators
+[TRACE] adb devices returned 2 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.012000 seconds on emulator to get ready
-[INFO] Installing application on emulator
-[INFO] Application installed. Launch from drawer on Home Screen
+[DEBUG] waited 0.039000 seconds on emulator to get ready
+[INFO] Installing application on device
+[INFO] Launching application ... Happy Hollow Build
+[TRACE] Launch output: Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.SC.hhb/.HappyHollowBuildActivity }
+
+[INFO] Deployed Happy Hollow Build ... Application should be running.
