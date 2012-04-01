@@ -51,13 +51,13 @@ winHomeScreen.addEventListener('close', function(){winHome = null;});
 
 var buttonParkHours = Titanium.UI.createButton({
 	backgroundColor:'#000000',
-	title:'Park Hours',
-	textAlign:pWidth*.04,
-	font:{fontSize:'20dp'},
-	backgroundImage:'../backgroundresting.png',
+	title:'              Park Hours',
+	textAlign:'left',
+	font:{fontSize:'20dp', left:pWidth/3},
+	backgroundImage:'thumbParkHours.png',
 	backgroundSelectedImage:'/Schedule/schedulebackground.png',
 	top:pHeight*.1, 
-	left:'0dp',
+	left:0,
 	width:pWidth,
 	height:(pHeight-(pHeight*.1))/5,});
 buttonParkHours.addEventListener('click', function()
@@ -74,16 +74,16 @@ winParkHours.addEventListener('close', function(){winParkHours = null;});
 
 
 var buttonRideSchedule = Titanium.UI.createButton({
-	backgroundColor:'#000000',
-	title:'Ride Schedule',
-	textAlign:pWidth*.04,
-	font:{fontSize:'20dp'},
-	backgroundImage:'../backgroundresting.png',
+	backgroundImage:'thumbRideSchedule.png',
+	title:'              Ride Schedule',
+	textAlign:'left',
+	font:{fontSize:'20dp', left:pWidth/3},
 	backgroundSelectedImage:'/Schedule/schedulebackground.png',
 	top:(pHeight*.1+(pHeight-(pHeight*.1))/5), 
-	left:'0dp',
+	left:0,
 	width:pWidth,
 	height:(pHeight-(pHeight*.1))/5,});
+
 buttonRideSchedule.addEventListener('click', function()
 {var winRideSchedule=Titanium.UI.createWindow({
     title:'Ride Schedule',
@@ -97,14 +97,14 @@ winRideSchedule.addEventListener('close', function(){winRideSchedule= null;});
 	
 
 var buttonPuppetShow = Titanium.UI.createButton({
-	backgroundColor:'#000000',
-	title:'Puppet Show',
-	textAlign:pWidth*.04,
-	font:{fontSize:'20dp'},	
-	backgroundImage:'../backgroundresting.png',
+	backgroundImage:'thumbPuppetCastleTheater.png',
+	title:'              Puppet Show',
+	textAlign:'left',
+	font:{fontSize:'20dp', left:pWidth/3},	
+
 	backgroundSelectedImage:'/Schedule/schedulebackground.png',
 	top:(pHeight*.1+((pHeight-(pHeight*.1))/5)*2), 
-	left:'0dp',
+	left:0,
 	width:pWidth,
 	height:(pHeight-(pHeight*.1))/5,});
 buttonPuppetShow.addEventListener('click', function()
@@ -143,14 +143,14 @@ winPuppetShow.addEventListener('close', function(){winPuppetShow= null;});
 //	winEvents.open();});
 
 var buttonZooHollow = Titanium.UI.createButton({
-	backgroundColor:'#000000',
-	title:'Zoo in the Hollow',
-	textAlign:pWidth*.04,
+	backgroundImage:'thumbZooInTheHollow.png',
+	title:'              Zoo in the Hollow',
+	textAlign:'left',
 	font:{fontSize:'20dp'},
-	backgroundImage:'../backgroundresting.png',
+
 	backgroundSelectedImage:'/Schedule/schedulebackground.png',
 	top:(pHeight*.1+((pHeight-(pHeight*.1))/5)*3),
-	left:'0dp',
+	left:0,
 	width:pWidth,
 	height:(pHeight-(pHeight*.1))/5,});
 buttonZooHollow.addEventListener('click', function()
@@ -166,14 +166,13 @@ winZooHollow.addEventListener('close', function(){winZooHollow= null;});
 	winZooHollow.open();});
 	
 var buttonZooHill = Titanium.UI.createButton({
-	backgroundColor:'#000000',
-	title:'Zoo on the Hill',
-	textAlign:pWidth*.04,
+	backgroundImage:'thumbZooOnTheHill.png',
+	title:'              Zoo on the Hill',
+	textAlign:'left',
 	font:{fontSize:'20dp'},
-	backgroundImage:'../backgroundresting.png',
 	backgroundSelectedImage:'/Schedule/schedulebackground.png',
 	top:(pHeight*.1+((pHeight-(pHeight*.1))/5)*4),  
-	left:'0dp',
+	left:0,
 	width:pWidth,
 	height:(pHeight-(pHeight*.1))/5,});
 buttonZooHill.addEventListener('click', function()
@@ -244,3 +243,4 @@ win.add(buttonPuppetShow);
 //win.add(buttonEvents);
 win.add(buttonZooHollow);
 win.add(buttonZooHill);
+
