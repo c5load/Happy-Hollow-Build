@@ -1,58 +1,7 @@
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
-//
-//create windows
 var win = Titanium.UI.currentWindow;
-
-var winParkMap = Titanium.UI.createWindow({
-    title:'Park Map',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'ParkMap/parkmap.js',
-    fullscreen : true,});
-
-var winAnimals = Titanium.UI.createWindow({
-    title:'Animals',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'Animals/animals.js',
-    fullscreen : true});
-
-var winRidesAttractions = Titanium.UI.createWindow({
-    title:'Rides & Attractions',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'Attractions/attractions.js',
-    fullscreen : true,});
-
-var winGreenTour = Titanium.UI.createWindow({
-    title:'Green Tour',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: '/GreenTour/greentour.js',
-    fullscreen : true,});
-
-var winFacilities = Titanium.UI.createWindow({
-    title:'Facilities',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: 'Facilities/facilities.js',
-    fullscreen : true,});
-
-var winSchedule = Titanium.UI.createWindow({
-    title:'Schedule',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: 'Schedule/schedule.js',
-    fullscreen : true,});
-
-var winContactUs = Titanium.UI.createWindow({
-    title:'Contact Us',
-    navBarHidden:true,    
-    backgroundColor:'#FFFFFF',
-    url: 'ContactUs/contactus.js',
-    fullscreen : true,});
 
 //create button labels
 
@@ -67,7 +16,14 @@ var buttonParkMap = Titanium.UI.createButton({
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Park Map'});
 buttonParkMap.addEventListener('click', function()
-{winParkMap.open();});
+{var winParkMap = Titanium.UI.createWindow({
+    title:'Park Map',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'ParkMap/parkmap.js',
+    fullscreen : true,});
+winParkMap.addEventListener('close', function(){winParkMap = null;});
+winParkMap.open();});
 
 var buttonAnimals = Titanium.UI.createButton({
 	color:'#fff',
@@ -80,7 +36,16 @@ var buttonAnimals = Titanium.UI.createButton({
 	title:'Animals'});
 
 buttonAnimals.addEventListener('click', function()
-{winAnimals.open();});
+{var winAnimals = Titanium.UI.createWindow({
+    title:'Animals',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'Animals/animals.js',
+    fullscreen : true});
+winAnimals.addEventListener('close', function(){winAnimals = null;});
+	
+	winAnimals.open();
+	});
 
 var buttonRidesAttractions = Titanium.UI.createButton({
 	color:'#fff',
@@ -93,7 +58,16 @@ var buttonRidesAttractions = Titanium.UI.createButton({
 	title:'Rides & Attractions'});
 
 buttonRidesAttractions.addEventListener('click', function()
-{winRidesAttractions.open();});
+{
+	var winRidesAttractions = Titanium.UI.createWindow({
+    title:'Rides & Attractions',
+    navBarHidden:true,
+    backgroundColor:'#FFFFFF',
+    url: 'Attractions/attractions.js',
+    fullscreen : true,});
+winRidesAttractions.addEventListener('close', function(){winRidesAttractions= null;});
+    
+	winRidesAttractions.open();});
 	
 var buttonGreenTour = Titanium.UI.createButton({
 	color:'#fff',
@@ -105,7 +79,15 @@ var buttonGreenTour = Titanium.UI.createButton({
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Green Tour'});	
 buttonGreenTour.addEventListener('click', function()
-{winGreenTour.open();});
+{
+	var winGreenTour = Titanium.UI.createWindow({
+    title:'Green Tour',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: '/GreenTour/greentour.js',
+    fullscreen : true,});
+ winGreenTour.addEventListener('close', function(){winGreenTour = null;});   
+	winGreenTour.open();});
 	
 var buttonFacilities = Titanium.UI.createButton({
 	color:'#fff',
@@ -118,7 +100,15 @@ var buttonFacilities = Titanium.UI.createButton({
 	title:'Facilities'});	
 	
 buttonFacilities.addEventListener('click', function()
-{winFacilities.open();});
+{
+var winFacilities = Titanium.UI.createWindow({
+    title:'Facilities',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: 'Facilities/facilities.js',
+    fullscreen : true,});	
+ winFacilities.addEventListener('close', function(){winFacilities = null;}); 
+	winFacilities.open();});
 	
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -130,7 +120,15 @@ var buttonSchedule = Titanium.UI.createButton({
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Schedule'});
 buttonSchedule.addEventListener('click', function()
-{winSchedule.open();});
+{
+	var winSchedule = Titanium.UI.createWindow({
+    title:'Schedule',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: 'Schedule/schedule.js',
+    fullscreen : true,});
+ winSchedule.addEventListener('close', function(){winSchedule = null;});     
+	winSchedule.open();});
 	
 var buttonContactUs = Titanium.UI.createButton({
 	color:'#fff',
@@ -142,7 +140,15 @@ var buttonContactUs = Titanium.UI.createButton({
 	font:{fontSize:'30dp',fontWeight:'bold',fontFamily:'Helvetica Neue'},
 	title:'Contact Us'});
 buttonContactUs.addEventListener('click', function()
-{winContactUs.open();});
+{
+	var winContactUs = Titanium.UI.createWindow({
+    title:'Contact Us',
+    navBarHidden:true,    
+    backgroundColor:'#FFFFFF',
+    url: 'ContactUs/contactus.js',
+    fullscreen : true,});
+ winContactUs.addEventListener('close', function(){winContactUs = null;});     
+	winContactUs.open();});
 			
 win.add(buttonParkMap);
 win.add(buttonAnimals);
@@ -153,7 +159,7 @@ win.add(buttonSchedule);
 win.add(buttonContactUs);
 
 
-
+/*
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("POST","http://markmyers.me/hhpz/xml/Animals.xml");
@@ -173,7 +179,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         };
         xhr.send();
     };
-    
+*/    
 
 //if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
  //       var xhr = Ti.Network.createHTTPClient();

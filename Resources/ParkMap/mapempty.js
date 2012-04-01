@@ -92,7 +92,9 @@ buttonHome.addEventListener('click', function()
     fullscreen : true,  
 });
 winHomeScreen.addEventListener('close', function(){winHomeScreen = null;});
-	winHomeScreen.open();});
+	win.close();
+	winHomeScreen.open();
+});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -112,6 +114,7 @@ buttonSchedule.addEventListener('click', function()
     exitOnClose: true,
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
+win.close();
 winSchedule.open();});
 
 var buttonFindMe = Titanium.UI.createButton({
@@ -144,12 +147,12 @@ if (FindMeClicked==false){
 
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
-  url:'parkmap.png',
+  image:'parkmap.png',
   height:2808/1.5,
   width:2064,
   });
-map.add(mapimage);
-
+//map.add(mapimage);
+        
 //declare horizontal scrollview
 var scrollViewHorizontal =  Titanium.UI.createScrollView({
   height:'auto',
@@ -164,7 +167,7 @@ var scrollViewHorizontal =  Titanium.UI.createScrollView({
   maxZoomScale:100,
   zoomScale:.1
 });
-
+scrollViewHorizontal.add(mapimage);
 
 //declare vertical scrollview
 var scrollViewVertical =  Titanium.UI.createScrollView({
@@ -397,7 +400,6 @@ xhr.onload = function()
      }}}
 }};
 
-        scrollViewHorizontal.add(map);
 		scrollViewHorizontal.add(other);
 		
 var xPixel;
@@ -467,7 +469,7 @@ win.add(BottomBar);
 win.add(buttonFindMe);
 
 win.addEventListener('android:back', function() { 
-		   win.removeEventLister('location', reportPosition);
+           Titanium.Geolocation.removeEventListener('location', reportPosition); 
            win.close();             
             });
             

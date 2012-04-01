@@ -476,7 +476,7 @@ var HonorsWebsite = Titanium.UI.createLabel({
             fontSize: '10dp',
             fontWeight: 'bold'
         },
-        width:pWidth*.25,
+        width:pWidth*.4,
         top:pHeight*.35,
         height: pHeight*.05,
         left:pWidth*.25
@@ -563,7 +563,7 @@ var ByteWebsite = Titanium.UI.createLabel({
             fontSize: '10dp',
             fontWeight: 'bold'
         },
-        width:pWidth*.25,
+        width:pWidth*.3,
         top:pHeight*.54,
         height: pHeight*.05,
         left:pWidth*.25
@@ -589,7 +589,7 @@ var ByteLink = Titanium.UI.createLabel({
             fontSize: '10dp',
             fontWeight: 'bold'
         },
-        width:pWidth*.25,
+        width:pWidth*.3,
         top:pHeight*.54,
         height: pHeight*.05,
         left:pWidth*.51
