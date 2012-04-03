@@ -2,8 +2,11 @@ var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
 Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
+Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+Titanium.Geolocation.distanceFilter = 0;
 
 var win = Titanium.UI.currentWindow;
+
 
 //create views for each category
 var map=Titanium.UI.createView({
@@ -17,35 +20,40 @@ var animals=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'	
+  top:'0dp',	
+  visible:false
 });
 
 var attractions=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'		
+  top:'0dp',
+  visible:false  		
 });
 
 var facilities=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'		
+  top:'0dp',
+  visible:false		
 });
 
 var greentour=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'	
+  top:'0dp'	,
+  visible:false
 });
 
-var other=Titanium.UI.createView({
+var master=Titanium.UI.createView({
   opacity:.25,
   height:2808/1.5,
   width:2064,
-  top:'0dp'	
+  top:'0dp',
+  visible:true
 });
 
 //declare title bar and buttons
@@ -80,15 +88,8 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    navBarHidden:true,
-    fullscreen : true,  
+{	win.close();
 });
-winHomeScreen.addEventListener('close', function(){winHomeScreen = null;});
-	winHomeScreen.open();});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -108,6 +109,7 @@ buttonSchedule.addEventListener('click', function()
     exitOnClose: true,
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
+win.close();
 winSchedule.open();});
 
 //declare variables
@@ -115,7 +117,7 @@ var animalsopened=false;
 var attractionsopened=false;
 var facilitiesopened=false;
 var greentouropened=false;
-
+var masteropened=true;
 
 //declare bottom tabs/buttons
 var buttonAnimals = Titanium.UI.createButton({
@@ -130,15 +132,17 @@ var buttonAnimals = Titanium.UI.createButton({
 	title:'Animals'});	
 buttonAnimals.addEventListener('click', function()
 {
-	if (animalsopened == true){
-		animalsopened=false;
+	if (animalsopened == false){		
+		animalsopened=true;
 		animals.visible=true;
+		attractionsopened=false;
 		attractions.visible=false;
+		facilitiesopened=false;
 		facilities.visible=false;
+		greentouropened=false;
 		greentour.visible=false;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
+		masteropened=false;	
+		master.visible=false;	
 		buttonAnimals.borderColor='#FFFFFF';
 		buttonAnimals.color='#000000'; 
 		buttonAttractions.borderColor='#333333';
@@ -148,15 +152,17 @@ buttonAnimals.addEventListener('click', function()
 		buttonGreenTour.borderColor='#333333';
 		buttonGreenTour.color="#FFFFFF"	
 	}
-	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
+	else {
+		masteropened=true;
+		master.visible=true;
+		animalsopened=false;
+		animals.visible=false;
+		attractionsopened=false;
+		attractions.visible=false;
+		facilitiesopened=false;
+		facilities.visible=false;
+		greentouropened=false;
+		greentour.visible=false;
 		buttonAnimals.borderColor='#333333';
 		buttonAnimals.color="#FFFFFF"				
  	};
@@ -174,15 +180,17 @@ var buttonAttractions = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Attractions'});
 buttonAttractions.addEventListener('click', function()
-{	if (attractionsopened == true){
-		attractionsopened=false;
+{	if (attractionsopened == false){
+		attractionsopened=true;
 		attractions.visible=true;
+		animalsopened=false;
 		animals.visible=false;
+		facilitiesopened=false;
 		facilities.visible=false;
+		greentouropened=false;
 		greentour.visible=false;
-		animalsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
+		masteropened=false;	
+		master.visible=false;
 		buttonAttractions.borderColor='#FFFFFF';
 		buttonAttractions.color='#000000'; 
 		buttonAnimals.borderColor='#333333';
@@ -193,14 +201,16 @@ buttonAttractions.addEventListener('click', function()
 		buttonGreenTour.color="#FFFFFF"	
 	}
 	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
+		masteropened=true;
+		master.visible=true;
+		animalsopened=false;
+		animals.visible=false;
+		attractionsopened=false;
+		attractions.visible=false;
+		facilitiesopened=false;
+		facilities.visible=false;
+		greentouropened=false;
+		greentour.visible=false;
 		buttonAttractions.borderColor='#333333',
 		buttonAttractions.color="#FFFFFF"
  	};
@@ -218,15 +228,17 @@ var buttonFacilities = Titanium.UI.createButton({
 	title:'Facilities'});		
 buttonFacilities.addEventListener('click', function()
 {
-	if (facilitiesopened == true){
-		facilitiesopened=false;
+	if (facilitiesopened == false){		
+		facilitiesopened=true;
 		facilities.visible=true;
+		animalsopened=false;
 		animals.visible=false;
+		attractionsopened=false;
 		attractions.visible=false;
+		greentouropened=false;
 		greentour.visible=false;
-		animalsopened=true;	
-		attractionsopened=true;
-		greentouropened=true;
+		masteropened=false;	
+		master.visible=false;
 		buttonFacilities.borderColor='#FFFFFF';
 		buttonFacilities.color='#000000'; 
 		buttonAnimals.borderColor='#333333';
@@ -237,14 +249,16 @@ buttonFacilities.addEventListener('click', function()
 		buttonGreenTour.color="#FFFFFF"	
 	}
 	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
+		masteropened=true;
+		master.visible=true;
+		animalsopened=false;
+		animals.visible=false;
+		attractionsopened=false;
+		attractions.visible=false;
+		facilitiesopened=false;
+		facilities.visible=false;
+		greentouropened=false;
+		greentour.visible=false;
 		buttonFacilities.borderColor='#333333',
 		buttonFacilities.color="#FFFFFF"
  	};
@@ -262,15 +276,17 @@ var buttonGreenTour = Titanium.UI.createButton({
 	title:'Green Tour'});	
 buttonGreenTour.addEventListener('click', function()
 {
-	if (greentouropened == true){
-		greentouropened=false;
+	if (greentouropened == false){		
+		greentouropened=true;
 		greentour.visible=true;
+		animalsopened=false;
 		animals.visible=false;
+		attractionsopened=false;
 		attractions.visible=false;
+		facilitiesopened=false;
 		facilities.visible=false;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
+		masteropened=false;	
+		master.visible=false;
 		buttonGreenTour.borderColor='#FFFFFF';
 		buttonGreenTour.color='#000000'; 
 		buttonAnimals.borderColor='#333333';
@@ -281,14 +297,16 @@ buttonGreenTour.addEventListener('click', function()
 		buttonFacilities.color="#FFFFFF";
 	}
 	else {		
-		animals.visible=true;
-		attractions.visible=true;
-		facilities.visible=true;
-		greentour.visible=true;
-		animalsopened=true;
-		attractionsopened=true;
-		facilitiesopened=true;
-		greentouropened=true;
+		masteropened=true;
+		master.visible=true;
+		animalsopened=false;
+		animals.visible=false;
+		attractionsopened=false;
+		attractions.visible=false;
+		facilitiesopened=false;
+		facilities.visible=false;
+		greentouropened=false;
+		greentour.visible=false;
 		buttonGreenTour.borderColor='#333333',
 		buttonGreenTour.color="#FFFFFF"
  	}
@@ -297,7 +315,6 @@ buttonGreenTour.addEventListener('click', function()
 var buttonFindMe = Titanium.UI.createButton({
 	color:'#FFFFFF',
 	borderColor:'#333333',
-//	backgroundSelectedColor:'#FFFFFF',
 	backgroundImage:'/ParkMap/findmerest.png',
 	backgroundSelectedImage:'/ParkMap/findme.png',
 	top: pHeight*.9,
@@ -307,158 +324,27 @@ var buttonFindMe = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });
 
-var latitude;
-var longitude;
-var xPixel;
-var yPixel;
-	
 buttonFindMe.addEventListener('click', function()
 {
-	alert(longitude);
-   	alert(yPixel);
-   	alert(latitude);
-    alert(xPixel);
- });
-Titanium.Geolocation.getCurrentPosition(function(e)
-{
-    if (e.error)
-    {
-        alert('HFL cannot get your current location');
-        return;
-    }
-
-//    var longitude = e.coords.longitude;
- //   var latitude = e.coords.latitude;
-
-//    var latitude = 37.32576;
-//    var longitude = -121.863073;
-//   longitude = -121.862375;
- //  latitude = 37.326556;
-      
-//	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-//	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
-	
-//	xPixel=(xPixel/2/1.36)-(pWidth*.06);
-//	yPixel=(yPixel/2/1.11)-(pWidth*.06);
-
-//	alert(longitude);
- //  	alert(yPixel);
-  // 	alert(latitude);
-   // alert(xPixel);
-//});
-	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
-  
-//    alert(longitude);
-//    	alert(latitude);
-//	alert(longitude);
- //  	alert(yPixel);
-  // 	alert(latitude);
-   // alert(xPixel);
-//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
-//	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
-	//IF NOT AT HHPZ
-//	{
-//		alert('You don\'t appear to be at Happy Hollow');}
-//	else{
-
-	//	var imgFindMe=Titanium.UI.createImageView({
-	//		image:'findme.png',
-	//		top:yPixel,
-	//		left:xPixel,
-	//		width:pWidth*.2,
-    //		height:pWidth*.2,
-	//	})
-
-	//	scrollViewHorizontal.add(imgFindMe);
-	//	scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
-	//	scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
-        
-//	});
+if (FindMeClicked==false){
+	FindMeClicked=true;
+	findme.visible=false;
+			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+			{findme.visible=false
+			alert('You are not at Happy Hollow.');	
+				}
+			else {
+				findme.visible=true;				
+				}
+} else {
+	FindMeClicked=false;
+	findme.visible=false
+}
 });
 
-//Ti.Geolocation.addEventListener('location', function(e) {
- //   if (e.error)
-  //  {
-   //     alert('HFL cannot get your current location');
-    //    return;
-  //  }
-    
-   // longitude = e.coords.longitude;
-   // latitude = e.coords.latitude;
-
-//    var latitude = 37.32576;
-//    var longitude = -121.863073;
-//   longitude = -121.862375;
- //  latitude = 37.326556;
-      
-//	var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-//	var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
-	
-//	xPixel=(xPixel/2/1.36)-(pWidth*.06);
-//	yPixel=(yPixel/2/1.11)-(pWidth*.06);
-	//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
-  
-//    alert(longitude);
-//    	alert(latitude);
-//	alert(longitude);
- //  	alert(yPixel);
-  // 	alert(latitude);
-   // alert(xPixel);
-//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>2808/1.5))
-//	if ((xPixel<0)||(xPixel>5616)||(yPixel<0)||(yPixel>3712))
-	//IF NOT AT HHPZ
-//	{
-//		alert('You don\'t appear to be at Happy Hollow');}
-//	else{
-
-//		var imgFindMe=Titanium.UI.createImageView({
-//			image:'findme.png',
-//			top:yPixel,
-//			left:xPixel,
-//			width:pWidth*.2,
- //   		height:pWidth*.2,
-//		})
-
-//		scrollViewHorizontal.add(imgFindMe);
-//		scrollViewHorizontal.scrollTo((xPixel-(pWidth*.5)),0);
-//		scrollViewVertical.scrollTo(0,(yPixel)-(pHeight*.4));
-
-//	};
-//});
-//});
-
-
-	var locationCallback = function(e)
-	{
-		if (!e.success || e.error)
-		{
-		}   
-	   	longitude = e.coords.longitude;
-		latitude = e.coords.latitude;
-
-		//Titanium.Geolocation.distanceFilter = 100; //changed after first location event
-
-	xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-	yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
-	
-	xPixel=(xPixel/2/1.36)-(pWidth*.06);
-	yPixel=(yPixel/2/1.11)-(pWidth*.06);
-
-		setTimeout(function()
-		{
-		alert(longitude);
-  		alert(yPixel);
-  		alert(latitude);
-   		alert(xPixel);	
-		},100);  
-		
-};
-
-	Titanium.Geolocation.addEventListener('location', locationCallback);
-	
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
-  url:'parkmap.png',
+  image:'parkmap.png',
   height:2808/1.5,
   width:2064,
   });
@@ -507,6 +393,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 var xhr = Titanium.Network.createHTTPClient();
 xhr.onload = function()
 {
+	var data = [];
     var doc = this.responseXML.documentElement;
     var elements = doc.getElementsByTagName("LocName");            
 
@@ -526,184 +413,566 @@ xhr.onload = function()
                                 
         if (animal.test(Category)){
     	var mapIconAnimal = Titanium.UI.createImageView({
-    		url:'animals.png',
+    		image:'animals.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
-    	});
-    	
+    		id:LocationName    		
+    	}); 		
+    	mapIconAnimal.addEventListener('click', function(e)
+			{var winAnimal = Titanium.UI.createWindow({
+    				title:'Animal',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Animals/emptyanimal.js',
+    				fullscreen : true});
+			winAnimal.addEventListener('close', function(){winAnimal = null;});
+			var s = e.source;
+
+			winAnimal.name = s.id;
+			winAnimal.open({fullscreen:true});
+			});					
+		animals.add(mapIconAnimal);
+		
+    	var mapIconAnimal = Titanium.UI.createImageView({
+    		image:'animals.png',
+    		top: (PixelY/2/1.12)-(pWidth*.06),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    		id:LocationName
+    	}); 		
+    	mapIconAnimal.addEventListener('click', function(e)
+			{var winAnimal = Titanium.UI.createWindow({
+    				title:'Animal',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Animals/emptyanimal.js',
+    				fullscreen : true});
+			winAnimal.addEventListener('close', function(){winAnimal = null;});
+			var s = e.source;
+			winAnimal.name = s.id;
+			winAnimal.open({fullscreen:true});
+			});
+		master.add(mapIconAnimal);
+						    	
     	var mapLabelAnimal=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.01),
     		left: (PixelX/2/1.35)-(pWidth*.09),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},
+        	font:{fontSize:'8dp', fontWeight:'bold'},
         	textAlign:'center',    		  
     		color: '#000000'   		
     	});
-    	animals.add(mapIconAnimal);
-    	animals.add(mapLabelAnimal);
+  		animals.add(mapLabelAnimal);  	
+
+		var mapLabelAnimal=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		left: (PixelX/2/1.35)-(pWidth*.09),
+    		width:pWidth*.15,
+    		Height:pWidth*.18,
+    		text: LocationName,
+        	font:{fontSize:'8dp', fontWeight:'bold'},
+        	textAlign:'center',    		  
+    		color: '#000000'   		
+    	});
+    	master.add(mapLabelAnimal);
         } 
         
         if (attraction.test(Category)){
     	var mapIconAttraction = Titanium.UI.createImageView({
-    		url:'attractions.png',
+    		image:'attractions.png',
+    		top: (PixelY/2/1.11)-(pWidth*.06),
+    		left: (PixelX/2/1.36)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    		id:LocationName
+    	});
+    	mapIconAttraction.addEventListener('click', function(e)
+			{var winAttraction = Titanium.UI.createWindow({
+    				title:'Attraction',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Attractions/emptyattraction.js',
+    				fullscreen : true});
+			winAttraction.addEventListener('close', function(){winAttraction = null;});
+			var s = e.source;
+
+			winAttraction.name = s.id;
+			winAttraction.open({fullscreen:true});
+			});						
+    	attractions.add(mapIconAttraction);
+
+    	var mapIconAttraction = Titanium.UI.createImageView({
+    		image:'attractions.png',
     		top: (PixelY/2/1.11)-(pWidth*.06),
     		left: (PixelX/2/1.36)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
     	});
-    	
+    	mapIconAttraction.addEventListener('click', function(e)
+			{var winAttraction = Titanium.UI.createWindow({
+    				title:'Attraction',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Attractions/emptyattraction.js',
+    				fullscreen : true});
+			winAttraction.addEventListener('close', function(){winAttraction = null;});
+			var s = e.source;
+
+			winAttraction.name = s.id;
+			winAttraction.open({fullscreen:true});
+			});	
+		master.add(mapIconAttraction);
+		    	
     	var mapLabelAttraction=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.01),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName 		
     	});
-		attractions.add(mapIconAttraction);
 		attractions.add(mapLabelAttraction);
+
+    	var mapLabelAttraction=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.15,
+    		Height:pWidth*.18,
+    		text: LocationName,
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName 		
+    	});
+		master.add(mapLabelAttraction);
         } 
         
         if (facility.test(Category)){
     	var mapIconFacility = Titanium.UI.createImageView({
-    		url:'facilities.png',
+    		image:'facilities.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
+    		id:LocationName
     	});
-    	
+    	mapIconFacility.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	 
+		facilities.add(mapIconFacility);
+		
+    	var mapIconFacility = Titanium.UI.createImageView({
+    		image:'facilities.png',
+    		top: (PixelY/2/1.12)-(pWidth*.06),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    		id:LocationName
+    	});
+    	mapIconFacility.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	 
+        master.add(mapIconFacility);
+        												    	
     	var mapLabelFacility=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.01),
-    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		left: (PixelX/2/1.35)-(pWidth*.05),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
     	});
-		facilities.add(mapIconFacility);
-		facilities.add(mapLabelFacility);	
+		facilities.add(mapLabelFacility);
+		
+    	var mapLabelFacility=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		left: (PixelX/2/1.35)-(pWidth*.05),
+    		width:pWidth*.15,
+    		Height:pWidth*.18,
+    		text: LocationName,
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',  
+    		id:LocationName 		
+    	}); 	
+        master.add(mapLabelFacility);	
         } 
         
         if (greenTour.test(Category)){
     	var mapIconGreenTour = Titanium.UI.createImageView({
-    		url:'greentour.png',
+    		image:'greentour.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.36)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
+    		id:LocationName
     	});
-    	
+    	mapIconGreenTour.addEventListener('click', function(e)
+			{var winGreenTour = Titanium.UI.createWindow({
+    				title:'Green Tour',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/GreenTour/emptygreentour.js',
+    				fullscreen : true});
+			winGreenTour.addEventListener('close', function(){winGreenTour = null;});
+			var s = e.source;
+
+			winGreenTour.name = s.id;
+			winGreenTour.open({fullscreen:true});
+			});	 
+		greentour.add(mapIconGreenTour);
+		
+    	var mapIconGreenTour = Titanium.UI.createImageView({
+    		image:'greentour.png',
+    		top: (PixelY/2/1.12)-(pWidth*.06),
+    		left: (PixelX/2/1.36)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    		id:LocationName
+    	});
+    	mapIconGreenTour.addEventListener('click', function(e)
+			{var winGreenTour = Titanium.UI.createWindow({
+    				title:'Green Tour',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/GreenTour/emptygreentour.js',
+    				fullscreen : true});
+			winGreenTour.addEventListener('close', function(){winGreenTour = null;});
+			var s = e.source;
+
+			winGreenTour.name = s.id;
+			winGreenTour.open({fullscreen:true});
+			});	 
+        master.add(mapIconGreenTour);
+        						    	
     	var mapLabelGreenTour=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.01),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
     	});
-		greentour.add(mapIconGreenTour);
 		greentour.add(mapLabelGreenTour);
+		
+    	var mapLabelGreenTour=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.15,
+    		Height:pWidth*.18,
+    		text: LocationName,
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
+    	});
+        master.add(mapLabelGreenTour);						    	
         }
         
         if (restroom.test(Category)){
     	var mapIconRestroom = Titanium.UI.createImageView({
-    		url:'restroom.png',
+    		image:'restroom.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
+    		id:LocationName
     	});
-    	
+    	mapIconRestroom.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	 
+		facilities.add(mapIconRestroom);
+		
+    	var mapIconRestroom = Titanium.UI.createImageView({
+    		image:'restroom.png',
+    		top: (PixelY/2/1.12)-(pWidth*.06),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    		id:LocationName,
+    	});
+    	mapIconRestroom.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	 
+    	master.add(mapIconRestroom);
+    																		    	
     	var mapLabelRestroom=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: 'Restroom',
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
     	});
-		other.add(mapIconRestroom);
-		other.add(mapLabelRestroom);
+		facilities.add(mapLabelRestroom);
+		   	
+    	var mapLabelRestroom=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.15,
+    		Height:pWidth*.18,
+    		text: 'Restroom',
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
+    	});
+        master.add(mapLabelRestroom);
         }      
           
         if (exit.test(Category)){
     	var mapIconExit = Titanium.UI.createImageView({
-    		url:'emergency.png',
+    		image:'emergency.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
+    		id:LocationName
     	});
-    	
+    	mapIconExit.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	 
+		facilities.add(mapIconExit);
+													    	
+    	var mapIconExit = Titanium.UI.createImageView({
+    		image:'emergency.png',
+    		top: (PixelY/2/1.12)-(pWidth*.06),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    		id:LocationName
+    	});
+    	mapIconExit.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	 
+        master.add(mapIconExit);
+        
     	var mapLabelExit=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: 'Emergency Exit',
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
     	});
-		other.add(mapIconExit);
-		other.add(mapLabelExit);
+		facilities.add(mapLabelExit);
+        
+    	var mapLabelExit=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.15,
+    		Height:pWidth*.18,
+    		text: 'Emergency Exit',
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
+    	});    	    
+        master.add(mapLabelExit);    	
         }        
      
         if (parkinglot.test(Category)){
     	var mapIconParking = Titanium.UI.createImageView({
-    		url:'parkinglot.png',
+    		image:'parkinglot.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
     		Height:pWidth*.12,
+    		id:LocationName
     	});
-    	
+		mapIconExit.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	     	
+		facilities.add(mapIconParking);
+		
+    	var mapIconParking = Titanium.UI.createImageView({
+    		image:'parkinglot.png',
+    		top: (PixelY/2/1.12)-(pWidth*.06),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.12,
+    		Height:pWidth*.12,
+    		id:LocationName
+    	});
+		mapIconExit.addEventListener('click', function(e)
+			{var winFacility = Titanium.UI.createWindow({
+    				title:'Facility',
+    				navBarHidden:true,
+    				backgroundColor:'#FFFFFF',
+    				url: '/Facilities/emptyfacility.js',
+    				fullscreen : true});
+			winFacility.addEventListener('close', function(){winFacility = null;});
+			var s = e.source;
+
+			winFacility.name = s.id;
+			winFacility.open({fullscreen:true});
+			});	     	  
+        master.add(mapIconParking);
+        						
     	var mapLabelParking=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
-    		color: '#000000'   		
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
     	});
-		other.add(mapIconParking);
-		other.add(mapLabelParking);
+		facilities.add(mapLabelParking);
+		   	
+    	var mapLabelParking=Titanium.UI.createLabel({
+    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		left: (PixelX/2/1.35)-(pWidth*.06),
+    		width:pWidth*.15,
+    		Height:pWidth*.18,
+    		text: LocationName,
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+    		color: '#000000',
+    		id:LocationName   		
+    	});
+        master.add(mapLabelParking);
         }        
      }
 };
         scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
-    	animalsopened=true;
     	scrollViewHorizontal.add(attractions);
-		attractionsopened=true;
 		scrollViewHorizontal.add(facilities);
-		facilitiesopened=true;
 		scrollViewHorizontal.add(greentour);
-		greentouropened=true;
-		scrollViewHorizontal.add(other);
+		scrollViewHorizontal.add(master);
+		
+var xPixel;
+var yPixel;
+var label = Ti.UI.createLabel({
+	color:'#000000',
+	visible:false
+});
+
+var findme = Titanium.UI.createImageView({
+	image:'findme.png',
+	width:pWidth*.2,
+    height:pWidth*.2,
+    visible:false
+		})
+scrollViewHorizontal.add(findme);
+		
+function reportPosition(e) {    
+	if (!e.success || e.error) {        
+		label.text = 'error: ' + JSON.stringify(e.error);    
+		}    
+		else {        
+			var accuracy = e.coords.accuracy;        
+			var longitude = e.coords.longitude;
+		    var latitude = e.coords.latitude;    
+		    
+		    var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+	
+		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
+		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
+		}
+			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+			{findme.visible=false}
+			else {
+				findme.top=yPixel;
+				findme.left=xPixel;				
+				}		
+		}		
+
+		// this fires once
+		Titanium.Geolocation.getCurrentPosition(reportPosition);
+		// this fires whenever the distance filter is surpassed
+		Titanium.Geolocation.addEventListener('location', reportPosition);
+		
+var FindMeClicked=false;
+
 		
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
-scrollViewHorizontal.scrollTo(2064/2, 0);
-scrollViewVertical.scrollTo(0, 2808/1.5/4);
+scrollViewHorizontal.scrollTo(pWidth/2, 0);
+scrollViewVertical.scrollTo(0,pHeight*.8*.5);
 
-scrollViewHorizontal.addEventListener ('load', function (e) {
-    scrollViewHorizontal.scrollTo(pWidth/2,0);
-        });
-
-scrollViewVertical.addEventListener ('load', function (e) {
-scrollViewVertical.scrollTo(0,pHeight*.4);
-        });
         
 win.add(TitleBar);
 win.add(lblTitle);
@@ -716,9 +985,9 @@ win.add(buttonGreenTour);
 win.add(buttonFindMe);
 
 win.addEventListener('android:back', function() { 
-           win.close();             
+           win.close();
+           Titanium.Geolocation.removeEventListener('location', reportPosition);             
             });
             
 xhr.open('GET','http://hhpz.org/mobile/xml/locs.xml');            
 xhr.send();
-

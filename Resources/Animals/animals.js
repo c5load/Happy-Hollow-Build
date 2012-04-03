@@ -4,7 +4,6 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 Ti.App.SCREEN_WIDTH = (pWidth > pHeight) ? pHeight : pWidth;
 Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
-
 var win = Titanium.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
