@@ -1,7 +1,12 @@
 Logfile initialized
+<<<<<<< HEAD
 [INFO] logfile = C:\Users\Anthony\Desktop\Happy-Hollow\build.log
 [DEBUG] C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py simulator Happy Hollow Build C:\Users\Anthony C:\Users\Anthony\Desktop\Happy-Hollow com.SC.hhb 7 WVGA800
 [INFO] Building Happy Hollow Build for Android ... one moment
+=======
+[INFO] logfile = C:\Users\Myers\Desktop\Happy-Hollow-Git\build.log
+[DEBUG] C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\builder.py install Happy Hollow Build C:\Program Files (x86)\Android\android-sdk C:\Users\Myers\Desktop\Happy-Hollow-Git com.SC.hhb 15
+>>>>>>> 986291f7259241a46893915beef6e7fa82c3a1a1
 [INFO] Titanium SDK version: 1.7.5 (11/02/11 17:00 ab20af7)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 0 devices/emulators
@@ -170,6 +175,7 @@ Logfile initialized
 [DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
 [DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
 [TRACE] adb devices returned 1 devices/emulators
+<<<<<<< HEAD
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
@@ -204,6 +210,27 @@ android.util.AndroidException: Can't connect to activity manager; is the system 
 [INFO] Deployed Happy Hollow Build ... Application should be running.
 [ERROR] Timed out waiting for SDCard to become available (60s)
 [DEBUG] creating unsigned apk: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\app-unsigned.apk
+=======
+[DEBUG] Device connected... (waited 0 seconds)
+[DEBUG] waited 0.036000 seconds on emulator to get ready
+[DEBUG] com.SC.hhb installed? True
+[INFO] Copying project resources..
+[TRACE] COPYING MODIFIED FILE: C:\Users\Myers\Desktop\Happy-Hollow-Git\Resources\ParkMap\parkmap.js => C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\ParkMap\parkmap.js
+[TRACE] Generating Java Classes
+[DEBUG] Processing Android resource drawables
+[DEBUG] copying app icon: C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\appicon.png
+[DEBUG] generating theme.xml
+[DEBUG] found splash screen at C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\assets\Resources\default.png
+[TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildActivity.java to javac build list
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildAppInfo.java to javac build list
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\HappyHollowBuildApplication.java to javac build list
+[DEBUG] adding C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\gen\com\SC\hhb\R.java to javac build list
+[DEBUG] Building Java Sources: "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildActivity.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildAppInfo.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildApplication.java" "C:\\Users\\Myers\\Desktop\\Happy-Hollow-Git\\build\\android\\gen\\com\\SC\\hhb\\R.java"
+[INFO] Compiling Android Resources... This could take some time
+[DEBUG] Android classes.dex built
+[DEBUG] creating unsigned apk: C:\Users\Myers\Desktop\Happy-Hollow-Git\build\android\bin\app-unsigned.apk
+>>>>>>> 986291f7259241a46893915beef6e7fa82c3a1a1
 [DEBUG] from resource zip => assets/Resources/Animals/animaliconscolor.png
 [DEBUG] from resource zip => assets/Resources/Animals/animals.js
 [DEBUG] from resource zip => assets/Resources/Animals/animalsbackground.png
@@ -315,6 +342,10 @@ android.util.AndroidException: Can't connect to activity manager; is the system 
 [DEBUG] from resource zip => assets/Resources/Schedule/puppetshows.js
 [DEBUG] from resource zip => assets/Resources/Schedule/rideSchedule.png
 [DEBUG] from resource zip => assets/Resources/Schedule/rideschedule.js
+<<<<<<< HEAD
+=======
+[DEBUG] from resource zip => assets/Resources/Schedule/rideschedule2.js
+>>>>>>> 986291f7259241a46893915beef6e7fa82c3a1a1
 [DEBUG] from resource zip => assets/Resources/Schedule/rideschedule3.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedulebackground.png
@@ -324,6 +355,10 @@ android.util.AndroidException: Can't connect to activity manager; is the system 
 [DEBUG] from resource zip => assets/Resources/Schedule/scheduleselect.png
 [DEBUG] from resource zip => assets/Resources/Schedule/specificSchedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/specificride.js
+<<<<<<< HEAD
+=======
+[DEBUG] from resource zip => assets/Resources/Schedule/testSchedule.js
+>>>>>>> 986291f7259241a46893915beef6e7fa82c3a1a1
 [DEBUG] from resource zip => assets/Resources/Schedule/thumbParkHours.png
 [DEBUG] from resource zip => assets/Resources/Schedule/thumbPuppetCastleTheater.png
 [DEBUG] from resource zip => assets/Resources/Schedule/thumbRideSchedule.png
@@ -335,6 +370,7 @@ android.util.AndroidException: Can't connect to activity manager; is the system 
 [DEBUG] from resource zip => assets/Resources/appbackup.js
 [DEBUG] from resource zip => assets/Resources/appicon.png
 [DEBUG] from resource zip => assets/Resources/back.png
+[DEBUG] from resource zip => assets/Resources/backgroundresting.png
 [DEBUG] from resource zip => assets/Resources/default.png
 [DEBUG] from resource zip => assets/Resources/homescreen.js
 [DEBUG] from resource zip => assets/Resources/list backgroundresting.png
@@ -346,6 +382,7 @@ android.util.AndroidException: Can't connect to activity manager; is the system 
 [DEBUG] from resource zip => res/layout/titanium_tabgroup.xml
 [DEBUG] from resource zip => AndroidManifest.xml
 [DEBUG] from resource zip => resources.arsc
+<<<<<<< HEAD
 [DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages.properties
 [DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages_fr.properties
 [DEBUG] from JAR C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
@@ -377,3 +414,32 @@ android.util.AndroidException: Can't connect to activity manager; is the system 
 android.util.AndroidException: Can't connect to activity manager; is the system running?
 
 [INFO] Deployed Happy Hollow Build ... Application should be running.
+=======
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\smalljs.jar => org/mozilla/javascript/resources/Messages_fr.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/binding.min.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\modules\titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/Commons-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/HttpComponents-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/apache/mime4j-NOTICE.txt
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/build.properties
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/background.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_18.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_check_buttonless_on_48.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_18.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_more_48.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_normal.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_pressed.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/btn_picker_selected.9.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/default_icon.png
+[DEBUG] from JAR C:\Users\Myers\AppData\Roaming\Titanium\mobilesdk\win32\1.7.5\android\titanium.jar => org/appcelerator/titanium/res/drawable/photoDefault.png
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 1 devices/emulators
+[DEBUG] Device connected... (waited 0 seconds)
+[DEBUG] waited 0.038000 seconds on emulator to get ready
+[INFO] Installing application on emulator
+[INFO] Application installed. Launch from drawer on Home Screen
+>>>>>>> 986291f7259241a46893915beef6e7fa82c3a1a1

@@ -3,6 +3,7 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 
 var win = Ti.UI.currentWindow;
 
+
 var TitleBar=Titanium.UI.createImageView({
 	image:'/Animals/animalsbackground.png',
     width: pWidth,
