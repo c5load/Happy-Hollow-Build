@@ -252,7 +252,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
 */    
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database    
       var xhr = Ti.Network.createHTTPClient();
-       xhr.open("GET","http://markmyers.me/hhpz/xml/testSchedule.xml");
+       xhr.open("GET","http://hhpz.org/mobile/cf/rideinfo.cfm");
 
        xhr.onerror = function(e) {
             Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();

@@ -88,6 +88,18 @@ var BottomBar=Titanium.UI.createImageView({
 });
 win.add(BottomBar);
 
+var selectedAnimal=win.name.replace(/(\r\n|\n|\r)/gm, "");
+var selectedAnimalTest=".*" + selectedAnimal + ".*";
+var selectedAnimalExpression= new RegExp(selectedAnimalTest);
+
+var animalName = ""
+var animalDesc = ""
+var animalScientific = ""
+var animalClass = ""
+var animalYoutube = "" 
+var animalPicture = ""     
+var animalThumbnail = ""
+        		
 var xhr = Titanium.Network.createHTTPClient();
 xhr.onload = function()
 {
@@ -95,41 +107,32 @@ xhr.onload = function()
     var doc = this.responseXML.documentElement;
 	var elements = doc.getElementsByTagName("AnimalName");
 
-    for (var i=0;i<elements.length;i++) {
-        var animalName = doc.getElementsByTagName("AnimalName").item(i).text;
-        animalName = animalName.replace(/(\r\n|\n|\r)/gm, ""); 
-        var animalDesc = doc.getElementsByTagName("Description").item(i).text;
-        animalDesc = animalDesc.replace(/(\r\n|\n|\r)/gm, "");
-        var animalScientific = doc.getElementsByTagName("ScientificName").item(i).text;
-        animalScientific = animalScientific.replace(/(\r\n|\n|\r)/gm, "");  
-        var animalClass = doc.getElementsByTagName("Class").item(i).text;
-        animalClass = animalClass.replace(/(\r\n|\n|\r)/gm, "");                  
+    for (var i=0;i<elements.length;i++) {             
  		var animalLocation = doc.getElementsByTagName("Loc").item(i).text;
-        animalLocation = animalLocation.replace(/(\r\n|\n|\r)/gm, "");          
-        var animalYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
-        animalYoutube = animalYoutube.replace(/(\r\n|\n|\r)/gm, "");        
-        var animalPicture = doc.getElementsByTagName("PictureURL").item(i).text;
-        animalPicture = animalPicture.replace(/(\r\n|\n|\r)/gm, "");        
-        var animalThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
-        animalThumbnail = animalThumbnail.replace(/(\r\n|\n|\r)/gm, "");      
-
-       	var selectedAnimal=win.name.replace(/(\r\n|\n|\r)/gm, "");
-		var selectedAnimalTest=".*" + selectedAnimal + ".*";
-		var selectedAnimalExpression= new RegExp(selectedAnimalTest);
+        animalLocation = animalLocation.replace(/(\r\n|\n|\r)/gm, "");              
 	
 		if (selectedAnimalExpression.test(animalLocation)){
-			var name = animalName;
-			var description = animalDesc;
-			var scientific = animalScientific;
-			var animalclass = animalClass;
-			var location = animalLocation;
-			var youtube = animalYoutube;
-			var picture = animalPicture;
-			var thumbnail = animalThumbnail;
+
+        animalName = doc.getElementsByTagName("AnimalName").item(i).text;
+        animalName = animalName.replace(/(\r\n|\n|\r)/gm, ""); 
+        animalDesc = doc.getElementsByTagName("Description").item(i).text;
+        animalDesc = animalDesc.replace(/(\r\n|\n|\r)/gm, "");
+        animalScientific = doc.getElementsByTagName("ScientificName").item(i).text;
+        animalScientific = animalScientific.replace(/(\r\n|\n|\r)/gm, "");  
+        animalClass = doc.getElementsByTagName("Class").item(i).text;
+        animalClass = animalClass.replace(/(\r\n|\n|\r)/gm, ""); 
+        animalYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
+        animalYoutube = animalYoutube.replace(/(\r\n|\n|\r)/gm, "");        
+        animalPicture = doc.getElementsByTagName("PictureURL").item(i).text;
+        animalPicture = animalPicture.replace(/(\r\n|\n|\r)/gm, "");        
+        animalThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
+        animalThumbnail = animalThumbnail.replace(/(\r\n|\n|\r)/gm, ""); 
+   		}
+	};
 
 			var winAnimalLabel = Titanium.UI.createLabel({
 				textWeight:'strong',
-				text: name,
+				text: animalName,
 				textAlign: pWidth*.1,
 				color: 'white',
 			    font: {
@@ -139,13 +142,13 @@ xhr.onload = function()
 			    width: pWidth,
 			    textAlign: 'left',
 			    left: pWidth*.02,
-				top:pHeight*.47,
+				top:pHeight*.5,
 				height:pHeight*.1,
 			})
 			win.add(winAnimalLabel);
 			
 			var winAnimalScientific = Ti.UI.createLabel({
-				text: scientific,
+				text: animalScientific,
 				textAlign: pWidth*.1,
 				color: 'white',
 			    font: {
@@ -155,17 +158,17 @@ xhr.onload = function()
 			    width: 'auto',
 			    textAlign: 'center',
 			    left:pWidth*.02,
-			    top:pHeight*.53,
+			    top:pHeight*.55,
 			    height: pHeight*.1,
 			})
 			win.add(winAnimalScientific);
 			
-			if (picture ==='None')
+			if (animalPicture ==='None')
 				//don't display a picture
 				{}
 				//otherwise create and display an imageView
 				else{ var image = Titanium.UI.createImageView({
-				image:picture,
+				image:animalPicture,
 				width:pWidth,
 				height:pHeight*.4,
 				top:pHeight*.1,
@@ -184,8 +187,8 @@ xhr.onload = function()
 					showVerticalScrollIndicator:true, 
 					showHorizontalScrollIndicator:true }); 
 				
-			var splitresult = description.split("$$$");		
-			var numberofSentences = description.split("$$$").length;
+			var splitresult = animalDesc.split("$$$");		
+			var numberofSentences = animalDesc.split("$$$").length;
 			
 			var desc = '';
 			for (var i=0;i<numberofSentences;i++) {
@@ -205,12 +208,12 @@ xhr.onload = function()
 			    top: '0dp',
 			    height: 'auto'
 			})
-			
+						
 					scrollView.add(winAnimalDescription);
 					win.add(scrollView);
 					
 				
-			if (youtube ==='None')
+			if (animalYoutube ==='None')
 			{}
 			else{
 			var linkE = Titanium.UI.createLabel({
@@ -234,7 +237,7 @@ xhr.onload = function()
 				 w.addEventListener('android:back', function() {  
 			           w.close();             
 			            });          
-			     w.open(Titanium.Platform.openURL(youtube));
+			     w.open(Titanium.Platform.openURL(animalYoutube));
 			});
 			win.add(linkE);
 			}
@@ -258,13 +261,12 @@ xhr.onload = function()
 			    url: 'ParkMap/mapempty.js',
 			    fullscreen : true});
 			winParkMap.addEventListener('close', function(){winParkMap = null;});
-				winParkMap.name = location;
+				winParkMap.name = animalLocation;
 				winParkMap.open({fullscreen:true});
 				});
 			win.add(buttonMap);
 			} 	
-   		}
-	};
+
 
    
 

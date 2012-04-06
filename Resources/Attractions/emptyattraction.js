@@ -4,7 +4,7 @@ var pHeight = Ti.Platform.displayCaps.platformHeight;
 var win = Ti.UI.currentWindow;
 
 var TitleBar=Titanium.UI.createImageView({
-	image:'/Attractions/animalsbackground.png',
+	image:'/Attractions/ridesattractionsbackground.png',
     width: pWidth,
     left: '0dp',
     top: '0dp',
@@ -13,11 +13,11 @@ var TitleBar=Titanium.UI.createImageView({
 win.add(TitleBar);
 
 var lblTitle=Titanium.UI.createLabel({
-	text:"Animals",
+	text:"Rides & Attractions",
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:'15dp',
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -29,8 +29,8 @@ win.add(lblTitle);
 
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'/Animals/homeresting.png',
-	backgroundSelectedImage:'/Animals/homeselected.png',
+	backgroundImage:'/Attractions/homeresting.png',
+	backgroundSelectedImage:'/Attractions/homeselected.png',
 	top: pHeight*.02, 
 	left:pWidth*.04,
 	width:pWidth*.19,
@@ -52,8 +52,8 @@ win.add(buttonHome);
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
-	backgroundImage:'/Animals/scheduleresting.png',
-	backgroundSelectedImage:'/Animals/scheduleselected.png',
+	backgroundImage:'/Attractions/scheduleresting.png',
+	backgroundSelectedImage:'/Attractions/scheduleselected.png',
 	top:pHeight*.02,
 	left:pWidth*.78,
 	width:pWidth*.17,
@@ -72,7 +72,7 @@ winSchedule.open();});
 win.add(buttonSchedule);
 
 var winBar = Titanium.UI.createLabel({
-	backgroundImage:'animalsbackground.png',	
+	backgroundImage:'ridesattractionsbackground.png',	
     width: pWidth,
 	top:pHeight*.5,
 	height:pHeight*.15,
@@ -88,48 +88,45 @@ var BottomBar=Titanium.UI.createImageView({
 });
 win.add(BottomBar);
 
+var selectedAttraction=win.name.replace(/(\r\n|\n|\r)/gm, "");
+var selectedAttractionTest=".*" + selectedAttraction + ".*";
+var selectedAttractionExpression= new RegExp(selectedAttractionTest);
+
+var attractionName = ""
+var attractionDesc = ""
+var attractionYoutube = "" 
+var attractionPicture = ""     
+var attractionThumbnail = ""
+
 var xhr = Titanium.Network.createHTTPClient();
 xhr.onload = function()
 {
     var data = [];
     var doc = this.responseXML.documentElement;
-	var elements = doc.getElementsByTagName("AnimalName");
+	var elements = doc.getElementsByTagName("AttractionName");
 
     for (var i=0;i<elements.length;i++) {
-        var animalName = doc.getElementsByTagName("AnimalName").item(i).text;
-        animalName = animalName.replace(/(\r\n|\n|\r)/gm, ""); 
-        var animalDesc = doc.getElementsByTagName("Description").item(i).text;
-        animalDesc = animalDesc.replace(/(\r\n|\n|\r)/gm, "");
-        var animalScientific = doc.getElementsByTagName("ScientificName").item(i).text;
-        animalScientific = animalScientific.replace(/(\r\n|\n|\r)/gm, "");  
-        var animalClass = doc.getElementsByTagName("Class").item(i).text;
-        animalClass = animalClass.replace(/(\r\n|\n|\r)/gm, "");                  
- 		var animalLocation = doc.getElementsByTagName("Loc").item(i).text;
-        animalLocation = animalLocation.replace(/(\r\n|\n|\r)/gm, "");          
-        var animalYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
-        animalYoutube = animalYoutube.replace(/(\r\n|\n|\r)/gm, "");        
-        var animalPicture = doc.getElementsByTagName("PictureURL").item(i).text;
-        animalPicture = animalPicture.replace(/(\r\n|\n|\r)/gm, "");        
-        var animalThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
-        animalThumbnail = animalThumbnail.replace(/(\r\n|\n|\r)/gm, "");      
-
-       	var selectedAnimal=win.name.replace(/(\r\n|\n|\r)/gm, "");
-		var selectedAnimalTest=".*" + selectedAnimal + ".*";
-		var selectedAnimalExpression= new RegExp(selectedAnimalTest);
+ 		var attractionLocation = doc.getElementsByTagName("Loc").item(i).text;
+        attractionLocation = attractionLocation.replace(/(\r\n|\n|\r)/gm, "");      
 	
-		if (selectedAnimalExpression.test(animalLocation)){
-			var name = animalName;
-			var description = animalDesc;
-			var scientific = animalScientific;
-			var animalclass = animalClass;
-			var location = animalLocation;
-			var youtube = animalYoutube;
-			var picture = animalPicture;
-			var thumbnail = animalThumbnail;
-
-			var winAnimalLabel = Titanium.UI.createLabel({
+		if (selectedAttractionExpression.test(attractionLocation)){
+			
+        attractionName = doc.getElementsByTagName("AttractionName").item(i).text;
+        attractionName = attractionName.replace(/(\r\n|\n|\r)/gm, ""); 
+        attractionDesc = doc.getElementsByTagName("Description").item(i).text;
+        attractionDesc = attractionDesc.replace(/(\r\n|\n|\r)/gm, "");                        
+        attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
+        attractionYoutube = attractionYoutube.replace(/(\r\n|\n|\r)/gm, "");        
+        attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
+        attractionPicture = attractionPicture.replace(/(\r\n|\n|\r)/gm, "");        
+        attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
+        attractionThumbnail = attractionThumbnail.replace(/(\r\n|\n|\r)/gm, ""); 
+    		}
+	};
+	       
+			var winAttractionLabel = Titanium.UI.createLabel({
 				textWeight:'strong',
-				text: name,
+				text: attractionName,
 				textAlign: pWidth*.1,
 				color: 'white',
 			    font: {
@@ -139,33 +136,17 @@ xhr.onload = function()
 			    width: pWidth,
 			    textAlign: 'left',
 			    left: pWidth*.02,
-				top:pHeight*.47,
+				top:pHeight*.5,
 				height:pHeight*.1,
 			})
-			win.add(winAnimalLabel);
+			win.add(winAttractionLabel);
 			
-			var winAnimalScientific = Ti.UI.createLabel({
-				text: scientific,
-				textAlign: pWidth*.1,
-				color: 'white',
-			    font: {
-			        fontSize: '18dp',
-			        fontWeight: 'normal'
-			    },
-			    width: 'auto',
-			    textAlign: 'center',
-			    left:pWidth*.02,
-			    top:pHeight*.53,
-			    height: pHeight*.1,
-			})
-			win.add(winAnimalScientific);
-			
-			if (picture ==='None')
+			if (attractionPicture ==='None')
 				//don't display a picture
 				{}
 				//otherwise create and display an imageView
 				else{ var image = Titanium.UI.createImageView({
-				image:picture,
+				image:attractionPicture,
 				width:pWidth,
 				height:pHeight*.4,
 				top:pHeight*.1,
@@ -184,15 +165,15 @@ xhr.onload = function()
 					showVerticalScrollIndicator:true, 
 					showHorizontalScrollIndicator:true }); 
 				
-			var splitresult = description.split("$$$");		
-			var numberofSentences = description.split("$$$").length;
+			var splitresult = attractionDesc.split("$$$");		
+			var numberofSentences = attractionDesc.split("$$$").length;
 			
 			var desc = '';
 			for (var i=0;i<numberofSentences;i++) {
 			    desc = desc + splitresult[i] + '\n';	
 			}
 			
-				var winAnimalDescription = Ti.UI.createLabel({
+				var winAttractionDescription = Ti.UI.createLabel({
 				text: desc,
 				textAlign: 'left',
 				color: '#000000',
@@ -206,11 +187,11 @@ xhr.onload = function()
 			    height: 'auto'
 			})
 			
-					scrollView.add(winAnimalDescription);
+					scrollView.add(winAttractionDescription);
 					win.add(scrollView);
 					
 				
-			if (youtube ==='None')
+			if (attractionYoutube ==='None')
 			{}
 			else{
 			var linkE = Titanium.UI.createLabel({
@@ -234,7 +215,7 @@ xhr.onload = function()
 				 w.addEventListener('android:back', function() {  
 			           w.close();             
 			            });          
-			     w.open(Titanium.Platform.openURL(youtube));
+			     w.open(Titanium.Platform.openURL(attractionYoutube));
 			});
 			win.add(linkE);
 			}
@@ -258,13 +239,12 @@ xhr.onload = function()
 			    url: 'ParkMap/mapempty.js',
 			    fullscreen : true});
 			winParkMap.addEventListener('close', function(){winParkMap = null;});
-				winParkMap.name = location;
+				winParkMap.name = attractionLocation;
 				winParkMap.open({fullscreen:true});
 				});
 			win.add(buttonMap);
 			} 	
-   		}
-	};
+
 
    
 
@@ -326,5 +306,5 @@ win.addEventListener('android:back', function() {
            win.close();             
             });
 
-xhr.open('GET','http://hhpz.org/mobile/xml/Animals.xml');
+xhr.open('GET','http://hhpz.org/mobile/xml/Attractions.xml');
 xhr.send();//declare the http client object

@@ -10,27 +10,45 @@ var TitleBar=Titanium.UI.createImageView({
     width: pWidth,
     left: '0dp',
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var lblTitle=Titanium.UI.createLabel({
-	text:"Schedule",
+	text:"Ride Schedule",
+	textAlign:'center',
 	color:'white',
 	font:{
-		fontSize:'30dp',
+		fontSize:'20dp',
 		fontWeight:'bold',
 	},
 	width: pWidth,
-	left:pWidth/4, 
+	left:'0dp', 
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
-
+var buttonHome = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'homeresting.png',
+	backgroundSelectedImage:'homeselected.png',
+	top: pHeight*.02, 
+	left:pWidth*.04,
+	width:pWidth*.19,
+	height:pHeight*.07,});
+buttonHome.addEventListener('click', function()
+{	var winHomeScreen = Titanium.UI.createWindow({
+    title:'Happy Hollow Park and Zoo',
+    backgroundColor:'#FFFFFF',
+    url: '/homescreen.js',
+    navBarHidden:true,
+    fullscreen : true,  
+    navBarHidden: true
+});
+winHomeScreen.addEventListener('close', function(){winHome = null;});
+	winHomeScreen.open();
+	});
+	
 var data = [];
-
-
-
 
 	try
 	{
@@ -45,23 +63,21 @@ var data = [];
         				hasChild:true,
         				height:pHeight*.13,
         				backgroundImage: '../backgroundresting.png',
-        				selectedBackgroundImage: '/Animals/animalsbackground.png'
+//        				selectedBackgroundImage: '/Animals/animalsbackground.png'
         			});
     			row.title = elements.item(i).getAttribute("title");
     			var hours = doc.getElementsByTagName("hours");
     			
 				var hour = hours.item(i).text;			
 				var title = elements.item(i).text;
-				
-				
-													
+																				
 				var label = Ti.UI.createLabel({
 					text:title,
-					font:{fontSize:'20dp', fontColor:'black', fontWeight:'bold',fontFamily:'Helvetica Neue'},
-					left:72,
-					top:5,
-					bottom:5,
-					right:5				
+					color:'#000000',
+					font:{fontSize:'20dp', fontColor:'black',fontFamily:'Helvetica Neue'},
+					left:pWidth*.2,
+					top:'0dp',
+					height:pHeight*.13,		
 				});
 				
 				row.add(label);
@@ -69,13 +85,12 @@ var data = [];
 				row.item2= hour;		
 				data.push(row);
 				
-				
 		}
 		
 	var tableview = Titanium.UI.createTableView({
        data:data,
        top:pHeight*.1,
-       height:pHeight*.8,
+       height:pHeight,
     });
     tableview.setData(data);
     Titanium.UI.currentWindow.add(tableview); 
@@ -99,5 +114,5 @@ var data = [];
 
 win.add(TitleBar);
 win.add(lblTitle);
-
+win.add(buttonHome);
 
