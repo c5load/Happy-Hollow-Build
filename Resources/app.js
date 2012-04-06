@@ -2,6 +2,7 @@ var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
 var win = Titanium.UI.currentWindow;
+
 //
 //create windows
 var winHomeScreen = Titanium.UI.createWindow({
@@ -13,6 +14,7 @@ var winHomeScreen = Titanium.UI.createWindow({
     exitOnClose: true,
     navBarHidden: true
 });
+//winHomeScreen.orientationModes=[Titanium.UI.PORTRAIT];
 
 //create buttons
 var buttonParkMap = Titanium.UI.createButton({
@@ -53,7 +55,7 @@ buttonAnimals.addEventListener('click', function()
     url: 'Animals/animals.js',
     fullscreen : true});
 winAnimals.addEventListener('close', function(){winAnimals = null;});
-	
+winAnimals.orientationModes=[Titanium.UI.PORTRAIT];	
 	winAnimals.open();
 	});
 
