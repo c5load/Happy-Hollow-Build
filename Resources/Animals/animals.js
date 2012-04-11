@@ -74,12 +74,12 @@ buttonSchedule.addEventListener('click', function() {
 	});
 	winSchedule.open();
 });
-var xhr = Titanium.Network.createHTTPClient();
 
-xhr.onload = function() {
-	var data = [];
-	var doc = this.responseXML.documentElement;
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Animals.xml");
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
 	var elements = doc.getElementsByTagName("AnimalName");
+	var data = [];
 
 	for(var i = 0; i < elements.length; i++) {
 		var row = Ti.UI.createTableViewRow({
@@ -93,6 +93,7 @@ xhr.onload = function() {
 		animalDesc = doc.getElementsByTagName("Description").item(i).text;
 		animalDesc = animalDesc.replace(/(\r\n|\n|\r)/gm, "");
 		animalScientific = doc.getElementsByTagName("ScientificName").item(i).text;
+		animalScientific = animalScientific.replace(/(\r\n|\n|\r)/gm, "");
 		animalClass = doc.getElementsByTagName("Class").item(i).text;
 		animalLocation = doc.getElementsByTagName("Loc").item(i).text;
 		animalYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
@@ -169,7 +170,8 @@ xhr.onload = function() {
 			fullscreen : true
 		});
 	});
-};
+//};
+
 var BottomBar = Titanium.UI.createImageView({
 	backgroundColor : '#333333',
 	width : pWidth,
@@ -275,8 +277,3 @@ win.add(buttonGreenTour);
 win.addEventListener('android:back', function() {
 	win.close();
 });
-//declare the http client object
-
-xhr.open('GET', 'http://hhpz.org/mobile/xml/Animals.xml');
-xhr.send();
-//declare the http client object

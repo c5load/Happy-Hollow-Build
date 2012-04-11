@@ -57,8 +57,8 @@ var scrollViewContacts =  Titanium.UI.createScrollView({
   width:pWidth,
   top:pHeight*.1,
   contentWidth:pWidth,
-  showVerticalScrollIndicator:false,
-  showHorizontalScrollIndicator:false,
+  showVerticalScrollIndicator:true,
+  showHorizontalScrollIndicator:true,
 });
 
 
@@ -67,8 +67,8 @@ var scrollViewCredits =  Titanium.UI.createScrollView({
   width:pWidth,
   top:pHeight*.6,
   contentWidth:pWidth,
-  showVerticalScrollIndicator:false,
-  showHorizontalScrollIndicator:false,
+  showVerticalScrollIndicator:true,
+  showHorizontalScrollIndicator:true,
 });
 
 

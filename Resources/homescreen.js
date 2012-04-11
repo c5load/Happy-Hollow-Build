@@ -20,7 +20,7 @@ buttonParkMap.addEventListener('click', function()
     title:'Park Map',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'ParkMap/parkmap.js',
+    url: '/ParkMap/parkmap.js',
     fullscreen : true,});
 winParkMap.addEventListener('close', function(){winParkMap = null;});
 winParkMap.open();});
@@ -158,70 +158,5 @@ win.add(buttonFacilities);
 win.add(buttonSchedule);
 win.add(buttonContactUs);
 
-
-/*
-if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
-        var xhr = Ti.Network.createHTTPClient();
-        xhr.open("POST","http://markmyers.me/hhpz/xml/Animals.xml");
-        xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-            Ti.API.info('IN ERROR ' + e.error);
-        };
-        xhr.setTimeout(30000);
-        xhr.onload = function() {
-            try {
-				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
-				f.write(this.responseData);
-				Ti.API.info(this.responseText); // check the file content on TI info panel.
-				}
-			catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
-            };
-        };
-        xhr.send();
-    };
-*/    
-
-//if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
- //       var xhr = Ti.Network.createHTTPClient();
-  //      xhr.open("POST","http://hhpz.org/mobile/xml/Attractions.xml");
-   //     xhr.onerror = function(e) {
-    //        Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-     //       Ti.API.info('IN ERROR ' + e.error);
-      //  };
-       // xhr.setTimeout(30000);
-        //xhr.onload = function() {
-         //   try {
-		//		var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Attractions.xml');
-		//		f.write(this.responseData);
-		//		Ti.API.info(this.responseText); // check the file content on TI info panel.
-		//		}
-		//	catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
-         //   };
-        //};
-        //xhr.send();
-    //};
-    
-
-
-if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
-        var xhr = Ti.Network.createHTTPClient();
-        xhr.open("POST","http://markmyers.me/hhpz/xml/Locs.xml");
-        xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-            Ti.API.info('IN ERROR ' + e.error);
-        };
-        xhr.setTimeout(30000);
-        xhr.onload = function() {
-            try {
-				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Locs.xml');
-				f.write(this.responseData);
-				Ti.API.info(this.responseText); // check the file content on TI info panel.
-				}
-			catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
-            };
-        };
-        xhr.send();
-    };
-    
 win.addEventListener('android:back', function() {  
 win.close();});

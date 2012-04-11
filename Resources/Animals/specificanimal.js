@@ -98,7 +98,9 @@ var winAnimalLabel = Titanium.UI.createLabel({
 })
 win.add(winAnimalLabel);
 
-var winAnimalScientific = Ti.UI.createLabel({
+if (win.scientific ==='None')
+{}
+else {var winAnimalScientific = Ti.UI.createLabel({
 	text: win.scientific,
 	textAlign: pWidth*.1,
 	color: 'white',
@@ -111,8 +113,10 @@ var winAnimalScientific = Ti.UI.createLabel({
     left:pWidth*.02,
     top:pHeight*.53,
     height: pHeight*.1,
-})
+});
+
 win.add(winAnimalScientific);
+};
 
 if (win.pictureURL ==='None')
 	//don't display a picture
@@ -165,9 +169,6 @@ for (var i=0;i<numberofSentences;i++) {
 
 		scrollView.add(winAnimalDescription);
 		win.add(scrollView);
-		
-		
-
 		
 
 if (win.youTube ==='None')
@@ -231,59 +232,6 @@ winParkMap.addEventListener('close', function(){winParkMap = null;});
 	winParkMap.open({fullscreen:true});
 	});
 win.add(buttonMap);
-
-/* IPHONE CODE
-var buttonMap = Titanium.UI.createButton({
-	backgroundColor:'#333333',
-	borderColor:'#333333',
-	backgroundImage:'/ParkMap/findonmaprest.png',
-	backgroundSelectedImage:'/ParkMap/findonmap.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:pWidth*.2,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	});		
-buttonMap.addEventListener('click', function()
-{var winParkMap = Titanium.UI.createWindow({
-    title:'Park Map',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'ParkMap/mapempty.js',
-    fullscreen : true});
-winParkMap.addEventListener('close', function(){winParkMap = null;});
-	winParkMap.name=win.animal;
-	winParkMap.open({fullscreen:true});
-	});
-	
-var buttonBack = Titanium.UI.createButton({
-	backgroundColor:'#333333',
-	borderColor:'#333333',
-	backgroundImage:'/back.png',
-	backgroundSelectedColor:'#FFFFFF',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:'0dp',
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	});		
-buttonMap.addEventListener('click', function()
-{win.close();});	
-*/
-
-//win.add(BottomBar);
-//win.add(buttonBack);
-//win.add(buttonMap);
-//win.add(TitleBar);
-//win.add(lblTitle);
-//win.add(buttonHome);
-//win.add(buttonSchedule);
-//win.add(winBar);
-//win.add(winAnimalLabel);
-//win.add(winAnimalScientific);
-//win.add(winAnimalDescription);
-//win.add(linkE)};
-
 
 win.addEventListener('android:back', function() {  
            win.close();             

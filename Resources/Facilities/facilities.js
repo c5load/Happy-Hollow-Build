@@ -66,13 +66,12 @@ buttonSchedule.addEventListener('click', function()
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 
-var xhr = Titanium.Network.createHTTPClient();
 
-xhr.onload = function()
-{
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Facilities.xml");
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("FacilityName");
     var data = [];
-    var doc = this.responseXML.documentElement;
-    var elements = doc.getElementsByTagName("FacilityName");
     for (var i=0;i<elements.length;i++) {
         var row = Ti.UI.createTableViewRow({
         	hasChild:true,
@@ -146,8 +145,6 @@ xhr.onload = function()
 			
 			w.open({fullscreen:true});
 		});
-
-};
 
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
@@ -243,6 +240,3 @@ win.add(buttonGreenTour);
 win.addEventListener('android:back', function() {  
            win.close();             
             });
-            
-xhr.open('GET','http://hhpz.org/mobile/xml/facilities.xml');
-xhr.send();//declare the http client object

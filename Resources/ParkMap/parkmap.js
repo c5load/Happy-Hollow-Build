@@ -10,14 +10,12 @@ var win = Titanium.UI.currentWindow;
 
 //create views for each category
 var map=Titanium.UI.createView({
-  opacity:.25,
   height:2808/1.5,
   width:2064,
   top:'0dp'	
 });
 
 var animals=Titanium.UI.createView({
-  opacity:.25,
   height:2808/1.5,
   width:2064,
   top:'0dp',	
@@ -25,7 +23,6 @@ var animals=Titanium.UI.createView({
 });
 
 var attractions=Titanium.UI.createView({
-  opacity:.25,
   height:2808/1.5,
   width:2064,
   top:'0dp',
@@ -33,7 +30,6 @@ var attractions=Titanium.UI.createView({
 });
 
 var facilities=Titanium.UI.createView({
-  opacity:.25,
   height:2808/1.5,
   width:2064,
   top:'0dp',
@@ -41,7 +37,6 @@ var facilities=Titanium.UI.createView({
 });
 
 var greentour=Titanium.UI.createView({
-  opacity:.25,
   height:2808/1.5,
   width:2064,
   top:'0dp'	,
@@ -49,7 +44,6 @@ var greentour=Titanium.UI.createView({
 });
 
 var master=Titanium.UI.createView({
-  opacity:.25,
   height:2808/1.5,
   width:2064,
   top:'0dp',
@@ -88,7 +82,8 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	win.close();
+{	
+	win.close();
 });
 
 var buttonSchedule = Titanium.UI.createButton({
@@ -365,9 +360,6 @@ var scrollViewHorizontal =  Titanium.UI.createScrollView({
   zoomScale:.1
 });
 
-//add map into horizontal scrollview
-//scrollViewHorizontal.add(mapimage);
-
 //declare vertical scrollview
 var scrollViewVertical =  Titanium.UI.createScrollView({
   height:pHeight*.8,
@@ -383,19 +375,11 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 });
 
 
-//put locations into map, not sure what the ratio for pixels is...right now it's kind of trial and error
-//    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locations.xml");
-//	var xmltext = file.read().text;
-//	var doc = Ti.XML.parseString(xmltext);
-//	var elements = doc.getElementsByTagName("LocationName");   
-
-    
-var xhr = Titanium.Network.createHTTPClient();
-xhr.onload = function()
-{
-	var data = [];
-    var doc = this.responseXML.documentElement;
-    var elements = doc.getElementsByTagName("LocName");            
+//put locations into map
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("LocName");            
 
     for (var i=0;i<elements.length;i++) {
     	var PixelX = doc.getElementsByTagName("PixelX").item(i).text;
@@ -915,7 +899,7 @@ xhr.onload = function()
         facilities.add(mapLabelParking);
         }        
      }
-};
+//};
         scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
     	scrollViewHorizontal.add(attractions);
@@ -951,7 +935,8 @@ function reportPosition(e) {
 		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 	
 		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
-		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
+		    yPixel=(yPixel/2/1.11)+(pWidth*.04); 		    
+//		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
 		}
 			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
 			{findme.visible=false}
@@ -990,6 +975,3 @@ win.addEventListener('android:back', function() {
            win.close();
            Titanium.Geolocation.removeEventListener('location', reportPosition);             
             });
-            
-xhr.open('GET','http://hhpz.org/mobile/xml/locs.xml');            
-xhr.send();

@@ -61,14 +61,12 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/schedule.js',
+    url: '/Schedule/rideschedule3.js',
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
-
-
 
 var buttonSmallRides = Titanium.UI.createButton({
 	color:'#fff',
@@ -81,9 +79,7 @@ buttonSmallRides.addEventListener('click', function()
 {
 	buttonSmallRides.backgroundImage='/Attractions/smallridesselect.png';
 	buttonSmallAttractions.backgroundImage='/Attractions/smallattractionsrest.png',
-//	scrollViewRides.visible=true;
-	tableviewRides.visible=true;
-//	scrollViewAttractions.visible=false	
+	tableviewRides.visible=true;	
 	tableviewAttractions.visible=false;
 });
 	
@@ -112,14 +108,13 @@ var tableviewAttractions = Titanium.UI.createTableView({
  	height:pHeight*.7,
  	visible:false
     });
-    		
-var xhr = Titanium.Network.createHTTPClient();
-xhr.onload = function()
-{
+
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Attractions.xml");
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("AttractionName");
     var data = [];
-    var dataAttractions = [];
-    var doc = this.responseXML.documentElement;
-    var elements = doc.getElementsByTagName("AttractionName");            
+    var dataAttractions = [];          
     for (var i=0;i<elements.length;i++) {		    
   		   
 		    var row = Ti.UI.createTableViewRow({
@@ -197,9 +192,7 @@ xhr.onload = function()
 		    row.item4 = attractionYoutube;
 		    row.item5 = attractionPicture;
 			
-	   		dataAttractions.push(row);
-	   			
-	
+	   		dataAttractions.push(row);	   			
 	}
 }
     tableviewRides.setData(data);
@@ -260,7 +253,6 @@ xhr.onload = function()
 			
 			w.open({fullscreen:true});
 		});	
-};
 
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
@@ -352,6 +344,3 @@ win.add(buttonSmallAttractions);
 win.addEventListener('android:back', function() {  
            win.close();             
             });
-            
-xhr.open('GET','http://hhpz.org/mobile/xml/Attractions.xml');
-xhr.send();//declare the http client object

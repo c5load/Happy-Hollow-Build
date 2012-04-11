@@ -7,46 +7,6 @@ var win = Titanium.UI.currentWindow;
 
 //create views for each category
 var map=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp'	
-});
-
-var animals=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp',	
-  visible:true  
-});
-
-var attractions=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp',
-  visible:true		
-});
-
-var facilities=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp',
-  visible:true		
-});
-
-var greentour=Titanium.UI.createView({
-  opacity:.25,
-  height:2808/1.5,
-  width:2064,
-  top:'0dp',
-  visible:true	
-});
-
-var other=Titanium.UI.createView({
-  opacity:.25,
   height:2808/1.5,
   width:2064,
   top:'0dp'	
@@ -92,8 +52,8 @@ buttonHome.addEventListener('click', function()
     fullscreen : true,  
 });
 winHomeScreen.addEventListener('close', function(){winHomeScreen = null;});
-	win.close();
 	winHomeScreen.open();
+	win.close();
 });
 
 var buttonSchedule = Titanium.UI.createButton({
@@ -151,7 +111,6 @@ var mapimage =  Titanium.UI.createImageView({
   height:2808/1.5,
   width:2064,
   });
-//map.add(mapimage);
         
 //declare horizontal scrollview
 var scrollViewHorizontal =  Titanium.UI.createScrollView({
@@ -167,7 +126,9 @@ var scrollViewHorizontal =  Titanium.UI.createScrollView({
   maxZoomScale:100,
   zoomScale:.1
 });
-scrollViewHorizontal.add(mapimage);
+
+map.add(mapimage);
+scrollViewHorizontal.add(map);
 
 //declare vertical scrollview
 var scrollViewVertical =  Titanium.UI.createScrollView({
@@ -185,13 +146,12 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 
 var focusX;
 var focusY;
-  
-var xhr = Titanium.Network.createHTTPClient();
-xhr.onload = function()
-{
-    var doc = this.responseXML.documentElement;           
-    var elements = doc.getElementsByTagName("LocName"); 
-    
+
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("LocName"); 
+	  
     for (var i=0;i<elements.length;i++) {
     	var PixelX = doc.getElementsByTagName("PixelX").item(i).text;
         var PixelY = doc.getElementsByTagName("PixelY").item(i).text;
@@ -341,8 +301,7 @@ xhr.onload = function()
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
 			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
-			other.visible=true;		
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));	
         }      
 
         else 
@@ -369,8 +328,7 @@ xhr.onload = function()
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
 			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
-			other.visible=true;		
+			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));		
         }        
         else 
         if (exit.test(Category)){
@@ -398,9 +356,7 @@ xhr.onload = function()
 			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
 			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
      }}}
-}};
-
-		scrollViewHorizontal.add(other);
+};
 		
 var xPixel;
 var yPixel;
@@ -416,7 +372,7 @@ var findme = Titanium.UI.createImageView({
     visible:false
 		})
 scrollViewHorizontal.add(findme);
-		
+
 function reportPosition(e) {    
 	if (!e.success || e.error) {        
 		label.text = 'error: ' + JSON.stringify(e.error);    
@@ -430,7 +386,8 @@ function reportPosition(e) {
 		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 	
 		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
-		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
+		    yPixel=(yPixel/2/1.11)+(pWidth*.04); 		    
+//		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
 		}
 			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
 			{findme.visible=false}
@@ -472,6 +429,3 @@ win.addEventListener('android:back', function() {
            Titanium.Geolocation.removeEventListener('location', reportPosition); 
            win.close();             
             });
-            
-xhr.open('GET','http://hhpz.org/mobile/xml/locs.xml');            
-xhr.send();

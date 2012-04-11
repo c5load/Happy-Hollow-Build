@@ -79,33 +79,23 @@ var winBar = Titanium.UI.createLabel({
 })
 win.add(winBar);
 
-var BottomBar=Titanium.UI.createImageView({
-	backgroundColor:'#333333',
-    width: pWidth,
-    left: '0dp',
-    top: pHeight*.9,
-    height: pHeight*.11
-});
-win.add(BottomBar);
-
 var selectedAnimal=win.name.replace(/(\r\n|\n|\r)/gm, "");
 var selectedAnimalTest=".*" + selectedAnimal + ".*";
 var selectedAnimalExpression= new RegExp(selectedAnimalTest);
 
 var animalName = ""
-var animalDesc = ""
+var animalDesc = 'Animal not found.'
 var animalScientific = ""
 var animalClass = ""
 var animalYoutube = "" 
 var animalPicture = ""     
 var animalThumbnail = ""
-        		
-var xhr = Titanium.Network.createHTTPClient();
-xhr.onload = function()
-{
-    var data = [];
-    var doc = this.responseXML.documentElement;
-	var elements = doc.getElementsByTagName("AnimalName");
+
+
+    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Animals.xml");
+	var xmltext = file.read().text;
+	var doc = Ti.XML.parseString(xmltext);
+	var elements = doc.getElementsByTagName("AnimalName");  
 
     for (var i=0;i<elements.length;i++) {             
  		var animalLocation = doc.getElementsByTagName("Loc").item(i).text;
@@ -147,7 +137,9 @@ xhr.onload = function()
 			})
 			win.add(winAnimalLabel);
 			
-			var winAnimalScientific = Ti.UI.createLabel({
+			if (animalScientific ==='None')
+			{}
+			else {var winAnimalScientific = Ti.UI.createLabel({
 				text: animalScientific,
 				textAlign: pWidth*.1,
 				color: 'white',
@@ -162,6 +154,7 @@ xhr.onload = function()
 			    height: pHeight*.1,
 			})
 			win.add(winAnimalScientific);
+			}
 			
 			if (animalPicture ==='None')
 				//don't display a picture
@@ -182,7 +175,8 @@ xhr.onload = function()
 					contentWidth:'auto', 
 					contentHeight:'auto', 
 					top:pHeight*.65,
-					height:pHeight*.25,
+					height:pHeight*.35,
+//					height:pHeight*.25,
 					scrollType:'vertical',
 					showVerticalScrollIndicator:true, 
 					showHorizontalScrollIndicator:true }); 
@@ -241,92 +235,7 @@ xhr.onload = function()
 			});
 			win.add(linkE);
 			}
-			
-			var buttonMap = Titanium.UI.createButton({
-				backgroundColor:'#333333',
-				borderColor:'#333333',
-				backgroundImage:'/ParkMap/findonmaprest.png',
-				backgroundSelectedImage:'/ParkMap/findonmap.png',
-				top: pHeight*.9,
-				width:pWidth*.2,
-				height:pHeight*.11,
-				left:'0dp',
-				font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-				});		
-			buttonMap.addEventListener('click', function()
-			{var winParkMap = Titanium.UI.createWindow({
-			    title:'Park Map',
-			    navBarHidden:true,
-			    backgroundColor:'#FFFFFF',
-			    url: 'ParkMap/mapempty.js',
-			    fullscreen : true});
-			winParkMap.addEventListener('close', function(){winParkMap = null;});
-				winParkMap.name = animalLocation;
-				winParkMap.open({fullscreen:true});
-				});
-			win.add(buttonMap);
-			} 	
-
-
-   
-
-
-/* IPHONE CODE
-var buttonMap = Titanium.UI.createButton({
-	backgroundColor:'#333333',
-	borderColor:'#333333',
-	backgroundImage:'/ParkMap/findonmaprest.png',
-	backgroundSelectedImage:'/ParkMap/findonmap.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:pWidth*.2,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	});		
-buttonMap.addEventListener('click', function()
-{var winParkMap = Titanium.UI.createWindow({
-    title:'Park Map',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'ParkMap/mapempty.js',
-    fullscreen : true});
-winParkMap.addEventListener('close', function(){winParkMap = null;});
-	winParkMap.name=win.animal;
-	winParkMap.open({fullscreen:true});
-	});
-	
-var buttonBack = Titanium.UI.createButton({
-	backgroundColor:'#333333',
-	borderColor:'#333333',
-	backgroundImage:'/back.png',
-	backgroundSelectedColor:'#FFFFFF',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:'0dp',
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	});		
-buttonMap.addEventListener('click', function()
-{win.close();});	
-*/
-
-//win.add(BottomBar);
-//win.add(buttonBack);
-//win.add(buttonMap);
-//win.add(TitleBar);
-//win.add(lblTitle);
-//win.add(buttonHome);
-//win.add(buttonSchedule);
-//win.add(winBar);
-//win.add(winAnimalLabel);
-//win.add(winAnimalScientific);
-//win.add(winAnimalDescription);
-//win.add(linkE)};
-
 
 win.addEventListener('android:back', function() {  
            win.close();             
             });
-
-xhr.open('GET','http://hhpz.org/mobile/xml/Animals.xml');
-xhr.send();//declare the http client object

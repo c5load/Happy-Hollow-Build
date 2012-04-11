@@ -83,8 +83,7 @@ var data = [];
 				row.add(label);
 				row.item = title;
 				row.item2= hour;		
-				data.push(row);
-				
+				data.push(row);				
 		}
 		
 	var tableview = Titanium.UI.createTableView({
