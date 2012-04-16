@@ -114,7 +114,7 @@ var lblGuestService=Titanium.UI.createImageView({
 var lblTextGuestService=Titanium.UI.createLabel({
 	height:pHeight*.14,
 	width:pWidth*.5,
-	left:pWidth*.5,
+	left:pWidth*.45,
 	top:'0dp',
 	text: 'Guest Services/Information/Lost & Found',
 	fontSize:'9dp',
@@ -160,7 +160,7 @@ var lblParty=Titanium.UI.createImageView({
 var lblTextParty=Titanium.UI.createLabel({
 	height:pHeight*.14,
 	top:pHeight*.14,	
-	left:pWidth*.5,
+	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Party Reservations',
 	fontSize:'9dp',
@@ -205,7 +205,7 @@ var lblMembers=Titanium.UI.createImageView({
 var lblTextMembers=Titanium.UI.createLabel({
 	height:pHeight*.14,
 	top:pHeight*.28,	
-	left:pWidth*.5,
+	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Membership Services',
 	fontSize:'9dp',
@@ -251,7 +251,7 @@ var lblEducation=Titanium.UI.createImageView({
 var lblTextEducation=Titanium.UI.createLabel({
 	height:pHeight*.14,
 	top:pHeight*.42,	
-	left:pWidth*.5,
+	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Education Programs',
 	fontSize:'9dp',
@@ -296,7 +296,7 @@ var lblVolunteer=Titanium.UI.createImageView({
 var lblTextVolunteer=Titanium.UI.createLabel({
 	height:pHeight*.14,
 	top:pHeight*.56,	
-	left:pWidth*.5,
+	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Volunteer Programs',
 	fontSize:'9dp',

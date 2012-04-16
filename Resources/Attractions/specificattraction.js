@@ -145,7 +145,7 @@ if (win.pictureURL ==='None')
 
 		scrollView.add(winAttractionDescription);
 		Titanium.UI.currentWindow.add(scrollView);
-
+	
 if (win.youTube ==='None')
 {}
 else{
@@ -153,12 +153,12 @@ var linkE = Titanium.UI.createLabel({
         text: "Click for video",
         color: 'blue',
          font: {
-            fontSize: '20dp',
-            fontWeight: 'bold'
+            fontSize: '18dp',
+            fontWeight: 'normal'
         },
         width:'auto',
         textAlign: 'left',
-        top:pHeight*.55,
+        top:pHeight*.52,
         height: pHeight*.1,
         left:pWidth*.6
 });

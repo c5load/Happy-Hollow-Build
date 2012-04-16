@@ -166,8 +166,7 @@ for (var i=0;i<numberofSentences;i++) {
 
 		scrollView.add(winAnimalDescription);
 		win.add(scrollView);
-		
-
+			
 if (win.youTube ==='None')
 {}
 else{

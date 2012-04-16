@@ -178,8 +178,7 @@ var attractionThumbnail = 'None'
 			
 					scrollView.add(winAttractionDescription);
 					win.add(scrollView);
-					
-				
+						
 			if (attractionYoutube ==='None')
 			{}
 			else{

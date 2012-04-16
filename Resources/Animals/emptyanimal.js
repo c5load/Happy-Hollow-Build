@@ -205,7 +205,6 @@ var animalThumbnail = 'None'
 					scrollView.add(winAnimalDescription);
 					win.add(scrollView);
 					
-				
 			if (animalYoutube ==='None')
 			{}
 			else{
