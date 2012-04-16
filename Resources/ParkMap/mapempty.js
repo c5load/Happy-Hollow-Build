@@ -34,7 +34,7 @@ var lblTitle=Titanium.UI.createLabel({
     left:'0dp',
     height: pHeight*.1
 });
-
+/*
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'homeresting.png',
@@ -79,7 +79,7 @@ winSchedule.open();
 Titanium.Geolocation.removeEventListener('location', reportPosition); 
 win.close();
 });
-
+*/
 var buttonFindMe = Titanium.UI.createButton({
 	color:'#FFFFFF',
 	borderColor:'#333333',
@@ -93,6 +93,11 @@ var buttonFindMe = Titanium.UI.createButton({
 });	
 buttonFindMe.addEventListener('click', function()
 {
+		// this fires once
+		Titanium.Geolocation.getCurrentPosition(reportPosition);
+		// this fires whenever the distance filter is surpassed
+		Titanium.Geolocation.addEventListener('location', reportPosition);
+			
 if (FindMeClicked==false){
 	FindMeClicked=true;
 			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
@@ -386,11 +391,6 @@ function reportPosition(e) {
 				findme.left=xPixel;				
 				}		
 		}		
-
-		// this fires once
-		Titanium.Geolocation.getCurrentPosition(reportPosition);
-		// this fires whenever the distance filter is surpassed
-		Titanium.Geolocation.addEventListener('location', reportPosition);
 		
 var FindMeClicked=false;
 
@@ -414,8 +414,8 @@ var BottomBar=Titanium.UI.createImageView({
         
 win.add(TitleBar);
 win.add(lblTitle);
-win.add(buttonHome);
-win.add(buttonSchedule);
+//win.add(buttonHome);
+//win.add(buttonSchedule);
 win.add(BottomBar);
 
 win.add(buttonFindMe);

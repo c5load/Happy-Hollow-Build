@@ -43,7 +43,6 @@ buttonHome.addEventListener('click', function()
     url: '/homescreen.js',
     navBarHidden:true,
     fullscreen : true,  
-    exitOnClose: true,
     navBarHidden: true
 });
 winHomeScreen.addEventListener('close', function(){winHome = null;});
@@ -112,7 +111,6 @@ else {var winAnimalScientific = Ti.UI.createLabel({
     textAlign: 'center',
     left:pWidth*.02,
     top:pHeight*.52,
-//    top:pHeight*.55,
     height: pHeight*.1,
 });
 
@@ -177,12 +175,12 @@ var linkE = Titanium.UI.createLabel({
         text: "Click for video",
         color: 'blue',
         font: {
-            fontSize: '20dp',
-            fontWeight: 'bold'
+            fontSize: '18dp',
+            fontWeight: 'normal'
         },
         width:'auto',
         textAlign: 'left',
-        top:pHeight*.55,
+        top:pHeight*.52,
         height: pHeight*.1,
         left:pWidth*.6
 });

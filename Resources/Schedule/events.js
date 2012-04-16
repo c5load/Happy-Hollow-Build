@@ -42,7 +42,10 @@ buttonHome.addEventListener('click', function()
     fullscreen : true,  
     navBarHidden: true
 });
-	winHomeScreen.open();});
+win.close();
+//winSchedule.close();
+//	winHomeScreen.open();
+	});
 
 var UpcomingEventsLabel = Ti.UI.createLabel({
 	text:'Upcoming Events',

@@ -62,7 +62,6 @@ buttonSchedule.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: '/Schedule/rideschedule3.js',
     fullscreen : true,  
-    exitOnClose: true,
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
@@ -86,8 +85,8 @@ var winAttractionLabel = Ti.UI.createLabel({
     width: pWidth,
     textAlign: 'left',
     left: pWidth*.02,
-    top: pHeight*.44,
-    height: pHeight*.15
+    top: pHeight*.46,
+    height: pHeight*.1
 })
 
 win.add(TitleBar);

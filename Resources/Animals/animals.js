@@ -66,7 +66,6 @@ buttonSchedule.addEventListener('click', function() {
 		backgroundColor : '#FFFFFF',
 		url : '/Schedule/schedule.js',
 		fullscreen : true,
-		exitOnClose : true,
 		navBarHidden : true
 	});
 	winSchedule.addEventListener('close', function() {

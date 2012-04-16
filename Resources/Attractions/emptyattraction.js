@@ -17,7 +17,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'15dp',
+		fontSize:'25dp',
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -26,7 +26,7 @@ var lblTitle=Titanium.UI.createLabel({
     height: pHeight*.1
 });
 win.add(lblTitle);
-
+/*
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/Attractions/homeresting.png',
@@ -70,12 +70,12 @@ buttonSchedule.addEventListener('click', function()
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
 win.add(buttonSchedule);
-
+*/
 var winBar = Titanium.UI.createLabel({
 	backgroundImage:'ridesattractionsbackground.png',	
     width: pWidth,
 	top:pHeight*.5,
-	height:pHeight*.15,
+	height:pHeight*.1,
 })
 win.add(winBar);
 
@@ -119,13 +119,13 @@ var attractionThumbnail = 'None'
 				textAlign: pWidth*.1,
 				color: 'white',
 			    font: {
-			        fontSize: '25dp',
-			        fontWeight: 'normal'
+			        fontSize: '20dp',
+			        fontWeight: 'bold'
 			    },
 			    width: pWidth,
 			    textAlign: 'left',
 			    left: pWidth*.02,
-				top:pHeight*.5,
+				top:pHeight*.48,
 				height:pHeight*.1,
 			})
 			win.add(winAttractionLabel);
@@ -148,8 +148,8 @@ var attractionThumbnail = 'None'
 					backgroundcolor:'#FFFFFF', 
 					contentWidth:'auto', 
 					contentHeight:'auto', 
-					top:pHeight*.65,
-					height:pHeight*.35,
+					top:pHeight*.6,
+					height:pHeight*.4,
 					scrollType:'vertical',
 					showVerticalScrollIndicator:true, 
 					showHorizontalScrollIndicator:true }); 
@@ -187,12 +187,12 @@ var attractionThumbnail = 'None'
 			        text: "Click for video",
 			        color: 'blue',
 			        font: {
-			            fontSize: '20dp',
-			            fontWeight: 'bold'
+			            fontSize: '18dp',
+			            fontWeight: 'normal'
 			        },
 			        width:'auto',
 			        textAlign: 'left',
-			        top:pHeight*.55,
+			        top:pHeight*.52,
 			        height: pHeight*.1,
 			        left:pWidth*.6
 			});

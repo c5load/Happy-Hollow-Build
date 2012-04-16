@@ -63,7 +63,6 @@ buttonSchedule.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: '/Schedule/rideschedule3.js',
     fullscreen : true,  
-    exitOnClose: true,
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
 winSchedule.open();});
