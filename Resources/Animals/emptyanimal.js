@@ -85,11 +85,11 @@ var selectedAnimalExpression= new RegExp(selectedAnimalTest);
 
 var animalName = ""
 var animalDesc = 'Animal not found.'
-var animalScientific = ""
+var animalScientific = 'None'
 var animalClass = ""
-var animalYoutube = "" 
-var animalPicture = ""     
-var animalThumbnail = ""
+var animalYoutube = 'None'
+var animalPicture = 'None'  
+var animalThumbnail = 'None'
 
 
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Animals.xml");

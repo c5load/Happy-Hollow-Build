@@ -85,8 +85,8 @@ var selectedFacilityExpression= new RegExp(selectedFacilityTest);
 
 var facilityName = ""
 var facilityDesc = 'Facility not found.'
-var facilityPicture = ""     
-var facilityThumbnail = ""
+var facilityPicture = 'None'
+var facilityThumbnail = 'None'
 
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Facilities.xml");
 	var xmltext = file.read().text;

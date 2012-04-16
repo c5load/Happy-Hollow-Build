@@ -82,9 +82,23 @@ var winPuppetShowLabel = Ti.UI.createLabel({
 		top:pHeight*.7, 
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
+
+	try
+	{
+		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var xmltext = file.read().text;
+		var doc = Ti.XML.parseString(xmltext);
+		var hours = doc.getElementsByTagName("p").item(3).text;
+//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
+	}
+	catch(E)
+	{
+		alert(E);
+	}
+
 		
 	var winDescription = Ti.UI.createLabel({
-	text: 'Come enjoy our puppet show!',
+	text: hours,
 	textAlign: 'center',
 	color: 'black',
     font: {

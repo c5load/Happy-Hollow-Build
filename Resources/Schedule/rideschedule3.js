@@ -52,7 +52,7 @@ var data = [];
 
 	try
 	{
-		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'RideSchedule.xml');
 		var xmltext = file.read().text;
 		var doc = Ti.XML.parseString(xmltext);
 		var elements = doc.getElementsByTagName("title");

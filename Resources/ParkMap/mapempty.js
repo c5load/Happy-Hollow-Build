@@ -53,6 +53,7 @@ buttonHome.addEventListener('click', function()
 });
 winHomeScreen.addEventListener('close', function(){winHomeScreen = null;});
 	winHomeScreen.open();
+	Titanium.Geolocation.removeEventListener('location', reportPosition); 	
 	win.close();
 });
 
@@ -74,8 +75,10 @@ buttonSchedule.addEventListener('click', function()
     exitOnClose: true,
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
+winSchedule.open();
+Titanium.Geolocation.removeEventListener('location', reportPosition); 
 win.close();
-winSchedule.open();});
+});
 
 var buttonFindMe = Titanium.UI.createButton({
 	color:'#FFFFFF',
@@ -144,17 +147,19 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
   zoomScale:1
 });
 
-var focusX;
-var focusY;
+var focusX = 0;
+var focusY = 0;
 
-    var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
+	var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
 	var xmltext = file.read().text;
 	var doc = Ti.XML.parseString(xmltext);
 	var elements = doc.getElementsByTagName("LocName"); 
 	  
     for (var i=0;i<elements.length;i++) {
     	var PixelX = doc.getElementsByTagName("PixelX").item(i).text;
+        PixelX = PixelX.replace(/(\r\n|\n|\r)/gm, "");
         var PixelY = doc.getElementsByTagName("PixelY").item(i).text;
+        PixelY = PixelY.replace(/(\r\n|\n|\r)/gm, "");
         var LocationName = doc.getElementsByTagName("LocName").item(i).text;
         LocationName= LocationName.replace(/(\r\n|\n|\r)/gm, "");               
         var Category = doc.getElementsByTagName("Category").item(i).text;
@@ -173,7 +178,6 @@ var focusY;
 
 		if (selectedLocationExpression.test(LocationName)){
 	      if (animal.test(Category)){
-
 	    	var mapIconAnimal = Titanium.UI.createImageView({
 	    		url:'animals.png',
 	    		top: (PixelY/2/1.12)-(pWidth*.06),
@@ -194,10 +198,8 @@ var focusY;
 	    	});
 	    	scrollViewHorizontal.add(mapIconAnimal);
 	    	scrollViewHorizontal.add(mapLabelAnimal);
-	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
-	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
-			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));				    	
+            focusX=(PixelX/2/1.35)-(pWidth*.06);
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);			    	
 	        } 
 	        else
 	        if (attraction.test(Category)){
@@ -221,9 +223,7 @@ var focusY;
 			scrollViewHorizontal.add(mapIconAttraction);
 			scrollViewHorizontal.add(mapLabelAttraction);
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
-	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
-			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));							
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);						
 	        } 
 	        else
 	        if (facility.test(Category)){
@@ -247,9 +247,7 @@ var focusY;
 			scrollViewHorizontal.add(mapIconFacility);
 			scrollViewHorizontal.add(mapLabelFacility);	
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
-	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
-			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));			
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);		
 	        } 
 	        else
 	        if (greenTour.test(Category)){
@@ -273,9 +271,7 @@ var focusY;
 			scrollViewHorizontal.add(mapIconGreenTour);
 			scrollViewHorizontal.add(mapLabelGreenTour);
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
-	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
-			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));							
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);					
 	        }        	
         else {
         if (restroom.test(Category)){
@@ -300,8 +296,6 @@ var focusY;
 			scrollViewHorizontal.add(mapLabelRestroom);
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
-			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));	
         }      
 
         else 
@@ -326,9 +320,7 @@ var focusY;
 			scrollViewHorizontal.add(mapIconParking);
 			scrollViewHorizontal.add(mapLabelParking);
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
-	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
-			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));		
+	    	focusY=(PixelY/2/1.12)-(pWidth*.06);	
         }        
         else 
         if (exit.test(Category)){
@@ -353,10 +345,8 @@ var focusY;
 			scrollViewHorizontal.add(mapLabelExit);
 	    	focusX=(PixelX/2/1.35)-(pWidth*.06);
 	    	focusY=(PixelY/2/1.12)-(pWidth*.06);
-			scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);
-			scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4));
      }}}
-};
+};		
 		
 var xPixel;
 var yPixel;
@@ -409,6 +399,11 @@ var FindMeClicked=false;
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
 
+win.addEventListener('open', function(e){
+    scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);	
+    scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4))	
+});	
+
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
     width: pWidth,
@@ -428,4 +423,4 @@ win.add(buttonFindMe);
 win.addEventListener('android:back', function() { 
            Titanium.Geolocation.removeEventListener('location', reportPosition); 
            win.close();             
-            });
+            });           

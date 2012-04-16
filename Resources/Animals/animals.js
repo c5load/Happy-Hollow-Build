@@ -170,7 +170,7 @@ buttonSchedule.addEventListener('click', function() {
 			fullscreen : true
 		});
 	});
-//};
+
 
 var BottomBar = Titanium.UI.createImageView({
 	backgroundColor : '#333333',

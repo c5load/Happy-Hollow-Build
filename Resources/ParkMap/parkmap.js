@@ -84,6 +84,7 @@ var buttonHome = Titanium.UI.createButton({
 buttonHome.addEventListener('click', function()
 {	
 	win.close();
+	Titanium.Geolocation.removeEventListener('location', reportPosition); 	
 });
 
 var buttonSchedule = Titanium.UI.createButton({
@@ -104,8 +105,10 @@ buttonSchedule.addEventListener('click', function()
     exitOnClose: true,
     navBarHidden: true});
 winSchedule.addEventListener('close', function(){winSchedule = null;});
+winSchedule.open();
 win.close();
-winSchedule.open();});
+Titanium.Geolocation.removeEventListener('location', reportPosition);      
+});
 
 //declare variables
 var animalsopened=false;
@@ -175,7 +178,8 @@ var buttonAttractions = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
 	title:'Attractions'});
 buttonAttractions.addEventListener('click', function()
-{	if (attractionsopened == false){
+{	
+	if (attractionsopened == false){
 		attractionsopened=true;
 		attractions.visible=true;
 		animalsopened=false;
@@ -321,6 +325,11 @@ var buttonFindMe = Titanium.UI.createButton({
 
 buttonFindMe.addEventListener('click', function()
 {
+		// this fires once
+		Titanium.Geolocation.getCurrentPosition(reportPosition);
+		// this fires whenever the distance filter is surpassed
+		Titanium.Geolocation.addEventListener('location', reportPosition);
+	
 if (FindMeClicked==false){
 	FindMeClicked=true;
 	findme.visible=false;
@@ -405,7 +414,8 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName    		
     	}); 		
     	mapIconAnimal.addEventListener('click', function(e)
-			{var winAnimal = Titanium.UI.createWindow({
+			{			
+				var winAnimal = Titanium.UI.createWindow({
     				title:'Animal',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
@@ -415,7 +425,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 			var s = e.source;
 			
 			winAnimal.name = s.id;
-			winAnimal.open({fullscreen:true});
+			winAnimal.open({fullscreen:true});		
 			});					
 		master.add(mapIconAnimal);
 		
@@ -899,7 +909,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         facilities.add(mapLabelParking);
         }        
      }
-//};
+
         scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
     	scrollViewHorizontal.add(attractions);
@@ -947,9 +957,9 @@ function reportPosition(e) {
 		}		
 
 		// this fires once
-		Titanium.Geolocation.getCurrentPosition(reportPosition);
+//		Titanium.Geolocation.getCurrentPosition(reportPosition);
 		// this fires whenever the distance filter is surpassed
-		Titanium.Geolocation.addEventListener('location', reportPosition);
+//		Titanium.Geolocation.addEventListener('location', reportPosition);
 		
 var FindMeClicked=false;
 
@@ -957,9 +967,11 @@ var FindMeClicked=false;
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
-scrollViewHorizontal.scrollTo(pWidth/2, 0);
-scrollViewVertical.scrollTo(0,pHeight*.8*.5);
 
+win.addEventListener('open', function(e){
+    scrollViewHorizontal.scrollTo(pWidth/2, 0);	
+    scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
+});	
         
 win.add(TitleBar);
 win.add(lblTitle);

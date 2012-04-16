@@ -77,7 +77,7 @@ var winBar = Titanium.UI.createLabel({
 	backgroundImage:'animalsbackground.png',	
     width: pWidth,
 	top:pHeight*.5,
-	height:pHeight*.15,
+	height:pHeight*.1,
 })
 win.add(winBar);
 
@@ -87,13 +87,13 @@ var winAnimalLabel = Titanium.UI.createLabel({
 	textAlign: pWidth*.1,
 	color: 'white',
     font: {
-        fontSize: '25dp',
-        fontWeight: 'normal'
+        fontSize: '20dp',
+        fontWeight: 'bold'
     },
     width: pWidth,
     textAlign: 'left',
     left: pWidth*.02,
-	top:pHeight*.47,
+	top:pHeight*.46,
 	height:pHeight*.1,
 })
 win.add(winAnimalLabel);
@@ -111,7 +111,8 @@ else {var winAnimalScientific = Ti.UI.createLabel({
     width: 'auto',
     textAlign: 'center',
     left:pWidth*.02,
-    top:pHeight*.53,
+    top:pHeight*.52,
+//    top:pHeight*.55,
     height: pHeight*.1,
 });
 
@@ -136,10 +137,8 @@ if (win.pictureURL ==='None')
 		backgroundcolor:'#FFFFFF', 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.65,
-		height:pHeight*.25,
-//		top:pHeight*.6,
-//		height:pHeight*.3, 
+		top:pHeight*.6,
+		height:pHeight*.3, 
 		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 

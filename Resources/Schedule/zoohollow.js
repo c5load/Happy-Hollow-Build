@@ -82,9 +82,22 @@ var winZooHollowLabel = Ti.UI.createLabel({
 		top:pHeight*.7, 
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
+
+	try
+	{
+		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var xmltext = file.read().text;
+		var doc = Ti.XML.parseString(xmltext);
+		var hours = doc.getElementsByTagName("p").item(5).text;
+//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
+	}
+	catch(E)
+	{
+		alert(E);
+	}
 		
 	var winDescription = Ti.UI.createLabel({
-	text: 'Zoo in the Hollow is one of two parks that are featured at Happy Hollow Park & Zoo.',
+	text: hours,
 	textAlign: 'center',
 	color: 'black',
     font: {

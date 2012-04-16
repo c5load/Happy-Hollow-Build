@@ -14,7 +14,6 @@ var winHomeScreen = Titanium.UI.createWindow({
     exitOnClose: true,
     navBarHidden: true
 });
-//winHomeScreen.orientationModes=[Titanium.UI.PORTRAIT];
 
 //create buttons
 var buttonParkMap = Titanium.UI.createButton({
@@ -195,17 +194,18 @@ if (file.exists()) { file.deleteFile(); }
 var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Specials.xml');
 if (file.exists()) { file.deleteFile(); }
 
-var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Schedule.xml');
+var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'RideSchedule.xml');
 if (file.exists()) { file.deleteFile(); }
 
-
+var file = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Schedule.xml');
+if (file.exists()) { file.deleteFile(); }
 
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Animals.xml");
         xhr.onerror = function(e) {
-//            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-//            Ti.API.info('IN ERROR ' + e.error);
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {
@@ -225,8 +225,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Attractions.xml");
         xhr.onerror = function(e) {
- //           Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-  //          Ti.API.info('IN ERROR ' + e.error);
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {
@@ -245,8 +245,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Facilities.xml");
         xhr.onerror = function(e) {
- //           Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-  //          Ti.API.info('IN ERROR ' + e.error);
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {
@@ -265,8 +265,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/GreenTour.xml");
         xhr.onerror = function(e) {
- //           Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-  //          Ti.API.info('IN ERROR ' + e.error);
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {
@@ -286,8 +286,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
        var xhr = Ti.Network.createHTTPClient();
        xhr.open("GET","http://hhpz.org/mobile/xml/Locs.xml");
        xhr.onerror = function(e) {
-//            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-//            Ti.API.info('IN ERROR ' + e.error);
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {
@@ -306,8 +306,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Specials.xml");
         xhr.onerror = function(e) {
- //           Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-  //          Ti.API.info('IN ERROR ' + e.error);
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {
@@ -327,8 +327,29 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
        xhr.open("GET","http://hhpz.org/mobile/cf/rideinfo.cfm");
 
        xhr.onerror = function(e) {
-//            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
-//            Ti.API.info('IN ERROR ' + e.error);
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
+        };
+        xhr.setTimeout(30000);
+        xhr.onload = function() {
+           try {
+				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,"RideSchedule.xml");
+				f.write(this.responseData);
+				Ti.API.info(this.responseText); // check the file content on TI info panel.
+				}
+			catch(E){Ti.UI.createAlertDialog({title:'Application Error', message:E.error}).show();
+            };
+        };
+        xhr.send();
+};
+
+if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database    
+      var xhr = Ti.Network.createHTTPClient();
+       xhr.open("GET","http://www.hhpz.org/index.cfm/id/161/lang/1/");
+
+       xhr.onerror = function(e) {
+            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
         xhr.onload = function() {

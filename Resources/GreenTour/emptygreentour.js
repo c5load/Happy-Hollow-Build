@@ -85,8 +85,8 @@ var selectedGreenTourExpression= new RegExp(selectedGreenTourTest);
 
 var greentourName = ""
 var greentourDesc = 'Green Tour not found.'
-var greentourPicture = ""     
-var greentourThumbnail = ""
+var greentourPicture = 'None'     
+var greentourThumbnail = 'None'
 
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"GreenTour.xml");
 	var xmltext = file.read().text;

@@ -12,7 +12,7 @@ var TitleBar=Titanium.UI.createImageView({
 });
 
 var lblTitle=Titanium.UI.createLabel({
-	text:"Schedule",
+	text:"Events",
 	textAlign:'center',
 	color:'white',
 	font:{
@@ -44,49 +44,75 @@ buttonHome.addEventListener('click', function()
 });
 	winHomeScreen.open();});
 
-
-
-var winEventsLabel = Ti.UI.createLabel({
-	text:'Events',
+var UpcomingEventsLabel = Ti.UI.createLabel({
+	text:'Upcoming Events',
 	backgroundImage: 'schedulebackground.png',
-	textWeight:'strong',
-	textAlign: pWidth*.1,
+	textAlign: 'center',
 	color: '#fff',
     font: {
-        fontSize: '25dp',
-        fontWeight: 'normal'
+        fontSize: '30dp',
+        fontWeight: 'bold'
     },
     width: pWidth,
-    textAlign: 'left',
     left: '0dp',
-    top: pHeight*.55,
-    height: pHeight*.15
+    top: pHeight*.3,
+    height: pHeight*.1
 })
 
+var SpecialsLabel = Ti.UI.createLabel({
+	text:'Specials',
+	backgroundImage: 'schedulebackground.png',
+	textAlign: 'center',
+	color: '#fff',
+    font: {
+        fontSize: '30dp',
+        fontWeight: 'bold'
+    },
+    width: pWidth,
+    left: '0dp',
+    top: pHeight*.6,
+    height: pHeight*.1
+})
 
-if (win.pictureURL ==='None')
-	//don't display a picture
-	{}
-	//otherwise create and display an imageView
-	else{ var image = Titanium.UI.createImageView({
-	url:win.pictureURL,
-	width:pWidth,
-	height:pHeight*.5,
-	top:pHeight*.1,
-	left:'0dp'});
-	
-	win.add(image);
-	};
-	
-	var scrollView = Titanium.UI.createScrollView({ 
+	var scrollViewEvents = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.7, 
+		top:pHeight*.1,
+		height:pHeight*.2, 
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
+
+	var scrollViewUpcomingEvents = Titanium.UI.createScrollView({ 
+		contentWidth:'auto', 
+		contentHeight:'auto', 
+		top:pHeight*.4,
+		height:pHeight*.2, 
+		showVerticalScrollIndicator:true, 
+		showHorizontalScrollIndicator:true }); 
+
+//	var scrollViewSpecials = Titanium.UI.createScrollView({ 
+//		contentWidth:'auto', 
+//		contentHeight:'auto', 
+//		top:pHeight*.8,
+//		height:pHeight*.2, 
+//		showVerticalScrollIndicator:true, 
+//		showHorizontalScrollIndicator:true }); 
 		
-	var winDescription = Ti.UI.createLabel({
-	text: 'We have several events going on at Happy Hollow Park & Zoo!',
+	try
+	{
+		var eventsfile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var eventsxmltext = eventsfile.read().text;
+		var eventsdoc = Ti.XML.parseString(eventsxmltext);
+		var eventshours = eventsdoc.getElementsByTagName("p").item(4).text;
+//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
+	}
+	catch(E)
+	{
+		alert(E);
+	}
+		
+	var EventsDescription = Ti.UI.createLabel({
+	text: eventshours,
 	textAlign: 'center',
 	color: 'black',
     font: {
@@ -98,11 +124,91 @@ if (win.pictureURL ==='None')
     top: '0dp',
     height: 'auto'
 })
-		scrollView.add(winDescription);
-		Titanium.UI.currentWindow.add(scrollView);
+		scrollViewEvents.add(EventsDescription);
+		Titanium.UI.currentWindow.add(scrollViewEvents);
 		
+
+	try
+	{
+		var upcomingeventsfile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var upcomingeventsxmltext = upcomingeventsfile.read().text;
+		var upcomingeventsdoc = Ti.XML.parseString(upcomingeventsxmltext);
+		var upcomingeventshours = upcomingeventsdoc.getElementsByTagName("p").item(7).text;
+//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
+	}
+	catch(E)
+	{
+		alert(E);
+	}
+		
+	var UpcomingEventsDescription = Ti.UI.createLabel({
+	text: upcomingeventshours,
+	textAlign: 'center',
+	color: 'black',
+    font: {
+        fontSize: '18dp',
+        fontWeight: 'normal'
+    },
+    width: pWidth,
+    left: '0dp',
+    top: '0dp',
+    height: 'auto'
+})
+		scrollViewUpcomingEvents.add(UpcomingEventsDescription);
+		Titanium.UI.currentWindow.add(scrollViewUpcomingEvents);
+
+//		Titanium.UI.currentWindow.add(scrollViewSpecials);
+    var specialsfile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Specials.xml");
+	var specialsxmltext = specialsfile.read().text;
+	var specialsdoc = Ti.XML.parseString(specialsxmltext);
+	var specialselements = specialsdoc.getElementsByTagName("SpecialName");
+	var data = [];
+
+	for(var i = 0; i < specialselements.length; i++) {
+		var row = Ti.UI.createTableViewRow({
+			hasChild : true,
+			height : pHeight * .13,
+			backgroundImage : '../backgroundresting.png',
+		});
+		row.title = specialselements.item(i).getAttribute("SpecialName");
+		desc = specialsdoc.getElementsByTagName("SpecialName").item(i).text;
+		specialDesc = specialsdoc.getElementsByTagName("Description").item(i).text;
+		specialDesc = specialDesc.replace(/(\r\n|\n|\r)/gm, "");
+		specialLocation= specialsdoc.getElementsByTagName("Loc").item(i).text;
+		specialLocation = specialLocation.replace(/(\r\n|\n|\r)/gm, "");
+
+		var specialLabel = Ti.UI.createLabel({
+			text : desc,
+			color : '#000000',
+			font : {
+				fontSize : '20dp'
+			},
+			height : pHeight * .13,
+			textAlign : 'left',
+			left : pWidth * .23
+		});
+
+		row.add(specialLabel);
+		row.item = desc;
+		row.item2 = specialDesc;
+		row.item3 = specialLocation;
+		data.push(row);
+	}
+
+	var tableview = Titanium.UI.createTableView({
+		data:data,
+		top:pHeight*.7,
+		height:pHeight*.3,
+	});
+	tableview.setData(data);
+	Titanium.UI.currentWindow.add(tableview);
+	tableview.addEventListener('click', function(e) {
+		alert(specialDesc);
+	});
+
 
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
-win.add(winEventsLabel);
+win.add(UpcomingEventsLabel);
+win.add(SpecialsLabel);

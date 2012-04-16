@@ -5,11 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.938000 seconds on emulator to get ready
+[DEBUG] waited 0.167000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\homescreen.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\homescreen.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\rideschedule3.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\rideschedule3.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\parkmap.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\parkmap.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
@@ -130,7 +129,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/Schedule/ZooInTheHollow.png
 [DEBUG] from resource zip => assets/Resources/Schedule/ZooOnTheHill.png
 [DEBUG] from resource zip => assets/Resources/Schedule/events.js
-[DEBUG] from resource zip => assets/Resources/Schedule/froghopper.js
+[DEBUG] from resource zip => assets/Resources/Schedule/happyhollow.png
 [DEBUG] from resource zip => assets/Resources/Schedule/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/homeselected.png
 [DEBUG] from resource zip => assets/Resources/Schedule/mainschedulebar.png
@@ -194,6 +193,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.670000 seconds on emulator to get ready
+[DEBUG] waited 0.401000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

@@ -85,9 +85,9 @@ var selectedAttractionExpression= new RegExp(selectedAttractionTest);
 
 var attractionName = ""
 var attractionDesc = 'Attraction not found.'
-var attractionYoutube = "" 
-var attractionPicture = ""     
-var attractionThumbnail = ""
+var attractionYoutube = 'None'
+var attractionPicture = 'None'  
+var attractionThumbnail = 'None'
 
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Attractions.xml");
 	var xmltext = file.read().text;

@@ -77,7 +77,19 @@ var winParkHoursLabel = Ti.UI.createLabel({
 	
 	win.add(image);
 	
-	
+
+	try
+	{
+		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var xmltext = file.read().text;
+		var doc = Ti.XML.parseString(xmltext);
+		var hours = doc.getElementsByTagName("p").item(0).text;	
+	}
+	catch(E)
+	{
+		alert(E);
+	}
+
 	var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
@@ -86,7 +98,7 @@ var winParkHoursLabel = Ti.UI.createLabel({
 		showHorizontalScrollIndicator:true }); 
 		
 	var winDescription = Ti.UI.createLabel({
-	text: 'Hours of Operation',
+	text: hours,
 	textAlign: 'center',
 	color: 'black',
     font: {

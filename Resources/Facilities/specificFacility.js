@@ -70,23 +70,21 @@ var winBar = Titanium.UI.createLabel({
 	backgroundImage:'facilitiesbackground.png',	
     width: pWidth,
 	top:pHeight*.5,
-	height:pHeight*.15,
+	height:pHeight*.1,
 })
 
 var winFacility = Ti.UI.createLabel({
-	textWeight:'strong',
 	text: win.facility,
-	textAlign: pWidth*.1,
 	color: '#FFFFFF',
     font: {
-        fontSize: '25dp',
+        fontSize: '20dp',
         color:'#000000',
-        fontWeight: 'normal'
+        fontWeight: 'bold'
     },
     width: pWidth,
     textAlign: 'left',
     left: pWidth*.02,
-    top: pHeight*.47,
+    top: pHeight*.44,
     height: pHeight*.15
 })
 
@@ -109,8 +107,8 @@ if (win.pictureURL ==='None')
 var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.65, 
-		height:pHeight*.25,		
+		top:pHeight*.6, 
+		height:pHeight*.3,		
 		scrollType:'vertical',
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
