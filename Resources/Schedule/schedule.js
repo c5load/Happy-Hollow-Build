@@ -126,7 +126,7 @@ buttonRideSchedule.addEventListener('click', function()
 {var winRideSchedule=Titanium.UI.createWindow({
     title:'Ride Schedule',
     backgroundColor:'#FFFFFF',
-    url: 'rideschedule3.js',
+    url: 'rideschedule.js',
     navBarHidden:true,
     fullscreen : true,  
     navBarHidden: true});

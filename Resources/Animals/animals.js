@@ -273,5 +273,5 @@ function gohome(e){
 win.close(); w = null	
 }
 function schedulegohome(e){
-win.close(); w = null	
+win.close(); winSchedule = null	
 }

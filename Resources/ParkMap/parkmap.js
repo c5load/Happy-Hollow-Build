@@ -426,7 +426,6 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 			w.open({fullscreen:true});		
 			});					
 		master.add(mapIconAnimal);
-		
     	var mapIconAnimal = Titanium.UI.createImageView({
     		image:'animals.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
@@ -452,7 +451,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 			w.open({fullscreen:true});		
 			});			
 		animals.add(mapIconAnimal);
-						    	
+					    	
     	var mapLabelAnimal=Titanium.UI.createLabel({
     		top: (PixelY/2/1.12)+(pWidth*.01),
     		left: (PixelX/2/1.35)-(pWidth*.09),

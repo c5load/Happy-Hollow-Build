@@ -17,7 +17,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'20dp',
+		fontSize:'15dp',
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -54,7 +54,7 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/rideschedule3.js',
+    url: '/Schedule/rideschedule.js',
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});

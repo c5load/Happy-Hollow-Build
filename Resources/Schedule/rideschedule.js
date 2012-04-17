@@ -10,114 +10,89 @@ var TitleBar=Titanium.UI.createImageView({
     width: pWidth,
     left: '0dp',
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
 var lblTitle=Titanium.UI.createLabel({
-	text:"Schedule",
+	text:"Ride Schedule",
+	textAlign:'center',
 	color:'white',
 	font:{
-		fontSize:'30dp',
+		fontSize:'20dp',
 		fontWeight:'bold',
 	},
 	width: pWidth,
-	left:pWidth/4, 
+	left:'0dp', 
     top: '0dp',
-    height: '50dp'
+    height: pHeight*.1
 });
 
-
+var buttonHome = Titanium.UI.createButton({
+	color:'#fff',
+	backgroundImage:'homeresting.png',
+	backgroundSelectedImage:'homeselected.png',
+	top: pHeight*.02, 
+	left:pWidth*.04,
+	width:pWidth*.19,
+	height:pHeight*.07,});
+buttonHome.addEventListener('click', function()
+{win.close();
+	});
+	
 var data = [];
-
-
-
 
 	try
 	{
-		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
+		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'RideSchedule.xml');
 		var xmltext = file.read().text;
 		var doc = Ti.XML.parseString(xmltext);
 		var elements = doc.getElementsByTagName("title");
+		elements = elements + 1;
 		
 		for (var i=0;i<elements.length;i++) {
-		
+				
 				var row = Ti.UI.createTableViewRow({
         				hasChild:true,
         				height:pHeight*.13,
         				backgroundImage: '../backgroundresting.png',
-        				selectedBackgroundImage: '/Animals/animalsbackground.png'
+//        				selectedBackgroundImage: '/Animals/animalsbackground.png'
         			});
-        		row.title = elements.item(i).getAttribute("title");
-				var title = doc.getElementsByTagName("title").item(i).text;
-								
-												
+    			row.title = elements.item(i).getAttribute("title");
+    			var hours = doc.getElementsByTagName("hours");
+    			
+				var hour = hours.item(i).text;			
+				var title = elements.item(i).text;
+																				
 				var label = Ti.UI.createLabel({
 					text:title,
 					color:'#000000',
-					font:{fontSize:'20dp', fontColor:'black', fontWeight:'bold',fontFamily:'Helvetica Neue'},
-					left:72,
-					top:5,
-					bottom:5,
-					right:5				
+					font:{fontSize:'20dp', fontColor:'black',fontFamily:'Helvetica Neue'},
+					left:pWidth*.2,
+					top:'0dp',
+					height:pHeight*.13,		
 				});
 				
 				row.add(label);
-				row.item = title;			
-				data.push(row);
-				
-				
+				row.item = title;
+				row.item2= hour;		
+				data.push(row);				
 		}
 		
 	var tableview = Titanium.UI.createTableView({
        data:data,
        top:pHeight*.1,
-       height:pHeight*.8,
+       height:pHeight,
     });
     tableview.setData(data);
     Titanium.UI.currentWindow.add(tableview); 
     tableview.addEventListener('click',function(e)
 		{
-			tableview.addEventListener('click',function(e)
-                {
-                        alert(e.row.item)
-                });
-	/*		try{
-				var w = Ti.UI.createWindow({
-				url:'specificSchedule.js', 
-				navBarHidden:true, 
-				title:'',
-				backgroundColor:'#FFFFFF',
-				fullscreen:true });
-				w.addEventListener('close', function(){w = null;}); 
-				var b = Titanium.UI.createButton({
-					title:'Close',
-					style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-				});
-				w.setLeftNavButton(b);
-				b.addEventListener('click',function()
-				{
-					w.close();
-				});
-				w.title = e.rowData.item;
-				w.open({fullscreen:true});
-			}
-			catch(E)
-			{
-				alert(E);
-			}
-*/			
-			alert(e.rowData.item)
-			var w = Ti.UI.createWindow({
-			url:'testSchedule.js', 
-			navBarHidden:true, 
-   			title:'',
-   			backgroundColor:'#FFFFFF',
-   			fullscreen:true });
-   			
-   			w.addEventListener('close', function(){w = null;}); 
-			//w.title= e.rowData.item;
-			
-			w.open({fullscreen:true, modal:true});
+			var alertDialog = Titanium.UI.createAlertDialog({
+    		title: e.row.item,
+    		message: e.row.item2,
+    		buttonName: ['OK']
+			});
+			alertDialog.show();
 		});
 
 
@@ -130,5 +105,5 @@ var data = [];
 
 win.add(TitleBar);
 win.add(lblTitle);
-
+win.add(buttonHome);
 
