@@ -37,16 +37,8 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    navBarHidden:true,
-    fullscreen : true,  
-    navBarHidden: true
-});
-winHomeScreen.addEventListener('close', function(){winHome = null;});
-	winHomeScreen.open();
+{
+	win.close();
 	});
 win.add(buttonHome);
 
@@ -67,8 +59,14 @@ buttonSchedule.addEventListener('click', function()
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});
-winSchedule.addEventListener('close', function(){winSchedule = null;});
-winSchedule.open();});
+
+			winSchedule.addEventListener('close', schedulegohome);
+			winSchedule.addEventListener('android:back', function() {
+			winSchedule.removeEventListener('close', schedulegohome);
+			winSchedule.close(); winSchedule = null
+			});		
+			winSchedule.open({fullscreen:true});		
+			});
 win.add(buttonSchedule);
 
    	
@@ -223,12 +221,21 @@ buttonMap.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: 'ParkMap/mapempty.js',
     fullscreen : true});
-winParkMap.addEventListener('close', function(){winParkMap = null;});
-	winParkMap.name=win.location;
-	winParkMap.open({fullscreen:true});
+	winParkMap.name = win.location;
+
+	winParkMap.addEventListener('close', mapgohome);
+	winParkMap.addEventListener('android:back', function() {
+		winParkMap.removeEventListener('close', mapgohome);
+		winParkMap.close(); winParkMap = null
+		});		
+	winParkMap.open({fullscreen:true});	
 	});
+	
 win.add(buttonMap);
 
-win.addEventListener('android:back', function() {  
-           win.close();             
-            });
+function mapgohome(e){
+win.close(); winParkMap = null	
+}
+function schedulegohome(e){
+win.close(); winSchedule = null	
+}

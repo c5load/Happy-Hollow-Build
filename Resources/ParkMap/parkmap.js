@@ -7,7 +7,6 @@ Titanium.Geolocation.distanceFilter = 0;
 
 var win = Titanium.UI.currentWindow;
 
-
 //create views for each category
 var map=Titanium.UI.createView({
   height:2808/1.5,
@@ -103,11 +102,13 @@ buttonSchedule.addEventListener('click', function()
     url: '/Schedule/schedule.js',
     fullscreen : true,  
     navBarHidden: true});
-winSchedule.addEventListener('close', function(){winSchedule = null;});
-winSchedule.open();
-win.close();
-Titanium.Geolocation.removeEventListener('location', reportPosition);      
-});
+			winSchedule.addEventListener('close', schedulegohome);
+			winSchedule.addEventListener('android:back', function() {
+			winSchedule.removeEventListener('close', schedulegohome);
+			winSchedule.close(); winSchedule = null
+			});		
+			winSchedule.open({fullscreen:true});		
+			});		    
 
 //declare variables
 var animalsopened=false;
@@ -324,11 +325,6 @@ var buttonFindMe = Titanium.UI.createButton({
 
 buttonFindMe.addEventListener('click', function()
 {
-		// this fires once
-		Titanium.Geolocation.getCurrentPosition(reportPosition);
-		// this fires whenever the distance filter is surpassed
-		Titanium.Geolocation.addEventListener('location', reportPosition);
-	
 if (FindMeClicked==false){
 	FindMeClicked=true;
 	findme.visible=false;
@@ -414,17 +410,20 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     	}); 		
     	mapIconAnimal.addEventListener('click', function(e)
 			{			
-				var winAnimal = Titanium.UI.createWindow({
+				var w = Titanium.UI.createWindow({
     				title:'Animal',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Animals/emptyanimal.js',
     				fullscreen : true});
-			winAnimal.addEventListener('close', function(){winAnimal = null;});
-			var s = e.source;
-			
-			winAnimal.name = s.id;
-			winAnimal.open({fullscreen:true});		
+				var s = e.source;			
+				w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
 			});					
 		master.add(mapIconAnimal);
 		
@@ -437,18 +436,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	}); 		
     	mapIconAnimal.addEventListener('click', function(e)
-			{var winAnimal = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Animal',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Animals/emptyanimal.js',
     				fullscreen : true});
-			winAnimal.addEventListener('close', function(){winAnimal = null;});
-			var s = e.source;
-			
-			winAnimal.name = s.id;
-			winAnimal.open({fullscreen:true});
-			});
+			var s = e.source;		
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});			
 		animals.add(mapIconAnimal);
 						    	
     	var mapLabelAnimal=Titanium.UI.createLabel({
@@ -486,18 +488,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconAttraction.addEventListener('click', function(e)
-			{var winAttraction = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Attraction',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Attractions/emptyattraction.js',
     				fullscreen : true});
-			winAttraction.addEventListener('close', function(){winAttraction = null;});
-			var s = e.source;
-			
-			winAttraction.name = s.id;
-			winAttraction.open({fullscreen:true});
-			});						
+			var s = e.source;			
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});				
     	master.add(mapIconAttraction);
 
     	var mapIconAttraction = Titanium.UI.createImageView({
@@ -509,18 +514,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconAttraction.addEventListener('click', function(e)
-			{var winAttraction = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Attraction',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Attractions/emptyattraction.js',
     				fullscreen : true});
-			winAttraction.addEventListener('close', function(){winAttraction = null;});
 			var s = e.source;
-			
-			winAttraction.name = s.id;
-			winAttraction.open({fullscreen:true});
-			});	
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});		
 		attractions.add(mapIconAttraction);
 		    	
     	var mapLabelAttraction=Titanium.UI.createLabel({
@@ -558,18 +566,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconFacility.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Facility',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Facilities/emptyfacility.js',
     				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
 			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	 
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});		
 		master.add(mapIconFacility);
 		
     	var mapIconFacility = Titanium.UI.createImageView({
@@ -581,18 +592,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconFacility.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Facility',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Facilities/emptyfacility.js',
     				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
 			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	 
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});	
         facilities.add(mapIconFacility);
         												    	
     	var mapLabelFacility=Titanium.UI.createLabel({
@@ -630,18 +644,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconGreenTour.addEventListener('click', function(e)
-			{var winGreenTour = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Green Tour',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/GreenTour/emptygreentour.js',
     				fullscreen : true});
-			winGreenTour.addEventListener('close', function(){winGreenTour = null;});
 			var s = e.source;
-
-			winGreenTour.name = s.id;
-			winGreenTour.open({fullscreen:true});
-			});	 
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});	
 		master.add(mapIconGreenTour);
 		
     	var mapIconGreenTour = Titanium.UI.createImageView({
@@ -653,18 +670,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconGreenTour.addEventListener('click', function(e)
-			{var winGreenTour = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Green Tour',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/GreenTour/emptygreentour.js',
     				fullscreen : true});
-			winGreenTour.addEventListener('close', function(){winGreenTour = null;});
 			var s = e.source;
-
-			winGreenTour.name = s.id;
-			winGreenTour.open({fullscreen:true});
-			});	 
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});	
         greentour.add(mapIconGreenTour);
         						    	
     	var mapLabelGreenTour=Titanium.UI.createLabel({
@@ -702,18 +722,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconRestroom.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Facility',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Facilities/emptyfacility.js',
     				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
 			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	 
+			w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});	
 		master.add(mapIconRestroom);
 		
     	var mapIconRestroom = Titanium.UI.createImageView({
@@ -725,18 +748,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName,
     	});
     	mapIconRestroom.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Facility',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Facilities/emptyfacility.js',
     				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
 			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	 
+			w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});	
     	facilities.add(mapIconRestroom);
     																		    	
     	var mapLabelRestroom=Titanium.UI.createLabel({
@@ -774,18 +800,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconExit.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Facility',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Facilities/emptyfacility.js',
     				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
 			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	 
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});	
 		master.add(mapIconExit);
 													    	
     	var mapIconExit = Titanium.UI.createImageView({
@@ -797,18 +826,21 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		id:LocationName
     	});
     	mapIconExit.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
+			{var w = Titanium.UI.createWindow({
     				title:'Facility',
     				navBarHidden:true,
     				backgroundColor:'#FFFFFF',
     				url: '/Facilities/emptyfacility.js',
     				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
 			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	 
+					w.name = s.id;
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			});		
+			w.open({fullscreen:true});		
+			});	
         facilities.add(mapIconExit);
         
     	var mapLabelExit=Titanium.UI.createLabel({
@@ -844,20 +876,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		width:pWidth*.12,
     		Height:pWidth*.12,
     		id:LocationName
-    	});
-		mapIconExit.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
-    				title:'Facility',
-    				navBarHidden:true,
-    				backgroundColor:'#FFFFFF',
-    				url: '/Facilities/emptyfacility.js',
-    				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
-			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	     	
+    	});    	
 		master.add(mapIconParking);
 		
     	var mapIconParking = Titanium.UI.createImageView({
@@ -867,20 +886,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     		width:pWidth*.12,
     		Height:pWidth*.12,
     		id:LocationName
-    	});
-		mapIconExit.addEventListener('click', function(e)
-			{var winFacility = Titanium.UI.createWindow({
-    				title:'Facility',
-    				navBarHidden:true,
-    				backgroundColor:'#FFFFFF',
-    				url: '/Facilities/emptyfacility.js',
-    				fullscreen : true});
-			winFacility.addEventListener('close', function(){winFacility = null;});
-			var s = e.source;
-
-			winFacility.name = s.id;
-			winFacility.open({fullscreen:true});
-			});	     	  
+    	}); 	  
         facilities.add(mapIconParking);
         						
     	var mapLabelParking=Titanium.UI.createLabel({
@@ -908,7 +914,6 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         facilities.add(mapLabelParking);
         }        
      }
-
         scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
     	scrollViewHorizontal.add(attractions);
@@ -956,9 +961,9 @@ function reportPosition(e) {
 		}		
 
 		// this fires once
-//		Titanium.Geolocation.getCurrentPosition(reportPosition);
+		Titanium.Geolocation.getCurrentPosition(reportPosition);
 		// this fires whenever the distance filter is surpassed
-//		Titanium.Geolocation.addEventListener('location', reportPosition);
+		Titanium.Geolocation.addEventListener('location', reportPosition);
 		
 var FindMeClicked=false;
 
@@ -982,7 +987,13 @@ win.add(buttonFacilities);
 win.add(buttonGreenTour);
 win.add(buttonFindMe);
 
-win.addEventListener('android:back', function() { 
-           win.close();
-           Titanium.Geolocation.removeEventListener('location', reportPosition);             
-            });
+function gohome(e){
+win.close(); 
+w = null;
+Titanium.Geolocation.removeEventListener('location', reportPosition); 	
+}
+function schedulegohome(e){
+win.close(); 
+winSchedule = null;
+Titanium.Geolocation.removeEventListener('location', reportPosition); 	
+}

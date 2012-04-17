@@ -100,9 +100,14 @@ buttonSchedule.addEventListener('click', function()
     url: '/Schedule/schedule.js',
     fullscreen : true,  
     navBarHidden: true});
-winSchedule.addEventListener('close', function(){winSchedule = null;});
-winSchedule.open();});
 
+			winSchedule.addEventListener('close', gohome);
+			winSchedule.addEventListener('android:back', function() {
+			winSchedule.removeEventListener('close', gohome);
+			winSchedule.close(); winSchedule = null
+			});		
+			winSchedule.open({fullscreen:true});		
+			});
 
 var lblGuestService=Titanium.UI.createImageView({
 	backgroundImage:'/backgroundresting.png',
@@ -447,7 +452,7 @@ var lblTextHonors=Titanium.UI.createLabel({
 	left:pWidth*.25,
 	top:pHeight*.2,	
 	width:pWidth*.5,
-	text: 'This app created by MIS students in the Gary J. Sbona Honors Program, San Jose State University.',
+	text: 'This app was created by MIS students in the Gary J. Sbona Honors Program, San Jose State University.',
 	fontSize:'8dp',
 	color:'#000000'
 })
@@ -636,3 +641,6 @@ win.add(buttonSchedule);
 win.addEventListener('android:back', function() {  
            win.close();             
             });
+function gohome(e){
+win.close(); winSchedule = null	
+}            

@@ -36,17 +36,7 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    navBarHidden:true,
-    fullscreen : true,  
-    navBarHidden: true
-});
-winHomeScreen.addEventListener('close', function(){winHome = null;});
-	winHomeScreen.open();
-	});
+{win.close();});
 
 imageEvents = Titanium.UI.createImageView({
 	backgroundImage:'happyhollow.png',
@@ -62,14 +52,6 @@ imageParkHours = Titanium.UI.createImageView({
 	height:(pHeight-(pHeight*.1))/6,
 	left:'0dp',
 	top:(pHeight*.1+(pHeight-(pHeight*.1))/6)
-})
-
-imageRideSchedule = Titanium.UI.createImageView({
-	backgroundImage:'happyhollow.png',
-	width:pWidth*.25,
-	height:(pHeight-(pHeight*.1))/6,
-	left:'0dp',
-	top:(pHeight*.1+(pHeight-(pHeight*.1))/6*2)
 })
 
 var buttonEvents = Titanium.UI.createButton({
@@ -92,8 +74,13 @@ buttonEvents.addEventListener('click', function()
     fullscreen : true,  
     navBarHidden: true
 });
-winEvents.addEventListener('close', function(){winEvents = null;});
-	winEvents.open();});
+	winEvents.addEventListener('close', gohome);
+	winEvents.addEventListener('android:back', function() {
+		winEvents.removeEventListener('close', gohome);
+		winEvents.close(); winEvents = null
+		});		
+	winEvents.open({fullscreen:true});	
+});
 
 var buttonParkHours = Titanium.UI.createButton({
 	backgroundColor:'#000000',
@@ -115,11 +102,17 @@ buttonParkHours.addEventListener('click', function()
     fullscreen : true,  
     navBarHidden: true
 });
-winParkHours.addEventListener('close', function(){winParkHours = null;});
-	winParkHours.open();});
+
+	winParkHours.addEventListener('close', gohome);
+	winParkHours.addEventListener('android:back', function() {
+		winParkHours.removeEventListener('close', gohome);
+		winParkHours.close(); winParkHours = null
+		});		
+	winParkHours.open({fullscreen:true});	
+});
 
 var buttonRideSchedule = Titanium.UI.createButton({
-	backgroundImage:'../backgroundresting.png',
+	backgroundImage:'FivePointForestResting.png',
 	title:'Ride Schedule',
 	textAlign:'center',
 	font:{fontSize:'20dp', left:pWidth/3},
@@ -137,12 +130,17 @@ buttonRideSchedule.addEventListener('click', function()
     navBarHidden:true,
     fullscreen : true,  
     navBarHidden: true});
-winRideSchedule.addEventListener('close', function(){winRideSchedule= null;});    
-	winRideSchedule.open();});
-	
+
+	winRideSchedule.addEventListener('close', gohome);
+	winRideSchedule.addEventListener('android:back', function() {
+		winRideSchedule.removeEventListener('close', gohome);
+		winRideSchedule.close(); winRideSchedule = null
+		});		
+	winRideSchedule.open({fullscreen:true});		
+	});
 
 var buttonPuppetShow = Titanium.UI.createButton({
-	backgroundImage:'thumbPuppetCastleTheater.png',
+	backgroundImage:'PuppetCastleTheaterResting.png',
 	title:'Puppet Show',
 	textAlign:'center',
 	font:{fontSize:'20dp', left:pWidth/3},	
@@ -160,19 +158,17 @@ buttonPuppetShow.addEventListener('click', function()
     fullscreen : true,  
     navBarHidden: true
 });
-winPuppetShow.addEventListener('close', function(){winPuppetShow= null;}); 
-	winPuppetShow.open();});	
-
-//PuppetShowImage = Titanium.UI.createImageView({
-//	backgroundImage:'PuppetCastleTheater.png',
-//	top:(pHeight*.1+((pHeight-(pHeight*.1))/5)*2)+(pWidth*.05),
-//	height:pWidth*.2,
-//	width:pWidth*.2,
-//	left:pWidth*.05
-//})
 	
+	winPuppetShow.addEventListener('close', gohome);
+	winPuppetShow.addEventListener('android:back', function() {
+		winPuppetShow.removeEventListener('close', gohome);
+		winPuppetShow.close(); winPuppetShow = null
+		});		
+	winPuppetShow.open({fullscreen:true});	
+});	
+
 var buttonZooHollow = Titanium.UI.createButton({
-	backgroundImage:'thumbZooInTheHollow.png',
+	backgroundImage:'ZooInTheHollowResting.png',
 	title:'Zoo in the Hollow',
 	textAlign:'center',
 	font:{fontSize:'20dp'},
@@ -190,11 +186,17 @@ buttonZooHollow.addEventListener('click', function()
     fullscreen : true,  
     navBarHidden: true
 });
-winZooHollow.addEventListener('close', function(){winZooHollow= null;}); 
-	winZooHollow.open();});
+
+	winZooHollow.addEventListener('close', gohome);
+	winZooHollow.addEventListener('android:back', function() {
+		winZooHollow.removeEventListener('close', gohome);
+		winZooHollow.close(); winZooHollow = null
+		});		
+	winZooHollow.open({fullscreen:true});	
+});
 	
 var buttonZooHill = Titanium.UI.createButton({
-	backgroundImage:'thumbZooOnTheHill.png',
+	backgroundImage:'ZooOnTheHillResting.png',
 	title:'Zoo on the Hill',
 	textAlign:'center',
 	font:{fontSize:'20dp'},
@@ -212,9 +214,14 @@ buttonZooHill.addEventListener('click', function()
     fullscreen : true,  
     navBarHidden: true
 });
-winZooHill.addEventListener('close', function(){winZooHill= null;}); 
-	winZooHill.open();});	
 
+	winZooHill.addEventListener('close', gohome);
+	winZooHill.addEventListener('android:back', function() {
+		winZooHill.removeEventListener('close', gohome);
+		winZooHill.close(); winZooHill = null
+		});		
+	winZooHill.open({fullscreen:true});	
+});
 
 win.add(TitleBar);
 win.add(lblTitle);
@@ -229,5 +236,7 @@ win.add(buttonZooHollow);
 win.add(buttonZooHill);
 win.add(imageEvents);
 win.add(imageParkHours);
-win.add(imageRideSchedule);
-//win.add(PuppetShowImage);
+
+function gohome(e){
+win.close(); w = null	
+}

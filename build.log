@@ -5,14 +5,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.516000 seconds on emulator to get ready
+[DEBUG] waited 0.233000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Animals\emptyanimal.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Animals\emptyanimal.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Animals\specificanimal.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Animals\specificanimal.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Attractions\emptyattraction.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Attractions\emptyattraction.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Attractions\specificattraction.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Attractions\specificattraction.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ContactUs\contactus.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ContactUs\contactus.js
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Schedule\parkhours.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Schedule\parkhours.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
@@ -106,6 +102,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/ParkMap/animalsselected.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/attractions.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/emergency.png
+[DEBUG] from resource zip => assets/Resources/ParkMap/emptymap.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/facilities.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/findme.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/findmerest.png
@@ -129,18 +126,20 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/ParkMap/scheduleselected.png
 [DEBUG] from resource zip => assets/Resources/ParkMap/version.js
 [DEBUG] from resource zip => assets/Resources/Schedule/FivePointForest.png
+[DEBUG] from resource zip => assets/Resources/Schedule/FivePointForestResting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/PuppetCastleTheater.png
+[DEBUG] from resource zip => assets/Resources/Schedule/PuppetCastleTheaterResting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/ZooInTheHollow.png
+[DEBUG] from resource zip => assets/Resources/Schedule/ZooInTheHollowResting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/ZooOnTheHill.png
+[DEBUG] from resource zip => assets/Resources/Schedule/ZooOnTheHillResting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/events.js
 [DEBUG] from resource zip => assets/Resources/Schedule/happyhollow.png
 [DEBUG] from resource zip => assets/Resources/Schedule/homeresting.png
 [DEBUG] from resource zip => assets/Resources/Schedule/homeselected.png
 [DEBUG] from resource zip => assets/Resources/Schedule/mainschedulebar.png
-[DEBUG] from resource zip => assets/Resources/Schedule/middleLeft.png
 [DEBUG] from resource zip => assets/Resources/Schedule/parkhours.js
 [DEBUG] from resource zip => assets/Resources/Schedule/puppetshows.js
-[DEBUG] from resource zip => assets/Resources/Schedule/rideSchedule.png
 [DEBUG] from resource zip => assets/Resources/Schedule/rideschedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/rideschedule3.js
 [DEBUG] from resource zip => assets/Resources/Schedule/schedule.js
@@ -151,11 +150,6 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/Schedule/scheduleselect.png
 [DEBUG] from resource zip => assets/Resources/Schedule/specificSchedule.js
 [DEBUG] from resource zip => assets/Resources/Schedule/specificride.js
-[DEBUG] from resource zip => assets/Resources/Schedule/thumbParkHours.png
-[DEBUG] from resource zip => assets/Resources/Schedule/thumbPuppetCastleTheater.png
-[DEBUG] from resource zip => assets/Resources/Schedule/thumbRideSchedule.png
-[DEBUG] from resource zip => assets/Resources/Schedule/thumbZooInTheHollow.png
-[DEBUG] from resource zip => assets/Resources/Schedule/thumbZooOnTheHill.png
 [DEBUG] from resource zip => assets/Resources/Schedule/zoohill.js
 [DEBUG] from resource zip => assets/Resources/Schedule/zoohollow.js
 [DEBUG] from resource zip => assets/Resources/app.js
@@ -197,6 +191,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.283000 seconds on emulator to get ready
+[DEBUG] waited 0.315000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

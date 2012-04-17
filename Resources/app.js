@@ -1,7 +1,7 @@
 var pWidth = Ti.Platform.displayCaps.platformWidth;
 var pHeight = Ti.Platform.displayCaps.platformHeight;
 
-var win = Titanium.UI.currentWindow;
+//var win = Titanium.UI.currentWindow;
 
 //
 //create windows
@@ -47,16 +47,15 @@ var buttonAnimals = Titanium.UI.createButton({
 	title:'Animals'});
 
 buttonAnimals.addEventListener('click', function()
-{var winAnimals = Titanium.UI.createWindow({
-    title:'Animals',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'Animals/animals.js',
-    fullscreen : true});
-winAnimals.addEventListener('close', function(){winAnimals = null;});
-winAnimals.orientationModes=[Titanium.UI.PORTRAIT];	
-	winAnimals.open();
-	});
+	{var winAnimals = Titanium.UI.createWindow({
+	    title:'Animals',
+	    navBarHidden:true,
+	    backgroundColor:'#FFFFFF',
+	    url: 'Animals/animals.js',
+	    fullscreen : true});
+		winAnimals.addEventListener('close', function(){winAnimals = null;});
+		winAnimals.open();
+		});
 
 var buttonRidesAttractions = Titanium.UI.createButton({
 	color:'#fff',
@@ -169,7 +168,7 @@ winHomeScreen.add(buttonFacilities);
 winHomeScreen.add(buttonSchedule);
 winHomeScreen.add(buttonContactUs);
 
-winHomeScreen.open();
+//winHomeScreen.open();
 
 Ti.Gesture.addEventListener('orientationchange', function(e) {
     Ti.Android.currentActivity.setRequestedOrientation(Ti.Android.SCREEN_ORIENTATION_PORTRAIT);
@@ -204,7 +203,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Animals.xml");
         xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -225,7 +224,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Attractions.xml");
         xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -245,7 +244,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Facilities.xml");
         xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -265,7 +264,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/GreenTour.xml");
         xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -286,7 +285,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
        var xhr = Ti.Network.createHTTPClient();
        xhr.open("GET","http://hhpz.org/mobile/xml/Locs.xml");
        xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -306,7 +305,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Specials.xml");
         xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -327,7 +326,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
        xhr.open("GET","http://hhpz.org/mobile/cf/rideinfo.cfm");
 
        xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -348,7 +347,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
        xhr.open("GET","http://www.hhpz.org/index.cfm/id/161/lang/1/");
 
        xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:e.error}).show();
+            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to get the most up-to-date information'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
         xhr.setTimeout(30000);
@@ -364,3 +363,4 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         xhr.send();
 };
 
+winHomeScreen.open();

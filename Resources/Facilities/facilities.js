@@ -36,15 +36,9 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    navBarHidden:true,
-    fullscreen : true,  
-});
-winHomeScreen.addEventListener('close', function(){winHome = null;});
-	winHomeScreen.open();});
+{
+	win.close();
+	});
 
 var buttonSchedule = Titanium.UI.createButton({
 	color:'#fff',
@@ -62,9 +56,14 @@ buttonSchedule.addEventListener('click', function()
     url: '/Schedule/schedule.js',
     fullscreen : true,  
     navBarHidden: true});
-winSchedule.addEventListener('close', function(){winSchedule = null;});
-winSchedule.open();});
 
+			winSchedule.addEventListener('close', schedulegohome);
+			winSchedule.addEventListener('android:back', function() {
+			winSchedule.removeEventListener('close', schedulegohome);
+			winSchedule.close(); winSchedule = null
+			});		
+			winSchedule.open({fullscreen:true});		
+			});
 
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Facilities.xml");
 	var xmltext = file.read().text;
@@ -127,16 +126,13 @@ winSchedule.open();});
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
-   			w.addEventListener('close', function(){w = null;}); 
-			var b = Titanium.UI.createButton({
-				title:'Close',
-				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-			});
-			w.setLeftNavButton(b);
-			b.addEventListener('click',function()
-			{
-				w.close();
-			});
+
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			}); 
+
 			w.facility = e.rowData.item;
 			w.facilityDesc = e.rowData.item2;
 			w.location = e.rowData.item3;
@@ -172,8 +168,12 @@ buttonAnimals.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: 'Animals/animals.js',
     fullscreen : true});
-winAnimals.addEventListener('close', function(){winAnimals = null;});
-	
+
+	winAnimals.addEventListener('close', gohome);
+	winAnimals.addEventListener('android:back', function() {
+	winAnimals.removeEventListener('close', gohome);
+		winAnimals.close(); winAnimals = null
+	});
 	winAnimals.open();
 	});
 
@@ -197,10 +197,14 @@ buttonAttractions.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: 'Attractions/attractions.js',
     fullscreen : true,});
-winRidesAttractions.addEventListener('close', function(){winRidesAttractions = null;});
-	winRidesAttractions.open();});
-	
-
+    
+	winRidesAttractions.addEventListener('close', gohome);
+	winRidesAttractions.addEventListener('android:back', function() {
+	winRidesAttractions.removeEventListener('close', gohome);
+		winRidesAttractions.close(); winRidesAttractions = null
+	});
+	winRidesAttractions.open();
+});
 
 var buttonGreenTour = Titanium.UI.createButton({
 	color:'#FFFFFF',
@@ -221,9 +225,14 @@ buttonGreenTour.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: '/GreenTour/greentour.js',
     fullscreen : true,});
- winGreenTour.addEventListener('close', function(){winGreenTour = null;});   
-	winGreenTour.open();});
 
+	winGreenTour.addEventListener('close', gohome);
+	winGreenTour.addEventListener('android:back', function() {
+	winGreenTour.removeEventListener('close', gohome);
+		winGreenTour.close(); winGreenTour = null
+	});
+	winGreenTour.open();
+	});
 
 win.add(TitleBar);
 win.add(lblTitle);
@@ -236,6 +245,9 @@ win.add(buttonAnimals);
 win.add(buttonAttractions);
 win.add(buttonGreenTour);
 
-win.addEventListener('android:back', function() {  
-           win.close();             
-            });
+function gohome(e){
+win.close(); w = null	
+}
+function schedulegohome(e){
+win.close(); winSchedule = null	
+}

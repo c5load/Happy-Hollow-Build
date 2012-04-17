@@ -26,7 +26,7 @@ var lblTitle=Titanium.UI.createLabel({
     height: pHeight*.1
 });
 win.add(lblTitle);
-/*
+
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'/GreenTour/homeresting.png',
@@ -36,17 +36,8 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    navBarHidden:true,
-    fullscreen : true,  
-    exitOnClose: true,
-    navBarHidden: true
-});
-winHomeScreen.addEventListener('close', function(){winHome = null;});
-	winHomeScreen.open();
+{
+	win.close();
 	});
 win.add(buttonHome);
 
@@ -67,10 +58,17 @@ buttonSchedule.addEventListener('click', function()
     fullscreen : true,  
     exitOnClose: true,
     navBarHidden: true});
-winSchedule.addEventListener('close', function(){winSchedule = null;});
-winSchedule.open();});
+
+			winSchedule.addEventListener('close', schedulegohome);
+			winSchedule.addEventListener('android:back', function() {
+			winSchedule.removeEventListener('close', schedulegohome);
+			winSchedule.close(); winSchedule = null
+			});		
+			winSchedule.open({fullscreen:true});		
+			});
+			
 win.add(buttonSchedule);
-*/
+
 var winBar = Titanium.UI.createLabel({
 	backgroundImage:'greentourbackground.png',	
     width: pWidth,
@@ -174,6 +172,6 @@ var greentourThumbnail = 'None'
 					scrollView.add(winGreenTourDescription);
 					win.add(scrollView);					
 
-win.addEventListener('android:back', function() {  
-           win.close();             
-            });
+function schedulegohome(e){
+win.close(); winSchedule = null	
+}

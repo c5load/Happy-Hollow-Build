@@ -34,7 +34,7 @@ var lblTitle=Titanium.UI.createLabel({
     left:'0dp',
     height: pHeight*.1
 });
-/*
+
 var buttonHome = Titanium.UI.createButton({
 	color:'#fff',
 	backgroundImage:'homeresting.png',
@@ -44,15 +44,7 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    navBarHidden:true,
-    fullscreen : true,  
-});
-winHomeScreen.addEventListener('close', function(){winHomeScreen = null;});
-	winHomeScreen.open();
+{
 	Titanium.Geolocation.removeEventListener('location', reportPosition); 	
 	win.close();
 });
@@ -72,14 +64,15 @@ buttonSchedule.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: '/Schedule/schedule.js',
     fullscreen : true,  
-    exitOnClose: true,
     navBarHidden: true});
-winSchedule.addEventListener('close', function(){winSchedule = null;});
-winSchedule.open();
-Titanium.Geolocation.removeEventListener('location', reportPosition); 
-win.close();
-});
-*/
+			winSchedule.addEventListener('close', schedulegohome);
+			winSchedule.addEventListener('android:back', function() {
+			winSchedule.removeEventListener('close', schedulegohome);
+			winSchedule.close(); winSchedule = null
+			});		
+			winSchedule.open({fullscreen:true});		
+			});
+
 var buttonFindMe = Titanium.UI.createButton({
 	color:'#FFFFFF',
 	borderColor:'#333333',
@@ -92,12 +85,7 @@ var buttonFindMe = Titanium.UI.createButton({
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
 buttonFindMe.addEventListener('click', function()
-{
-		// this fires once
-		Titanium.Geolocation.getCurrentPosition(reportPosition);
-		// this fires whenever the distance filter is surpassed
-		Titanium.Geolocation.addEventListener('location', reportPosition);
-			
+{			
 if (FindMeClicked==false){
 	FindMeClicked=true;
 			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
@@ -115,7 +103,7 @@ if (FindMeClicked==false){
 
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
-  image:'parkmap.png',
+  image:'emptymap.png',
   height:2808/1.5,
   width:2064,
   });
@@ -381,8 +369,7 @@ function reportPosition(e) {
 		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 	
 		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
-		    yPixel=(yPixel/2/1.11)+(pWidth*.04); 		    
-//		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
+		    yPixel=(yPixel/2/1.11)+(pWidth*.04); 		    		      
 		}
 			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
 			{findme.visible=false}
@@ -391,9 +378,12 @@ function reportPosition(e) {
 				findme.left=xPixel;				
 				}		
 		}		
-		
-var FindMeClicked=false;
+		// this fires once
+		Titanium.Geolocation.getCurrentPosition(reportPosition);
+		// this fires whenever the distance filter is surpassed
+		Titanium.Geolocation.addEventListener('location', reportPosition);
 
+var FindMeClicked=false;
 		
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
@@ -414,13 +404,14 @@ var BottomBar=Titanium.UI.createImageView({
         
 win.add(TitleBar);
 win.add(lblTitle);
-//win.add(buttonHome);
-//win.add(buttonSchedule);
+win.add(buttonHome);
+win.add(buttonSchedule);
 win.add(BottomBar);
 
 win.add(buttonFindMe);
 
-win.addEventListener('android:back', function() { 
-           Titanium.Geolocation.removeEventListener('location', reportPosition); 
-           win.close();             
-            });           
+function schedulegohome(e){
+win.close(); 
+winSchedule = null;
+Titanium.Geolocation.removeEventListener('location', reportPosition); 	
+}       

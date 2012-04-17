@@ -36,15 +36,8 @@ var buttonHome = Titanium.UI.createButton({
 	width:pWidth*.19,
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
-{	var winHomeScreen = Titanium.UI.createWindow({
-    title:'Happy Hollow Park and Zoo',
-    backgroundColor:'#FFFFFF',
-    url: '/homescreen.js',
-    navBarHidden:true,
-    fullscreen : true
-});
-winHomeScreen.addEventListener('close', function(){winHome = null;});
-	winHomeScreen.open();
+{
+	win.close();
 });
 
 
@@ -64,8 +57,14 @@ buttonSchedule.addEventListener('click', function()
     url: '/Schedule/rideschedule3.js',
     fullscreen : true,  
     navBarHidden: true});
-winSchedule.addEventListener('close', function(){winSchedule = null;});
-winSchedule.open();});
+
+			winSchedule.addEventListener('close', schedulegohome);
+			winSchedule.addEventListener('android:back', function() {
+			winSchedule.removeEventListener('close', schedulegohome);
+			winSchedule.close(); winSchedule = null
+			});		
+			winSchedule.open({fullscreen:true});		
+			});
 
 var buttonSmallRides = Titanium.UI.createButton({
 	color:'#fff',
@@ -204,16 +203,13 @@ var tableviewAttractions = Titanium.UI.createTableView({
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
-   			w.addEventListener('close', function(){w = null;}); 
-			var b = Titanium.UI.createButton({
-				title:'Close',
-				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-			});
-			w.setLeftNavButton(b);
-			b.addEventListener('click',function()
-			{
-				w.close();
-			});
+
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			}); 
+			
 				w.attraction = e.rowData.item;
 				w.attractionDesc = e.rowData.item2;
 				w.location = e.rowData.item3;
@@ -234,7 +230,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
-   			w.addEventListener('close', function(){w = null;}); 
+   			w.addEventListener('close', function(){w = null; win.close();}); 
 			var b = Titanium.UI.createButton({
 				title:'Close',
 				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
@@ -279,11 +275,14 @@ buttonAnimals.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: 'Animals/animals.js',
     fullscreen : true});
-winAnimals.addEventListener('close', function(){winAnimals = null;});
 	
+	winAnimals.addEventListener('close', gohome);
+	winAnimals.addEventListener('android:back', function() {
+	winAnimals.removeEventListener('close', gohome);
+		winAnimals.close(); winAnimals = null
+	});
 	winAnimals.open();
 	});
-	
 
 var buttonFacilities = Titanium.UI.createButton({
 	color:'#FFFFFF',
@@ -303,9 +302,14 @@ buttonFacilities.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: 'Facilities/facilities.js',
     fullscreen : true,});	
- winFacilities.addEventListener('close', function(){winFacilities = null;}); 
-	winFacilities.open();});
 
+	winFacilities.addEventListener('close', gohome);
+	winFacilities.addEventListener('android:back', function() {
+	winFacilities.removeEventListener('close', gohome);
+		winFacilities.close(); winFacilities = null
+	});
+	winFacilities.open();
+	});
 
 var buttonGreenTour = Titanium.UI.createButton({
 	color:'#FFFFFF',
@@ -326,9 +330,15 @@ buttonGreenTour.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: '/GreenTour/greentour.js',
     fullscreen : true,});
- winGreenTour.addEventListener('close', function(){winGreenTour = null;});   
-	winGreenTour.open();});
 
+	winGreenTour.addEventListener('close', gohome);
+	winGreenTour.addEventListener('android:back', function() {
+	winGreenTour.removeEventListener('close', gohome);
+		winGreenTour.close(); winGreenTour = null
+	});
+	winGreenTour.open();
+	});
+	
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
@@ -340,6 +350,9 @@ win.add(buttonGreenTour);
 win.add(buttonSmallRides);
 win.add(buttonSmallAttractions);
 
-win.addEventListener('android:back', function() {  
-           win.close();             
-            });
+function gohome(e){
+win.close(); w = null	
+}
+function schedulegohome(e){
+win.close(); winSchedule = null	
+}
