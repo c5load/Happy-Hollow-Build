@@ -127,8 +127,7 @@ var SpecialsLabel = Ti.UI.createLabel({
 		var upcomingeventsfile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
 		var upcomingeventsxmltext = upcomingeventsfile.read().text;
 		var upcomingeventsdoc = Ti.XML.parseString(upcomingeventsxmltext);
-		var upcomingeventshours = upcomingeventsdoc.getElementsByTagName("p").item(7).text;
-//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
+		var upcomingeventshours = upcomingeventsdoc.getElementsByTagName("p").item(7).text;	
 	}
 	catch(E)
 	{
@@ -151,7 +150,6 @@ var SpecialsLabel = Ti.UI.createLabel({
 		scrollViewUpcomingEvents.add(UpcomingEventsDescription);
 		Titanium.UI.currentWindow.add(scrollViewUpcomingEvents);
 
-//		Titanium.UI.currentWindow.add(scrollViewSpecials);
     var specialsfile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Specials.xml");
 	var specialsxmltext = specialsfile.read().text;
 	var specialsdoc = Ti.XML.parseString(specialsxmltext);
@@ -197,9 +195,13 @@ var SpecialsLabel = Ti.UI.createLabel({
 	tableview.setData(data);
 	Titanium.UI.currentWindow.add(tableview);
 	tableview.addEventListener('click', function(e) {
-		alert(specialDesc);
+			var alertDialog = Titanium.UI.createAlertDialog({
+    		title: e.row.item,
+    		message: e.row.item2,
+    		buttonName: ['OK']
+			});
+			alertDialog.show();
 	});
-
 
 win.add(TitleBar);
 win.add(lblTitle);
