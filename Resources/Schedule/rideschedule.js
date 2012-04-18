@@ -47,7 +47,6 @@ var data = [];
 		var xmltext = file.read().text;
 		var doc = Ti.XML.parseString(xmltext);
 		var elements = doc.getElementsByTagName("title");
-		elements = elements + 1;
 		
 		for (var i=0;i<elements.length;i++) {
 				
@@ -81,7 +80,7 @@ var data = [];
 	var tableview = Titanium.UI.createTableView({
        data:data,
        top:pHeight*.1,
-       height:pHeight,
+       height:pHeight*.9,
     });
     tableview.setData(data);
     Titanium.UI.currentWindow.add(tableview); 
