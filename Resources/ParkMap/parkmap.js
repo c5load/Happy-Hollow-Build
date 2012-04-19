@@ -402,6 +402,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         if (animal.test(Category)){
     	var mapIconAnimal = Titanium.UI.createImageView({
     		image:'animals.png',
+    		selectedImage:'animals.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -428,6 +429,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		master.add(mapIconAnimal);
     	var mapIconAnimal = Titanium.UI.createImageView({
     		image:'animals.png',
+    		selectedImage:'animals.png',    		
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -453,7 +455,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		animals.add(mapIconAnimal);
 					    	
     	var mapLabelAnimal=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.09),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -465,7 +467,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
   		master.add(mapLabelAnimal);  	
 
 		var mapLabelAnimal=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.09),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -480,6 +482,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         if (attraction.test(Category)){
     	var mapIconAttraction = Titanium.UI.createImageView({
     		image:'attractions.png',
+    		selectedImage:'attractions.png',
     		top: (PixelY/2/1.11)-(pWidth*.06),
     		left: (PixelX/2/1.36)-(pWidth*.06),
     		width:pWidth*.12,
@@ -506,6 +509,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 
     	var mapIconAttraction = Titanium.UI.createImageView({
     		image:'attractions.png',
+    		selectedImage:'attractions.png',
     		top: (PixelY/2/1.11)-(pWidth*.06),
     		left: (PixelX/2/1.36)-(pWidth*.06),
     		width:pWidth*.12,
@@ -531,7 +535,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		attractions.add(mapIconAttraction);
 		    	
     	var mapLabelAttraction=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -543,7 +547,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		master.add(mapLabelAttraction);
 
     	var mapLabelAttraction=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -558,6 +562,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         if (facility.test(Category)){
     	var mapIconFacility = Titanium.UI.createImageView({
     		image:'facilities.png',
+    		selectedImage:'facilities.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -584,6 +589,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		
     	var mapIconFacility = Titanium.UI.createImageView({
     		image:'facilities.png',
+    		selectedImage:'facilities.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -609,7 +615,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         facilities.add(mapIconFacility);
         												    	
     	var mapLabelFacility=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.05),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -621,7 +627,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		master.add(mapLabelFacility);
 		
     	var mapLabelFacility=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.05),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -636,6 +642,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         if (greenTour.test(Category)){
     	var mapIconGreenTour = Titanium.UI.createImageView({
     		image:'greentour.png',
+    		selectedImage:'greentour.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.36)-(pWidth*.06),
     		width:pWidth*.12,
@@ -662,6 +669,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		
     	var mapIconGreenTour = Titanium.UI.createImageView({
     		image:'greentour.png',
+    		selectedImage:'greentour.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.36)-(pWidth*.06),
     		width:pWidth*.12,
@@ -687,7 +695,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         greentour.add(mapIconGreenTour);
         						    	
     	var mapLabelGreenTour=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -699,7 +707,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		master.add(mapLabelGreenTour);
 		
     	var mapLabelGreenTour=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.01),
+    		top: (PixelY/2/1.12)+(pWidth*.02),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -714,6 +722,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         if (restroom.test(Category)){
     	var mapIconRestroom = Titanium.UI.createImageView({
     		image:'restroom.png',
+    		backgroundImage:'restroom.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -740,6 +749,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		
     	var mapIconRestroom = Titanium.UI.createImageView({
     		image:'restroom.png',
+    		selectedImage:'restroom.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -765,7 +775,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
     	facilities.add(mapIconRestroom);
     																		    	
     	var mapLabelRestroom=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		top: (PixelY/2/1.12)+(pWidth*.05),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -777,7 +787,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		master.add(mapLabelRestroom);
 		   	
     	var mapLabelRestroom=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		top: (PixelY/2/1.12)+(pWidth*.05),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -792,6 +802,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         if (exit.test(Category)){
     	var mapIconExit = Titanium.UI.createImageView({
     		image:'emergency.png',
+    		selectedImage:'emergency.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -818,6 +829,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 													    	
     	var mapIconExit = Titanium.UI.createImageView({
     		image:'emergency.png',
+    		selectedImage:'emergency.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -843,7 +855,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         facilities.add(mapIconExit);
         
     	var mapLabelExit=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		top: (PixelY/2/1.12)+(pWidth*.05),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,
@@ -855,7 +867,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		master.add(mapLabelExit);
         
     	var mapLabelExit=Titanium.UI.createLabel({
-    		top: (PixelY/2/1.12)+(pWidth*.04),
+    		top: (PixelY/2/1.12)+(pWidth*.05),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
     		Height:pWidth*.18,

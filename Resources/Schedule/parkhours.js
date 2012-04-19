@@ -51,7 +51,7 @@ var winParkHoursLabel = Ti.UI.createLabel({
     width: pWidth,
     textAlign: 'left',
     left: '0dp',
-    top: pHeight*.55,
+    top: pHeight*.6,
     height: pHeight*.15
 })
 
@@ -59,7 +59,7 @@ var winParkHoursLabel = Ti.UI.createLabel({
 
 //display image
 	var image = Titanium.UI.createImageView({
-	url:'FivePointForest.png',
+	backgroundImage:'HHPZLogo.png',
 	width:pWidth,
 	height:pHeight*.5,
 	top:pHeight*.1,
@@ -83,7 +83,8 @@ var winParkHoursLabel = Ti.UI.createLabel({
 	var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
 		contentHeight:'auto', 
-		top:pHeight*.7, 
+		top:pHeight*.75,
+		height:pHeight*.25, 
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
 		

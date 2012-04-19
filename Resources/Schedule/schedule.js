@@ -56,7 +56,7 @@ imageParkHours = Titanium.UI.createImageView({
 
 var buttonEvents = Titanium.UI.createButton({
 	backgroundColor:'#000000',
-	title:'Events',
+	title:'Events/Specials',
 	textAlign:'center',
 	font:{fontSize:'20dp', left:pWidth/3},
 	backgroundImage:'../backgroundresting.png',
