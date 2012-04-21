@@ -69,6 +69,8 @@ buttonSchedule.addEventListener('click', function() {
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Animals.xml");
 	var xmltext = file.read().text;
 	var doc = Ti.XML.parseString(xmltext);
+
+  try {          
 	var elements = doc.getElementsByTagName("AnimalName");
 	var data = [];
 
@@ -156,7 +158,10 @@ buttonSchedule.addEventListener('click', function() {
 			fullscreen : true
 		});
 	});
-
+   }	
+   catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };
+    
 var BottomBar = Titanium.UI.createImageView({
 	backgroundColor : '#333333',
 	width : pWidth,

@@ -74,11 +74,6 @@ var winParkHoursLabel = Ti.UI.createLabel({
 		var xmltext = file.read().text;
 		var doc = Ti.XML.parseString(xmltext);
 		var hours = doc.getElementsByTagName("p").item(0).text;	
-	}
-	catch(E)
-	{
-		alert(E);
-	}
 
 	var scrollView = Titanium.UI.createScrollView({ 
 		contentWidth:'auto', 
@@ -103,7 +98,9 @@ var winParkHoursLabel = Ti.UI.createLabel({
 })
 		scrollView.add(winDescription);
 		Titanium.UI.currentWindow.add(scrollView);
-		
+    }   
+    catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };		
 
 win.add(TitleBar);
 win.add(lblTitle);

@@ -107,6 +107,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
  	visible:false
     });
 
+	try {
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Attractions.xml");
 	var xmltext = file.read().text;
 	var doc = Ti.XML.parseString(xmltext);
@@ -248,7 +249,10 @@ var tableviewAttractions = Titanium.UI.createTableView({
 			
 			w.open({fullscreen:true});
 		});	
-
+	}
+	   catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };
+    
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
     width: pWidth,

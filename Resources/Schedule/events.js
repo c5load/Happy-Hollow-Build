@@ -84,27 +84,13 @@ var SpecialsLabel = Ti.UI.createLabel({
 		showVerticalScrollIndicator:true, 
 		showHorizontalScrollIndicator:true }); 
 
-//	var scrollViewSpecials = Titanium.UI.createScrollView({ 
-//		contentWidth:'auto', 
-//		contentHeight:'auto', 
-//		top:pHeight*.8,
-//		height:pHeight*.2, 
-//		showVerticalScrollIndicator:true, 
-//		showHorizontalScrollIndicator:true }); 
-		
 	try
 	{
 		var eventsfile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
 		var eventsxmltext = eventsfile.read().text;
 		var eventsdoc = Ti.XML.parseString(eventsxmltext);
 		var eventshours = eventsdoc.getElementsByTagName("p").item(4).text;
-//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
-	}
-	catch(E)
-	{
-		alert(E);
-	}
-		
+
 	var EventsDescription = Ti.UI.createLabel({
 	text: eventshours,
 	textAlign: 'center',
@@ -121,18 +107,10 @@ var SpecialsLabel = Ti.UI.createLabel({
 		scrollViewEvents.add(EventsDescription);
 		Titanium.UI.currentWindow.add(scrollViewEvents);
 		
-
-	try
-	{
 		var upcomingeventsfile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
 		var upcomingeventsxmltext = upcomingeventsfile.read().text;
 		var upcomingeventsdoc = Ti.XML.parseString(upcomingeventsxmltext);
 		var upcomingeventshours = upcomingeventsdoc.getElementsByTagName("p").item(7).text;	
-	}
-	catch(E)
-	{
-		alert(E);
-	}
 		
 	var UpcomingEventsDescription = Ti.UI.createLabel({
 	text: upcomingeventshours,
@@ -202,6 +180,9 @@ var SpecialsLabel = Ti.UI.createLabel({
 			});
 			alertDialog.show();
 	});
+	}   
+    catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };	
 
 win.add(TitleBar);
 win.add(lblTitle);

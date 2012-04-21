@@ -79,13 +79,7 @@ var winZooHollowLabel = Ti.UI.createLabel({
 		var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'Schedule.xml');
 		var xmltext = file.read().text;
 		var doc = Ti.XML.parseString(xmltext);
-		var hours = doc.getElementsByTagName("p").item(5).text;
-//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
-	}
-	catch(E)
-	{
-		alert(E);
-	}
+		var hours = doc.getElementsByTagName("p").item(5).text;	
 		
 	var winDescription = Ti.UI.createLabel({
 	text: hours,
@@ -102,7 +96,10 @@ var winZooHollowLabel = Ti.UI.createLabel({
 })
 		scrollView.add(winDescription);
 		Titanium.UI.currentWindow.add(scrollView);
-
+    }   
+    catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };
+    
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);

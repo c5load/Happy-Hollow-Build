@@ -322,24 +322,27 @@ var buttonFindMe = Titanium.UI.createButton({
 	left:pWidth*.8,
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });
+//	buttonFindMe.addEventListener('click', error);
+//buttonFindMe.addEventListener('click', findme);
 
-buttonFindMe.addEventListener('click', function()
-{
-if (FindMeClicked==false){
-	FindMeClicked=true;
-	findme.visible=false;
-			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
-			{findme.visible=false
-			alert('You are not at Happy Hollow.');	
-				}
-			else {
-				findme.visible=true;				
-				}
-} else {
-	FindMeClicked=false;
-	findme.visible=false
-}
-});
+//buttonFindMe.addEventListener('click', function()
+//{
+//if (FindMeClicked==false){
+//	FindMeClicked=true;
+//	findme.visible=true;
+	
+		//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+		//	{findme.visible=false
+		//	alert('You are not at Happy Hollow.');	
+		//		}
+		//	else {
+		//		findme.visible=true;				
+		//		}
+//} else {
+//	FindMeClicked=false;
+//	findme.visible=false
+//}
+//});
 
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
@@ -378,7 +381,7 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
   zoomScale:1
 });
 
-
+try {
 //put locations into map
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
 	var xmltext = file.read().text;
@@ -925,6 +928,9 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
         facilities.add(mapLabelParking);
         }        
      }
+    }   
+    catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };
         scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
     	scrollViewHorizontal.add(attractions);
@@ -934,10 +940,6 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
 		
 var xPixel;
 var yPixel;
-var label = Ti.UI.createLabel({
-	color:'#000000',
-	visible:false
-});
 
 var findme = Titanium.UI.createImageView({
 	image:'findme.png',
@@ -946,10 +948,18 @@ var findme = Titanium.UI.createImageView({
     visible:false
 		})
 scrollViewHorizontal.add(findme);
-		
+	
 function reportPosition(e) {    
 	if (!e.success || e.error) {        
-		label.text = 'error: ' + JSON.stringify(e.error);    
+//		label.text = 'error: ' + JSON.stringify(e.error);    
+  //		buttonFindMe.removeEventListener('click', findme);
+  			buttonFindMe.addEventListener('click', error);
+  	//		FindMeClicked = false;
+  	//		findme.visible = false;
+  	//	buttonFindMe.addEventListener('click', function()
+  	//	{
+  	//	Titanium.UI.createAlertDialog({title:'Alert', message:'Geolocation is disabled.'}).show();
+  	//	});
 		}    
 		else {        
 			var accuracy = e.coords.accuracy;        
@@ -959,16 +969,17 @@ function reportPosition(e) {
 		    var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
 		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 	
-		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
-		    yPixel=(yPixel/2/1.11)+(pWidth*.04); 		    
-//		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
+		    xPixel=(xPixel/2/1.36)-(pWidth*.06); 		    
+		    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
 		}
 			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
 			{findme.visible=false}
 			else {
 				findme.top=yPixel;
-				findme.left=xPixel;				
-				}		
+				findme.left=xPixel;
+			//	buttonFindMe.removeEventListener('click', error);
+				buttonFindMe.addEventListener('click', findme);				
+				}
 		}		
 
 		// this fires once
@@ -987,7 +998,19 @@ win.addEventListener('open', function(e){
     scrollViewHorizontal.scrollTo(pWidth/2, 0);	
     scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
 });	
-        
+
+//var scale = Ti.UI.create2DMatrix().scale(1); 
+//var webview = Titanium.UI.createWebView({
+//	url:'parkmap.png',
+//	height:pHeight*.8,
+//	width:pWidth,
+//	top:pHeight*.1,
+//	transform:scale,
+//	scalesPageToFit:true
+//	});	  
+//webview.add(mapimage);     				
+//win.add(webview);
+
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
@@ -1008,3 +1031,72 @@ win.close();
 winSchedule = null;
 Titanium.Geolocation.removeEventListener('location', reportPosition); 	
 }
+
+function findme(e){
+if (FindMeClicked==false){
+	FindMeClicked=true;
+	findme.visible = true;
+//	findme.visible=false;
+		//	if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+		//	{findme.visible=false
+		//	alert('You are not at Happy Hollow.');	
+		//		}
+		//	else {
+		//		findme.visible=true;				
+		//		}
+} else {
+	FindMeClicked=false;
+	findme.visible=false
+}
+}
+
+function error(e){
+	Titanium.UI.createAlertDialog({title:'Alert', message:'Geolocation is disabled.'}).show();
+}
+
+function error2(e){
+	Titanium.UI.createAlertDialog({title:'Alert', message:'You are not at Happy Hollow.'}).show();
+}
+/*
+	function checkgeolocation(e){
+    if (Titanium.Geolocation.locationServicesEnabled==false)
+    {
+//        Titanium.UI.createAlertDialog({title:'Alert', message:'Your device has geolocation turned off.'}).show();
+  		buttonFindMe.removeEventListener('click', findme);
+  		buttonFindMe.addEventListener('click', function()
+  		{
+  		Titanium.UI.createAlertDialog({title:'Alert', message:'Your device has geolocation turned off.'}).show();
+  		});
+    }
+    else
+    {
+        if (Titanium.Platform.name != 'android') {
+            var authorization = Titanium.Geolocation.locationServicesAuthorization
+            Ti.API.info('Authorization: '+authorization);
+            if (authorization == Titanium.Geolocation.AUTHORIZATION_DENIED) {
+          //      Ti.UI.createAlertDialog({
+          //          title:'Alert',
+           //         message:'You have disabled geolocation services.'
+            //    }).show();
+  		buttonFindMe.removeEventListener('click', findme);
+  		buttonFindMe.addEventListener('click', function()
+  		{
+  		Titanium.UI.createAlertDialog({title:'Alert', message:'You have disabled geolocation services.'}).show();
+  		});
+            }
+            else if (authorization == Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
+    //            Ti.UI.createAlertDialog({
+     //               title:'Alert',
+      //              message:'You have disabled geolocation services.'
+       //         }).show();
+  		buttonFindMe.removeEventListener('click', findme);
+  		buttonFindMe.addEventListener('click', function()
+  		{
+  		Titanium.UI.createAlertDialog({title:'Alert', message:'You have disabled geolocation services.'}).show();
+  		});
+            	}
+        	}
+    	}
+    }
+    		checkgeolocation();
+    		*/

@@ -54,7 +54,6 @@ var data = [];
         				hasChild:true,
         				height:pHeight*.13,
         				backgroundImage: '../backgroundresting.png',
-//        				selectedBackgroundImage: '/Animals/animalsbackground.png'
         			});
     			row.title = elements.item(i).getAttribute("title");
     			var hours = doc.getElementsByTagName("hours");
@@ -94,12 +93,9 @@ var data = [];
 			alertDialog.show();
 		});
 
-
-	}
-	catch(E)
-	{
-		alert(E);
-	}
+    }   
+    catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };
 
 
 win.add(TitleBar);

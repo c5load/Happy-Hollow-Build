@@ -65,6 +65,7 @@ buttonSchedule.addEventListener('click', function()
 			winSchedule.open({fullscreen:true});		
 			});
 
+	try {
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"GreenTour.xml");
 	var xmltext = file.read().text;
 	var doc = Ti.XML.parseString(xmltext);
@@ -143,7 +144,9 @@ buttonSchedule.addEventListener('click', function()
 			
 			w.open({fullscreen:true});
 		});
-
+	}
+	   catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };
 
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',

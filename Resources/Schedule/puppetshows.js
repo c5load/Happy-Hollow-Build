@@ -81,13 +81,6 @@ var winPuppetShowLabel = Ti.UI.createLabel({
 		var xmltext = file.read().text;
 		var doc = Ti.XML.parseString(xmltext);
 		var hours = doc.getElementsByTagName("p").item(3).text;
-//		hours = hours.replace(/(\r\n|\n|\r)/gm, "");		
-	}
-	catch(E)
-	{
-		alert(E);
-	}
-
 		
 	var winDescription = Ti.UI.createLabel({
 	text: hours,
@@ -104,59 +97,9 @@ var winPuppetShowLabel = Ti.UI.createLabel({
 })
 		scrollView.add(winDescription);
 		Titanium.UI.currentWindow.add(scrollView);
-		
-
-/*
-var BottomBar=Titanium.UI.createImageView({
-	backgroundColor:'#333333',
-    width: pWidth,
-    left: '0dp',
-    top: pHeight*.9,
-    height: pHeight*.11
-});
-
-var buttonMap = Titanium.UI.createButton({
-	backgroundColor:'#333333',
-	borderColor:'#333333',
-	backgroundImage:'/ParkMap/findonmaprest.png',
-	backgroundSelectedImage:'/ParkMap/findonmap.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:pWidth*.2,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	});		
-buttonMap.addEventListener('click', function()
-{var winParkMap = Titanium.UI.createWindow({
-    title:'Park Map',
-    navBarHidden:true,
-    backgroundColor:'#FFFFFF',
-    url: 'ParkMap/mapempty.js',
-    fullscreen : true});
-winParkMap.addEventListener('close', function(){winParkMap = null;});
-	winParkMap.name=win.animal;
-	winParkMap.open({fullscreen:true});
-	});
-	
-var buttonBack = Titanium.UI.createButton({
-	backgroundColor:'#333333',
-	borderColor:'#333333',
-	backgroundImage:'/back.png',
-	backgroundSelectedColor:'#FFFFFF',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:'0dp',
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
-	});		
-buttonMap.addEventListener('click', function()
-{win.close();});	
-
-win.add(BottomBar);
-win.add(buttonBack);
-win.add(buttonMap); 
-*/
-
+    }   
+    catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
+    };		
 
 
 win.add(TitleBar);
