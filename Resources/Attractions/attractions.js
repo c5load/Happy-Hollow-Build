@@ -127,11 +127,11 @@ var tableviewAttractions = Titanium.UI.createTableView({
 		    attractionDesc = doc.getElementsByTagName("Description").item(i).text;
             attractionDesc = attractionDesc.replace(/(\r\n|\n|\r)/gm, "");		    
 		    attractionLocation = doc.getElementsByTagName("Loc").item(i).text;
-		    attractionYoutube = doc.getElementsByTagName("Youtubew").item(i).text;
+		    attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
             attractionYoutube = attractionYoutube.replace(/(\r\n|\n|\r)/gm, "");	
-		    attractionPicture = doc.getElementsByTagName("Picturew").item(i).text;
+		    attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
 		    attractionPicture = attractionPicture.replace(/(\r\n|\n|\r)/gm, "");
-		    attractionThumbnail = doc.getElementsByTagName("Thumbnailw").item(i).text;
+		    attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
 		    attractionThumbnail = attractionThumbnail.replace(/(\r\n|\n|\r)/gm, "");
 		   	Category = doc.getElementsByTagName("AttractionOrRide").item(i).text;		    
        
@@ -200,7 +200,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 		{	
 			var w = Ti.UI.createWindow({
    			backgroundColor:'#FFFFFF',
-			w:'specificattraction.js', 
+			url:'specificattraction.js', 
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
@@ -227,7 +227,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 		{
 			var w = Ti.UI.createWindow({
    			backgroundColor:'#FFFFFF',
-			w:'specificattraction.js', 
+			url:'specificattraction.js', 
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
