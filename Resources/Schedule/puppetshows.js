@@ -60,7 +60,7 @@ var winPuppetShowLabel = Ti.UI.createLabel({
 
 //display image
 	var image = Titanium.UI.createImageView({
-	url:'PuppetCastleTheater.png',
+	image:'PuppetCastleTheater.png',
 	width:pWidth,
 	height:pHeight*.5,
 	top:pHeight*.1,

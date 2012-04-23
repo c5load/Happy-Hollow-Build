@@ -172,7 +172,7 @@ var focusY = 0;
 		if (selectedLocationExpression.test(LocationName)){
 	      if (animal.test(Category)){
 	    	var mapIconAnimal = Titanium.UI.createImageView({
-	    		url:'animals.png',
+	    		image:'animals.png',
 	    		top: (PixelY/2/1.12)-(pWidth*.06),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -197,7 +197,7 @@ var focusY = 0;
 	        else
 	        if (attraction.test(Category)){
 	    	var mapIconAttraction = Titanium.UI.createImageView({
-	    		url:'attractions.png',
+	    		image:'attractions.png',
 	    		top: (PixelY/2/1.11)-(pWidth*.06),
 	    		left: (PixelX/2/1.36)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -221,7 +221,7 @@ var focusY = 0;
 	        else
 	        if (facility.test(Category)){
 	    	var mapIconFacility = Titanium.UI.createImageView({
-	    		url:'facilities.png',
+	    		image:'facilities.png',
 	    		top: (PixelY/2/1.12)-(pWidth*.06),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -245,7 +245,7 @@ var focusY = 0;
 	        else
 	        if (greenTour.test(Category)){
 	    	var mapIconGreenTour = Titanium.UI.createImageView({
-	    		url:'greentour.png',
+	    		image:'greentour.png',
 	    		top: (PixelY/2/1.12)-(pWidth*.06),
 	    		left: (PixelX/2/1.36)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -269,7 +269,7 @@ var focusY = 0;
         else {
         if (restroom.test(Category)){
     	var mapIconRestroom = Titanium.UI.createImageView({
-    		url:'restroom.png',
+    		image:'restroom.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -294,7 +294,7 @@ var focusY = 0;
         else 
         if (parkinglot.test(Category)){
     	var mapIconParking = Titanium.UI.createImageView({
-    		url:'parkinglot.png',
+    		image:'parkinglot.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -318,7 +318,7 @@ var focusY = 0;
         else 
         if (exit.test(Category)){
     	var mapIconExit = Titanium.UI.createImageView({
-    		url:'emergency.png',
+    		image:'emergency.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,

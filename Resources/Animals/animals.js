@@ -107,7 +107,7 @@ buttonSchedule.addEventListener('click', function() {
 			left : pWidth * .23
 		});
 		var animalImage = Ti.UI.createImageView({
-			url : animalThumbnail,
+			image : animalThumbnail,
 			height : pWidth * .18,
 			width : pWidth * .18,
 			left : pWidth * .025

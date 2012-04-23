@@ -54,7 +54,7 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    url: '/Schedule/rideschedule.js',
+    w: '/Schedule/rideschedule.js',
     fullscreen : true,  
     navBarHidden: true});
 
@@ -127,11 +127,11 @@ var tableviewAttractions = Titanium.UI.createTableView({
 		    attractionDesc = doc.getElementsByTagName("Description").item(i).text;
             attractionDesc = attractionDesc.replace(/(\r\n|\n|\r)/gm, "");		    
 		    attractionLocation = doc.getElementsByTagName("Loc").item(i).text;
-		    attractionYoutube = doc.getElementsByTagName("YoutubeURL").item(i).text;
+		    attractionYoutube = doc.getElementsByTagName("Youtubew").item(i).text;
             attractionYoutube = attractionYoutube.replace(/(\r\n|\n|\r)/gm, "");	
-		    attractionPicture = doc.getElementsByTagName("PictureURL").item(i).text;
+		    attractionPicture = doc.getElementsByTagName("Picturew").item(i).text;
 		    attractionPicture = attractionPicture.replace(/(\r\n|\n|\r)/gm, "");
-		    attractionThumbnail = doc.getElementsByTagName("ThumbnailURL").item(i).text;
+		    attractionThumbnail = doc.getElementsByTagName("Thumbnailw").item(i).text;
 		    attractionThumbnail = attractionThumbnail.replace(/(\r\n|\n|\r)/gm, "");
 		   	Category = doc.getElementsByTagName("AttractionOrRide").item(i).text;		    
        
@@ -177,7 +177,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 	    	});         	
 		    		    
 		    var attractionImage = Ti.UI.createImageView({
-		    	url:attractionThumbnail,
+		    	image:attractionThumbnail,
 		    	height: pWidth*.18,
 		    	width: pWidth*.18,
 		    	left: pWidth*.025
@@ -200,7 +200,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 		{	
 			var w = Ti.UI.createWindow({
    			backgroundColor:'#FFFFFF',
-			url:'specificattraction.js', 
+			w:'specificattraction.js', 
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
@@ -215,7 +215,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 				w.attractionDesc = e.rowData.item2;
 				w.location = e.rowData.item3;
 				w.youTube = e.rowData.item4;
-				w.pictureURL = e.rowData.item5;
+				w.picturew = e.rowData.item5;
 			
 			w.open({fullscreen:true});
 		});
@@ -227,7 +227,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 		{
 			var w = Ti.UI.createWindow({
    			backgroundColor:'#FFFFFF',
-			url:'specificattraction.js', 
+			w:'specificattraction.js', 
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
@@ -245,7 +245,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 				w.attractionDesc = e.rowData.item2;
 				w.location = e.rowData.item3;
 				w.youTube = e.rowData.item4;
-				w.pictureURL = e.rowData.item5;
+				w.picturew = e.rowData.item5;
 			
 			w.open({fullscreen:true});
 		});	
@@ -277,7 +277,7 @@ buttonAnimals.addEventListener('click', function()
     title:'Animals',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    url: 'Animals/animals.js',
+    w: 'Animals/animals.js',
     fullscreen : true});
 	
 	winAnimals.addEventListener('close', gohome);
@@ -304,7 +304,7 @@ buttonFacilities.addEventListener('click', function()
     title:'Facilities',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    url: 'Facilities/facilities.js',
+    w: 'Facilities/facilities.js',
     fullscreen : true,});	
 
 	winFacilities.addEventListener('close', gohome);
@@ -332,7 +332,7 @@ buttonGreenTour.addEventListener('click', function()
     title:'Green Tour',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    url: '/GreenTour/greentour.js',
+    w: '/GreenTour/greentour.js',
     fullscreen : true,});
 
 	winGreenTour.addEventListener('close', gohome);

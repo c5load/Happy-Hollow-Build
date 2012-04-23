@@ -100,7 +100,7 @@ buttonSchedule.addEventListener('click', function()
         });
         
         var greentourImage = Ti.UI.createImageView({
-        	url: greentourThumbnail,
+        	image: greentourThumbnail,
         	height:pWidth*.18,
         	width:pWidth*.18,
         	left: pWidth*.025  
