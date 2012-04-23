@@ -239,8 +239,6 @@ buttonGreenTour.addEventListener('click', function()
 
 win.add(TitleBar);
 win.add(lblTitle);
-win.add(TitleBar);
-win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
 win.add(BottomBar);

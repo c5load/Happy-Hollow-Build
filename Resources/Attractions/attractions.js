@@ -215,7 +215,7 @@ var tableviewAttractions = Titanium.UI.createTableView({
 				w.attractionDesc = e.rowData.item2;
 				w.location = e.rowData.item3;
 				w.youTube = e.rowData.item4;
-				w.picturew = e.rowData.item5;
+				w.pictureURL = e.rowData.item5;
 			
 			w.open({fullscreen:true});
 		});
@@ -231,21 +231,18 @@ var tableviewAttractions = Titanium.UI.createTableView({
 			navBarHidden:true,
    			title:'',
    			fullscreen:true });
-   			w.addEventListener('close', function(){w = null; win.close();}); 
-			var b = Titanium.UI.createButton({
-				title:'Close',
-				style:Titanium.UI.iPhone.SystemButtonStyle.PLAIN
-			});
-			w.setLeftNavButton(b);
-			b.addEventListener('click',function()
-			{
-				w.close();
-			});
+
+			w.addEventListener('close', gohome);
+			w.addEventListener('android:back', function() {
+			w.removeEventListener('close', gohome);
+			w.close(); w = null
+			}); 
+			
 				w.attraction = e.rowData.item;
 				w.attractionDesc = e.rowData.item2;
 				w.location = e.rowData.item3;
 				w.youTube = e.rowData.item4;
-				w.picturew = e.rowData.item5;
+				w.pictureURL = e.rowData.item5;
 			
 			w.open({fullscreen:true});
 		});	
