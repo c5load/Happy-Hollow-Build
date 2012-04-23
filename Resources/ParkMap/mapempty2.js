@@ -84,7 +84,22 @@ var buttonFindMe = Titanium.UI.createButton({
 	left:'0dp',
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });	
-buttonFindMe.addEventListener('click', findme);
+buttonFindMe.addEventListener('click', function()
+{			
+if (FindMeClicked==false){
+	FindMeClicked=true;
+			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+			{findme.visible=false
+			alert('You are not at Happy Hollow.');	
+				}
+			else {
+				findme.visible=true;				
+				}
+} else {
+	FindMeClicked=false;
+	findme.visible=false
+}
+});
 
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
@@ -92,7 +107,7 @@ var mapimage =  Titanium.UI.createImageView({
   height:2808/1.5,
   width:2064,
   });
-buttonFindMe.addEventListener('click', findme);        
+        
 //declare horizontal scrollview
 var scrollViewHorizontal =  Titanium.UI.createScrollView({
   height:'auto',
@@ -157,7 +172,7 @@ var focusY = 0;
 		if (selectedLocationExpression.test(LocationName)){
 	      if (animal.test(Category)){
 	    	var mapIconAnimal = Titanium.UI.createImageView({
-	    		url:'animals.png',
+	    		image:'animals.png',
 	    		top: (PixelY/2/1.12)-(pWidth*.06),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -182,7 +197,7 @@ var focusY = 0;
 	        else
 	        if (attraction.test(Category)){
 	    	var mapIconAttraction = Titanium.UI.createImageView({
-	    		url:'attractions.png',
+	    		image:'attractions.png',
 	    		top: (PixelY/2/1.11)-(pWidth*.06),
 	    		left: (PixelX/2/1.36)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -206,7 +221,7 @@ var focusY = 0;
 	        else
 	        if (facility.test(Category)){
 	    	var mapIconFacility = Titanium.UI.createImageView({
-	    		url:'facilities.png',
+	    		image:'facilities.png',
 	    		top: (PixelY/2/1.12)-(pWidth*.06),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -230,7 +245,7 @@ var focusY = 0;
 	        else
 	        if (greenTour.test(Category)){
 	    	var mapIconGreenTour = Titanium.UI.createImageView({
-	    		url:'greentour.png',
+	    		image:'greentour.png',
 	    		top: (PixelY/2/1.12)-(pWidth*.06),
 	    		left: (PixelX/2/1.36)-(pWidth*.06),
 	    		width:pWidth*.12,
@@ -254,7 +269,7 @@ var focusY = 0;
         else {
         if (restroom.test(Category)){
     	var mapIconRestroom = Titanium.UI.createImageView({
-    		url:'restroom.png',
+    		image:'restroom.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -279,7 +294,7 @@ var focusY = 0;
         else 
         if (parkinglot.test(Category)){
     	var mapIconParking = Titanium.UI.createImageView({
-    		url:'parkinglot.png',
+    		image:'parkinglot.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -303,7 +318,7 @@ var focusY = 0;
         else 
         if (exit.test(Category)){
     	var mapIconExit = Titanium.UI.createImageView({
-    		url:'emergency.png',
+    		image:'emergency.png',
     		top: (PixelY/2/1.12)-(pWidth*.06),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.12,
@@ -328,6 +343,10 @@ var focusY = 0;
 		
 var xPixel;
 var yPixel;
+var label = Ti.UI.createLabel({
+	color:'#000000',
+	visible:false
+});
 
 var findme = Titanium.UI.createImageView({
 	image:'findme.png',
@@ -335,10 +354,11 @@ var findme = Titanium.UI.createImageView({
     height:pWidth*.2,
     visible:false
 		})
+scrollViewHorizontal.add(findme);
 
 function reportPosition(e) {    
 	if (!e.success || e.error) {        
-		buttonFindMe.addEventListener('click', error);   
+		label.text = 'error: ' + JSON.stringify(e.error);    
 		}    
 		else {        
 			var accuracy = e.coords.accuracy;        
@@ -349,8 +369,7 @@ function reportPosition(e) {
 		    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 	
 		    xPixel=(xPixel/2/1.36)-(pWidth*.06);
-		    yPixel=(yPixel/2/1.11)+(pWidth*.04);
-		    scrollViewHorizontal.add(findme); 		    		      
+		    yPixel=(yPixel/2/1.11)+(pWidth*.04); 		    		      
 		}
 			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
 			{findme.visible=false}
@@ -396,21 +415,3 @@ win.close();
 winSchedule = null;
 Titanium.Geolocation.removeEventListener('location', reportPosition); 	
 }       
-
-function findme(e){
-if (FindMeClicked==false){
-	FindMeClicked=true;
-	findme.visible = true;
-} else {
-	FindMeClicked=false;
-	findme.visible=false
-}
-}
-
-function error(e){
-	Titanium.UI.createAlertDialog({title:'Alert', message:'Geolocation is disabled.'}).show();
-}
-
-win.addEventListener('close', function(){
-	Titanium.Geolocation.removeEventListener('location', reportPosition);
-});

@@ -128,8 +128,7 @@ buttonSchedule.addEventListener('click', function()
 			navBarHidden:true,
    			title:'',
    			backgroundColor:'#FFFFFF',
-   			fullscreen:true });
-   			w.addEventListener('close', function(){w = null; win.close();}); 
+   			fullscreen:true }); 
 
 			w.addEventListener('close', gohome);
 			w.addEventListener('android:back', function() {
