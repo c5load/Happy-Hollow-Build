@@ -87,7 +87,7 @@ var winPuppetShowLabel = Ti.UI.createLabel({
 	textAlign: 'center',
 	color: 'black',
     font: {
-        fontSize: '18dp',
+        fontSize: '16dp',
         fontWeight: 'normal'
     },
     width: pWidth,

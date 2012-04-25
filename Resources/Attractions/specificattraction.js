@@ -158,7 +158,7 @@ var linkE = Titanium.UI.createLabel({
         textAlign: 'left',
         top:pHeight*.52,
         height: pHeight*.1,
-        left:pWidth*.6
+        left:pWidth*.65
 });
  
 linkE.addEventListener('click',function(e)

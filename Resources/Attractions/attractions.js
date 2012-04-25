@@ -54,7 +54,7 @@ buttonSchedule.addEventListener('click', function()
 	var winSchedule = Titanium.UI.createWindow({
     title:'Schedule',
     backgroundColor:'#FFFFFF',
-    w: '/Schedule/rideschedule.js',
+    url: '/Schedule/rideschedule.js',
     fullscreen : true,  
     navBarHidden: true});
 
@@ -274,7 +274,7 @@ buttonAnimals.addEventListener('click', function()
     title:'Animals',
     navBarHidden:true,
     backgroundColor:'#FFFFFF',
-    w: 'Animals/animals.js',
+    url: 'Animals/animals.js',
     fullscreen : true});
 	
 	winAnimals.addEventListener('close', gohome);
@@ -301,7 +301,7 @@ buttonFacilities.addEventListener('click', function()
     title:'Facilities',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    w: 'Facilities/facilities.js',
+    url: 'Facilities/facilities.js',
     fullscreen : true,});	
 
 	winFacilities.addEventListener('close', gohome);
@@ -329,7 +329,7 @@ buttonGreenTour.addEventListener('click', function()
     title:'Green Tour',
     navBarHidden:true,    
     backgroundColor:'#FFFFFF',
-    w: '/GreenTour/greentour.js',
+    url: '/GreenTour/greentour.js',
     fullscreen : true,});
 
 	winGreenTour.addEventListener('close', gohome);

@@ -56,7 +56,6 @@ buttonSchedule.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: '/Schedule/rideschedule.js',
     fullscreen : true,  
-    exitOnClose: true,
     navBarHidden: true});
 
 			winSchedule.addEventListener('close', schedulegohome);
@@ -190,7 +189,7 @@ var attractionThumbnail = 'None'
 			        textAlign: 'left',
 			        top:pHeight*.52,
 			        height: pHeight*.1,
-			        left:pWidth*.6
+			        left:pWidth*.65
 			});
 			 
 			linkE.addEventListener('click',function(e)

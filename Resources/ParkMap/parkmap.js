@@ -82,8 +82,8 @@ var buttonHome = Titanium.UI.createButton({
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {	
-	win.close();
-	Titanium.Geolocation.removeEventListener('location', reportPosition); 	
+	win.removeEventListener('open', getposition);	
+	win.close();; 	
 });
 
 var buttonSchedule = Titanium.UI.createButton({
@@ -322,7 +322,23 @@ var buttonFindMe = Titanium.UI.createButton({
 	left:pWidth*.8,
 	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
 });
-buttonFindMe.addEventListener('click', findme);
+//buttonFindMe.addEventListener('click', findme());
+buttonFindMe.addEventListener('click', function()
+{			
+if (FindMeClicked==false){
+	FindMeClicked=true;
+			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
+			{findme.visible=false
+			alert('You are not at Happy Hollow.');	
+				}
+			else {
+				findme.visible=true;				
+				}
+} else {
+	FindMeClicked=false;
+	findme.visible=false
+}
+});
 
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
@@ -346,6 +362,7 @@ var scrollViewHorizontal =  Titanium.UI.createScrollView({
   maxZoomScale:100,
   zoomScale:.1
 });
+scrollViewHorizontal.add(mapimage);
 
 //declare vertical scrollview
 var scrollViewVertical =  Titanium.UI.createScrollView({
@@ -360,6 +377,11 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
   maxZoomScale:100,
   zoomScale:1
 });
+
+win.addEventListener('open', function(e){
+    scrollViewHorizontal.scrollTo(pWidth/2, 0);	
+    scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
+});	
 
 try {
 //put locations into map
@@ -911,7 +933,7 @@ try {
     }   
     catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
     };
-        scrollViewHorizontal.add(map);
+ //       scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
     	scrollViewHorizontal.add(attractions);
 		scrollViewHorizontal.add(facilities);
@@ -927,90 +949,54 @@ var findme = Titanium.UI.createImageView({
     height:pWidth*.2,
     visible:false
 		})
-		
+scrollViewHorizontal.add(findme);
+			
+		function getposition(e){ 	
 			function reportPosition(e) {    
-				if (!e.success || e.error) {        
+				if (!e.success || e.error) {     
 			  			buttonFindMe.addEventListener('click', error);
+			  		//	buttonFindMe.removeEventListener('click', error);
 					}    
-					else {        
+					else {
+						buttonFindMe.removeEventListener('click', error);
+						        
 						var accuracy = e.coords.accuracy;        
 						var longitude = e.coords.longitude;
 					    var latitude = e.coords.latitude;    
-					    
-					    var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-					    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+
+					    var xPixel =(741335.9909771*latitude)+(1189535.9497897*longitude)+117292224.5836240;
+					    var yPixel =(-1501162.1549418*latitude)+(566071.8640451*longitude)+125016516.3800889;
+					    					    
+					  //  var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
+					  //  var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 				
 					    xPixel=(xPixel/2/1.36)-(pWidth*.06); 		    
 					    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
-						scrollViewHorizontal.add(findme);
-					}
+					    
 						if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
 						{findme.visible=false}
 						else {
 							findme.top=yPixel;
 							findme.left=xPixel;			
 							}
-					}		
-			
+						}		
+					}
 					// this fires once
 					Titanium.Geolocation.getCurrentPosition(reportPosition);
 					// this fires whenever the distance filter is surpassed
 					Titanium.Geolocation.addEventListener('location', reportPosition);		
-/*
-win.addEventListener('open', function(e){
-    var confirmGeolocation= Titanium.UI.createAlertDialog({
-        message:'Access your location?', 
-        buttonNames: ['Yes','No']
-    });
-    confirmGeolocation.show();
-    confirmGeolocation.addEventListener('click',function(e) {
-        if (e.index == 0) {
-			function reportPosition(e) {    
-				if (!e.success || e.error) {        
-			  			buttonFindMe.addEventListener('click', error);
-					}    
-					else {        
-						var accuracy = e.coords.accuracy;        
-						var longitude = e.coords.longitude;
-					    var latitude = e.coords.latitude;    
-					    
-					    var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-					    var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
+		}
+
+	setInterval(getposition, 1000);
+
+win.addEventListener('open', getposition);
 				
-					    xPixel=(xPixel/2/1.36)-(pWidth*.06); 		    
-					    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
-						scrollViewHorizontal.add(findme);
-					}
-						if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
-						{findme.visible=false}
-						else {
-							findme.top=yPixel;
-							findme.left=xPixel;			
-							}
-					}		
-			
-					// this fires once
-					Titanium.Geolocation.getCurrentPosition(reportPosition);
-					// this fires whenever the distance filter is surpassed
-					Titanium.Geolocation.addEventListener('location', reportPosition);
-					win.addEventListener('close', function(){
-						win.removeEventListener('location', reportPosition);
-					});
-//					}
-			        }
-    });
-});
-*/		
 var FindMeClicked=false;
 		
 //put horizontal scrollview into vertical scrollview and add to window
 scrollViewVertical.add(scrollViewHorizontal);
 win.add(scrollViewVertical); 
 
-win.addEventListener('open', function(e){
-    scrollViewHorizontal.scrollTo(pWidth/2, 0);	
-    scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
-});	
 
 win.add(TitleBar);
 win.add(lblTitle);
@@ -1024,25 +1010,23 @@ win.add(buttonFindMe);
 
 function gohome(e){
 win.close(); 
-w = null;
-Titanium.Geolocation.removeEventListener('location', reportPosition); 	
+w = null; 	
+win.removeEventListener('open', getposition);
 }
 function schedulegohome(e){
 win.close(); 
-winSchedule = null;
-Titanium.Geolocation.removeEventListener('location', reportPosition); 	
+winSchedule = null;	
+win.removeEventListener('open', getposition);
 }
 
-function findme(e){
-if (FindMeClicked==false){
-	FindMeClicked=true;
-	findme.visible = true;
-} else {
-	FindMeClicked=false;
-	findme.visible=false
-}
-}
-
+//function error(e){
+//	findme.visible = false;
+//	Titanium.UI.createAlertDialog({title:'Alert', message:'Geolocation is disabled.'}).show();
+//}
 function error(e){
-	Titanium.UI.createAlertDialog({title:'Alert', message:'Geolocation is disabled.'}).show();
+	findme.visible = false;
 }
+
+//win.addEventListener('android:back', function(){
+//	win.removeEventListener('open', getposition);
+//});

@@ -57,7 +57,6 @@ buttonSchedule.addEventListener('click', function()
     backgroundColor:'#FFFFFF',
     url: '/Schedule/schedule.js',
     fullscreen : true,  
-    exitOnClose: true,
     navBarHidden: true});
 
 			winSchedule.addEventListener('close', schedulegohome);
@@ -164,7 +163,7 @@ for (var i=0;i<numberofSentences;i++) {
 
 		scrollView.add(winAnimalDescription);
 		win.add(scrollView);
-			
+
 if (win.youTube ==='None')
 {}
 else{
@@ -179,7 +178,7 @@ var linkE = Titanium.UI.createLabel({
         textAlign: 'left',
         top:pHeight*.52,
         height: pHeight*.1,
-        left:pWidth*.6
+        left:pWidth*.65
 });
  
 linkE.addEventListener('click',function(e)

@@ -60,10 +60,11 @@ var winParkHoursLabel = Ti.UI.createLabel({
 //display image
 	var image = Titanium.UI.createImageView({
 	backgroundImage:'HHPZLogo.png',
-	width:pWidth,
-	height:pHeight*.5,
+	width:pWidth*.85,
+	height:pHeight*.4,
 	top:pHeight*.1,
-	left:'0dp'});
+	left:pWidth*.075
+	});
 	
 	win.add(image);
 	
@@ -88,7 +89,7 @@ var winParkHoursLabel = Ti.UI.createLabel({
 	textAlign: 'center',
 	color: 'black',
     font: {
-        fontSize: '18dp',
+        fontSize: '16dp',
         fontWeight: 'normal'
     },
     width: pWidth,

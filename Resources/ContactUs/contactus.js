@@ -438,7 +438,7 @@ var titleHonors=Titanium.UI.createLabel({
 top:pHeight*.2,
 left:pWidth*.25,
 height:pHeight*.06,
-width:pWidth*.5,
+width:pWidth*.75,
 text:'Gary J Sbona Honors Program',
 color:'#000000',
     font: {
@@ -588,7 +588,7 @@ var ByteLink = Titanium.UI.createLabel({
         width:pWidth*.3,
         top:pHeight*.54,
         height: pHeight*.05,
-        left:pWidth*.51
+        left:pWidth*.55
 });
  
 ByteLink.addEventListener('click',function(e)
