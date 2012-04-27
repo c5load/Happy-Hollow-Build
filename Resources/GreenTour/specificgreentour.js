@@ -172,7 +172,7 @@ buttonMap.addEventListener('click', function()
 		winParkMap.removeEventListener('close', mapgohome);
 		winParkMap.close(); winParkMap = null
 		});		
-	winParkMap.open({fullscreen:true});	
+	winParkMap.open();	
 	});
 	
 win.add(BottomBar);

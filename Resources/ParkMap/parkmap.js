@@ -372,6 +372,10 @@ var scrollViewVertical =  Titanium.UI.createScrollView({
   zoomScale:1
 });
 
+//put horizontal scrollview into vertical scrollview and add to window
+scrollViewVertical.add(scrollViewHorizontal);
+win.add(scrollViewVertical); 
+
 win.addEventListener('open', function(e){
     scrollViewHorizontal.scrollTo(pWidth/2, 0);	
     scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
@@ -986,8 +990,8 @@ win.addEventListener('open', getposition);
 var FindMeClicked=false;
 		
 //put horizontal scrollview into vertical scrollview and add to window
-scrollViewVertical.add(scrollViewHorizontal);
-win.add(scrollViewVertical); 
+//scrollViewVertical.add(scrollViewHorizontal);
+//win.add(scrollViewVertical); 
 
 
 win.add(TitleBar);

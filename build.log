@@ -5,13 +5,25 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.375000 seconds on emulator to get ready
+[DEBUG] waited 0.224000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[INFO] Tiapp.xml unchanged, skipping class generation
+[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\mapempty.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\mapempty.js
+[TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
+[DEBUG] copying app icon: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\appicon.png
+[DEBUG] generating theme.xml
+[DEBUG] found splash screen at C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\default.png
 [WARN] Use of AndroidManifest.custom.xml is deprecated. Please put your custom manifest as "AndroidManifest.xml" in the "platform/android" directory if you do not need to compile for versions < 1.5
 [INFO] Detected custom ApplicationManifest.xml -- no Titanium version migration supported
+[TRACE] Writing out AndroidManifest.xml
+[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\HappyHollowBuildActivity.java to javac build list
+[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\HappyHollowBuildAppInfo.java to javac build list
+[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\HappyHollowBuildApplication.java to javac build list
+[DEBUG] adding C:\Users\Anthony\Desktop\Happy-Hollow\build\android\gen\com\SC\hhb\R.java to javac build list
+[DEBUG] Building Java Sources: "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildActivity.java" "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildAppInfo.java" "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\HappyHollowBuildApplication.java" "C:\\Users\\Anthony\\Desktop\\Happy-Hollow\\build\\android\\gen\\com\\SC\\hhb\\R.java"
+[INFO] Compiling Android Resources... This could take some time
+[DEBUG] Android classes.dex built
 [DEBUG] creating unsigned apk: C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\app-unsigned.apk
 [DEBUG] from resource zip => assets/Resources/Animals/animaliconscolor.png
 [DEBUG] from resource zip => assets/Resources/Animals/animals.js
@@ -176,6 +188,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.220000 seconds on emulator to get ready
+[DEBUG] waited 0.313000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen

@@ -221,13 +221,13 @@ buttonMap.addEventListener('click', function()
     url: 'ParkMap/mapempty.js',
     fullscreen : true});
 	winParkMap.name = win.location;
-
+	
 	winParkMap.addEventListener('close', mapgohome);
 	winParkMap.addEventListener('android:back', function() {
 		winParkMap.removeEventListener('close', mapgohome);
 		winParkMap.close(); winParkMap = null
 		});		
-	winParkMap.open({fullscreen:true});	
+	winParkMap.open();	
 	});
 	
 win.add(buttonMap);

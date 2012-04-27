@@ -209,7 +209,7 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
             Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to access most of the features of this application.'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
-        xhr.setTimeout(30000);
+        xhr.setTimeout(15000);
 
         xhr.onload = function() {
             try {
