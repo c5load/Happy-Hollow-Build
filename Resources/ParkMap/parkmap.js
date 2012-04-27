@@ -8,12 +8,6 @@ Titanium.Geolocation.distanceFilter = 0;
 var win = Titanium.UI.currentWindow;
 
 //create views for each category
-var map=Titanium.UI.createView({
-  height:2808/1.5,
-  width:2064,
-  top:'0dp'	
-});
-
 var animals=Titanium.UI.createView({
   height:2808/1.5,
   width:2064,
@@ -346,7 +340,7 @@ var mapimage =  Titanium.UI.createImageView({
   height:2808/1.5,
   width:2064,
   });
-map.add(mapimage);
+//map.add(mapimage);
 
 //declare horizontal scrollview
 var scrollViewHorizontal =  Titanium.UI.createScrollView({
@@ -933,7 +927,6 @@ try {
     }   
     catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
     };
- //       scrollViewHorizontal.add(map);
         scrollViewHorizontal.add(animals);
     	scrollViewHorizontal.add(attractions);
 		scrollViewHorizontal.add(facilities);
@@ -955,7 +948,6 @@ scrollViewHorizontal.add(findme);
 			function reportPosition(e) {    
 				if (!e.success || e.error) {     
 			  			buttonFindMe.addEventListener('click', error);
-			  		//	buttonFindMe.removeEventListener('click', error);
 					}    
 					else {
 						buttonFindMe.removeEventListener('click', error);
@@ -972,7 +964,7 @@ scrollViewHorizontal.add(findme);
 				
 					    xPixel=(xPixel/2/1.36)-(pWidth*.06); 		    
 					    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
-					    
+							    
 						if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
 						{findme.visible=false}
 						else {
@@ -1019,10 +1011,6 @@ winSchedule = null;
 win.removeEventListener('open', getposition);
 }
 
-//function error(e){
-//	findme.visible = false;
-//	Titanium.UI.createAlertDialog({title:'Alert', message:'Geolocation is disabled.'}).show();
-//}
 function error(e){
 	findme.visible = false;
 }

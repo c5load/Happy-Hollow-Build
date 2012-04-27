@@ -45,7 +45,6 @@ var buttonHome = Titanium.UI.createButton({
 	height:pHeight*.07,});
 buttonHome.addEventListener('click', function()
 {	
-//win.removeEventListener('open', getposition);
 	win.close();
 });
 
@@ -72,36 +71,6 @@ buttonSchedule.addEventListener('click', function()
 			});		
 			winSchedule.open({fullscreen:true});		
 			});
-
-var buttonFindMe = Titanium.UI.createButton({
-	color:'#FFFFFF',
-	borderColor:'#333333',
-	backgroundSelectedColor:'#FFFFFF',
-	backgroundImage:'/ParkMap/findme.png',
-	top: pHeight*.9,
-	width:pWidth*.2,
-	height:pHeight*.11,
-	left:'0dp',
-	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
-});	
-//buttonFindMe.addEventListener('click', findme());
-
-buttonFindMe.addEventListener('click', function()
-{			
-if (FindMeClicked==false){
-	FindMeClicked=true;
-			if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
-			{findme.visible=false
-			alert('You are not at Happy Hollow.');	
-				}
-			else {
-				findme.visible=true;				
-				}
-} else {
-	FindMeClicked=false;
-	findme.visible=false
-}
-});
 
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
@@ -187,9 +156,9 @@ var focusY = 0;
 	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.09),
 	    		width:pWidth*.15,
-	    		Height:pWidth*.12,
+	    		Height:pWidth*.18,
 	    		text: LocationName,
-	        	font:{fontSize:'9dp', fontWeight:'bold'},
+	        	font:{fontSize:'8dp', fontWeight:'bold'},
 	        	textAlign:'center',    		  
 	    		color: '#000000'   		
 	    	});
@@ -212,9 +181,9 @@ var focusY = 0;
 	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.15,
-	    		Height:pWidth*.12,
+	    		Height:pWidth*.18,
 	    		text: LocationName,
-	        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+	        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
 	    		color: '#000000'   		
 	    	});
 			scrollViewHorizontal.add(mapIconAttraction);
@@ -236,9 +205,9 @@ var focusY = 0;
 	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.15,
-	    		Height:pWidth*.12,
+	    		Height:pWidth*.18,
 	    		text: LocationName,
-	        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+	        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
 	    		color: '#000000'   		
 	    	});
 			scrollViewHorizontal.add(mapIconFacility);
@@ -260,9 +229,9 @@ var focusY = 0;
 	    		top: (PixelY/2/1.12)+(pWidth*.04),
 	    		left: (PixelX/2/1.35)-(pWidth*.06),
 	    		width:pWidth*.15,
-	    		Height:pWidth*.12,
+	    		Height:pWidth*.18,
 	    		text: LocationName,
-	        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+	        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
 	    		color: '#000000'   		
 	    	});
 			scrollViewHorizontal.add(mapIconGreenTour);
@@ -284,9 +253,9 @@ var focusY = 0;
     		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: 'Restroom',
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 			scrollViewHorizontal.add(mapIconRestroom);
@@ -309,9 +278,9 @@ var focusY = 0;
     		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});
 			scrollViewHorizontal.add(mapIconParking);
@@ -333,9 +302,9 @@ var focusY = 0;
     		top: (PixelY/2/1.12)+(pWidth*.04),
     		left: (PixelX/2/1.35)-(pWidth*.06),
     		width:pWidth*.15,
-    		Height:pWidth*.12,
+    		Height:pWidth*.18,
     		text: 'Emergency Exit',
-        	font:{fontSize:'9dp', fontWeight:'bold'},    		  
+        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
     		color: '#000000'   		
     	});    	
     		scrollViewHorizontal.add(mapIconExit);
@@ -367,47 +336,6 @@ var findme = Titanium.UI.createImageView({
 		})
 scrollViewHorizontal.add(findme);
 
-/*
-function getposition(e){ 
-	function reportPosition(e) {    
-		if (!e.success || e.error) {        
-			buttonFindMe.addEventListener('click', error);   
-			}    
-			else {        
-				buttonFindMe.removeEventListener('click', error);
-
-				var accuracy = e.coords.accuracy;        
-				var longitude = e.coords.longitude;
-			    var latitude = e.coords.latitude;    
-	
-				var xPixel =(741335.9909771*latitude)+(1189535.9497897*longitude)+117292224.5836240;
-				var yPixel =(-1501162.1549418*latitude)+(566071.8640451*longitude)+125016516.3800889;
-			    
-			   // var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-			   // var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
-		
-			    xPixel=(xPixel/2/1.36)-(pWidth*.06);
-			    yPixel=(yPixel/2/1.11)+(pWidth*.04);		    
-	
-				if ((xPixel<0)||(xPixel>2064)||(yPixel<0)||(yPixel>1872))
-				{findme.visible=false}
-				else {
-					findme.top=yPixel;
-					findme.left=xPixel;			
-					}		
-				}
-			}			
-			// this fires once
-			Titanium.Geolocation.getCurrentPosition(reportPosition);
-			// this fires whenever the distance filter is surpassed
-			Titanium.Geolocation.addEventListener('location', reportPosition);
-		}
-	setInterval(getposition, 1000);
-
-win.addEventListener('open', getposition);
-
-var FindMeClicked=false;
-*/		
 var BottomBar=Titanium.UI.createImageView({
 	backgroundColor:'#333333',
     width: pWidth,
@@ -420,19 +348,12 @@ win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
 win.add(buttonSchedule);
-//win.add(BottomBar);
-//win.add(buttonFindMe);
 
 function schedulegohome(e){
 win.close(); 
 winSchedule = null;	
-//win.removeEventListener('open', getposition);
 }       
 
 function error(e){
 	findme.visible = false; 
 }
-
-//win.addEventListener('android:back', function(){
-//	win.removeEventListener('open', getposition);
-//});
