@@ -7,6 +7,52 @@ Titanium.Geolocation.distanceFilter = 0;
 
 var win = Titanium.UI.currentWindow;
 
+//declare scrollview for map
+var scrollViewHorizontal =  Titanium.UI.createScrollView({
+  backgroundImage:'parkmap.png',
+  height:'auto',
+  width:2064,
+  borderRadius:0,
+  contentHeight:'auto',
+  scrollType:'horizontal',
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+//declare horizontal scrollview
+var scrollViewHorizontal2 =  Titanium.UI.createScrollView({
+  height:'auto',
+  width:'auto',
+  top:'0dp',
+  borderRadius:0,
+  contentHeight:'auto',
+  scrollType:'horizontal',
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+//declare vertical scrollview
+var scrollViewVertical =  Titanium.UI.createScrollView({
+  height:pHeight*.8,
+  width:pWidth,
+  top:pHeight*.1,
+  borderRadius:0,
+  contentWidth:pWidth,
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+//put map scrollview into horizontal scrollview, then into vertical scrollview, then add to window
+scrollViewHorizontal2.add(scrollViewHorizontal);
+scrollViewVertical.add(scrollViewHorizontal2);
+win.add(scrollViewVertical); 
+
+//focus map in center
+win.addEventListener('open', function(e){
+    scrollViewHorizontal2.scrollTo(pWidth/2, 0);	
+    scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
+});	
+
 //create views for each category
 var animals=Titanium.UI.createView({
   height:2808/1.5,
@@ -333,7 +379,7 @@ if (FindMeClicked==false){
 	findme.visible=false
 }
 });
-
+/*
 //declare map; shrunk down a bit to accomodate 
 var mapimage =  Titanium.UI.createImageView({
   image:'parkmap.png',
@@ -380,7 +426,7 @@ win.addEventListener('open', function(e){
     scrollViewHorizontal.scrollTo(pWidth/2, 0);	
     scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
 });	
-
+*/
 try {
 //put locations into map
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
@@ -936,7 +982,7 @@ try {
 		scrollViewHorizontal.add(facilities);
 		scrollViewHorizontal.add(greentour);
 		scrollViewHorizontal.add(master);
-		
+	
 var xPixel;
 var yPixel;
 
@@ -989,11 +1035,6 @@ win.addEventListener('open', getposition);
 				
 var FindMeClicked=false;
 		
-//put horizontal scrollview into vertical scrollview and add to window
-//scrollViewVertical.add(scrollViewHorizontal);
-//win.add(scrollViewVertical); 
-
-
 win.add(TitleBar);
 win.add(lblTitle);
 win.add(buttonHome);
@@ -1018,7 +1059,3 @@ win.removeEventListener('open', getposition);
 function error(e){
 	findme.visible = false;
 }
-
-//win.addEventListener('android:back', function(){
-//	win.removeEventListener('open', getposition);
-//});

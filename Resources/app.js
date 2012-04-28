@@ -25,10 +25,7 @@ var buttonParkMap = Titanium.UI.createButton({
 	title:'Park Map'});
 	
 buttonParkMap.addEventListener('click', function()
-{
-//	alert('loading...');
-//var load = Ti.UI.createAlertDialog({title:'Please wait', message:'Loading...'})
-//load.show();	
+{	
 	var winParkMap = Titanium.UI.createWindow({
     title:'Park Map',
     navBarHidden:true,
@@ -36,7 +33,6 @@ buttonParkMap.addEventListener('click', function()
     url: 'ParkMap/parkmap.js',
     fullscreen : true,});
 winParkMap.addEventListener('close', function(){winParkMap = null;});
-//load.hide();
 winParkMap.open();
 });
 

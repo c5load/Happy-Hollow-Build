@@ -225,16 +225,16 @@ buttonMap.addEventListener('click', function()
 	winParkMap.addEventListener('close', mapgohome);
 	winParkMap.addEventListener('android:back', function() {
 		winParkMap.removeEventListener('close', mapgohome);
-		winParkMap.close(); winParkMap = null
-		});		
+		winParkMap.close(); winParkMap = null;
+		});			
 	winParkMap.open();	
 	});
 	
 win.add(buttonMap);
 
 function mapgohome(e){
-win.close(); winParkMap = null	
+win.close(); winParkMap = null;	
 }
 function schedulegohome(e){
-win.close(); winSchedule = null	
+win.close(); winSchedule = null;	
 }

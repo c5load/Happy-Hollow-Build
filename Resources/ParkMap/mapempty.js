@@ -5,12 +5,47 @@ Ti.App.SCREEN_HEIGHT = (pWidth > pHeight) ? pWidth : pHeight;
 
 var win = Titanium.UI.currentWindow;
 
-//create views for each category
-//var map=Titanium.UI.createView({
- // height:2808/1.5,
- // width:2064,
-  //top:'0dp'	
-//});
+//declare scrollview for map
+var scrollViewHorizontal =  Titanium.UI.createScrollView({
+  backgroundImage:'parkmap.png',
+  height:2808/1.5,
+  width:2064,
+  borderRadius:0,
+  contentHeight:'auto',
+  scrollType:'horizontal',
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+//declare horizontal scrollview
+var scrollViewHorizontal2 =  Titanium.UI.createScrollView({
+  height:'auto',
+  width:'auto',
+  top:'0dp',
+  borderRadius:0,
+  contentHeight:'auto',
+  scrollType:'horizontal',
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+//declare vertical scrollview
+var scrollViewVertical =  Titanium.UI.createScrollView({
+  height:pHeight*.9,
+  width:pWidth,
+  top:pHeight*.1,
+  borderRadius:0,
+  contentWidth:pWidth,
+  scrollType:'vertical',
+  showVerticalScrollIndicator:false,
+  showHorizontalScrollIndicator:false,
+});
+
+
+//put map scrollview into horizontal scrollview, then into vertical scrollview, then add to window
+scrollViewHorizontal2.add(scrollViewHorizontal);
+scrollViewVertical.add(scrollViewHorizontal2);
+win.add(scrollViewVertical); 
 
 //declare title bar and buttons
 var TitleBar=Titanium.UI.createImageView({
@@ -71,53 +106,6 @@ buttonSchedule.addEventListener('click', function()
 			});		
 			winSchedule.open({fullscreen:true});		
 			});
-
-
-//declare map; shrunk down a bit to accomodate 
-var mapimage =  Titanium.UI.createImageView({
-  image:'emptymap.png',
-  height:2808/1.5,
-  width:2064,
-  });
-       
-//declare horizontal scrollview
-var scrollViewHorizontal =  Titanium.UI.createScrollView({
-  height:'auto',
-  width:'auto',
-  top:'0dp',
-  borderRadius:0,
-  contentHeight:'auto',
-  scrollType:'horizontal',
-  showVerticalScrollIndicator:false,
-  showHorizontalScrollIndicator:false,
-  minZoomScale:0.1,
-  maxZoomScale:100,
-  zoomScale:.1
-});
-
-//map.add(mapimage);
-//scrollViewHorizontal.add(map);
-//scrollViewHorizontal.add(mapimage);
-
-//declare vertical scrollview
-var scrollViewVertical =  Titanium.UI.createScrollView({
-  height:pHeight*.9,
-  width:pWidth,
-  top:pHeight*.1,
-  borderRadius:0,
-  contentWidth:pWidth,
-  showVerticalScrollIndicator:false,
-  showHorizontalScrollIndicator:false,
-  minZoomScale:0.1,
-  maxZoomScale:100,
-  zoomScale:1
-});
-
-
-//put horizontal scrollview into vertical scrollview and add to window
-scrollViewHorizontal.add(mapimage);
-scrollViewVertical.add(scrollViewHorizontal);
-win.add(scrollViewVertical); 
 
 var focusX = 0;
 var focusY = 0;
@@ -323,12 +311,9 @@ var focusY = 0;
     catch(E){Ti.UI.createAlertDialog({message:'No data for this feature.'}).show();
     };
     		
-//put horizontal scrollview into vertical scrollview and add to window
-//scrollViewVertical.add(scrollViewHorizontal);
-//win.add(scrollViewVertical); 
-
+//focus map on current location
 win.addEventListener('open', function(e){
-    scrollViewHorizontal.scrollTo((focusX-(pWidth*.5)),0);	
+    scrollViewHorizontal2.scrollTo((focusX-(pWidth*.5)),0);	
     scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4))	
 });	
 
