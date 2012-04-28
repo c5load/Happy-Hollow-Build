@@ -992,7 +992,7 @@ var findme = Titanium.UI.createImageView({
     height:pWidth*.2,
     visible:false
 		})
-scrollViewHorizontal.add(findme);
+scrollViewHorizontal2.add(findme);
 			
 		function getposition(e){ 	
 			function reportPosition(e) {    

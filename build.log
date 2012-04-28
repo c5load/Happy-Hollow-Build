@@ -5,15 +5,9 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.203000 seconds on emulator to get ready
+[DEBUG] waited 0.154000 seconds on emulator to get ready
 [DEBUG] com.SC.hhb installed? False
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Animals\specificanimal.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Animals\specificanimal.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\app.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\app.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Attractions\specificattraction.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Attractions\specificattraction.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\Facilities\specificFacility.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\Facilities\specificFacility.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\GreenTour\specificgreentour.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\GreenTour\specificgreentour.js
-[TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\mapempty.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\mapempty.js
 [TRACE] COPYING MODIFIED FILE: C:\Users\Anthony\Desktop\Happy-Hollow\Resources\ParkMap\parkmap.js => C:\Users\Anthony\Desktop\Happy-Hollow\build\android\bin\assets\Resources\ParkMap\parkmap.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
@@ -193,6 +187,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.462000 seconds on emulator to get ready
+[DEBUG] waited 0.266000 seconds on emulator to get ready
 [INFO] Installing application on emulator
 [INFO] Application installed. Launch from drawer on Home Screen
