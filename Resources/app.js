@@ -333,4 +333,8 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         xhr.send();
 };
 
+setTimeout(function() {
 winHomeScreen.open();
+}, 4000);
+
+//winHomeScreen.open();
