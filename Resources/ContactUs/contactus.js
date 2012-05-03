@@ -41,7 +41,7 @@ var lblCredits=Titanium.UI.createLabel({
 	textAlign:'center', 	
 	color:'white',
 	font:{
-		fontSize:'20dp',
+		fontSize:'17dp',
 		fontWeight:'bold',
 	},
 	width: pWidth,

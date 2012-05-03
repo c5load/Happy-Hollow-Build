@@ -86,7 +86,7 @@ var data = [];
     tableview.addEventListener('click',function(e)
 		{
 			var alertDialog = Titanium.UI.createAlertDialog({
-    		title: e.row.item,
+    		title: e.row.item + ' is open for 55 minutes at:',
     		message: e.row.item2,
     		buttonName: ['OK']
 			});

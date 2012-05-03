@@ -379,54 +379,7 @@ if (FindMeClicked==false){
 	findme.visible=false
 }
 });
-/*
-//declare map; shrunk down a bit to accomodate 
-var mapimage =  Titanium.UI.createImageView({
-  image:'parkmap.png',
-  height:2808/1.5,
-  width:2064,
-  });
-//map.add(mapimage);
 
-//declare horizontal scrollview
-var scrollViewHorizontal =  Titanium.UI.createScrollView({
-  height:'auto',
-  width:'auto',
-  top:'0dp',
-  borderRadius:0,
-  contentHeight:'auto',
-  scrollType:'horizontal',
-  showVerticalScrollIndicator:false,
-  showHorizontalScrollIndicator:false,
-  minZoomScale:0.1,
-  maxZoomScale:100,
-  zoomScale:.1
-});
-scrollViewHorizontal.add(mapimage);
-
-//declare vertical scrollview
-var scrollViewVertical =  Titanium.UI.createScrollView({
-  height:pHeight*.8,
-  width:pWidth,
-  top:pHeight*.1,
-  borderRadius:0,
-  contentWidth:pWidth,
-  showVerticalScrollIndicator:false,
-  showHorizontalScrollIndicator:false,
-  minZoomScale:0.1,
-  maxZoomScale:100,
-  zoomScale:1
-});
-
-//put horizontal scrollview into vertical scrollview and add to window
-scrollViewVertical.add(scrollViewHorizontal);
-win.add(scrollViewVertical); 
-
-win.addEventListener('open', function(e){
-    scrollViewHorizontal.scrollTo(pWidth/2, 0);	
-    scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
-});	
-*/
 try {
 //put locations into map
     var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
@@ -982,7 +935,52 @@ try {
 		scrollViewHorizontal.add(facilities);
 		scrollViewHorizontal.add(greentour);
 		scrollViewHorizontal.add(master);
-	
+
+/*
+if (win.name.exists())
+	{
+		var focusX = 0;
+		var focusY = 0;
+		
+			try{
+			var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
+			var xmltext = file.read().text;
+			var doc = Ti.XML.parseString(xmltext);
+			var elements = doc.getElementsByTagName("LocName"); 
+			  
+		    for (var i=0;i<elements.length;i++) {
+		    	var PixelX = doc.getElementsByTagName("PixelX").item(i).text;
+		        PixelX = PixelX.replace(/(\r\n|\n|\r)/gm, "");
+		        var PixelY = doc.getElementsByTagName("PixelY").item(i).text;
+		        PixelY = PixelY.replace(/(\r\n|\n|\r)/gm, "");
+		        var LocationName = doc.getElementsByTagName("LocName").item(i).text;
+		        LocationName= LocationName.replace(/(\r\n|\n|\r)/gm, "");               
+				        
+		       	var selectedLocation=win.name.replace(/(\r\n|\n|\r)/gm, "");
+				var selectedLocationTest=".*" + selectedLocation + ".*";
+				var selectedLocationExpression= new RegExp(selectedLocationTest);
+		
+				if (selectedLocationExpression.test(LocationName)){
+					focusY = (PixelY/2/1.12)-(pWidth*.06);
+			    	focusX = (PixelX/2/1.35)-(pWidth*.06);		
+		    		}}}   
+		    catch(E){Ti.UI.createAlertDialog({message:'Location was not found.'}).show();
+		    };		    		
+		//focus map on current location
+			win.addEventListener('open', function(e){
+		    scrollViewHorizontal2.scrollTo((focusX-(pWidth*.5)),0);	
+		    scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4))	
+		});					
+	}
+	else
+	{
+		//focus map in center
+		win.addEventListener('open', function(e){
+		    scrollViewHorizontal2.scrollTo(pWidth/2, 0);	
+		    scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
+		});			
+	}
+*/	
 var xPixel;
 var yPixel;
 

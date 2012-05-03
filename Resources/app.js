@@ -202,11 +202,10 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
         var xhr = Ti.Network.createHTTPClient();
         xhr.open("GET","http://hhpz.org/mobile/xml/Animals.xml");
         xhr.onerror = function(e) {
-            Ti.UI.createAlertDialog({title:'Network Error', message:'You must have an internet connection to access most of the features of this application.'}).show();
+            Ti.UI.createAlertDialog({title:'Alert', message:'This app requires an internet connection to access most of its features.'}).show();
             Ti.API.info('IN ERROR ' + e.error);
         };
-        xhr.setTimeout(15000);
-
+        xhr.setTimeout(30000);
         xhr.onload = function() {
             try {
 				var f = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory,'Animals.xml');
@@ -217,7 +216,10 @@ if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network i
             };
         };
         xhr.send();
-    };
+    }; 
+    //else {
+     //      Ti.UI.createAlertDialog({title:'Network Error', message:'This app requires an internet connection to access most of its features.'}).show();    	
+   // }
    
 
 if (Titanium.Network.networkType != Titanium.Network.NETWORK_NONE){ // Network is available, download latest database
