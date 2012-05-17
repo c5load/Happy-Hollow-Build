@@ -1006,9 +1006,6 @@ scrollViewHorizontal2.add(findme);
 
 					    var xPixel =(741335.9909771*latitude)+(1189535.9497897*longitude)+117292224.5836240;
 					    var yPixel =(-1501162.1549418*latitude)+(566071.8640451*longitude)+125016516.3800889;
-					    					    
-					  //  var xPixel =(720213.809*latitude)+(1147131.61*longitude)+112913088;
-					  //  var yPixel =(-1589582.59*latitude)+(536408.247*longitude)+124701993;
 				
 					    xPixel=(xPixel/2/1.36)-(pWidth*.06); 		    
 					    yPixel=(yPixel/2/1.11)-(pWidth*.06); 		      
