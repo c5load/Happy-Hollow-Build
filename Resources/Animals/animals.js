@@ -19,7 +19,7 @@ var lblTitle = Titanium.UI.createLabel({
 	textAlign : 'center',
 	color : 'white',
 	font : {
-		fontSize : '25dp',
+		fontSize : pWidth/13,
 		fontWeight : 'bold',
 	},
 	width : pWidth,
@@ -100,7 +100,7 @@ buttonSchedule.addEventListener('click', function() {
 			text : desc,
 			color : '#000000',
 			font : {
-				fontSize : '20dp'
+				fontSize : pWidth/17
 			},
 			height : pHeight * .13,
 			textAlign : 'left',
@@ -180,7 +180,7 @@ var buttonAttractions = Titanium.UI.createButton({
 	height : pHeight * .11,
 	left : '0dp',
 	font : {
-		fontSize : '12dp',
+		fontSize : pWidth/30,
 		fontFamily : 'Helvetica Neue'
 	},
 	title : 'Attractions'
@@ -211,7 +211,7 @@ var buttonFacilities = Titanium.UI.createButton({
 	height : pHeight * .11,
 	left : pWidth * .25,
 	font : {
-		fontSize : '12dp',
+		fontSize : pWidth/30,
 		fontFamily : 'Helvetica Neue'
 	},
 	title : 'Facilities'
@@ -243,7 +243,7 @@ var buttonGreenTour = Titanium.UI.createButton({
 	height : pHeight * .11,
 	left : pWidth * .5,
 	font : {
-		fontSize : '12dp',
+		fontSize : pWidth/30,
 		fontFamily : 'Helvetica Neue'
 	},
 	title : 'Green Tour'

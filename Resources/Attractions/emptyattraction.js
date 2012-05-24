@@ -17,7 +17,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'15dp',
+		fontSize:pWidth/17,
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -115,7 +115,7 @@ var attractionThumbnail = 'None'
 				textAlign: pWidth*.1,
 				color: 'white',
 			    font: {
-			        fontSize: '20dp',
+			        fontSize: pWidth/16,
 			        fontWeight: 'bold'
 			    },
 			    width: pWidth,
@@ -163,7 +163,7 @@ var attractionThumbnail = 'None'
 				textAlign: 'left',
 				color: '#000000',
 			    font: {
-			        fontSize: '18dp',
+			        fontSize: pWidth/20,
 			        fontWeight: 'normal'
 			    },
 			    width: pWidth,
@@ -182,7 +182,7 @@ var attractionThumbnail = 'None'
 			        text: "Click for video",
 			        color: 'blue',
 			        font: {
-			            fontSize: '18dp',
+			            fontSize: pWidth/20,
 			            fontWeight: 'normal'
 			        },
 			        width:'auto',

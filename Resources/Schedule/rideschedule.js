@@ -18,7 +18,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center',
 	color:'white',
 	font:{
-		fontSize:'20dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -64,7 +64,7 @@ var data = [];
 				var label = Ti.UI.createLabel({
 					text:title,
 					color:'#000000',
-					font:{fontSize:'20dp', fontColor:'black',fontFamily:'Helvetica Neue'},
+					font:{fontSize:pWidth/17, fontColor:'black',fontFamily:'Helvetica Neue'},
 					left:pWidth*.2,
 					top:'0dp',
 					height:pHeight*.13,		

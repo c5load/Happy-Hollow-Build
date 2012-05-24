@@ -103,7 +103,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 	
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -166,7 +166,7 @@ var buttonAnimals = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*0,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Animals'});	
 buttonAnimals.addEventListener('click', function()
 {
@@ -215,7 +215,7 @@ var buttonAttractions = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.2,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Attractions'});
 buttonAttractions.addEventListener('click', function()
 {	
@@ -263,7 +263,7 @@ var buttonFacilities = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.4,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Facilities'});		
 buttonFacilities.addEventListener('click', function()
 {
@@ -311,7 +311,7 @@ var buttonGreenTour = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.6,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Green Tour'});	
 buttonGreenTour.addEventListener('click', function()
 {
@@ -360,7 +360,7 @@ var buttonFindMe = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.8,
-	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontcolor:'black', fontFamily:'Helvetica Neue'},
 });
 //buttonFindMe.addEventListener('click', findme());
 buttonFindMe.addEventListener('click', function()
@@ -462,7 +462,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},
         	textAlign:'center',    		  
     		color: '#000000'   		
     	});
@@ -474,7 +474,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},
         	textAlign:'center',    		  
     		color: '#000000'   		
     	});
@@ -542,7 +542,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName 		
     	});
@@ -554,7 +554,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName 		
     	});
@@ -622,7 +622,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -702,7 +702,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -714,7 +714,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -794,7 +794,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: 'Restroom',
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -862,7 +862,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: 'Emergency Exit',
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -874,7 +874,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: 'Emergency Exit',
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});    	    
@@ -908,7 +908,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -920,7 +920,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -936,51 +936,6 @@ try {
 		scrollViewHorizontal.add(greentour);
 		scrollViewHorizontal.add(master);
 
-/*
-if (win.name.exists())
-	{
-		var focusX = 0;
-		var focusY = 0;
-		
-			try{
-			var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,"Locs.xml");
-			var xmltext = file.read().text;
-			var doc = Ti.XML.parseString(xmltext);
-			var elements = doc.getElementsByTagName("LocName"); 
-			  
-		    for (var i=0;i<elements.length;i++) {
-		    	var PixelX = doc.getElementsByTagName("PixelX").item(i).text;
-		        PixelX = PixelX.replace(/(\r\n|\n|\r)/gm, "");
-		        var PixelY = doc.getElementsByTagName("PixelY").item(i).text;
-		        PixelY = PixelY.replace(/(\r\n|\n|\r)/gm, "");
-		        var LocationName = doc.getElementsByTagName("LocName").item(i).text;
-		        LocationName= LocationName.replace(/(\r\n|\n|\r)/gm, "");               
-				        
-		       	var selectedLocation=win.name.replace(/(\r\n|\n|\r)/gm, "");
-				var selectedLocationTest=".*" + selectedLocation + ".*";
-				var selectedLocationExpression= new RegExp(selectedLocationTest);
-		
-				if (selectedLocationExpression.test(LocationName)){
-					focusY = (PixelY/2/1.12)-(pWidth*.06);
-			    	focusX = (PixelX/2/1.35)-(pWidth*.06);		
-		    		}}}   
-		    catch(E){Ti.UI.createAlertDialog({message:'Location was not found.'}).show();
-		    };		    		
-		//focus map on current location
-			win.addEventListener('open', function(e){
-		    scrollViewHorizontal2.scrollTo((focusX-(pWidth*.5)),0);	
-		    scrollViewVertical.scrollTo(0,(focusY)-(pHeight*.4))	
-		});					
-	}
-	else
-	{
-		//focus map in center
-		win.addEventListener('open', function(e){
-		    scrollViewHorizontal2.scrollTo(pWidth/2, 0);	
-		    scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
-		});			
-	}
-*/	
 var xPixel;
 var yPixel;
 

@@ -46,12 +46,6 @@ scrollViewHorizontal2.add(scrollViewHorizontal);
 scrollViewVertical.add(scrollViewHorizontal2);
 win.add(scrollViewVertical); 
 
-//focus map in center
-//win.addEventListener('open', function(e){
- //   scrollViewHorizontal2.scrollTo(pWidth/2, 0);	
-  //  scrollViewVertical.scrollTo(0,pHeight*.8*.3)	
-//});	
-
 //create views for each category
 var animals=Titanium.UI.createView({
   height:2808/1.5,
@@ -102,7 +96,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 	
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -165,7 +159,7 @@ var buttonAnimals = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*0,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Animals'});	
 buttonAnimals.addEventListener('click', function()
 {
@@ -214,7 +208,7 @@ var buttonAttractions = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.2,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Attractions'});
 buttonAttractions.addEventListener('click', function()
 {	
@@ -262,7 +256,7 @@ var buttonFacilities = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.4,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Facilities'});		
 buttonFacilities.addEventListener('click', function()
 {
@@ -310,7 +304,7 @@ var buttonGreenTour = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.6,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Green Tour'});	
 buttonGreenTour.addEventListener('click', function()
 {
@@ -359,7 +353,7 @@ var buttonFindMe = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:pWidth*.8,
-	font:{fontSize:'12dp', fontcolor:'black', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontcolor:'black', fontFamily:'Helvetica Neue'},
 });
 //buttonFindMe.addEventListener('click', findme());
 buttonFindMe.addEventListener('click', function()
@@ -461,7 +455,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},
         	textAlign:'center',    		  
     		color: '#000000'   		
     	});
@@ -473,7 +467,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},
         	textAlign:'center',    		  
     		color: '#000000'   		
     	});
@@ -541,7 +535,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName 		
     	});
@@ -553,7 +547,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName 		
     	});
@@ -621,7 +615,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -633,7 +627,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',  
     		id:LocationName 		
     	}); 	
@@ -701,7 +695,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -713,7 +707,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -781,7 +775,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: 'Restroom',
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -793,7 +787,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: 'Restroom',
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -861,7 +855,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: 'Emergency Exit',
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -873,7 +867,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: 'Emergency Exit',
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});    	    
@@ -907,7 +901,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});
@@ -919,7 +913,7 @@ try {
     		width:pWidth*.15,
     		Height:pWidth*.18,
     		text: LocationName,
-        	font:{fontSize:'8dp', fontWeight:'bold'},    		  
+        	font:{fontSize:pWidth/46, fontWeight:'bold'},    		  
     		color: '#000000',
     		id:LocationName   		
     	});

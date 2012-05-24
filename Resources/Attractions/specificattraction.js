@@ -17,7 +17,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'15dp',
+		fontSize:pWidth/17,
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -76,7 +76,7 @@ var winAttractionLabel = Ti.UI.createLabel({
 	text: win.attraction,
 	color: '#FFFFFF',
     font: {
-        fontSize: '20dp',
+        fontSize: pWidth/16,
         color:'#000000',        
         fontWeight: 'bold'
     },
@@ -132,7 +132,7 @@ if (win.pictureURL ==='None')
 	textAlign: 'left',
 	color: '#000000',
     font: {
-        fontSize: '18dp',
+        fontSize: pWidth/20,
         fontWeight: 'normal'
     },
     width: pWidth,
@@ -151,7 +151,7 @@ var linkE = Titanium.UI.createLabel({
         text: "Click for video",
         color: 'blue',
          font: {
-            fontSize: '18dp',
+            fontSize: pWidth/20,
             fontWeight: 'normal'
         },
         width:'auto',
@@ -190,7 +190,7 @@ var buttonMap = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:'0dp',
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	});		
 buttonMap.addEventListener('click', function()
 {var winParkMap = Titanium.UI.createWindow({

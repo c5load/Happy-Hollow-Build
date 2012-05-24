@@ -17,7 +17,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -112,7 +112,7 @@ var greentourThumbnail = 'None'
 				textAlign: pWidth*.1,
 				color: 'white',
 			    font: {
-			        fontSize: '20dp',
+			        fontSize: pWidth/16,
 			        fontWeight: 'bold'
 			    },
 			    width: pWidth,
@@ -160,7 +160,7 @@ var greentourThumbnail = 'None'
 				textAlign: 'left',
 				color: '#000000',
 			    font: {
-			        fontSize: '18dp',
+			        fontSize: pWidth/20,
 			        fontWeight: 'normal'
 			    },
 			    width: pWidth,

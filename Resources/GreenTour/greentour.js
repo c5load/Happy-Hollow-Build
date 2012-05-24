@@ -18,7 +18,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 	
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -93,7 +93,7 @@ buttonSchedule.addEventListener('click', function()
         var greentourLabel = Ti.UI.createLabel({
         	text: desc,
         	color:'#000000',
-        	font:{fontSize:'20dp'},
+        	font:{fontSize:pWidth/17},
         	height:pHeight*.13,
         	textAlign:'left',
         	left:pWidth*.23  
@@ -164,7 +164,7 @@ var buttonAnimals = Titanium.UI.createButton({
 	width:pWidth*.25,
 	height:pHeight*.11,
 	left:'0dp',
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Animals'});		
 buttonAnimals.addEventListener('click', function()
 {var winAnimals = Titanium.UI.createWindow({
@@ -191,7 +191,7 @@ var buttonAttractions = Titanium.UI.createButton({
 	width:pWidth*.25,
 	height:pHeight*.11,
 	left:pWidth*.25,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Attractions'});		
 buttonAttractions.addEventListener('click', function()
 {
@@ -219,7 +219,7 @@ var buttonFacilities = Titanium.UI.createButton({
 	width:pWidth*.25,
 	height:pHeight*.11,
 	left:pWidth*.5,
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	title:'Facilities'});		
 buttonFacilities.addEventListener('click', function()
 {var winFacilities = Titanium.UI.createWindow({

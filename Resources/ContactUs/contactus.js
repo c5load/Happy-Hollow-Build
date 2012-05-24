@@ -19,7 +19,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 	
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -41,7 +41,7 @@ var lblCredits=Titanium.UI.createLabel({
 	textAlign:'center', 	
 	color:'white',
 	font:{
-		fontSize:'17dp',
+		fontSize:pWidth/18,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -122,7 +122,7 @@ var lblTextGuestService=Titanium.UI.createLabel({
 	left:pWidth*.45,
 	top:'0dp',
 	text: 'Guest Services/Information/Lost & Found',
-	fontSize:'9dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -168,7 +168,7 @@ var lblTextParty=Titanium.UI.createLabel({
 	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Party Reservations',
-	fontSize:'9dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -213,7 +213,7 @@ var lblTextMembers=Titanium.UI.createLabel({
 	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Membership Services',
-	fontSize:'9dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -259,7 +259,7 @@ var lblTextEducation=Titanium.UI.createLabel({
 	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Education Programs',
-	fontSize:'9dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -304,7 +304,7 @@ var lblTextVolunteer=Titanium.UI.createLabel({
 	left:pWidth*.45,
 	width:pWidth*.5,
 	text: 'Volunteer Programs',
-	fontSize:'9dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -375,7 +375,7 @@ width:pWidth*.5,
 text:'Happy Hollow Foundation',
 color:'#000000',
     font: {
-      fontSize: '12dp',
+      fontSize: pWidth/30,
       fontWeight: 'bold'
         },	
 })
@@ -386,7 +386,7 @@ var lblCreditsTextHappyHollow=Titanium.UI.createLabel({
 	width:pWidth*.5,
 	top:pHeight*.015,
 	text: 'Nourishing childish behavior since 1958. Donations go to park & zoo improvements and conservation efforts.',
-	fontSize:'8dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -442,7 +442,7 @@ width:pWidth*.75,
 text:'Gary J Sbona Honors Program',
 color:'#000000',
     font: {
-      fontSize: '12dp',
+      fontSize: pWidth/30,
       fontWeight: 'bold'
         },	
 })
@@ -453,7 +453,7 @@ var lblTextHonors=Titanium.UI.createLabel({
 	top:pHeight*.2,	
 	width:pWidth*.5,
 	text: 'This app was created by MIS students in the Gary J. Sbona Honors Program, San Jose State University.',
-	fontSize:'8dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -469,7 +469,7 @@ var HonorsWebsite = Titanium.UI.createLabel({
         text: "View our website",
         color: 'blue',
         font: {
-            fontSize: '10dp',
+            fontSize: pWidth/38,
             fontWeight: 'bold'
         },
         width:pWidth*.4,
@@ -507,7 +507,7 @@ width:pWidth*.5,
 text:'Byte Technology',
 color:'#000000',
     font: {
-      fontSize: '12dp',
+      fontSize: pWidth/30,
       fontWeight: 'bold'
         },	
 })
@@ -519,7 +519,7 @@ var lblTextByte=Titanium.UI.createLabel({
 	top:pHeight*.39,	
 	width:pWidth*.5,
 	text: 'Value leaders in professional website design.',
-	fontSize:'8dp',
+	fontSize:pWidth/46,
 	color:'#000000'
 })
 
@@ -556,7 +556,7 @@ var ByteWebsite = Titanium.UI.createLabel({
         text: "View our website",
         color: 'blue',
         font: {
-            fontSize: '10dp',
+            fontSize: pWidth/38,
             fontWeight: 'bold'
         },
         width:pWidth*.3,
@@ -582,7 +582,7 @@ var ByteLink = Titanium.UI.createLabel({
         text: "Watch Video",
         color: 'blue',
         font: {
-            fontSize: '10dp',
+            fontSize: pWidth/38,
             fontWeight: 'bold'
         },
         width:pWidth*.3,

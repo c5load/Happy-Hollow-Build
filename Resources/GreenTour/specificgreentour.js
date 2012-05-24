@@ -16,7 +16,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center', 
 	color:'white',
 	font:{
-		fontSize:'25dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth, 
@@ -75,7 +75,7 @@ var winGreenTour = Ti.UI.createLabel({
 	text: win.greentour,
 	color: '#FFFFFF',
     font: {
-        fontSize: '20dp',
+        fontSize: pWidth/16,
         fontWeight: 'bold'
     },
     width: pWidth,
@@ -124,7 +124,7 @@ var winGreenTourDescription = Ti.UI.createLabel({
 	textAlign: 'left',
 	color: '#000000',
     font: {
-        fontSize: '18dp',
+        fontSize: pWidth/20,
         color:'#000000',
         fontWeight: 'normal'
     },
@@ -156,7 +156,7 @@ var buttonMap = Titanium.UI.createButton({
 	width:pWidth*.2,
 	height:pHeight*.11,
 	left:'0dp',
-	font:{fontSize:'12dp', fontFamily:'Helvetica Neue'},
+	font:{fontSize:pWidth/30, fontFamily:'Helvetica Neue'},
 	});		
 buttonMap.addEventListener('click', function()
 {var winParkMap = Titanium.UI.createWindow({

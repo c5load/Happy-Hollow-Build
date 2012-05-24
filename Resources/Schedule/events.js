@@ -16,7 +16,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center',
 	color:'white',
 	font:{
-		fontSize:'30dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -44,7 +44,7 @@ var UpcomingEventsLabel = Ti.UI.createLabel({
 	textAlign: 'center',
 	color: '#fff',
     font: {
-        fontSize: '30dp',
+        fontSize: pWidth/13,
         fontWeight: 'bold'
     },
     width: pWidth,
@@ -59,7 +59,7 @@ var SpecialsLabel = Ti.UI.createLabel({
 	textAlign: 'center',
 	color: '#fff',
     font: {
-        fontSize: '30dp',
+        fontSize: pWidth/13,
         fontWeight: 'bold'
     },
     width: pWidth,
@@ -96,7 +96,7 @@ var SpecialsLabel = Ti.UI.createLabel({
 	textAlign: 'center',
 	color: 'black',
     font: {
-        fontSize: '16dp',
+        fontSize: pWidth/22,
         fontWeight: 'normal'
     },
     width: pWidth,
@@ -117,7 +117,7 @@ var SpecialsLabel = Ti.UI.createLabel({
 	textAlign: 'center',
 	color: 'black',
     font: {
-        fontSize: '16dp',
+        fontSize: pWidth/22,
         fontWeight: 'normal'
     },
     width: pWidth,
@@ -151,7 +151,7 @@ var SpecialsLabel = Ti.UI.createLabel({
 			text : desc,
 			color : '#000000',
 			font : {
-				fontSize : '20dp'
+				fontSize : pWidth/17
 			},
 			height : pHeight * .13,
 			textAlign : 'left',

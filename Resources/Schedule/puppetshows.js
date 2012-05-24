@@ -16,7 +16,7 @@ var lblTitle=Titanium.UI.createLabel({
 	textAlign:'center',
 	color:'white',
 	font:{
-		fontSize:'30dp',
+		fontSize:pWidth/13,
 		fontWeight:'bold',
 	},
 	width: pWidth,
@@ -47,8 +47,8 @@ var winPuppetShowLabel = Ti.UI.createLabel({
 	textAlign: pWidth*.1,
 	color: '#fff',
     font: {
-        fontSize: '25dp',
-        fontWeight: 'normal'
+        fontSize: pWidth/16,
+        fontWeight: 'bold'
     },
     width: pWidth,
     textAlign: 'left',
@@ -87,7 +87,7 @@ var winPuppetShowLabel = Ti.UI.createLabel({
 	textAlign: 'center',
 	color: 'black',
     font: {
-        fontSize: '16dp',
+        fontSize: pWidth/22,
         fontWeight: 'normal'
     },
     width: pWidth,
